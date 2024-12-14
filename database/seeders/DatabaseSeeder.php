@@ -20,12 +20,12 @@ class DatabaseSeeder extends Seeder
 //            'email' => 'test@example.com',
 //        ]);
 
-        $this->call(TypeSeeder::class);
-        $this->call(ShapeSeeder::class);
-        $this->call(ColourSeeder::class);
+        $this->call(StoneTypeSeeder::class);
+        $this->call(InsertShapeSeeder::class);
+        $this->call(InsertColourSeeder::class);
         $this->call(StoneSeeder::class);
         $this->call(InsertSeeder::class);
-        $this->call(PositionIntoGroupSeeder::class);
-        $this->call(InsertDetailSeeder::class);
+        $this->call(InsertPropertySeeder::class);
+        $this->call(JewellerySeeder::class);
     }
 }

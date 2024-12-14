@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Type;
+use App\Models\Jewellery;
 use Illuminate\Http\Request;
 
-class TypeController extends Controller
+class JewelleryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -26,7 +26,7 @@ class TypeController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Type $types)
+    public function show(Jewellery $jewelleries)
     {
         //
     }
@@ -34,7 +34,7 @@ class TypeController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Type $types)
+    public function update(Request $request, Jewellery $jewelleries)
     {
         //
     }
@@ -42,7 +42,7 @@ class TypeController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Type $types)
+    public function destroy(Jewellery $jewelleries)
     {
         //
     }

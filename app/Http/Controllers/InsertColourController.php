@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Colour;
+use App\Models\InsertColour;
 use Illuminate\Http\Request;
 
-class ColourController extends Controller
+class InsertColourController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -26,7 +26,7 @@ class ColourController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Colour $colours)
+    public function show(InsertColour $insertColours)
     {
         //
     }
@@ -34,7 +34,7 @@ class ColourController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Colour $colours)
+    public function update(Request $request, InsertColour $insertColours)
     {
         //
     }
@@ -42,7 +42,7 @@ class ColourController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Colour $colours)
+    public function destroy(InsertColour $insertColours)
     {
         //
     }

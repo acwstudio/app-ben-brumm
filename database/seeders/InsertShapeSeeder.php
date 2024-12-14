@@ -7,7 +7,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
-class ShapeSeeder extends Seeder
+class InsertShapeSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,7 +15,7 @@ class ShapeSeeder extends Seeder
     public function run(): void
     {
         DB::statement('SET FOREIGN_KEY_CHECKS=0;');
-        DB::table('shapes')->truncate();
+        DB::table('insert_shapes')->truncate();
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
 
         $forms = [
@@ -23,7 +23,7 @@ class ShapeSeeder extends Seeder
         ];
 
         foreach ($forms as $form) {
-            DB::table('shapes')->insert([
+            DB::table('insert_shapes')->insert([
                 'name'        => $form,
                 'description' => 'Камень имеет форму - ' . $form,
                 'slug'        => Str::slug($form, '-'),

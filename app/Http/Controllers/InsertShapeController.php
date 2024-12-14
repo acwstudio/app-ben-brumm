@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\InsertDetail;
+use App\Models\InsertShape;
 use Illuminate\Http\Request;
 
-class InsertDetailController extends Controller
+class InsertShapeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -26,7 +26,7 @@ class InsertDetailController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(InsertDetail $insertDetails)
+    public function show(InsertShape $insertShape)
     {
         //
     }
@@ -34,7 +34,7 @@ class InsertDetailController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, InsertDetail $insertDetails)
+    public function update(Request $request, InsertShape $insertShape)
     {
         //
     }
@@ -42,7 +42,7 @@ class InsertDetailController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(InsertDetail $insertDetails)
+    public function destroy(InsertShape $insertShape)
     {
         //
     }

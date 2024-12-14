@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\PositionIntoGroup;
+use App\Models\StoneType;
 use Illuminate\Http\Request;
 
-class PositionIntoGroupController extends Controller
+class StoneTypeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -26,7 +26,7 @@ class PositionIntoGroupController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(PositionIntoGroup $positionIntoGroup)
+    public function show(StoneType $stoneType)
     {
         //
     }
@@ -34,7 +34,7 @@ class PositionIntoGroupController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, PositionIntoGroup $positionIntoGroup)
+    public function update(Request $request, StoneType $stoneType)
     {
         //
     }
@@ -42,7 +42,7 @@ class PositionIntoGroupController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(PositionIntoGroup $positionIntoGroup)
+    public function destroy(StoneType $stoneType)
     {
         //
     }

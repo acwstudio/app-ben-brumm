@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Shape;
+use App\Models\InsertProperty;
 use Illuminate\Http\Request;
 
-class ShapeController extends Controller
+class InsertPropertyController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -26,7 +26,7 @@ class ShapeController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Shape $shape)
+    public function show(InsertProperty $insertProperty)
     {
         //
     }
@@ -34,7 +34,7 @@ class ShapeController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Shape $shape)
+    public function update(Request $request, InsertProperty $insertProperty)
     {
         //
     }
@@ -42,7 +42,7 @@ class ShapeController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Shape $shape)
+    public function destroy(InsertProperty $insertProperty)
     {
         //
     }

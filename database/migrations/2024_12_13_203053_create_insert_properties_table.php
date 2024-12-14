@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('shapes', function (Blueprint $table) {
+        Schema::create('insert_properties', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('description');
-            $table->string('slug');
-            $table->boolean('is_active');
+            $table->integer('quantity');
+            $table->decimal('weight', 8, 3);
+            $table->string('weight_unit');
+            $table->json('dimensions');
             $table->timestamps();
         });
     }
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('shapes');
+        Schema::dropIfExists('insert_properties');
     }
 };

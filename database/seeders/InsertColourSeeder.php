@@ -7,7 +7,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
-class ColourSeeder extends Seeder
+class InsertColourSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,16 +15,16 @@ class ColourSeeder extends Seeder
     public function run(): void
     {
         DB::statement('SET FOREIGN_KEY_CHECKS=0;');
-        DB::table('colours')->truncate();
+        DB::table('insert_colours')->truncate();
         DB::statement('SET FOREIGN_KEY_CHECKS=0;');
 
         $colours = [
             'зеленый','красный','синий','розовый','голубой','пурпурный','желтый','белый','черный','радужный',
-            'гранатовый','бесцветный','сиреневый'
+            'гранатовый','бесцветный','сиреневый','коричневый'
         ];
 
         foreach ($colours as $colour) {
-            DB::table('colours')->insert([
+            DB::table('insert_colours')->insert([
                 'name' => $colour,
                 'description' => 'Цвет камня - ' . $colour,
                 'slug' => Str::slug($colour, '-'),

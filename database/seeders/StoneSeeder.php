@@ -19,64 +19,82 @@ class StoneSeeder extends Seeder
         DB::table('stones')->truncate();
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
 
-        $preciousType = DB::table('types')->where('name', 'драгоценные')->value('id');
-        $semipreciousType = DB::table('types')->where('name', 'полудрагоценные')->value('id');
-        $ornamentalType = DB::table('types')->where('name', 'поделочные')->value('id');
+        $preciousType = DB::table('stone_types')->where('name', 'драгоценные')->value('id');
+        $semipreciousType = DB::table('stone_types')->where('name', 'полудрагоценные')->value('id');
+        $ornamentalType = DB::table('stone_types')->where('name', 'поделочные')->value('id');
 //        dd($ornamentalType);
         $stones = [
             [
-                'type_id' => $preciousType,
+                'stone_type_id' => $preciousType,
                 'name' => 'бриллиант',
                 'description' => 'Бриллиант натуральный драгоценный камень',
-                'is_nature' => 1,
+                'is_natural' => 1,
             ],
             [
-                'type_id' => $preciousType,
+                'stone_type_id' => $preciousType,
                 'name' => 'фианит',
                 'description' => 'Фианит - искусственно выращенный бриллиант',
-                'is_nature' => 0,
+                'is_natural' => 0,
             ],
             [
-                'type_id' => $semipreciousType,
+                'stone_type_id' => $semipreciousType,
                 'name' => 'топаз',
                 'description' => 'Топаз это натуральный полудрагоценный камень',
-                'is_nature' => 1,
+                'is_natural' => 1,
             ],
             [
-                'type_id' => $preciousType,
+                'stone_type_id' => $preciousType,
                 'name' => 'сапфир',
                 'description' => 'Сапфир это натуральный драгоценный камень',
-                'is_nature' => 1,
+                'is_natural' => 1,
             ],
             [
-                'type_id' => $semipreciousType,
+                'stone_type_id' => $semipreciousType,
                 'name' => 'гранат',
                 'description' => 'Гранат это натуральный полудрагоценный камень',
-                'is_nature' => 1,
+                'is_natural' => 1,
             ],
             [
-                'type_id' => $semipreciousType,
+                'stone_type_id' => $semipreciousType,
                 'name' => 'аметист',
                 'description' => 'Аметист это натуральный полудрагоценный камень',
-                'is_nature' => 1,
+                'is_natural' => 1,
             ],
             [
-                'type_id' => $preciousType,
+                'stone_type_id' => $preciousType,
                 'name' => 'жемчуг',
                 'description' => 'Жемчуг это натуральный драгоценный камень',
-                'is_nature' => 1,
-            ]
+                'is_natural' => 1,
+            ],
+            [
+                'stone_type_id' => $ornamentalType,
+                'name' => 'агат',
+                'description' => 'Агат это натуральный поделочный камень',
+                'is_natural' => 1,
+            ],
+            [
+                'stone_type_id' => $ornamentalType,
+                'name' => 'малахит',
+                'description' => 'Малахит это натуральный поделочный камень',
+                'is_natural' => 1,
+            ],
+            [
+                'stone_type_id' => $semipreciousType,
+                'name' => 'камея',
+                'description' => 'Камея это натуральный резной полудрагоценный камень',
+                'is_natural' => 1,
+            ],
         ];
 
         foreach ($stones as $key => $stone) {
 //            dd($stone);
             DB::table('stones')->insert([
-                'type_id' => $stone['type_id'],
+                'stone_type_id' => $stone['stone_type_id'],
                 'name' => $stone['name'],
                 'description' => $stone['description'],
                 'slug' => Str::slug($stone['name'], '-'),
                 'is_active' => 1,
-                'is_nature' => $stone['is_nature'],
+                'is_natural' => $stone['is_natural'],
                 'created_at' => now(),
             ]);
         }

@@ -20,33 +20,57 @@ class InsertSeeder extends Seeder
 
         $inserts = [
             [
-                'name' => 'Серебряное наборное кольцо с фианитами',
-                'description' => 'Вставка из 11 фианитов по 0.094 карат диаметром 1 мм и из 12 фианитов по 0.342 карат и диаметром 1,5 мм',
+                'stone_id' => 2,
+                'insert_colour_id' => 12,
+                'insert_shape_id' => 9,
             ],
             [
-                'name' => 'Серьги из золота с топазами и фианитами',
-                'description' => 'Вставка из 14 фианитов по 0.119 карат диаметром 1 мм и из 2 топазов по 1,179 карат и диаметром 5 мм',
+                'stone_id' => 3,
+                'insert_colour_id' => 5,
+                'insert_shape_id' => 9,
             ],
             [
-                'name' => 'Серьги из золота с гранатами и фианитами',
-                'description' => 'Вставка из 12 фианитов по 0.102 карат диаметром 1 мм и из 2 гранатов по 0.579 карат шириной 3 мм и высотой 5 мм',
+                'stone_id' => 5,
+                'insert_colour_id' => 2,
+                'insert_shape_id' => 3,
             ],
             [
-                'name' => 'Серьги из золота с жемчугом',
-                'description' => 'Вставка из 2 жемчужин по 6.45 карат шириной 7 мм и высотой 7,5 мм',
+                'stone_id' => 6,
+                'insert_colour_id' => 13,
+                'insert_shape_id' => 3,
             ],
             [
-                'name' => 'Подвеска из золота с бриллиантами и аметистом',
-                'description' => 'Вставка из 3 бриллиантов по 0.011 карат и из 1 фметиста 1.078 карат шириной 8 мм и высотой 6 мм',
+                'stone_id' => 1,
+                'insert_colour_id' => 12,
+                'insert_shape_id' => 9,
+            ],
+            [
+                'stone_id' => 7,
+                'insert_colour_id' => 8,
+                'insert_shape_id' => 5,
+            ],
+            [
+                'stone_id' => 8,
+                'insert_colour_id' => 9,
+                'insert_shape_id' => 9,
+            ],
+            [
+                'stone_id' => 9,
+                'insert_colour_id' => 1,
+                'insert_shape_id' => 9,
+            ],
+            [
+                'stone_id' => 10,
+                'insert_colour_id' => 14,
+                'insert_shape_id' => 9,
             ],
         ];
 
         foreach ($inserts as $insert) {
             DB::table('inserts')->insert([
-                'name' => $insert['name'],
-                'description' => $insert['description'],
-                'slug' => Str::slug($insert['name'], '-'),
-                'is_active' => 1,
+                'stone_id' => $insert['stone_id'],
+                'insert_colour_id' => $insert['insert_colour_id'],
+                'insert_shape_id' => $insert['insert_shape_id'],
                 'created_at' => now(),
             ]);
         }

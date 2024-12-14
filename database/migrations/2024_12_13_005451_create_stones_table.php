@@ -11,11 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('position_into_groups', function (Blueprint $table) {
+        Schema::create('stones', function (Blueprint $table) {
             $table->id();
-            $table->integer('position');
+            $table->unsignedBigInteger('stone_type_id');
+            $table->string('name');
             $table->string('description');
+            $table->string('slug');
+            $table->boolean('is_natural');
+            $table->boolean('is_active');
             $table->timestamps();
+
+            $table->foreign('stone_type_id')->references('id')->on('stone_types');
         });
     }
 
@@ -24,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('position_into_groups');
+        Schema::dropIfExists('stones');
     }
 };

@@ -26,7 +26,7 @@ class InsertController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Insert $inserts)
+    public function show(Insert $insert)
     {
         //
     }
@@ -34,7 +34,7 @@ class InsertController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Insert $inserts)
+    public function update(Request $request, Insert $insert)
     {
         //
     }
@@ -42,7 +42,7 @@ class InsertController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Insert $inserts)
+    public function destroy(Insert $insert)
     {
         //
     }

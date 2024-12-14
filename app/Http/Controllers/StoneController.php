@@ -26,7 +26,7 @@ class StoneController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Stone $stones)
+    public function show(Stone $stone)
     {
         //
     }
@@ -34,7 +34,7 @@ class StoneController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Stone $stones)
+    public function update(Request $request, Stone $stone)
     {
         //
     }
@@ -42,7 +42,7 @@ class StoneController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Stone $stones)
+    public function destroy(Stone $stone)
     {
         //
     }

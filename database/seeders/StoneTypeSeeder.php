@@ -7,7 +7,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
-class TypeSeeder extends Seeder
+class StoneTypeSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,13 +15,13 @@ class TypeSeeder extends Seeder
     public function run(): void
     {
         DB::statement('SET FOREIGN_KEY_CHECKS=0;');
-        DB::table('types')->truncate();
+        DB::table('stone_types')->truncate();
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
 
         $types = ['драгоценные', 'полудрагоценные', 'поделочные'];
 
         foreach ($types as $type) {
-            DB::table('types')->insert([
+            DB::table('stone_types')->insert([
                 'name' => $type,
                 'description' => 'Камень относится к типу - ' . $type,
                 'slug' => Str::slug($type, '-'),
