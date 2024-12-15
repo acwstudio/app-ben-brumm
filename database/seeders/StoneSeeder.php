@@ -31,9 +31,9 @@ class StoneSeeder extends Seeder
                 'is_natural' => 1,
             ],
             [
-                'stone_type_id' => $preciousType,
+                'stone_type_id' => $semipreciousType,
                 'name' => 'фианит',
-                'description' => 'Фианит - искусственно выращенный бриллиант',
+                'description' => 'Фианит - искусственно выращенный полудрагоценный камень',
                 'is_natural' => 0,
             ],
             [

@@ -64,6 +64,11 @@ class InsertSeeder extends Seeder
                 'insert_colour_id' => 14,
                 'insert_shape_id' => 9,
             ],
+            [
+                'stone_id' => 5,
+                'insert_colour_id' => 2,
+                'insert_shape_id' => 12,
+            ],
         ];
 
         foreach ($inserts as $insert) {

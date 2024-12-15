@@ -125,6 +125,23 @@ class InsertPropertySeeder extends Seeder
                     'диаметр' => '16 мм'
                 ]
             ],
+            [
+                'quantity' => 1,
+                'weight' => 0.146,
+                'weight_unit' => 'карат',
+                'dimensions' => [
+                    'диаметр' => '3 мм'
+                ]
+            ],
+            [
+                'quantity' => 6,
+                'weight' => 0.618,
+                'weight_unit' => 'карат',
+                'dimensions' => [
+                    'высота' => '4 мм',
+                    'ширина' => '2 мм'
+                ]
+            ],
         ];
 
         foreach ($inserts as $insert) {
