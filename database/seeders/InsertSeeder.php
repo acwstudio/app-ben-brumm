@@ -18,58 +18,7 @@ class InsertSeeder extends Seeder
         DB::table('inserts')->truncate();
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
 
-        $inserts = [
-            [
-                'stone_id' => 2,
-                'insert_colour_id' => 12,
-                'insert_shape_id' => 9,
-            ],
-            [
-                'stone_id' => 3,
-                'insert_colour_id' => 5,
-                'insert_shape_id' => 9,
-            ],
-            [
-                'stone_id' => 5,
-                'insert_colour_id' => 2,
-                'insert_shape_id' => 3,
-            ],
-            [
-                'stone_id' => 6,
-                'insert_colour_id' => 13,
-                'insert_shape_id' => 3,
-            ],
-            [
-                'stone_id' => 1,
-                'insert_colour_id' => 12,
-                'insert_shape_id' => 9,
-            ],
-            [
-                'stone_id' => 7,
-                'insert_colour_id' => 8,
-                'insert_shape_id' => 5,
-            ],
-            [
-                'stone_id' => 8,
-                'insert_colour_id' => 9,
-                'insert_shape_id' => 9,
-            ],
-            [
-                'stone_id' => 9,
-                'insert_colour_id' => 1,
-                'insert_shape_id' => 9,
-            ],
-            [
-                'stone_id' => 10,
-                'insert_colour_id' => 14,
-                'insert_shape_id' => 9,
-            ],
-            [
-                'stone_id' => 5,
-                'insert_colour_id' => 2,
-                'insert_shape_id' => 12,
-            ],
-        ];
+        $inserts = config('seeding-data.inserts.inserts');
 
         foreach ($inserts as $insert) {
             DB::table('inserts')->insert([

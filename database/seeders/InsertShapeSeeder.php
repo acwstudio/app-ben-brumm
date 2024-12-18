@@ -18,16 +18,13 @@ class InsertShapeSeeder extends Seeder
         DB::table('insert_shapes')->truncate();
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
 
-        $forms = [
-            'квадратный кушон', 'кушон', 'овал', 'радиант', 'груша', 'ашер', 'сердце', 'изумрудная', 'круг', 'триллион',
-            'кабашон', 'маркиз'
-        ];
+        $shapes = config('seeding-data.inserts.shapes');
 
-        foreach ($forms as $form) {
+        foreach ($shapes as $shape) {
             DB::table('insert_shapes')->insert([
-                'name'        => $form,
-                'description' => 'Камень имеет форму - ' . $form,
-                'slug'        => Str::slug($form, '-'),
+                'name'        => $shape,
+                'description' => 'Камень имеет форму - ' . $shape,
+                'slug'        => Str::slug($shape, '-'),
                 'is_active'   => true,
                 'created_at'  => now(),
             ]);

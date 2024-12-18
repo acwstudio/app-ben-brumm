@@ -17,9 +17,7 @@ class PrcsMetalSampleSeeder extends Seeder
         DB::table('prcs_metal_samples')->truncate();
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
 
-        $samples = [
-            '375','500','585','750','875','916','958','999','800','830','925','960','850','900','950'
-        ];
+        $samples = config('seeding-data.precious-metals.prcs-metal-samples');
 
         foreach ($samples as $sample) {
             DB::table('prcs_metal_samples')->insert([

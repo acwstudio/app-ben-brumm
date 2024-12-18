@@ -18,14 +18,12 @@ class PrcsMetalCoverageSeeder extends Seeder
         DB::table('prcs_metal_coverages')->truncate();
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
 
-        $coverages = [
-            'золочение','родирование','без покрытия'
-        ];
+        $coverages = config('seeding-data.precious-metals.prcs-metal-coverages');
 
         foreach ($coverages as $coverage) {
             DB::table('prcs_metal_coverages')->insert([
                 'name' => $coverage,
-                'slug' =>Str::slug('coverage'),
+                'slug' =>Str::slug($coverage, '-'),
                 'is_active' => 1,
                 'created_at' => now(),
             ]);

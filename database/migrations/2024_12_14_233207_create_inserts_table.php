@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('stone_types', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('name')->unique();
             $table->string('description');
             $table->string('slug');
             $table->boolean('is_active');
@@ -23,7 +23,7 @@ return new class extends Migration
         Schema::create('stones', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('stone_type_id');
-            $table->string('name');
+            $table->string('name')->unique();
             $table->string('description');
             $table->string('slug');
             $table->boolean('is_natural');
@@ -35,7 +35,7 @@ return new class extends Migration
 
         Schema::create('insert_shapes', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('name')->unique();
             $table->string('description');
             $table->string('slug');
             $table->boolean('is_active');
@@ -44,7 +44,7 @@ return new class extends Migration
 
         Schema::create('insert_colours', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('name')->unique();
             $table->string('description');
             $table->string('slug');
             $table->boolean('is_active');

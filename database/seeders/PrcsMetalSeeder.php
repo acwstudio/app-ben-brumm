@@ -18,14 +18,12 @@ class PrcsMetalSeeder extends Seeder
         DB::table('prcs_metals')->truncate();
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
 
-        $metals = [
-            'золото','серебро','платина','палладий'
-        ];
+        $metals = config('seeding-data.precious-metals.prcs-metals');
 
         foreach ($metals as $metal) {
             DB::table('prcs_metals')->insert([
                 'name' => $metal,
-                'slug' =>Str::slug($metal),
+                'slug' =>Str::slug($metal, '-'),
                 'is_active' => 1,
                 'created_at' => now(),
             ]);

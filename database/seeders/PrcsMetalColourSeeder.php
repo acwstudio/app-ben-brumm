@@ -18,9 +18,7 @@ class PrcsMetalColourSeeder extends Seeder
         DB::table('prcs_metal_colours')->truncate();
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
 
-        $colours = [
-            'желтый','белый','красный','комбинированный','натуральный'
-        ];
+        $colours = config('seeding-data.precious-metals.prcs-metal-colours');
 
         foreach ($colours as $colour) {
             DB::table('prcs_metal_colours')->insert([

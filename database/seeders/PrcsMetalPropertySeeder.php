@@ -17,32 +17,7 @@ class PrcsMetalPropertySeeder extends Seeder
         DB::table('prcs_metal_properties')->truncate();
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
 
-        $properties = [
-            [
-                'prcs_metal_id' => 2,
-                'prcs_metal_sample_id' => 11,
-                'prcs_metal_colour_id' => 5,
-                'prcs_metal_coverage_id' => 2,
-            ],
-            [
-                'prcs_metal_id' => 1,
-                'prcs_metal_sample_id' => 3,
-                'prcs_metal_colour_id' => 3,
-                'prcs_metal_coverage_id' => 2,
-            ],
-            [
-                'prcs_metal_id' => 1,
-                'prcs_metal_sample_id' => 3,
-                'prcs_metal_colour_id' => 5,
-                'prcs_metal_coverage_id' => 3,
-            ],
-            [
-                'prcs_metal_id' => 2,
-                'prcs_metal_sample_id' => 11,
-                'prcs_metal_colour_id' => 5,
-                'prcs_metal_coverage_id' => 1,
-            ],
-        ];
+        $properties = config('seeding-data.precious-metals.prcs-metal-properties');
 
         foreach ($properties as $property) {
             DB::table('prcs_metal_properties')->insert([

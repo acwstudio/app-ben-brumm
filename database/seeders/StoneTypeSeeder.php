@@ -18,7 +18,7 @@ class StoneTypeSeeder extends Seeder
         DB::table('stone_types')->truncate();
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
 
-        $types = ['драгоценные', 'полудрагоценные', 'поделочные'];
+        $types = config('seeding-data.stones.stone-types');
 
         foreach ($types as $type) {
             DB::table('stone_types')->insert([
