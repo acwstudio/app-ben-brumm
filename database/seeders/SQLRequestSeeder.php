@@ -2,11 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\Insert;
-use App\Models\InsertShape;
-use App\Models\Jewellery;
-use App\Models\Stone;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 

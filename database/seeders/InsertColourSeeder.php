@@ -18,10 +18,7 @@ class InsertColourSeeder extends Seeder
         DB::table('insert_colours')->truncate();
         DB::statement('SET FOREIGN_KEY_CHECKS=0;');
 
-        $colours = [
-            'зеленый','красный','синий','розовый','голубой','пурпурный','желтый','белый','черный','радужный',
-            'гранатовый','бесцветный','сиреневый','коричневый'
-        ];
+        $colours = config('seeding-data.inserts.colours');
 
         foreach ($colours as $colour) {
             DB::table('insert_colours')->insert([

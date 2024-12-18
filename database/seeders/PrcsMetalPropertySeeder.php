@@ -20,36 +20,36 @@ class PrcsMetalPropertySeeder extends Seeder
         $properties = [
             [
                 'prcs_metal_id' => 2,
-                'sample_id' => 11,
+                'prcs_metal_sample_id' => 11,
                 'prcs_metal_colour_id' => 5,
-                'prcs_coverage_id' => 2,
+                'prcs_metal_coverage_id' => 2,
             ],
             [
                 'prcs_metal_id' => 1,
-                'sample_id' => 3,
+                'prcs_metal_sample_id' => 3,
                 'prcs_metal_colour_id' => 3,
-                'prcs_coverage_id' => 2,
+                'prcs_metal_coverage_id' => 2,
             ],
             [
                 'prcs_metal_id' => 1,
-                'sample_id' => 3,
+                'prcs_metal_sample_id' => 3,
                 'prcs_metal_colour_id' => 5,
-                'prcs_coverage_id' => 3,
+                'prcs_metal_coverage_id' => 3,
             ],
             [
                 'prcs_metal_id' => 2,
-                'sample_id' => 11,
+                'prcs_metal_sample_id' => 11,
                 'prcs_metal_colour_id' => 5,
-                'prcs_coverage_id' => 1,
+                'prcs_metal_coverage_id' => 1,
             ],
         ];
 
         foreach ($properties as $property) {
             DB::table('prcs_metal_properties')->insert([
                 'prcs_metal_id' => $property['prcs_metal_id'],
-                'sample_id' => $property['sample_id'],
+                'prcs_metal_sample_id' => $property['prcs_metal_sample_id'],
                 'prcs_metal_colour_id' => $property['prcs_metal_colour_id'],
-                'prcs_coverage_id' => $property['prcs_coverage_id'],
+                'prcs_metal_coverage_id' => $property['prcs_metal_coverage_id'],
                 'created_at' => now(),
             ]);
         }
