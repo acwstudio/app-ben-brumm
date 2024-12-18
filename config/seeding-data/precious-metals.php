@@ -9,6 +9,21 @@ return [
     ],
     'prcs-metal-properties' => [
         [
+//            'code' => '1323',
+            'prcs_metal_id' => 1,
+            'prcs_metal_sample_id' => 3,
+            'prcs_metal_colour_id' => 2,
+            'prcs_metal_coverage_id' => 3,
+        ],
+        [
+//            'code' => '21152',
+            'prcs_metal_id' => 2,
+            'prcs_metal_sample_id' => 11,
+            'prcs_metal_colour_id' => 7,
+            'prcs_metal_coverage_id' => 2,
+        ],
+        [
+            'code' => '1323',
             'prcs_metal_id' => 2,
             'prcs_metal_sample_id' => 11,
             'prcs_metal_colour_id' => 5,

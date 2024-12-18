@@ -18,13 +18,16 @@ class JewellerySeeder extends Seeder
         DB::table('insert_jewellery')->truncate();
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
 
-        $items = config('seeding-data.inserts.jewelleries');
+        $items = config('seeding-data.jewelleries.jewelleries');
 
         foreach ($items as $item) {
             DB::table('jewelleries')->insert([
                 'prcs_metal_property_id' => $item['prcs_metal_property_id'],
+                'jewellery_category_id' => $item['jewellery_category_id'],
                 'name' => $item['name'],
+                'description' => $item['description'],
                 'part_number' => $item['part_number'],
+                'approx_weight' => $item['approx_weight'],
                 'created_at' => now(),
             ]);
             if ($item['insert-jewellery']) {
