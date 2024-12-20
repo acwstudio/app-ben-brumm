@@ -439,29 +439,31 @@ return [
             ]
         ],
         [
+//            id = 23
             'prcs_metal_id' => 1,
             'prcs_metal_sample_id' => 3,
             'prcs_metal_colour_id' => 3,
             'jewellery_category_id' => 10,
             'coverage-jewellery' => [2],
-            'name' => 'Серьги из золота с топазами и фианитами',
+            'name' => 'Серьги из золота с бриллиантами и камеей',
             'description' => '',
-            'part_number' => '727533',
-            'approx_weight' => '1.81 грамм',
+            'part_number' => '6024257',
+            'approx_weight' => '3.6 грамм',
             'insert-jewellery' => [
                 [
                     'jewellery_id' => 23,
-                    'insert_id' => '2',
-                    'insert_property_id' => 8,
+                    'insert_id' => '5',
+                    'insert_property_id' => 15,
                 ],
                 [
                     'jewellery_id' => 23,
-                    'insert_id' => '1',
-                    'insert_property_id' => 9,
+                    'insert_id' => '9',
+                    'insert_property_id' => 16,
                 ],
             ]
         ],
         [
+//            id = 24
             'prcs_metal_id' => 1,
             'prcs_metal_sample_id' => 3,
             'prcs_metal_colour_id' => 3,
@@ -485,6 +487,7 @@ return [
             ]
         ],
         [
+//            id = 25
             'prcs_metal_id' => 1,
             'prcs_metal_sample_id' => 3,
             'prcs_metal_colour_id' => 3,
@@ -503,6 +506,31 @@ return [
             ]
         ],
         [
+//            id = 26
+            'prcs_metal_id' => 1,
+            'prcs_metal_sample_id' => 3,
+            'prcs_metal_colour_id' => 3,
+            'jewellery_category_id' => 10,
+            'coverage-jewellery' => [2],
+            'name' => 'Серьги из золота с топазами и фианитами',
+            'description' => '',
+            'part_number' => '727533',
+            'approx_weight' => '1.81 грамм',
+            'insert-jewellery' => [
+                [
+                    'jewellery_id' => 26,
+                    'insert_id' => '2',
+                    'insert_property_id' => 8,
+                ],
+                [
+                    'jewellery_id' => 26,
+                    'insert_id' => '1',
+                    'insert_property_id' => 9,
+                ],
+            ]
+        ],
+        [
+//            id = 27
             'prcs_metal_id' => 2,
             'prcs_metal_sample_id' => 11,
             'prcs_metal_colour_id' => 1,
@@ -514,39 +542,42 @@ return [
             'approx_weight' => '7.7 грамм',
             'insert-jewellery' => [
                 [
-                    'jewellery_id' => 26,
+                    'jewellery_id' => 27,
                     'insert_id' => '7',
                     'insert_property_id' => 13,
                 ],
                 [
-                    'jewellery_id' => 26,
+                    'jewellery_id' => 27,
                     'insert_id' => '8',
                     'insert_property_id' => 14,
                 ],
             ]
         ],
         [
+//            id = 28
             'prcs_metal_id' => 1,
             'prcs_metal_sample_id' => 3,
             'prcs_metal_colour_id' => 3,
-            'jewellery_category_id' => 10,
-            'coverage-jewellery' => [2],
-            'name' => 'Серьги из золота с бриллиантами и камеей',
+            'jewellery_category_id' => 11,
+            'coverage-jewellery' => [3],
+            'name' => 'Цепь из золота, плетение Двойной ромб',
             'description' => '',
-            'part_number' => '6024257',
-            'approx_weight' => '3.6 грамм',
-            'insert-jewellery' => [
-                [
-                    'jewellery_id' => 27,
-                    'insert_id' => '5',
-                    'insert_property_id' => 15,
-                ],
-                [
-                    'jewellery_id' => 27,
-                    'insert_id' => '9',
-                    'insert_property_id' => 16,
-                ],
-            ]
+            'part_number' => '582011006',
+            'approx_weight' => '14.04 грамм',
+            'insert-jewellery' => []
         ],
+        [
+//            id = 29
+            'prcs_metal_id' => 1,
+            'prcs_metal_sample_id' => 3,
+            'prcs_metal_colour_id' => 3,
+            'jewellery_category_id' => 11,
+            'coverage-jewellery' => [3],
+            'name' => 'Цепь из золота, плетение Нонна',
+            'description' => '',
+            'part_number' => '581020502',
+            'approx_weight' => '7.48 грамм',
+            'insert-jewellery' => []
+        ]
     ]
 ];
