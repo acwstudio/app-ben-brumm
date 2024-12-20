@@ -7,7 +7,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
-class PrcsMetalCoverageSeeder extends Seeder
+class CoverageSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,13 +15,13 @@ class PrcsMetalCoverageSeeder extends Seeder
     public function run(): void
     {
         DB::statement('SET FOREIGN_KEY_CHECKS=0;');
-        DB::table('prcs_metal_coverages')->truncate();
+        DB::table('coverages')->truncate();
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
 
-        $coverages = config('seeding-data.precious-metals.prcs-metal-coverages');
+        $coverages = config('seeding-data.precious-metals.coverages');
 
         foreach ($coverages as $coverage) {
-            DB::table('prcs_metal_coverages')->insert([
+            DB::table('coverages')->insert([
                 'name' => $coverage,
                 'slug' =>Str::slug($coverage, '-'),
                 'is_active' => 1,

@@ -16,13 +16,16 @@ class JewellerySeeder extends Seeder
         DB::statement('SET FOREIGN_KEY_CHECKS=0;');
         DB::table('jewelleries')->truncate();
         DB::table('insert_jewellery')->truncate();
+        DB::table('coverage_jewellery')->truncate();
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
 
         $items = config('seeding-data.jewelleries.jewelleries');
 
         foreach ($items as $item) {
-            DB::table('jewelleries')->insert([
-                'prcs_metal_property_id' => $item['prcs_metal_property_id'],
+            $jewellery_id = DB::table('jewelleries')->insertGetId([
+                'prcs_metal_id' => $item['prcs_metal_id'],
+                'prcs_metal_sample_id' => $item['prcs_metal_sample_id'],
+                'prcs_metal_colour_id' => $item['prcs_metal_colour_id'],
                 'jewellery_category_id' => $item['jewellery_category_id'],
                 'name' => $item['name'],
                 'description' => $item['description'],
@@ -36,6 +39,14 @@ class JewellerySeeder extends Seeder
                         'jewellery_id' => $jewellery['jewellery_id'],
                         'insert_id' => $jewellery['insert_id'],
                         'insert_property_id' => $jewellery['insert_property_id'],
+                    ]);
+                }
+            }
+            if ($item['coverage-jewellery']) {
+                foreach ($item['coverage-jewellery'] as $jewellery) {
+                    DB::table('coverage_jewellery')->insert([
+                        'coverage_id' => $jewellery,
+                        'jewellery_id' => $jewellery_id,
                     ]);
                 }
             }

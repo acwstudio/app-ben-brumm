@@ -28,9 +28,8 @@ class DatabaseSeeder extends Seeder
         $this->call(InsertPropertySeeder::class);
         $this->call(PrcsMetalSampleSeeder::class);
         $this->call(PrcsMetalSeeder::class);
-        $this->call(PrcsMetalCoverageSeeder::class);
+        $this->call(CoverageSeeder::class);
         $this->call(PrcsMetalColourSeeder::class);
-        $this->call(PrcsMetalPropertySeeder::class);
         $this->call(JewelleryCategorySeeder::class);
         $this->call(JewellerySeeder::class);
     }

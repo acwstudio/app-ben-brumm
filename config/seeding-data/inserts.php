@@ -172,6 +172,22 @@ return [
                 'ширина' => '2 мм'
             ]
         ],
+        [
+            'quantity' => 1,
+            'weight' => 0.452,
+            'weight_unit' => 'карат',
+            'dimensions' => [
+                'диаметр' => '1.5 мм'
+            ]
+        ],
+        [
+            'quantity' => 20,
+            'weight' => 0.046,
+            'weight_unit' => 'карат',
+            'dimensions' => [
+                'диаметр' => '< 1 мм'
+            ]
+        ]
     ],
     'inserts' => [
         [
@@ -237,6 +253,11 @@ return [
         [
             'stone_id' => 5,
             'insert_colour_id' => 2,
+            'insert_shape_id' => 9,
+        ],
+        [
+            'stone_id' => 11,
+            'insert_colour_id' => 1,
             'insert_shape_id' => 9,
         ]
     ],

@@ -22,7 +22,9 @@ return new class extends Migration
 
         Schema::create('jewelleries', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('prcs_metal_property_id');
+            $table->unsignedBigInteger('prcs_metal_sample_id');
+            $table->unsignedBigInteger('prcs_metal_colour_id');
+            $table->unsignedBigInteger('prcs_metal_id');
             $table->unsignedBigInteger('jewellery_category_id');
             $table->string('name');
             $table->string('description');
@@ -30,8 +32,22 @@ return new class extends Migration
             $table->string('approx_weight');
             $table->timestamps();
 
-            $table->foreign('prcs_metal_property_id')->references('id')->on('prcs_metal_properties');
+            $table->foreign('prcs_metal_sample_id')->references('id')->on('prcs_metal_samples');
+            $table->foreign('prcs_metal_colour_id')->references('id')->on('prcs_metal_colours');
+            $table->foreign('prcs_metal_id')->references('id')->on('prcs_metals');
             $table->foreign('jewellery_category_id')->references('id')->on('jewellery_categories');
+        });
+
+        Schema::create('coverage_jewellery', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('coverage_id');
+            $table->unsignedBigInteger('jewellery_id');
+            $table->timestamps();
+
+            $table->foreign('coverage_id')->references('id')->on('coverages');
+            $table->foreign('jewellery_id')->references('id')->on('jewelleries');
+
+            $table->unique(['coverage_id', 'jewellery_id'], 'unique_coverage_jewellery');
         });
     }
 
@@ -40,6 +56,7 @@ return new class extends Migration
      */
     public function down(): void
     {
+        Schema::dropIfExists('coverage_jewellery');
         Schema::dropIfExists('jewelleries');
         Schema::dropIfExists('jewellery_categories');
     }
