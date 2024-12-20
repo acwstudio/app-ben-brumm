@@ -187,6 +187,31 @@ return [
             'dimensions' => [
                 'диаметр' => '< 1 мм'
             ]
+        ],
+        [
+            'quantity' => 2,
+            'weight' => 3.742,
+            'weight_unit' => 'карат',
+            'dimensions' => [
+                'высота' => '8 мм',
+                'ширина' => '6 мм'
+            ]
+        ],
+        [
+            'quantity' => 4,
+            'weight' => 0.114,
+            'weight_unit' => 'карат',
+            'dimensions' => [
+                'диаметр' => '1.5 мм'
+            ]
+        ],
+        [
+            'quantity' => 40,
+            'weight' => 0.34,
+            'weight_unit' => 'карат',
+            'dimensions' => [
+                'диаметр' => '1 мм'
+            ]
         ]
     ],
     'inserts' => [
@@ -259,6 +284,11 @@ return [
             'stone_id' => 11,
             'insert_colour_id' => 1,
             'insert_shape_id' => 9,
+        ],
+        [
+            'stone_id' => 12,
+            'insert_colour_id' => 3,
+            'insert_shape_id' => 13,
         ]
     ],
     'shapes' => [

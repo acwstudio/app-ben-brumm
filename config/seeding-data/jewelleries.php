@@ -148,6 +148,49 @@ return [
             'insert-jewellery' => []
         ],
         [
+//            id => 8
+            'prcs_metal_id' => 1,
+            'prcs_metal_sample_id' => 3,
+            'prcs_metal_colour_id' => 3,
+            'jewellery_category_id' => 4,
+            'coverage-jewellery' => [2],
+            'name' => 'Запонки из золота с корундами и фианитами',
+            'description' => '',
+            'part_number' => '766001',
+            'approx_weight' => '6.91 грамма',
+            'insert-jewellery' => [
+                [
+                    'jewellery_id' => 8,
+                    'insert_id' => 15,
+                    'insert_property_id' => 23,
+                ],
+                [
+                    'jewellery_id' => 8,
+                    'insert_id' => 1,
+                    'insert_property_id' => 24,
+                ]
+            ]
+        ],
+        [
+//            id = 9
+            'prcs_metal_id' => 2,
+            'prcs_metal_sample_id' => 11,
+            'prcs_metal_colour_id' => 7,
+            'jewellery_category_id' => 4,
+            'coverage-jewellery' => [2, 4],
+            'name' => 'Запонки из серебра с эмалью с фианитами',
+            'description' => '',
+            'part_number' => '94160039',
+            'approx_weight' => '5.57 грамма',
+            'insert-jewellery' => [
+                [
+                    'jewellery_id' => 9,
+                    'insert_id' => 1,
+                    'insert_property_id' => 25,
+                ]
+            ]
+        ],
+        [
             'prcs_metal_id' => 2,
             'prcs_metal_sample_id' => 11,
             'prcs_metal_colour_id' => 7,
@@ -159,12 +202,12 @@ return [
             'approx_weight' => '3 грамма',
             'insert-jewellery' => [
                 [
-                    'jewellery_id' => 7,
+                    'jewellery_id' => 10,
                     'insert_id' => '1',
                     'insert_property_id' => 6,
                 ],
                 [
-                    'jewellery_id' => 7,
+                    'jewellery_id' => 10,
                     'insert_id' => '1',
                     'insert_property_id' => 7,
                 ],
@@ -182,12 +225,12 @@ return [
             'approx_weight' => '1.81 грамм',
             'insert-jewellery' => [
                 [
-                    'jewellery_id' => 8,
+                    'jewellery_id' => 11,
                     'insert_id' => '2',
                     'insert_property_id' => 8,
                 ],
                 [
-                    'jewellery_id' => 8,
+                    'jewellery_id' => 11,
                     'insert_id' => '1',
                     'insert_property_id' => 9,
                 ],
@@ -205,12 +248,12 @@ return [
             'approx_weight' => '1.64 грамм',
             'insert-jewellery' => [
                 [
-                    'jewellery_id' => 9,
+                    'jewellery_id' => 12,
                     'insert_id' => '3',
                     'insert_property_id' => 10,
                 ],
                 [
-                    'jewellery_id' => 9,
+                    'jewellery_id' => 12,
                     'insert_id' => '1',
                     'insert_property_id' => 11,
                 ],
@@ -228,12 +271,12 @@ return [
             'approx_weight' => '0.74 грамм',
             'insert-jewellery' => [
                 [
-                    'jewellery_id' => 10,
+                    'jewellery_id' => 13,
                     'insert_id' => '4',
                     'insert_property_id' => 12,
                 ],
                 [
-                    'jewellery_id' => 10,
+                    'jewellery_id' => 13,
                     'insert_id' => '5',
                     'insert_property_id' => 13,
                 ],
@@ -251,7 +294,7 @@ return [
             'approx_weight' => '2.31 грамм',
             'insert-jewellery' => [
                 [
-                    'jewellery_id' => 11,
+                    'jewellery_id' => 14,
                     'insert_id' => '6',
                     'insert_property_id' => 14,
                 ]
@@ -269,12 +312,12 @@ return [
             'approx_weight' => '7.7 грамм',
             'insert-jewellery' => [
                 [
-                    'jewellery_id' => 12,
+                    'jewellery_id' => 15,
                     'insert_id' => '7',
                     'insert_property_id' => 15,
                 ],
                 [
-                    'jewellery_id' => 12,
+                    'jewellery_id' => 15,
                     'insert_id' => '8',
                     'insert_property_id' => 16,
                 ],
@@ -292,12 +335,12 @@ return [
             'approx_weight' => '3.6 грамм',
             'insert-jewellery' => [
                 [
-                    'jewellery_id' => 13,
+                    'jewellery_id' => 16,
                     'insert_id' => '5',
                     'insert_property_id' => 17,
                 ],
                 [
-                    'jewellery_id' => 13,
+                    'jewellery_id' => 16,
                     'insert_id' => '9',
                     'insert_property_id' => 18,
                 ],
