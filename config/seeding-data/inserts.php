@@ -99,23 +99,6 @@ return [
         ],
         [
             'quantity' => 1,
-            'weight' => 1.078,
-            'weight_unit' => 'карат',
-            'dimensions' => [
-                'высота' => '8 мм',
-                'ширина' => '6 мм'
-            ]
-        ],
-        [
-            'quantity' => 3,
-            'weight' => 0.011,
-            'weight_unit' => 'карат',
-            'dimensions' => [
-                'диаметр' => '< 1 мм'
-            ]
-        ],
-        [
-            'quantity' => 1,
             'weight' => 6.45,
             'weight_unit' => 'карат',
             'dimensions' => [
@@ -252,6 +235,63 @@ return [
             'weight_unit' => 'карат',
             'dimensions' => [
                 'диаметр' => '1 мм'
+            ]
+        ],
+        [
+            'quantity' => 39,
+            'weight' => 0.332,
+            'weight_unit' => 'карат',
+            'dimensions' => [
+                'диаметр' => '1 мм'
+            ]
+        ],
+        [
+            'quantity' => 1,
+            'weight' => 1.455,
+            'weight_unit' => 'карат',
+            'dimensions' => [
+                'диаметр' => '6 мм'
+            ]
+        ],
+        [
+            'quantity' => 3,
+            'weight' => 0.011,
+            'weight_unit' => 'карат',
+            'dimensions' => [
+                'диаметр' => '< 1 мм'
+            ]
+        ],
+        [
+            'quantity' => 1,
+            'weight' => 1.078,
+            'weight_unit' => 'карат',
+            'dimensions' => [
+                'высота' => '8 мм',
+                'ширина' => '6 мм'
+            ]
+        ],
+        [
+            'quantity' => 69,
+            'weight' => 0.587,
+            'weight_unit' => 'карат',
+            'dimensions' => [
+                'диаметр' => '1 мм'
+            ]
+        ],
+        [
+            'quantity' => 12,
+            'weight' => 0.0107,
+            'weight_unit' => 'карат',
+            'dimensions' => [
+                'диаметр' => '< 1 мм'
+            ]
+        ],
+        [
+            'quantity' => 2,
+            'weight' => 0.043,
+            'weight_unit' => 'карат',
+            'dimensions' => [
+                'диаметр' => '< 1 мм'
             ]
         ],
     ],
