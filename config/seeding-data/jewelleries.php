@@ -191,6 +191,72 @@ return [
             ]
         ],
         [
+//            id = 10
+            'prcs_metal_id' => 1,
+            'prcs_metal_sample_id' => 3,
+            'prcs_metal_colour_id' => 2,
+            'jewellery_category_id' => 5,
+            'coverage-jewellery' => [2],
+            'name' => 'Колье из белого золота с бриллиантом',
+            'description' => '',
+            'part_number' => '1070162',
+            'approx_weight' => '1.69 грамма',
+            'insert-jewellery' => [
+                [
+                    'jewellery_id' => 10,
+                    'insert_id' => 5,
+                    'insert_property_id' => 26,
+                ]
+            ]
+        ],
+        [
+//            id = 11
+            'prcs_metal_id' => 2,
+            'prcs_metal_sample_id' => 11,
+            'prcs_metal_colour_id' => 7,
+            'jewellery_category_id' => 5,
+            'coverage-jewellery' => [2, 4],
+            'name' => 'Колье из серебра с эмалью',
+            'description' => '',
+            'part_number' => '94070950',
+            'approx_weight' => '4.56 грамма',
+            'insert-jewellery' => []
+        ],
+        [
+//            id = 12
+            'prcs_metal_id' => 1,
+            'prcs_metal_sample_id' => 3,
+            'prcs_metal_colour_id' => 3,
+            'jewellery_category_id' => 6,
+            'coverage-jewellery' => [3],
+            'name' => 'Кольцо из золота с бриллиантами и гидротермальным александритом',
+            'description' => '',
+            'part_number' => '71-00338',
+            'approx_weight' => '1.85 грамма',
+            'insert-jewellery' => [
+                [
+                    'jewellery_id' => 12,
+                    'insert_id' => 16,
+                    'insert_property_id' => 27,
+                ],
+                [
+                    'jewellery_id' => 12,
+                    'insert_id' => 5,
+                    'insert_property_id' => 28,
+                ],
+                [
+                    'jewellery_id' => 12,
+                    'insert_id' => 5,
+                    'insert_property_id' => 29,
+                ],
+                [
+                    'jewellery_id' => 12,
+                    'insert_id' => 5,
+                    'insert_property_id' => 30,
+                ]
+            ]
+        ],
+        [
             'prcs_metal_id' => 2,
             'prcs_metal_sample_id' => 11,
             'prcs_metal_colour_id' => 7,
@@ -202,12 +268,12 @@ return [
             'approx_weight' => '3 грамма',
             'insert-jewellery' => [
                 [
-                    'jewellery_id' => 10,
+                    'jewellery_id' => 13,
                     'insert_id' => '1',
                     'insert_property_id' => 6,
                 ],
                 [
-                    'jewellery_id' => 10,
+                    'jewellery_id' => 13,
                     'insert_id' => '1',
                     'insert_property_id' => 7,
                 ],
@@ -225,12 +291,12 @@ return [
             'approx_weight' => '1.81 грамм',
             'insert-jewellery' => [
                 [
-                    'jewellery_id' => 11,
+                    'jewellery_id' => 14,
                     'insert_id' => '2',
                     'insert_property_id' => 8,
                 ],
                 [
-                    'jewellery_id' => 11,
+                    'jewellery_id' => 14,
                     'insert_id' => '1',
                     'insert_property_id' => 9,
                 ],
@@ -248,12 +314,12 @@ return [
             'approx_weight' => '1.64 грамм',
             'insert-jewellery' => [
                 [
-                    'jewellery_id' => 12,
+                    'jewellery_id' => 15,
                     'insert_id' => '3',
                     'insert_property_id' => 10,
                 ],
                 [
-                    'jewellery_id' => 12,
+                    'jewellery_id' => 15,
                     'insert_id' => '1',
                     'insert_property_id' => 11,
                 ],
@@ -271,12 +337,12 @@ return [
             'approx_weight' => '0.74 грамм',
             'insert-jewellery' => [
                 [
-                    'jewellery_id' => 13,
+                    'jewellery_id' => 16,
                     'insert_id' => '4',
                     'insert_property_id' => 12,
                 ],
                 [
-                    'jewellery_id' => 13,
+                    'jewellery_id' => 16,
                     'insert_id' => '5',
                     'insert_property_id' => 13,
                 ],
@@ -294,7 +360,7 @@ return [
             'approx_weight' => '2.31 грамм',
             'insert-jewellery' => [
                 [
-                    'jewellery_id' => 14,
+                    'jewellery_id' => 17,
                     'insert_id' => '6',
                     'insert_property_id' => 14,
                 ]
@@ -312,12 +378,12 @@ return [
             'approx_weight' => '7.7 грамм',
             'insert-jewellery' => [
                 [
-                    'jewellery_id' => 15,
+                    'jewellery_id' => 18,
                     'insert_id' => '7',
                     'insert_property_id' => 15,
                 ],
                 [
-                    'jewellery_id' => 15,
+                    'jewellery_id' => 18,
                     'insert_id' => '8',
                     'insert_property_id' => 16,
                 ],
@@ -335,12 +401,12 @@ return [
             'approx_weight' => '3.6 грамм',
             'insert-jewellery' => [
                 [
-                    'jewellery_id' => 16,
+                    'jewellery_id' => 19,
                     'insert_id' => '5',
                     'insert_property_id' => 17,
                 ],
                 [
-                    'jewellery_id' => 16,
+                    'jewellery_id' => 19,
                     'insert_id' => '9',
                     'insert_property_id' => 18,
                 ],
