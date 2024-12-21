@@ -28,7 +28,7 @@ return new class extends Migration
             $table->unsignedBigInteger('jewellery_category_id');
             $table->string('name');
             $table->string('description');
-            $table->string('part_number');
+            $table->string('part_number')->unique();
             $table->string('approx_weight');
             $table->timestamps();
 
@@ -49,6 +49,10 @@ return new class extends Migration
 
             $table->unique(['coverage_id', 'jewellery_id'], 'unique_coverage_jewellery');
         });
+
+        Schema::table('inserts', function (Blueprint $table) {
+            $table->foreign('jewellery_id')->references('id')->on('jewelleries');
+        });
     }
 
     /**
@@ -56,6 +60,10 @@ return new class extends Migration
      */
     public function down(): void
     {
+        Schema::table('inserts', function (Blueprint $table) {
+            $table->dropConstrainedForeignId('jewellery_id');
+        });
+
         Schema::dropIfExists('coverage_jewellery');
         Schema::dropIfExists('jewelleries');
         Schema::dropIfExists('jewellery_categories');

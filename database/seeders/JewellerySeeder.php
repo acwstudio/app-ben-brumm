@@ -15,8 +15,9 @@ class JewellerySeeder extends Seeder
     {
         DB::statement('SET FOREIGN_KEY_CHECKS=0;');
         DB::table('jewelleries')->truncate();
-        DB::table('insert_jewellery')->truncate();
+        DB::table('inserts')->truncate();
         DB::table('coverage_jewellery')->truncate();
+        DB::table('insert_properties')->truncate();
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
 
         $items = config('seeding-data.jewelleries.jewelleries');
@@ -35,10 +36,20 @@ class JewellerySeeder extends Seeder
             ]);
             if ($item['insert-jewellery']) {
                 foreach ($item['insert-jewellery'] as $jewellery) {
-                    DB::table('insert_jewellery')->insert([
-                        'jewellery_id' => $jewellery['jewellery_id'],
-                        'insert_id' => $jewellery['insert_id'],
-                        'insert_property_id' => $jewellery['insert_property_id'],
+                    $property_id = DB::table('insert_properties')->insertGetId([
+                        'quantity' => $jewellery['insert_property_id']['quantity'],
+                        'weight' => $jewellery['insert_property_id']['weight'],
+                        'weight_unit' => $jewellery['insert_property_id']['weight_unit'],
+                        'dimensions' => json_encode($jewellery['insert_property_id']['dimensions']),
+                        'created_at' => now(),
+                    ]);
+                    $insert_id = DB::table('inserts')->insertGetId([
+                        'jewellery_id' => $jewellery_id,
+                        'stone_id' => $jewellery['stone_id'],
+                        'insert_property_id' => $property_id,
+                        'insert_shape_id' => $jewellery['insert_shape_id'],
+                        'insert_colour_id' => $jewellery['insert_colour_id'],
+                        'created_at' => now(),
                     ]);
                 }
             }

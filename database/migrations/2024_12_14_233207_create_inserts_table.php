@@ -51,19 +51,6 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        Schema::create('inserts', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('stone_id');
-            $table->unsignedBigInteger('insert_colour_id');
-            $table->unsignedBigInteger('insert_shape_id');
-            $table->timestamps();
-
-            $table->foreign('stone_id')->references('id')->on('stones');
-            $table->foreign('insert_colour_id')->references('id')->on('insert_colours');
-            $table->foreign('insert_shape_id')->references('id')->on('insert_shapes');
-            $table->unique(['stone_id', 'insert_colour_id', 'insert_shape_id'], 'unique_inserts');
-        });
-
         Schema::create('insert_properties', function (Blueprint $table) {
             $table->id();
             $table->integer('quantity');
@@ -71,6 +58,26 @@ return new class extends Migration
             $table->string('weight_unit');
             $table->json('dimensions');
             $table->timestamps();
+        });
+
+        Schema::create('inserts', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('jewellery_id');
+            $table->unsignedBigInteger('stone_id');
+            $table->unsignedBigInteger('insert_colour_id');
+            $table->unsignedBigInteger('insert_shape_id');
+            $table->unsignedBigInteger('insert_property_id');
+            $table->timestamps();
+
+            $table->foreign('stone_id')->references('id')->on('stones');
+            $table->foreign('insert_colour_id')->references('id')->on('insert_colours');
+            $table->foreign('insert_shape_id')->references('id')->on('insert_shapes');
+            $table->foreign('insert_property_id')->references('id')->on('insert_properties');
+//            $table->foreign('jewellery_id')->references('id')->on('jewelleries');
+
+            $table->unique([
+                'stone_id', 'insert_colour_id', 'insert_shape_id', 'jewellery_id', 'insert_property_id'
+            ], 'unique_inserts');
         });
     }
 

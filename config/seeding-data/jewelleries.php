@@ -19,14 +19,22 @@ return [
             'approx_weight' => '5.4 грамма',
             'insert-jewellery' => [
                 [
-                    'jewellery_id' => 1,
-                    'insert_id' => 1,
-                    'insert_property_id' => 1,
+                    'stone_id' => 1,
+                    'insert_colour_id' => 12,
+                    'insert_shape_id' => 9,
+                    'insert_property_id' => [
+                        'quantity' => 31, 'weight' => 0.419, 'weight_unit' => 'карат',
+                        'dimensions' => ['диаметр' => '< 1 мм']
+                    ],
                 ],
                 [
-                    'jewellery_id' => 1,
-                    'insert_id' => 1,
-                    'insert_property_id' => 2,
+                    'stone_id' => 1,
+                    'insert_colour_id' => 12,
+                    'insert_shape_id' => 9,
+                    'insert_property_id' => [
+                        'quantity' => 24, 'weight' => 0.178, 'weight_unit' => 'карат',
+                        'dimensions' => ['диаметр' => '< 1 мм']
+                    ],
                 ]
             ]
         ],
@@ -43,19 +51,29 @@ return [
             'approx_weight' => '8.41 грамм',
             'insert-jewellery' => [
                 [
-                    'jewellery_id' => 2,
-                    'insert_id' => 11,
-                    'insert_property_id' => 3,
+                    'stone_id' => 6,
+                    'insert_colour_id' => 13,
+                    'insert_shape_id' => 5,
+                    'insert_property_id' => [
+                        'quantity' => 8, 'weight' => 4.827, 'weight_unit' => 'карат',
+                        'dimensions' => ['высота' => '7 мм', 'ширина' => '5 мм']
+                    ],
                 ],
                 [
-                    'jewellery_id' => 2,
-                    'insert_id' => 12,
-                    'insert_property_id' => 4,
+                    'stone_id' => 3,
+                    'insert_colour_id' => 5,
+                    'insert_shape_id' => 5,
+                    'insert_property_id' => ['quantity' => 7, 'weight' => 5.54, 'weight_unit' => 'карат',
+                        'dimensions' => ['высота' => '7 мм', 'ширина' => '5 мм']
+                    ],
                 ],
                 [
-                    'jewellery_id' => 2,
-                    'insert_id' => 1,
-                    'insert_property_id' => 5,
+                    'stone_id' => 2,
+                    'insert_colour_id' => 12,
+                    'insert_shape_id' => 9,
+                    'insert_property_id' => ['quantity' => 70, 'weight' => 0.595, 'weight_unit' => 'карат',
+                        'dimensions' => ['диаметр' => '1 мм']
+                    ],
                 ]
             ]
         ],
@@ -85,14 +103,20 @@ return [
             'approx_weight' => '1.14 грамм',
             'insert-jewellery' => [
                 [
-                    'jewellery_id' => 4,
-                    'insert_id' => 13,
-                    'insert_property_id' => 17,
+                    'stone_id' => 5,
+                    'insert_colour_id' => 2,
+                    'insert_shape_id' => 9,
+                    'insert_property_id' => ['quantity' => 1, 'weight' => 0.146, 'weight_unit' => 'карат',
+                        'dimensions' => ['диаметр' => '3 мм']
+                    ],
                 ],
                 [
-                    'jewellery_id' => 4,
-                    'insert_id' => '10',
-                    'insert_property_id' => 18,
+                    'stone_id' => 5,
+                    'insert_colour_id' => 2,
+                    'insert_shape_id' => 12,
+                    'insert_property_id' => ['quantity' => 6, 'weight' => 0.618, 'weight_unit' => 'карат',
+                        'dimensions' => ['высота' => '4 мм', 'ширина' => '2 мм']
+                    ],
                 ],
             ]
         ],
@@ -122,14 +146,20 @@ return [
             'approx_weight' => '6.45 грамм',
             'insert-jewellery' => [
                 [
-                    'jewellery_id' => 6,
-                    'insert_id' => 14,
-                    'insert_property_id' => 19,
+                    'stone_id' => 11,
+                    'insert_colour_id' => 1,
+                    'insert_shape_id' => 9,
+                    'insert_property_id' => ['quantity' => 1, 'weight' => 0.452, 'weight_unit' => 'карат',
+                        'dimensions' => ['диаметр' => '1.5 мм']
+                    ],
                 ],
                 [
-                    'jewellery_id' => 6,
-                    'insert_id' => 5,
-                    'insert_property_id' => 20,
+                    'stone_id' => 1,
+                    'insert_colour_id' => 12,
+                    'insert_shape_id' => 9,
+                    'insert_property_id' => ['quantity' => 20, 'weight' => 0.046, 'weight_unit' => 'карат',
+                        'dimensions' => ['диаметр' => '< 1 мм']
+                    ],
                 ]
             ]
 
@@ -160,14 +190,20 @@ return [
             'approx_weight' => '6.91 грамма',
             'insert-jewellery' => [
                 [
-                    'jewellery_id' => 8,
-                    'insert_id' => 15,
-                    'insert_property_id' => 21,
+                    'stone_id' => 12,
+                    'insert_colour_id' => 3,
+                    'insert_shape_id' => 13,
+                    'insert_property_id' => ['quantity' => 2, 'weight' => 3.742, 'weight_unit' => 'карат',
+                        'dimensions' => ['высота' => '8 мм', 'ширина' => '6 мм']
+                    ],
                 ],
                 [
-                    'jewellery_id' => 8,
-                    'insert_id' => 1,
-                    'insert_property_id' => 22,
+                    'stone_id' => 2,
+                    'insert_colour_id' => 12,
+                    'insert_shape_id' => 9,
+                    'insert_property_id' => ['quantity' => 4, 'weight' => 0.114, 'weight_unit' => 'карат',
+                        'dimensions' => ['диаметр' => '1.5 мм']
+                    ],
                 ]
             ]
         ],
@@ -184,9 +220,12 @@ return [
             'approx_weight' => '5.57 грамма',
             'insert-jewellery' => [
                 [
-                    'jewellery_id' => 9,
-                    'insert_id' => 1,
-                    'insert_property_id' => 23,
+                    'stone_id' => 2,
+                    'insert_colour_id' => 12,
+                    'insert_shape_id' => 9,
+                    'insert_property_id' => ['quantity' => 40, 'weight' => 0.34, 'weight_unit' => 'карат',
+                        'dimensions' => ['диаметр' => '1 мм']
+                    ],
                 ]
             ]
         ],
@@ -203,9 +242,12 @@ return [
             'approx_weight' => '1.69 грамма',
             'insert-jewellery' => [
                 [
-                    'jewellery_id' => 10,
-                    'insert_id' => 5,
-                    'insert_property_id' => 24,
+                    'stone_id' => 1,
+                    'insert_colour_id' => 12,
+                    'insert_shape_id' => 9,
+                    'insert_property_id' => ['quantity' => 1, 'weight' => 0.21, 'weight_unit' => 'карат',
+                        'dimensions' => ['диаметр' => '2 мм']
+                    ],
                 ]
             ]
         ],
@@ -235,24 +277,36 @@ return [
             'approx_weight' => '1.85 грамма',
             'insert-jewellery' => [
                 [
-                    'jewellery_id' => 12,
-                    'insert_id' => 16,
-                    'insert_property_id' => 25,
+                    'stone_id' => 13,
+                    'insert_colour_id' => 15,
+                    'insert_shape_id' => 3,
+                    'insert_property_id' => ['quantity' => 1, 'weight' => 1.16, 'weight_unit' => 'карат',
+                        'dimensions' => ['высота' => '7 мм', 'ширина' => '5 мм']
+                    ],
                 ],
                 [
-                    'jewellery_id' => 12,
-                    'insert_id' => 5,
-                    'insert_property_id' => 26,
+                    'stone_id' => 1,
+                    'insert_colour_id' => 12,
+                    'insert_shape_id' => 9,
+                    'insert_property_id' => ['quantity' => 2, 'weight' => 0.007, 'weight_unit' => 'карат',
+                        'dimensions' => ['диаметр' => '< 1 мм']
+                    ],
                 ],
                 [
-                    'jewellery_id' => 12,
-                    'insert_id' => 5,
-                    'insert_property_id' => 27,
+                    'stone_id' => 1,
+                    'insert_colour_id' => 12,
+                    'insert_shape_id' => 9,
+                    'insert_property_id' => ['quantity' => 2, 'weight' => 0.011, 'weight_unit' => 'карат',
+                        'dimensions' => ['диаметр' => '< 1 мм']
+                    ],
                 ],
                 [
-                    'jewellery_id' => 12,
-                    'insert_id' => 5,
-                    'insert_property_id' => 28,
+                    'stone_id' => 1,
+                    'insert_colour_id' => 12,
+                    'insert_shape_id' => 9,
+                    'insert_property_id' => ['quantity' => 8, 'weight' => 0.062, 'weight_unit' => 'карат',
+                        'dimensions' => ['диаметр' => '1 мм']
+                    ],
                 ]
             ]
         ],
@@ -269,9 +323,12 @@ return [
             'approx_weight' => '2.54 грамма',
             'insert-jewellery' => [
                 [
-                    'jewellery_id' => 13,
-                    'insert_id' => 1,
-                    'insert_property_id' => 29,
+                    'stone_id' => 2,
+                    'insert_colour_id' => 12,
+                    'insert_shape_id' => 9,
+                    'insert_property_id' => ['quantity' => 39, 'weight' => 0.332, 'weight_unit' => 'карат',
+                        'dimensions' => ['диаметр' => '1 мм']
+                    ],
                 ]
             ]
 
@@ -302,14 +359,20 @@ return [
             'approx_weight' => '3 грамма',
             'insert-jewellery' => [
                 [
-                    'jewellery_id' => 15,
-                    'insert_id' => '1',
-                    'insert_property_id' => 6,
+                    'stone_id' => 2,
+                    'insert_colour_id' => 12,
+                    'insert_shape_id' => 9,
+                    'insert_property_id' => ['quantity' => 11, 'weight' => 0.094, 'weight_unit' => 'карат',
+                        'dimensions' => ['диаметр' => '1 мм']
+                    ],
                 ],
                 [
-                    'jewellery_id' => 15,
-                    'insert_id' => '1',
-                    'insert_property_id' => 7,
+                    'stone_id' => 2,
+                    'insert_colour_id' => 12,
+                    'insert_shape_id' => 9,
+                    'insert_property_id' => ['quantity' => 12, 'weight' => 0.342, 'weight_unit' => 'карат',
+                        'dimensions' => ['диаметр' => '1.5 мм']
+                    ],
                 ],
             ]
         ],
@@ -339,9 +402,12 @@ return [
             'approx_weight' => '1.55 грамма',
             'insert-jewellery' => [
                 [
-                    'jewellery_id' => 17,
-                    'insert_id' => '1',
-                    'insert_property_id' => 30,
+                    'stone_id' => 2,
+                    'insert_colour_id' => 12,
+                    'insert_shape_id' => 9,
+                    'insert_property_id' => ['quantity' => 1, 'weight' => 1.455, 'weight_unit' => 'карат',
+                        'dimensions' => ['диаметр' => '6 мм']
+                    ],
                 ]
             ]
         ],
@@ -358,14 +424,20 @@ return [
             'approx_weight' => '0.74 грамма',
             'insert-jewellery' => [
                 [
-                    'jewellery_id' => 18,
-                    'insert_id' => 5,
-                    'insert_property_id' => 31,
+                    'stone_id' => 1,
+                    'insert_colour_id' => 12,
+                    'insert_shape_id' => 9,
+                    'insert_property_id' => ['quantity' => 3, 'weight' => 0.011, 'weight_unit' => 'карат',
+                        'dimensions' => ['диаметр' => '< 1 мм']
+                    ],
                 ],
                 [
-                    'jewellery_id' => 18,
-                    'insert_id' => 4,
-                    'insert_property_id' => 32,
+                    'stone_id' => 6,
+                    'insert_colour_id' => 13,
+                    'insert_shape_id' => 3,
+                    'insert_property_id' => ['quantity' => 1, 'weight' => 1.078, 'weight_unit' => 'карат',
+                        'dimensions' => ['высота' => '8 мм', 'ширина' => '6 мм']
+                    ],
                 ]
             ]
         ],
@@ -408,9 +480,12 @@ return [
             'approx_weight' => '2.55 грамма',
             'insert-jewellery' => [
                 [
-                    'jewellery_id' => 21,
-                    'insert_id' => 1,
-                    'insert_property_id' => 33,
+                    'stone_id' => 2,
+                    'insert_colour_id' => 12,
+                    'insert_shape_id' => 9,
+                    'insert_property_id' => ['quantity' => 69, 'weight' => 0.587, 'weight_unit' => 'карат',
+                        'dimensions' => ['диаметр' => '1 мм']
+                    ],
                 ]
             ]
         ],
@@ -427,14 +502,20 @@ return [
             'approx_weight' => '2.03 грамма',
             'insert-jewellery' => [
                 [
-                    'jewellery_id' => 22,
-                    'insert_id' => 5,
-                    'insert_property_id' => 34,
+                    'stone_id' => 1,
+                    'insert_colour_id' => 12,
+                    'insert_shape_id' => 9,
+                    'insert_property_id' => ['quantity' => 12, 'weight' => 0.0107, 'weight_unit' => 'карат',
+                        'dimensions' => ['диаметр' => '< 1 мм']
+                    ],
                 ],
                 [
-                    'jewellery_id' => 22,
-                    'insert_id' => 5,
-                    'insert_property_id' => 35,
+                    'stone_id' => 1,
+                    'insert_colour_id' => 12,
+                    'insert_shape_id' => 9,
+                    'insert_property_id' => ['quantity' => 2, 'weight' => 0.043, 'weight_unit' => 'карат',
+                        'dimensions' => ['диаметр' => '< 1 мм']
+                    ],
                 ]
             ]
         ],
@@ -451,14 +532,20 @@ return [
             'approx_weight' => '3.6 грамм',
             'insert-jewellery' => [
                 [
-                    'jewellery_id' => 23,
-                    'insert_id' => '5',
-                    'insert_property_id' => 15,
+                    'stone_id' => 1,
+                    'insert_colour_id' => 12,
+                    'insert_shape_id' => 9,
+                    'insert_property_id' => ['quantity' => 20, 'weight' => 0.059, 'weight_unit' => 'карат',
+                        'dimensions' => ['диаметр' => '< 1 мм']
+                    ],
                 ],
                 [
-                    'jewellery_id' => 23,
-                    'insert_id' => '9',
-                    'insert_property_id' => 16,
+                    'stone_id' => 10,
+                    'insert_colour_id' => 14,
+                    'insert_shape_id' => 9,
+                    'insert_property_id' => ['quantity' => 2, 'weight' => 9.9, 'weight_unit' => 'карат',
+                        'dimensions' => ['диаметр' => '16 мм']
+                    ],
                 ],
             ]
         ],
@@ -475,14 +562,20 @@ return [
             'approx_weight' => '1.64 грамм',
             'insert-jewellery' => [
                 [
-                    'jewellery_id' => 24,
-                    'insert_id' => '3',
-                    'insert_property_id' => 10,
+                    'stone_id' => 5,
+                    'insert_colour_id' => 2,
+                    'insert_shape_id' => 3,
+                    'insert_property_id' => ['quantity' => 2, 'weight' => 0.579, 'weight_unit' => 'карат',
+                        'dimensions' => ['высота' => '5 мм', 'ширина' => '3 мм']
+                    ],
                 ],
                 [
-                    'jewellery_id' => 24,
-                    'insert_id' => '1',
-                    'insert_property_id' => 11,
+                    'stone_id' => 2,
+                    'insert_colour_id' => 12,
+                    'insert_shape_id' => 9,
+                    'insert_property_id' => ['quantity' => 12, 'weight' => 0.102, 'weight_unit' => 'карат',
+                        'dimensions' => ['диаметр' => '1 мм']
+                    ],
                 ],
             ]
         ],
@@ -499,9 +592,12 @@ return [
             'approx_weight' => '2.31 грамм',
             'insert-jewellery' => [
                 [
-                    'jewellery_id' => 25,
-                    'insert_id' => '6',
-                    'insert_property_id' => 12,
+                    'stone_id' => 7,
+                    'insert_colour_id' => 8,
+                    'insert_shape_id' => 5,
+                    'insert_property_id' => ['quantity' => 1, 'weight' => 6.45, 'weight_unit' => 'карат',
+                        'dimensions' => ['высота' => '7 мм', 'ширина' => '7.5 мм']
+                    ],
                 ]
             ]
         ],
@@ -518,14 +614,20 @@ return [
             'approx_weight' => '1.81 грамм',
             'insert-jewellery' => [
                 [
-                    'jewellery_id' => 26,
-                    'insert_id' => '2',
-                    'insert_property_id' => 8,
+                    'stone_id' => 3,
+                    'insert_colour_id' => 5,
+                    'insert_shape_id' => 9,
+                    'insert_property_id' => ['quantity' => 2, 'weight' => 1.179, 'weight_unit' => 'карат',
+                        'dimensions' => ['диаметр' => '5 мм']
+                    ],
                 ],
                 [
-                    'jewellery_id' => 26,
-                    'insert_id' => '1',
-                    'insert_property_id' => 9,
+                    'stone_id' => 2,
+                    'insert_colour_id' => 12,
+                    'insert_shape_id' => 9,
+                    'insert_property_id' => ['quantity' => 14, 'weight' => 0.119, 'weight_unit' => 'карат',
+                        'dimensions' => ['диаметр' => '1 мм']
+                    ],
                 ],
             ]
         ],
@@ -542,14 +644,20 @@ return [
             'approx_weight' => '7.7 грамм',
             'insert-jewellery' => [
                 [
-                    'jewellery_id' => 27,
-                    'insert_id' => '7',
-                    'insert_property_id' => 13,
+                    'stone_id' => 8,
+                    'insert_colour_id' => 9,
+                    'insert_shape_id' => 9,
+                    'insert_property_id' => ['quantity' => 2, 'weight' => 4.074, 'weight_unit' => 'карат',
+                        'dimensions' => ['диаметр' => '8 мм']
+                    ],
                 ],
                 [
-                    'jewellery_id' => 27,
-                    'insert_id' => '8',
-                    'insert_property_id' => 14,
+                    'stone_id' => 9,
+                    'insert_colour_id' => 1,
+                    'insert_shape_id' => 9,
+                    'insert_property_id' => ['quantity' => 2, 'weight' => 13.927, 'weight_unit' => 'карат',
+                        'dimensions' => ['диаметр' => '12 мм']
+                    ],
                 ],
             ]
         ],

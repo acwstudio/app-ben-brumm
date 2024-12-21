@@ -24,8 +24,6 @@ class DatabaseSeeder extends Seeder
         $this->call(InsertShapeSeeder::class);
         $this->call(InsertColourSeeder::class);
         $this->call(StoneSeeder::class);
-        $this->call(InsertSeeder::class);
-        $this->call(InsertPropertySeeder::class);
         $this->call(PrcsMetalSampleSeeder::class);
         $this->call(PrcsMetalSeeder::class);
         $this->call(CoverageSeeder::class);
