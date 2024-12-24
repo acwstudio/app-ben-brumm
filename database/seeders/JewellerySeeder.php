@@ -20,6 +20,8 @@ class JewellerySeeder extends Seeder
         DB::table('insert_properties')->truncate();
         DB::table('bracelet_props')->truncate();
         DB::table('brooch_props')->truncate();
+        DB::table('tie_clip_props')->truncate();
+        DB::table('cuff_link_props')->truncate();
         DB::table('ring_props')->truncate();
         DB::table('chain_props')->truncate();
         DB::table('bracelet_prop_bracelet_size')->truncate();
@@ -123,6 +125,16 @@ class JewellerySeeder extends Seeder
     private function getTieClipProps(array $item, int $jewellery_id): int
     {
         return $tie_clip_prop_id = DB::table('tie_clip_props')->insertGetId([
+            'jewellery_id' => $jewellery_id,
+            'quantity' => $item['props']['parameters']['quantity'],
+            'price' => $item['props']['parameters']['price'],
+            'created_at' => now(),
+        ]);
+    }
+
+    private function getCuffLinkProps(array $item, int $jewellery_id): int
+    {
+        return $cuff_link_prop_id = DB::table('cuff_link_props')->insertGetId([
             'jewellery_id' => $jewellery_id,
             'quantity' => $item['props']['parameters']['quantity'],
             'price' => $item['props']['parameters']['price'],

@@ -296,55 +296,69 @@ return [
             ],
             'insert-jewellery' => []
         ],
+        //            id => 8
         [
-//            id => 8
-            'prcs_metal_id' => 1,
-            'prcs_metal_sample_id' => 3,
-            'prcs_metal_colour_id' => 3,
-            'jewellery_category_id' => 4,
-            'coverage-jewellery' => [2],
+            'prcs_metal' => 'золото',
+            'prcs_metal_sample' => 585,
+            'prcs_metal_colour' => 'красный',
+            'jewellery_category' => 'запонки',
+            'coverage-jewellery' => ['родирование'],
             'name' => 'Запонки из золота с корундами и фианитами',
             'description' => '',
             'part_number' => '766001',
             'approx_weight' => '6.91 грамма',
-            'price' => 244990,
+            'props' => [
+                'name-function' => 'getCuffLinkProps',
+                'parameters' =>
+                    [
+                        'quantity' => 5,
+                        'price' => 244990
+                    ]
+            ],
             'insert-jewellery' => [
                 [
-                    'stone_id' => 12,
-                    'insert_colour_id' => 3,
-                    'insert_shape_id' => 13,
-                    'insert_property_id' => ['quantity' => 2, 'weight' => 3.742, 'weight_unit' => 'карат',
+                    'stone' => 'корунд',
+                    'insert_colour' => 'синий',
+                    'insert_shape' => 'октагон',
+                    'insert_property' => ['quantity' => 2, 'weight' => 3.742, 'weight_unit' => 'карат',
                         'dimensions' => ['высота' => '8 мм', 'ширина' => '6 мм']
                     ],
                 ],
                 [
-                    'stone_id' => 2,
-                    'insert_colour_id' => 12,
-                    'insert_shape_id' => 9,
-                    'insert_property_id' => ['quantity' => 4, 'weight' => 0.114, 'weight_unit' => 'карат',
+                    'stone' => 'фианит',
+                    'insert_colour' => 'бесцветный',
+                    'insert_shape' => 'круг',
+                    'insert_property' => ['quantity' => 4, 'weight' => 0.114, 'weight_unit' => 'карат',
                         'dimensions' => ['диаметр' => '1.5 мм']
                     ],
                 ]
             ]
         ],
+        //            id = 9
         [
-//            id = 9
-            'prcs_metal_id' => 2,
-            'prcs_metal_sample_id' => 11,
-            'prcs_metal_colour_id' => 7,
-            'jewellery_category_id' => 4,
-            'coverage-jewellery' => [2, 4],
+            'prcs_metal' => 'серебро',
+            'prcs_metal_sample' => 925,
+            'prcs_metal_colour' => 'платиновый оттенок',
+            'jewellery_category' => 'запонки',
+            'coverage-jewellery' => ['родирование', 'эмаль'],
             'name' => 'Запонки из серебра с эмалью с фианитами',
             'description' => '',
             'part_number' => '94160039',
             'approx_weight' => '5.57 грамма',
-            'price' => 21990,
+            'props' => [
+                'name-function' => 'getCuffLinkProps',
+                'parameters' =>
+                    [
+                        'quantity' => 5,
+                        'price' => 21990
+                    ]
+            ],
             'insert-jewellery' => [
                 [
-                    'stone_id' => 2,
-                    'insert_colour_id' => 12,
-                    'insert_shape_id' => 9,
-                    'insert_property_id' => ['quantity' => 40, 'weight' => 0.34, 'weight_unit' => 'карат',
+                    'stone' => 'фианит',
+                    'insert_colour' => 'бесцветный',
+                    'insert_shape' => 'круг',
+                    'insert_property' => ['quantity' => 40, 'weight' => 0.34, 'weight_unit' => 'карат',
                         'dimensions' => ['диаметр' => '1 мм']
                     ],
                 ]

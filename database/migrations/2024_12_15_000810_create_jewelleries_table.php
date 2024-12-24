@@ -135,6 +135,17 @@ return new class extends Migration
             $table->foreign('jewellery_id')->references('id')->on('jewelleries');
         });
 
+        //************ CUFF LINK PROPS **************
+        Schema::create('cuff_link_props', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('jewellery_id');
+            $table->integer('quantity');
+            $table->decimal('price', 8, 2);
+            $table->timestamps();
+
+            $table->foreign('jewellery_id')->references('id')->on('jewelleries');
+        });
+
         //************ CHAIN PROPS **************
         Schema::create('chain_props', function (Blueprint $table) {
             $table->id();
