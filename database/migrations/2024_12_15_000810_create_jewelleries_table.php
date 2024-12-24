@@ -58,7 +58,6 @@ return new class extends Migration
         Schema::create('bracelet_props', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('jewellery_category_id');
-            $table->unsignedBigInteger('weaving_id');
             $table->string('body_part');
             $table->timestamps();
 
@@ -96,11 +95,32 @@ return new class extends Migration
             $table->foreign('bracelet_prop_id')->references('id')->on('bracelet_props');
         });
 
+        //************ BROOCH PROPS **************
+        Schema::create('brooch_props', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('jewellery_category_id');
+            $table->integer('quantity');
+            $table->decimal('price', 8, 2);
+            $table->timestamps();
+
+            $table->foreign('jewellery_category_id')->references('id')->on('jewellery_categories');
+        });
+
+        //************ TIE CLIP PROPS **************
+        Schema::create('tie_clip_props', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('jewellery_category_id');
+            $table->integer('quantity');
+            $table->decimal('price', 8, 2);
+            $table->timestamps();
+
+            $table->foreign('jewellery_category_id')->references('id')->on('jewellery_categories');
+        });
+
         //************ CHAIN PROPS **************
         Schema::create('chain_props', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('jewellery_category_id');
-            $table->unsignedBigInteger('weaving_id');
             $table->timestamps();
 
             $table->foreign('jewellery_category_id')->references('id')->on('jewellery_categories');
@@ -188,6 +208,8 @@ return new class extends Migration
         Schema::dropIfExists('bracelet_prop_weaving');
         Schema::dropIfExists('bracelet_sizes');
         Schema::dropIfExists('bracelet_props');
+        Schema::dropIfExists('brooch_props');
+        Schema::dropIfExists('tie_clip_props');
         Schema::dropIfExists('chain_prop_chain_size');
         Schema::dropIfExists('chain_prop_weaving');
         Schema::dropIfExists('weavings');

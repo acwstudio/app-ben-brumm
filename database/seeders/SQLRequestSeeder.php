@@ -13,6 +13,9 @@ class SQLRequestSeeder extends Seeder
      */
     public function run(): void
     {
+        $vowels = array("a", "e", "i", "o", "u", "A", "E", "I", "O", "U", " ");
+        $yourString = str_replace($vowels, "", 'tie clip');
+        dd(DB::table('prcs_metals')->where('name', 'золото')->first()->id);
 //        dd(Insert::first()->jewelleries);
 //        $result = Insert::join('stones', 'inserts.stone_id', '=', 'stones.id')
 //            ->join('insert_colours', 'inserts.insert_colour_id', '=', 'insert_colours.id')

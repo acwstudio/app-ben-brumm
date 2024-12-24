@@ -2,22 +2,22 @@
 
 return [
     'jewellery-categories' => [
-        ['name' => 'браслеты', 'category-code' => 'brclt'],
-        ['name' => 'броши', 'category-code' => 'brch'],
-        ['name' => 'зажим для галстука', 'category-code' => 't_clp'],
-        ['name' => 'запонки', 'category-code' => 'cfflnk'],
-        ['name' => 'колье', 'category-code' => 'ncklc'],
-        ['name' => 'кольца', 'category-code' => 'rng'],
-        ['name' => 'пирсинг', 'category-code' => 'prcng'],
-        ['name' => 'подвески', 'category-code' => 'pndnt'],
-        ['name' => 'подвеска-шарм', 'category-code' => 'chrm_pndnt'],
-        ['name' => 'серьги', 'category-code' => 'rrng'],
-        ['name' => 'цепи', 'category-code' => 'chn'],
+        ['name' => 'браслеты', 'category-code' => 'bracelet'],
+        ['name' => 'броши', 'category-code' => 'brooch'],
+        ['name' => 'зажим для галстука', 'category-code' => 'tie clip'],
+        ['name' => 'запонки', 'category-code' => 'cuff link'],
+        ['name' => 'колье', 'category-code' => 'necklace'],
+        ['name' => 'кольца', 'category-code' => 'ring'],
+        ['name' => 'пирсинг', 'category-code' => 'piercing'],
+        ['name' => 'подвески', 'category-code' => 'pendant'],
+        ['name' => 'подвеска-шарм', 'category-code' => 'charm pendant'],
+        ['name' => 'серьги', 'category-code' => 'earring'],
+        ['name' => 'цепи', 'category-code' => 'chain'],
     ],
     'weavings' => [
-        'бисмарк','бисмарк двойной','гарибальди','колос','лав','нонна','панцирное','панцирное двойное','питон','ролло',
-        'ромб двойной','ромб тройной','сингапур','скорпион','снейк','улитка','фантазийное','фигаро','якорное',
-        'якорь бриллиантовый','без плетения'
+        'бисмарк', 'бисмарк двойной', 'гарибальди', 'колос', 'лав', 'нонна', 'панцирное', 'панцирное двойное', 'питон', 'ролло',
+        'ромб двойной', 'ромб тройной', 'сингапур', 'скорпион', 'снейк', 'улитка', 'фантазийное', 'фигаро', 'якорное',
+        'якорь бриллиантовый', 'без плетения'
     ],
     'bracelet_sizes' => [
         ['value' => 16, 'unit' => 'см'],
@@ -60,210 +60,240 @@ return [
         ['value' => 70, 'unit' => 'см'],
     ],
     'jewelleries' => [
+        //            id = 1
         [
-//            id = 1
-            'prcs_metal_id' => 1,
-            'prcs_metal_sample_id' => 3,
-            'prcs_metal_colour_id' => 2,
-            'jewellery_category_id' => 1,
-            'coverage-jewellery' => [3],
+            'prcs_metal' => 'золото',
+            'prcs_metal_sample' => 585,
+            'prcs_metal_colour' => 'белый',
+            'jewellery_category' => 'браслеты',
+            'coverage-jewellery' => ['без покрытия'],
             'name' => 'Браслет из белого золота с бриллиантами',
             'description' => '',
             'part_number' => '1050166-3',
             'approx_weight' => '5.4 грамма',
-            'price' => 499990,
-            'ring_props' => [],
-            'chain_props' => [],
-            'bracelet-props' => [
-                [
-                    'weaving_id' => 21,
-                    'jewellery_category_id' => 1,
-                    'body_part' => 'на руку',
-                    'bracelet_size_ids' => [2, 4, 6]
-                ]
+            'props' => [
+                'name-function' => 'getBraceletProps',
+                'parameters' =>
+                    [
+                        'weaving' => [],
+                        'body_part' => 'на руку',
+                        'bracelet_sizes' => [17, 18, 19],
+                        'quantity' => 5,
+                        'price' => 499990
+                    ]
             ],
             'insert-jewellery' => [
                 [
-                    'stone_id' => 1,
-                    'insert_colour_id' => 12,
-                    'insert_shape_id' => 9,
-                    'insert_property_id' => [
+                    'stone' => 'бриллиант',
+                    'insert_colour' => 'бесцветный',
+                    'insert_shape' => 'круг',
+                    'insert_property' => [
                         'quantity' => 31, 'weight' => 0.419, 'weight_unit' => 'карат',
                         'dimensions' => ['диаметр' => '< 1 мм']
                     ],
                 ],
                 [
-                    'stone_id' => 1,
-                    'insert_colour_id' => 12,
-                    'insert_shape_id' => 9,
-                    'insert_property_id' => [
+                    'stone' => 'бриллиант',
+                    'insert_colour' => 'бесцветный',
+                    'insert_shape' => 'круг',
+                    'insert_property' => [
                         'quantity' => 24, 'weight' => 0.178, 'weight_unit' => 'карат',
                         'dimensions' => ['диаметр' => '< 1 мм']
                     ],
                 ]
             ]
         ],
+        //            id = 2
         [
-//            id = 2
-            'prcs_metal_id' => 2,
-            'prcs_metal_sample_id' => 11,
-            'prcs_metal_colour_id' => 7,
-            'jewellery_category_id' => 1,
-            'coverage-jewellery' => [2],
+            'prcs_metal' => 'серебро',
+            'prcs_metal_sample' => 925,
+            'prcs_metal_colour' => 'платиновый оттенок',
+            'jewellery_category' => 'браслеты',
+            'coverage-jewellery' => ['родирование'],
             'name' => 'Браслет из серебра с миксом камней',
             'description' => '',
             'part_number' => '92050107',
             'approx_weight' => '8.41 грамм',
-            'price' => 28990,
-            'ring_props' => [],
-            'chain_props' => [],
-            'bracelet-props' => [
-                [
-                    'weaving_id' => 21,
-                    'jewellery_category_id' => 1,
-                    'body_part' => 'на руку',
-                    'bracelet_size_ids' => [1, 2, 3 ,4, 5, 6, 8]
-                ]
+            'props' => [
+                'name-function' => 'getBraceletProps',
+                'parameters' =>
+                    [
+                        'weaving' => [],
+                        'body_part' => 'на руку',
+                        'bracelet_sizes' => [16, 17, 17.5, 18, 18.5, 19, 20],
+                        'quantity' => 5,
+                        'price' => 28990
+                    ]
             ],
             'insert-jewellery' => [
                 [
-                    'stone_id' => 6,
-                    'insert_colour_id' => 13,
-                    'insert_shape_id' => 5,
-                    'insert_property_id' => [
+                    'stone' => 'аметист',
+                    'insert_colour' => 'сиреневый',
+                    'insert_shape' => 'груша',
+                    'insert_property' => [
                         'quantity' => 8, 'weight' => 4.827, 'weight_unit' => 'карат',
                         'dimensions' => ['высота' => '7 мм', 'ширина' => '5 мм']
                     ],
                 ],
                 [
-                    'stone_id' => 3,
-                    'insert_colour_id' => 5,
-                    'insert_shape_id' => 5,
-                    'insert_property_id' => ['quantity' => 7, 'weight' => 5.54, 'weight_unit' => 'карат',
+                    'stone' => 'топаз',
+                    'insert_colour' => 'голубой',
+                    'insert_shape' => 'груша',
+                    'insert_property' => ['quantity' => 7, 'weight' => 5.54, 'weight_unit' => 'карат',
                         'dimensions' => ['высота' => '7 мм', 'ширина' => '5 мм']
                     ],
                 ],
                 [
-                    'stone_id' => 2,
-                    'insert_colour_id' => 12,
-                    'insert_shape_id' => 9,
-                    'insert_property_id' => ['quantity' => 70, 'weight' => 0.595, 'weight_unit' => 'карат',
+                    'stone' => 'фианит',
+                    'insert_colour' => 'бесцветный',
+                    'insert_shape' => 'круг',
+                    'insert_property' => ['quantity' => 70, 'weight' => 0.595, 'weight_unit' => 'карат',
                         'dimensions' => ['диаметр' => '1 мм']
                     ],
                 ]
             ]
         ],
+        //            id = 3
         [
-//            id = 3
-            'prcs_metal_id' => 2,
-            'prcs_metal_sample_id' => 11,
-            'prcs_metal_colour_id' => 7,
-            'jewellery_category_id' => 1,
-            'coverage-jewellery' => [2],
+            'prcs_metal' => 'серебро',
+            'prcs_metal_sample' => 925,
+            'prcs_metal_colour' => 'платиновый оттенок',
+            'jewellery_category' => 'браслеты',
+            'coverage-jewellery' => ['родирование'],
             'name' => 'Браслет мужской из серебра, плетение Бисмарк',
             'description' => '',
             'part_number' => '965141004',
             'approx_weight' => '13.45 грамм',
-            'price' => 21990,
-            'bracelet-props' => [
-                [
-                    'weaving_id' => 1,
-                    'jewellery_category_id' => 1,
-                    'body_part' => 'на руку',
-                    'bracelet_size_ids' => [1, 2, 3 ,4, 5, 6, 8]
-                ]
+            'props' => [
+                'name-function' => 'getBraceletProps',
+                'parameters' =>
+                    [
+                        'weaving' => ['weaving' => 'бисмарк', 'fullness' => 'полнотелая', 'wire_diameter' => '1 мм'],
+                        'body_part' => 'на руку',
+                        'bracelet_sizes' => [18, 19, 20, 21, 22, 23, 24, 25],
+                        'quantity' => 5,
+                        'price' => 21990
+                    ]
             ],
             'insert-jewellery' => []
         ],
+        //            id = 4
         [
-//            id = 4
-            'prcs_metal_id' => 1,
-            'prcs_metal_sample_id' => 3,
-            'prcs_metal_colour_id' => 3,
-            'jewellery_category_id' => 2,
-            'coverage-jewellery' => [3],
+            'prcs_metal' => 'золото',
+            'prcs_metal_sample' => 585,
+            'prcs_metal_colour' => 'красный',
+            'jewellery_category' => 'броши',
+            'coverage-jewellery' => ['без покрытия',],
             'name' => 'Брошь из золота с гранатами',
             'description' => '',
             'part_number' => '740109',
             'approx_weight' => '1.14 грамм',
-            'price' => 42990,
+            'props' => [
+                'name-function' => 'getBroochProps',
+                'parameters' =>
+                [
+                    'quantity' => 5,
+                    'price' => 42990
+                ]
+            ],
             'insert-jewellery' => [
                 [
-                    'stone_id' => 5,
-                    'insert_colour_id' => 2,
-                    'insert_shape_id' => 9,
-                    'insert_property_id' => ['quantity' => 1, 'weight' => 0.146, 'weight_unit' => 'карат',
+                    'stone' => 'гранат',
+                    'insert_colour' => 'красный',
+                    'insert_shape' => 'круг',
+                    'insert_property' => ['quantity' => 1, 'weight' => 0.146, 'weight_unit' => 'карат',
                         'dimensions' => ['диаметр' => '3 мм']
                     ],
                 ],
                 [
-                    'stone_id' => 5,
-                    'insert_colour_id' => 2,
-                    'insert_shape_id' => 12,
-                    'insert_property_id' => ['quantity' => 6, 'weight' => 0.618, 'weight_unit' => 'карат',
+                    'stone' => 'гранат',
+                    'insert_colour' => 'красный',
+                    'insert_shape' => 'маркиз',
+                    'insert_property' => ['quantity' => 6, 'weight' => 0.618, 'weight_unit' => 'карат',
                         'dimensions' => ['высота' => '4 мм', 'ширина' => '2 мм']
                     ],
                 ],
             ]
         ],
+        //            id = 5
         [
-//            id = 5
-            'prcs_metal_id' => 1,
-            'prcs_metal_sample_id' => 3,
-            'prcs_metal_colour_id' => 3,
-            'jewellery_category_id' => 2,
-            'coverage-jewellery' => [3],
+            'prcs_metal' => 'золото',
+            'prcs_metal_sample' => 585,
+            'prcs_metal_colour' => 'красный',
+            'jewellery_category' => 'броши',
+            'coverage-jewellery' => ['без покрытия'],
             'name' => 'Брошь-булавка из золота',
             'description' => '',
             'part_number' => '40015',
             'approx_weight' => '0.91 грамм',
-            'price' => 55090,
+            'props' => [
+                'name-function' => 'getBroochProps',
+                'parameters' =>
+                    [
+                        'quantity' => 5,
+                        'price' => 55090
+                    ]
+            ],
             'insert-jewellery' => []
         ],
+        //            id = 6
         [
-//            id = 6
-            'prcs_metal_id' => 1,
-            'prcs_metal_sample_id' => 3,
-            'prcs_metal_colour_id' => 3,
-            'jewellery_category_id' => 3,
-            'coverage-jewellery' => [3],
+            'prcs_metal' => 'золото',
+            'prcs_metal_sample' => 585,
+            'prcs_metal_colour' => 'красный',
+            'jewellery_category' => 'зажим для галстука',
+            'coverage-jewellery' => ['без покрытия'],
             'name' => 'Зажим для галстука из золота с бриллиантами и изумрудом',
             'description' => '',
             'part_number' => '3090001',
             'approx_weight' => '6.45 грамм',
-            'price' => 269990,
+            'props' => [
+                'name-function' => 'getTieClipProps',
+                'parameters' =>
+                    [
+                        'quantity' => 5,
+                        'price' => 269990
+                    ]
+            ],
             'insert-jewellery' => [
                 [
-                    'stone_id' => 11,
-                    'insert_colour_id' => 1,
-                    'insert_shape_id' => 9,
-                    'insert_property_id' => ['quantity' => 1, 'weight' => 0.452, 'weight_unit' => 'карат',
+                    'stone' => 'изумруд',
+                    'insert_colour' => 'зеленый',
+                    'insert_shape' => 'круг',
+                    'insert_property' => ['quantity' => 1, 'weight' => 0.452, 'weight_unit' => 'карат',
                         'dimensions' => ['диаметр' => '1.5 мм']
                     ],
                 ],
                 [
-                    'stone_id' => 1,
-                    'insert_colour_id' => 12,
-                    'insert_shape_id' => 9,
-                    'insert_property_id' => ['quantity' => 20, 'weight' => 0.046, 'weight_unit' => 'карат',
+                    'stone' => 'бриллиант',
+                    'insert_colour' => 'бесцветный',
+                    'insert_shape' => 'круг',
+                    'insert_property' => ['quantity' => 20, 'weight' => 0.046, 'weight_unit' => 'карат',
                         'dimensions' => ['диаметр' => '< 1 мм']
                     ],
                 ]
             ]
 
         ],
+        //            id => 7
         [
-//            id => 7
-            'prcs_metal_id' => 1,
-            'prcs_metal_sample_id' => 3,
-            'prcs_metal_colour_id' => 3,
-            'jewellery_category_id' => 3,
-            'coverage-jewellery' => [2, 5],
+            'prcs_metal' => 'золото',
+            'prcs_metal_sample' => 585,
+            'prcs_metal_colour' => 'красный',
+            'jewellery_category' => 'зажим для галстука',
+            'coverage-jewellery' => ['родирование', 'эмаль'],
             'name' => 'Золотой зажим для галстука с алмазной гранью',
             'description' => '',
             'part_number' => '090035',
             'approx_weight' => '4.44 грамма',
-            'price' => 121990,
+            'props' => [
+                'name-function' => 'getTieClipProps',
+                'parameters' =>
+                    [
+                        'quantity' => 5,
+                        'price' => 121990
+                    ]
+            ],
             'insert-jewellery' => []
         ],
         [

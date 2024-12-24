@@ -59,10 +59,17 @@ class JewelleryCategorySeeder extends Seeder
         foreach ($categories as $category) {
             DB::table('jewellery_categories')->insert([
                 'name' => $category['name'],
-                'category_code' => $category['category-code'],
+                'category_code' => $this->getCategoryCode($category['category-code']),
                 'slug' => Str::slug($category['name'], '-'),
                 'created_at' => now(),
             ]);
         }
+    }
+
+    private function getCategoryCode(string $categoryName): string
+    {
+        $vowels = array("a", "e", "i", "o", "u", "A", "E", "I", "O", "U", " ");
+
+        return $yourString = str_replace($vowels, "", $categoryName);
     }
 }
