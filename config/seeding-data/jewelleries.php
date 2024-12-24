@@ -2,8 +2,62 @@
 
 return [
     'jewellery-categories' => [
-        'браслеты','броши','зажим для галстука','запонки','колье','кольца','пирсинг','подвески','подвеска-шарм',
-        'серьги','цепи',
+        ['name' => 'браслеты', 'category-code' => 'brclt'],
+        ['name' => 'броши', 'category-code' => 'brch'],
+        ['name' => 'зажим для галстука', 'category-code' => 't_clp'],
+        ['name' => 'запонки', 'category-code' => 'cfflnk'],
+        ['name' => 'колье', 'category-code' => 'ncklc'],
+        ['name' => 'кольца', 'category-code' => 'rng'],
+        ['name' => 'пирсинг', 'category-code' => 'prcng'],
+        ['name' => 'подвески', 'category-code' => 'pndnt'],
+        ['name' => 'подвеска-шарм', 'category-code' => 'chrm_pndnt'],
+        ['name' => 'серьги', 'category-code' => 'rrng'],
+        ['name' => 'цепи', 'category-code' => 'chn'],
+    ],
+    'weavings' => [
+        'бисмарк','бисмарк двойной','гарибальди','колос','лав','нонна','панцирное','панцирное двойное','питон','ролло',
+        'ромб двойной','ромб тройной','сингапур','скорпион','снейк','улитка','фантазийное','фигаро','якорное',
+        'якорь бриллиантовый','без плетения'
+    ],
+    'bracelet_sizes' => [
+        ['value' => 16, 'unit' => 'см'],
+        ['value' => 17, 'unit' => 'см'],
+        ['value' => 17.5, 'unit' => 'см'],
+        ['value' => 18, 'unit' => 'см'],
+        ['value' => 18.5, 'unit' => 'см'],
+        ['value' => 19, 'unit' => 'см'],
+        ['value' => 19.5, 'unit' => 'см'],
+        ['value' => 20, 'unit' => 'см'],
+        ['value' => 21, 'unit' => 'см'],
+        ['value' => 22, 'unit' => 'см'],
+        ['value' => 23, 'unit' => 'см'],
+        ['value' => 24, 'unit' => 'см'],
+        ['value' => 25, 'unit' => 'см'],
+    ],
+    'ring_sizes' => [
+        ['value' => 15.5, 'unit' => 'мм'],
+        ['value' => 16, 'unit' => 'мм'],
+        ['value' => 16.5, 'unit' => 'мм'],
+        ['value' => 17, 'unit' => 'мм'],
+        ['value' => 17.5, 'unit' => 'мм'],
+        ['value' => 18, 'unit' => 'мм'],
+        ['value' => 18.5, 'unit' => 'мм'],
+        ['value' => 19, 'unit' => 'мм'],
+        ['value' => 19.5, 'unit' => 'мм'],
+        ['value' => 20, 'unit' => 'мм'],
+        ['value' => 21.5, 'unit' => 'мм'],
+        ['value' => 22, 'unit' => 'мм'],
+        ['value' => 22.5, 'unit' => 'мм'],
+    ],
+    'chain_sizes' => [
+        ['value' => 35, 'unit' => 'см'],
+        ['value' => 40, 'unit' => 'см'],
+        ['value' => 45, 'unit' => 'см'],
+        ['value' => 50, 'unit' => 'см'],
+        ['value' => 55, 'unit' => 'см'],
+        ['value' => 60, 'unit' => 'см'],
+        ['value' => 65, 'unit' => 'см'],
+        ['value' => 70, 'unit' => 'см'],
     ],
     'jewelleries' => [
         [
@@ -17,6 +71,17 @@ return [
             'description' => '',
             'part_number' => '1050166-3',
             'approx_weight' => '5.4 грамма',
+            'price' => 499990,
+            'ring_props' => [],
+            'chain_props' => [],
+            'bracelet-props' => [
+                [
+                    'weaving_id' => 21,
+                    'jewellery_category_id' => 1,
+                    'body_part' => 'на руку',
+                    'bracelet_size_ids' => [2, 4, 6]
+                ]
+            ],
             'insert-jewellery' => [
                 [
                     'stone_id' => 1,
@@ -49,6 +114,17 @@ return [
             'description' => '',
             'part_number' => '92050107',
             'approx_weight' => '8.41 грамм',
+            'price' => 28990,
+            'ring_props' => [],
+            'chain_props' => [],
+            'bracelet-props' => [
+                [
+                    'weaving_id' => 21,
+                    'jewellery_category_id' => 1,
+                    'body_part' => 'на руку',
+                    'bracelet_size_ids' => [1, 2, 3 ,4, 5, 6, 8]
+                ]
+            ],
             'insert-jewellery' => [
                 [
                     'stone_id' => 6,
@@ -88,6 +164,15 @@ return [
             'description' => '',
             'part_number' => '965141004',
             'approx_weight' => '13.45 грамм',
+            'price' => 21990,
+            'bracelet-props' => [
+                [
+                    'weaving_id' => 1,
+                    'jewellery_category_id' => 1,
+                    'body_part' => 'на руку',
+                    'bracelet_size_ids' => [1, 2, 3 ,4, 5, 6, 8]
+                ]
+            ],
             'insert-jewellery' => []
         ],
         [
@@ -101,6 +186,7 @@ return [
             'description' => '',
             'part_number' => '740109',
             'approx_weight' => '1.14 грамм',
+            'price' => 42990,
             'insert-jewellery' => [
                 [
                     'stone_id' => 5,
@@ -131,6 +217,7 @@ return [
             'description' => '',
             'part_number' => '40015',
             'approx_weight' => '0.91 грамм',
+            'price' => 55090,
             'insert-jewellery' => []
         ],
         [
@@ -144,6 +231,7 @@ return [
             'description' => '',
             'part_number' => '3090001',
             'approx_weight' => '6.45 грамм',
+            'price' => 269990,
             'insert-jewellery' => [
                 [
                     'stone_id' => 11,
@@ -175,6 +263,7 @@ return [
             'description' => '',
             'part_number' => '090035',
             'approx_weight' => '4.44 грамма',
+            'price' => 121990,
             'insert-jewellery' => []
         ],
         [
@@ -188,6 +277,7 @@ return [
             'description' => '',
             'part_number' => '766001',
             'approx_weight' => '6.91 грамма',
+            'price' => 244990,
             'insert-jewellery' => [
                 [
                     'stone_id' => 12,
@@ -218,6 +308,7 @@ return [
             'description' => '',
             'part_number' => '94160039',
             'approx_weight' => '5.57 грамма',
+            'price' => 21990,
             'insert-jewellery' => [
                 [
                     'stone_id' => 2,
@@ -240,6 +331,7 @@ return [
             'description' => '',
             'part_number' => '1070162',
             'approx_weight' => '1.69 грамма',
+            'price' => 319990,
             'insert-jewellery' => [
                 [
                     'stone_id' => 1,
@@ -262,6 +354,7 @@ return [
             'description' => '',
             'part_number' => '94070950',
             'approx_weight' => '4.56 грамма',
+            'price' => 17990,
             'insert-jewellery' => []
         ],
         [
@@ -275,6 +368,7 @@ return [
             'description' => '',
             'part_number' => '71-00338',
             'approx_weight' => '1.85 грамма',
+            'price' => 114990,
             'insert-jewellery' => [
                 [
                     'stone_id' => 13,
@@ -321,6 +415,7 @@ return [
             'description' => '',
             'part_number' => '94014199',
             'approx_weight' => '2.54 грамма',
+            'price' => 11990,
             'insert-jewellery' => [
                 [
                     'stone_id' => 2,
@@ -344,6 +439,7 @@ return [
             'description' => '',
             'part_number' => '110224',
             'approx_weight' => '2.15 грамма',
+            'price' => 79990,
             'insert-jewellery' => []
         ],
         [
@@ -357,6 +453,7 @@ return [
             'description' => '',
             'part_number' => '94011705',
             'approx_weight' => '3 грамма',
+            'price' => 13490,
             'insert-jewellery' => [
                 [
                     'stone_id' => 2,
@@ -387,6 +484,7 @@ return [
             'description' => '',
             'part_number' => '060054',
             'approx_weight' => '1.04 грамма',
+            'price' => 55990,
             'insert-jewellery' => []
         ],
         [
@@ -400,6 +498,7 @@ return [
             'description' => '',
             'part_number' => '060204',
             'approx_weight' => '1.55 грамма',
+            'price' => 67990,
             'insert-jewellery' => [
                 [
                     'stone_id' => 2,
@@ -422,6 +521,7 @@ return [
             'description' => '',
             'part_number' => '73-00124',
             'approx_weight' => '0.74 грамма',
+            'price' => 32990,
             'insert-jewellery' => [
                 [
                     'stone_id' => 1,
@@ -452,6 +552,7 @@ return [
             'description' => '',
             'part_number' => '36671',
             'approx_weight' => '0.95 грамма',
+            'price' => 46990,
             'insert-jewellery' => []
         ],
         [
@@ -465,6 +566,7 @@ return [
             'description' => '',
             'part_number' => '93030569',
             'approx_weight' => '3.17 грамма',
+            'price' => 5990,
             'insert-jewellery' => []
         ],
         [
@@ -478,6 +580,7 @@ return [
             'description' => '',
             'part_number' => '94032885',
             'approx_weight' => '2.55 грамма',
+            'price' => 10490,
             'insert-jewellery' => [
                 [
                     'stone_id' => 2,
@@ -500,6 +603,7 @@ return [
             'description' => '',
             'part_number' => '1021708',
             'approx_weight' => '2.03 грамма',
+            'price' => 154990,
             'insert-jewellery' => [
                 [
                     'stone_id' => 1,
@@ -530,6 +634,7 @@ return [
             'description' => '',
             'part_number' => '6024257',
             'approx_weight' => '3.6 грамм',
+            'price' => 159990,
             'insert-jewellery' => [
                 [
                     'stone_id' => 1,
@@ -560,6 +665,7 @@ return [
             'description' => '',
             'part_number' => '728331',
             'approx_weight' => '1.64 грамм',
+            'price' => 16990,
             'insert-jewellery' => [
                 [
                     'stone_id' => 5,
@@ -590,6 +696,7 @@ return [
             'description' => '',
             'part_number' => '792410',
             'approx_weight' => '2.31 грамм',
+            'price' => 14490,
             'insert-jewellery' => [
                 [
                     'stone_id' => 7,
@@ -612,6 +719,7 @@ return [
             'description' => '',
             'part_number' => '727533',
             'approx_weight' => '1.81 грамм',
+            'price' => 16990,
             'insert-jewellery' => [
                 [
                     'stone_id' => 3,
@@ -642,6 +750,7 @@ return [
             'description' => '',
             'part_number' => '83020096',
             'approx_weight' => '7.7 грамм',
+            'price' => 18990,
             'insert-jewellery' => [
                 [
                     'stone_id' => 8,
@@ -672,6 +781,7 @@ return [
             'description' => '',
             'part_number' => '582011006',
             'approx_weight' => '14.04 грамм',
+            'price' => 114990,
             'insert-jewellery' => []
         ],
         [
@@ -685,6 +795,7 @@ return [
             'description' => '',
             'part_number' => '581020502',
             'approx_weight' => '7.48 грамм',
+            'price' => 204990,
             'insert-jewellery' => []
         ]
     ]

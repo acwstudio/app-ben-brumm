@@ -16,14 +16,51 @@ class JewelleryCategorySeeder extends Seeder
     {
         DB::statement('SET FOREIGN_KEY_CHECKS=0;');
         DB::table('jewellery_categories')->truncate();
+        DB::table('weavings')->truncate();
+        DB::table('bracelet_sizes')->truncate();
+        DB::table('chain_sizes')->truncate();
+        DB::table('ring_sizes')->truncate();
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
 
         $categories = config('seeding-data.jewelleries.jewellery-categories');
+        $weaves = config('seeding-data.jewelleries.weavings');
+        $ring_sizes = config('seeding-data.jewelleries.ring_sizes');
+        $bracelet_sizes = config('seeding-data.jewelleries.bracelet_sizes');
+        $chain_sizes = config('seeding-data.jewelleries.chain_sizes');
+
+        foreach ($weaves as $weave) {
+            DB::table('weavings')->insert([
+                'name' => $weave,
+                'created_at' => now(),
+            ]);
+        }
+
+        foreach ($ring_sizes as $ring_size) {
+            DB::table('ring_sizes')->insert([
+                'value' => $ring_size['value'],
+                'created_at' => now(),
+            ]);
+        }
+
+        foreach ($chain_sizes as $chain_size) {
+            DB::table('chain_sizes')->insert([
+                'value' => $chain_size['value'],
+                'created_at' => now(),
+            ]);
+        }
+
+        foreach ($bracelet_sizes as $bracelet_size) {
+            DB::table('bracelet_sizes')->insert([
+                'value' => $bracelet_size['value'],
+                'created_at' => now(),
+            ]);
+        }
 
         foreach ($categories as $category) {
             DB::table('jewellery_categories')->insert([
-                'name' => $category,
-                'slug' => Str::slug($category, '-'),
+                'name' => $category['name'],
+                'category_code' => $category['category-code'],
+                'slug' => Str::slug($category['name'], '-'),
                 'created_at' => now(),
             ]);
         }

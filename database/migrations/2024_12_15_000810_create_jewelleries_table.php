@@ -11,14 +11,131 @@ return new class extends Migration
      */
     public function up(): void
     {
-        {
-            Schema::create('jewellery_categories', function (Blueprint $table) {
-                $table->id();
-                $table->string('name');
-                $table->string('slug');
-                $table->timestamps();
-            });
-        }
+        Schema::create('jewellery_categories', function (Blueprint $table) {
+            $table->id();
+            $table->string('category_code')->unique();
+            $table->string('name')->unique();
+            $table->string('slug');
+            $table->timestamps();
+        });
+
+        Schema::create('weavings', function (Blueprint $table) {
+            $table->id();
+            $table->string('name')->unique();
+            $table->timestamps();
+        });
+
+        //************ RING PROPS **************
+        Schema::create('ring_props', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('jewellery_category_id');
+            $table->json('dimensions');
+            $table->timestamps();
+
+            $table->foreign('jewellery_category_id')->references('id')->on('jewellery_categories');
+        });
+
+        Schema::create('ring_sizes', function (Blueprint $table) {
+            $table->id();
+            $table->decimal('value')->unique();
+            $table->string('unit')->default('мм');
+            $table->timestamps();
+        });
+
+        Schema::create('ring_prop_ring_size', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('ring_size_id');
+            $table->unsignedBigInteger('ring_prop_id');
+            $table->integer('quantity');
+            $table->decimal('price', 8, 2);
+            $table->timestamps();
+
+            $table->foreign('ring_size_id')->references('id')->on('ring_sizes');
+            $table->foreign('ring_prop_id')->references('id')->on('ring_props');
+        });
+
+        //************ BRACELET PROPS **************
+        Schema::create('bracelet_props', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('jewellery_category_id');
+            $table->unsignedBigInteger('weaving_id');
+            $table->string('body_part');
+            $table->timestamps();
+
+            $table->foreign('jewellery_category_id')->references('id')->on('jewellery_categories');
+        });
+
+        Schema::create('bracelet_sizes', function (Blueprint $table) {
+            $table->id();
+            $table->decimal('value')->unique();
+            $table->string('unit')->default('см');
+            $table->timestamps();
+        });
+
+        Schema::create('bracelet_prop_bracelet_size', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('bracelet_size_id');
+            $table->unsignedBigInteger('bracelet_prop_id');
+            $table->integer('quantity');
+            $table->decimal('price', 8, 2);
+            $table->timestamps();
+
+            $table->foreign('bracelet_size_id')->references('id')->on('bracelet_sizes');
+            $table->foreign('bracelet_prop_id')->references('id')->on('bracelet_props');
+        });
+
+        Schema::create('bracelet_prop_weaving', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('weaving_id');
+            $table->unsignedBigInteger('bracelet_prop_id');
+            $table->string('fullness');
+            $table->string('wire_diameter');
+            $table->timestamps();
+
+            $table->foreign('weaving_id')->references('id')->on('weavings');
+            $table->foreign('bracelet_prop_id')->references('id')->on('bracelet_props');
+        });
+
+        //************ CHAIN PROPS **************
+        Schema::create('chain_props', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('jewellery_category_id');
+            $table->unsignedBigInteger('weaving_id');
+            $table->timestamps();
+
+            $table->foreign('jewellery_category_id')->references('id')->on('jewellery_categories');
+        });
+
+        Schema::create('chain_sizes', function (Blueprint $table) {
+            $table->id();
+            $table->decimal('value', 8, 2);
+            $table->string('unit')->default('см');
+            $table->timestamps();
+        });
+
+        Schema::create('chain_prop_chain_size', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('chain_size_id');
+            $table->unsignedBigInteger('chain_prop_id');
+            $table->integer('quantity');
+            $table->decimal('price', 8, 2);
+            $table->timestamps();
+
+            $table->foreign('chain_size_id')->references('id')->on('chain_sizes');
+            $table->foreign('chain_prop_id')->references('id')->on('chain_props');
+        });
+
+        Schema::create('chain_prop_weaving', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('weaving_id');
+            $table->unsignedBigInteger('chain_prop_id');
+            $table->string('fullness');
+            $table->string('wire_diameter');
+            $table->timestamps();
+
+            $table->foreign('weaving_id')->references('id')->on('weavings');
+            $table->foreign('chain_prop_id')->references('id')->on('chain_props');
+        });
 
         Schema::create('jewelleries', function (Blueprint $table) {
             $table->id();
@@ -64,6 +181,18 @@ return new class extends Migration
             $table->dropConstrainedForeignId('jewellery_id');
         });
 
+        Schema::dropIfExists('ring_prop_ring_size');
+        Schema::dropIfExists('ring_sizes');
+        Schema::dropIfExists('ring_props');
+        Schema::dropIfExists('bracelet_prop_bracelet_size');
+        Schema::dropIfExists('bracelet_prop_weaving');
+        Schema::dropIfExists('bracelet_sizes');
+        Schema::dropIfExists('bracelet_props');
+        Schema::dropIfExists('chain_prop_chain_size');
+        Schema::dropIfExists('chain_prop_weaving');
+        Schema::dropIfExists('weavings');
+        Schema::dropIfExists('chain_sizes');
+        Schema::dropIfExists('chain_props');
         Schema::dropIfExists('coverage_jewellery');
         Schema::dropIfExists('jewelleries');
         Schema::dropIfExists('jewellery_categories');
