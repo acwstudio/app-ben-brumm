@@ -46,8 +46,8 @@ class JewellerySeeder extends Seeder
 
             $funcName = $item['props']['name-function'];
             $params = $item['props']['parameters'];
-            $this->$funcName($item);
-            dump($funcName);
+            $this->$funcName($item, $jewellery_id);
+//            dump($funcName);
             if ($item['insert-jewellery']) {
                 foreach ($item['insert-jewellery'] as $jewellery) {
                     $property_id = DB::table('insert_properties')->insertGetId([
@@ -78,10 +78,10 @@ class JewellerySeeder extends Seeder
             }
         }
     }
-    private function getBraceletProps(array $item): int
+    private function getBraceletProps(array $item, int $jewellery_id): int
     {
         $bracelet_prop_id = DB::table('bracelet_props')->insertGetId([
-            'jewellery_category_id' => DB::table('jewellery_categories')->where('name', $item['jewellery_category'])->first()->id,
+            'jewellery_id' => $jewellery_id,
             'body_part' => 'на руку',
             'created_at' => now(),
         ]);
@@ -110,20 +110,20 @@ class JewellerySeeder extends Seeder
         return $bracelet_prop_id;
     }
 
-    private function getBroochProps(array $item): int
+    private function getBroochProps(array $item, int $jewellery_id): int
     {
         return $brooch_prop_id = DB::table('brooch_props')->insertGetId([
-            'jewellery_category_id' => DB::table('jewellery_categories')->where('name', $item['jewellery_category'])->first()->id,
+            'jewellery_id' => $jewellery_id,
             'quantity' => $item['props']['parameters']['quantity'],
             'price' => $item['props']['parameters']['price'],
             'created_at' => now(),
         ]);
     }
 
-    private function getTieClipProps(array $item): int
+    private function getTieClipProps(array $item, int $jewellery_id): int
     {
         return $tie_clip_prop_id = DB::table('tie_clip_props')->insertGetId([
-            'jewellery_category_id' => DB::table('jewellery_categories')->where('name', $item['jewellery_category'])->first()->id,
+            'jewellery_id' => $jewellery_id,
             'quantity' => $item['props']['parameters']['quantity'],
             'price' => $item['props']['parameters']['price'],
             'created_at' => now(),

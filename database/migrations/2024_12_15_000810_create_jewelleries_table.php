@@ -25,14 +25,32 @@ return new class extends Migration
             $table->timestamps();
         });
 
+        Schema::create('jewelleries', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('prcs_metal_sample_id');
+            $table->unsignedBigInteger('prcs_metal_colour_id');
+            $table->unsignedBigInteger('prcs_metal_id');
+            $table->unsignedBigInteger('jewellery_category_id');
+            $table->string('name');
+            $table->string('description');
+            $table->string('part_number')->unique();
+            $table->string('approx_weight');
+            $table->timestamps();
+
+            $table->foreign('prcs_metal_sample_id')->references('id')->on('prcs_metal_samples');
+            $table->foreign('prcs_metal_colour_id')->references('id')->on('prcs_metal_colours');
+            $table->foreign('prcs_metal_id')->references('id')->on('prcs_metals');
+            $table->foreign('jewellery_category_id')->references('id')->on('jewellery_categories');
+        });
+
         //************ RING PROPS **************
         Schema::create('ring_props', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('jewellery_category_id');
+            $table->unsignedBigInteger('jewellery_id');
             $table->json('dimensions');
             $table->timestamps();
 
-            $table->foreign('jewellery_category_id')->references('id')->on('jewellery_categories');
+            $table->foreign('jewellery_id')->references('id')->on('jewelleries');
         });
 
         Schema::create('ring_sizes', function (Blueprint $table) {
@@ -57,11 +75,11 @@ return new class extends Migration
         //************ BRACELET PROPS **************
         Schema::create('bracelet_props', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('jewellery_category_id');
+            $table->unsignedBigInteger('jewellery_id');
             $table->string('body_part');
             $table->timestamps();
 
-            $table->foreign('jewellery_category_id')->references('id')->on('jewellery_categories');
+            $table->foreign('jewellery_id')->references('id')->on('jewelleries');
         });
 
         Schema::create('bracelet_sizes', function (Blueprint $table) {
@@ -98,32 +116,32 @@ return new class extends Migration
         //************ BROOCH PROPS **************
         Schema::create('brooch_props', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('jewellery_category_id');
+            $table->unsignedBigInteger('jewellery_id');
             $table->integer('quantity');
             $table->decimal('price', 8, 2);
             $table->timestamps();
 
-            $table->foreign('jewellery_category_id')->references('id')->on('jewellery_categories');
+            $table->foreign('jewellery_id')->references('id')->on('jewelleries');
         });
 
         //************ TIE CLIP PROPS **************
         Schema::create('tie_clip_props', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('jewellery_category_id');
+            $table->unsignedBigInteger('jewellery_id');
             $table->integer('quantity');
             $table->decimal('price', 8, 2);
             $table->timestamps();
 
-            $table->foreign('jewellery_category_id')->references('id')->on('jewellery_categories');
+            $table->foreign('jewellery_id')->references('id')->on('jewelleries');
         });
 
         //************ CHAIN PROPS **************
         Schema::create('chain_props', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('jewellery_category_id');
+            $table->unsignedBigInteger('jewellery_id');
             $table->timestamps();
 
-            $table->foreign('jewellery_category_id')->references('id')->on('jewellery_categories');
+            $table->foreign('jewellery_id')->references('id')->on('jewelleries');
         });
 
         Schema::create('chain_sizes', function (Blueprint $table) {
@@ -157,24 +175,7 @@ return new class extends Migration
             $table->foreign('chain_prop_id')->references('id')->on('chain_props');
         });
 
-        Schema::create('jewelleries', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('prcs_metal_sample_id');
-            $table->unsignedBigInteger('prcs_metal_colour_id');
-            $table->unsignedBigInteger('prcs_metal_id');
-            $table->unsignedBigInteger('jewellery_category_id');
-            $table->string('name');
-            $table->string('description');
-            $table->string('part_number')->unique();
-            $table->string('approx_weight');
-            $table->timestamps();
-
-            $table->foreign('prcs_metal_sample_id')->references('id')->on('prcs_metal_samples');
-            $table->foreign('prcs_metal_colour_id')->references('id')->on('prcs_metal_colours');
-            $table->foreign('prcs_metal_id')->references('id')->on('prcs_metals');
-            $table->foreign('jewellery_category_id')->references('id')->on('jewellery_categories');
-        });
-
+        //************ COVERAGE JEWELLERY **************
         Schema::create('coverage_jewellery', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('coverage_id');
