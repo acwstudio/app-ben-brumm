@@ -578,86 +578,118 @@ return [
                 ],
             ]
         ],
+        //            id = 16
         [
-//            id = 16
-            'prcs_metal_id' => 1,
-            'prcs_metal_sample_id' => 3,
-            'prcs_metal_colour_id' => 3,
-            'jewellery_category_id' => 7,
-            'coverage-jewellery' => [3],
+            'prcs_metal' => 'золото',
+            'prcs_metal_sample' => 585,
+            'prcs_metal_colour' => 'красный',
+            'jewellery_category' => 'пирсинг',
+            'coverage-jewellery' => ['без покрытия'],
             'name' => 'Пирсинг в бровь из золота',
             'description' => '',
             'part_number' => '060054',
             'approx_weight' => '1.04 грамма',
             'price' => 55990,
+            'props' => [
+                'name-function' => 'getPiercingProps',
+                'parameters' =>
+                    [
+                        'quantity' => 5,
+                        'price' => 55990
+                    ]
+            ],
             'insert-jewellery' => []
         ],
+        //            id = 17
         [
-//            id = 17
-            'prcs_metal_id' => 1,
-            'prcs_metal_sample_id' => 3,
-            'prcs_metal_colour_id' => 3,
-            'jewellery_category_id' => 7,
-            'coverage-jewellery' => [3],
+            'prcs_metal' => 'золото',
+            'prcs_metal_sample' => 585,
+            'prcs_metal_colour' => 'красный',
+            'jewellery_category' => 'пирсинг',
+            'coverage-jewellery' => ['без покрытия'],
             'name' => 'Пирсинг в пупок из золота с фианитом',
             'description' => '',
             'part_number' => '060204',
             'approx_weight' => '1.55 грамма',
-            'price' => 67990,
+            'props' => [
+                'name-function' => 'getPiercingProps',
+                'parameters' =>
+                    [
+                        'quantity' => 5,
+                        'price' => 67990
+                    ]
+            ],
             'insert-jewellery' => [
                 [
-                    'stone_id' => 2,
-                    'insert_colour_id' => 12,
-                    'insert_shape_id' => 9,
-                    'insert_property_id' => ['quantity' => 1, 'weight' => 1.455, 'weight_unit' => 'карат',
+                    'stone' => 'фианит',
+                    'insert_colour' => 'бесцветный',
+                    'insert_shape' => 'круг',
+                    'insert_property' => ['quantity' => 1, 'weight' => 1.455, 'weight_unit' => 'карат',
                         'dimensions' => ['диаметр' => '6 мм']
                     ],
                 ]
             ]
         ],
+        //            id = 18
         [
-//            id = 18
-            'prcs_metal_id' => 1,
-            'prcs_metal_sample_id' => 3,
-            'prcs_metal_colour_id' => 3,
-            'jewellery_category_id' => 8,
-            'coverage-jewellery' => [3],
+            'prcs_metal' => 'золото',
+            'prcs_metal_sample' => 585,
+            'prcs_metal_colour' => 'красный',
+            'jewellery_category' => 'подвески',
+            'coverage-jewellery' => ['без покрытия'],
             'name' => 'Подвеска из золота с бриллиантами и аметистом',
             'description' => '',
             'part_number' => '73-00124',
             'approx_weight' => '0.74 грамма',
-            'price' => 32990,
+            'props' => [
+                'name-function' => 'getPendantProps',
+                'parameters' =>
+                    [
+                        'quantity' => 5,
+                        'price' => 32990,
+                        'dimensions' => ['ширина' => '6 мм', 'толщина' => '4 мм', 'высота' => '13 мм']
+                    ]
+            ],
             'insert-jewellery' => [
                 [
-                    'stone_id' => 1,
-                    'insert_colour_id' => 12,
-                    'insert_shape_id' => 9,
-                    'insert_property_id' => ['quantity' => 3, 'weight' => 0.011, 'weight_unit' => 'карат',
+                    'stone' => 'бриллиант',
+                    'insert_colour' => 'бесцветный',
+                    'insert_shape' => 'круг',
+                    'insert_property' => ['quantity' => 3, 'weight' => 0.011, 'weight_unit' => 'карат',
                         'dimensions' => ['диаметр' => '< 1 мм']
                     ],
                 ],
                 [
-                    'stone_id' => 6,
-                    'insert_colour_id' => 13,
-                    'insert_shape_id' => 3,
-                    'insert_property_id' => ['quantity' => 1, 'weight' => 1.078, 'weight_unit' => 'карат',
+                    'stone' => 'аметист',
+                    'insert_colour' => 'сиреневый',
+                    'insert_shape' => 'овал',
+                    'insert_property' => ['quantity' => 1, 'weight' => 1.078, 'weight_unit' => 'карат',
                         'dimensions' => ['высота' => '8 мм', 'ширина' => '6 мм']
                     ],
                 ]
             ]
         ],
+        //            id = 19
         [
-//            id = 19
-            'prcs_metal_id' => 1,
-            'prcs_metal_sample_id' => 3,
-            'prcs_metal_colour_id' => 3,
-            'jewellery_category_id' => 8,
-            'coverage-jewellery' => [3],
+            'prcs_metal' => 'золото',
+            'prcs_metal_sample' => 585,
+            'prcs_metal_colour' => 'красный',
+            'jewellery_category' => 'подвески',
+            'coverage-jewellery' => ['без покрытия'],
             'name' => 'Подвеска из золота',
             'description' => '',
             'part_number' => '36671',
             'approx_weight' => '0.95 грамма',
             'price' => 46990,
+            'props' => [
+                'name-function' => 'getPendantProps',
+                'parameters' =>
+                    [
+                        'quantity' => 5,
+                        'price' => 46990,
+                        'dimensions' => ['ширина' => '23 мм', 'толщина' => '1 мм', 'высота' => '31 мм']
+                    ]
+            ],
             'insert-jewellery' => []
         ],
         [

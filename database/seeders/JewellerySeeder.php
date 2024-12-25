@@ -24,6 +24,8 @@ class JewellerySeeder extends Seeder
         DB::table('brooch_props')->truncate();
         DB::table('tie_clip_props')->truncate();
         DB::table('cuff_link_props')->truncate();
+        DB::table('piercing_props')->truncate();
+        DB::table('pendant_props')->truncate();
         DB::table('ring_props')->truncate();
         DB::table('ring_prop_ring_size')->truncate();
         DB::table('chain_props')->truncate();
@@ -157,7 +159,7 @@ class JewellerySeeder extends Seeder
 
     private function getBroochProps(array $item, int $jewellery_id): int
     {
-        return $brooch_prop_id = DB::table('brooch_props')->insertGetId([
+        return DB::table('brooch_props')->insertGetId([
             'jewellery_id' => $jewellery_id,
             'quantity' => $item['props']['parameters']['quantity'],
             'price' => $item['props']['parameters']['price'],
@@ -167,7 +169,7 @@ class JewellerySeeder extends Seeder
 
     private function getTieClipProps(array $item, int $jewellery_id): int
     {
-        return $tie_clip_prop_id = DB::table('tie_clip_props')->insertGetId([
+        return DB::table('tie_clip_props')->insertGetId([
             'jewellery_id' => $jewellery_id,
             'quantity' => $item['props']['parameters']['quantity'],
             'price' => $item['props']['parameters']['price'],
@@ -177,7 +179,27 @@ class JewellerySeeder extends Seeder
 
     private function getCuffLinkProps(array $item, int $jewellery_id): int
     {
-        return $cuff_link_prop_id = DB::table('cuff_link_props')->insertGetId([
+        return DB::table('cuff_link_props')->insertGetId([
+            'jewellery_id' => $jewellery_id,
+            'quantity' => $item['props']['parameters']['quantity'],
+            'price' => $item['props']['parameters']['price'],
+            'created_at' => now(),
+        ]);
+    }
+
+    private function getPiercingProps(array $item, int $jewellery_id): int
+    {
+        return DB::table('piercing_props')->insertGetId([
+            'jewellery_id' => $jewellery_id,
+            'quantity' => $item['props']['parameters']['quantity'],
+            'price' => $item['props']['parameters']['price'],
+            'created_at' => now(),
+        ]);
+    }
+
+    private function getPendantProps(array $item, int $jewellery_id): int
+    {
+        return DB::table('pendant_props')->insertGetId([
             'jewellery_id' => $jewellery_id,
             'quantity' => $item['props']['parameters']['quantity'],
             'price' => $item['props']['parameters']['price'],
