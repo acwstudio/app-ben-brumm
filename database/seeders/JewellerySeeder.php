@@ -118,6 +118,36 @@ class JewellerySeeder extends Seeder
         return $bracelet_prop_id;
     }
 
+    private function getChainProps(array $item, int $jewellery_id): int
+    {
+        $chain_prop_id = DB::table('chain_props')->insertGetId([
+            'jewellery_id' => $jewellery_id,
+            'created_at' => now(),
+        ]);
+
+        foreach ($item['props']['parameters']['chain_sizes'] as $size) {
+            DB::table('chain_prop_chain_size')->insert([
+                'chain_prop_id' => $chain_prop_id,
+                'chain_size_id' => DB::table('chain_sizes')->where('value', $size)->first()->id,
+                'quantity' => $item['props']['parameters']['quantity'],
+                'price' => $item['props']['parameters']['price'],
+                'created_at' => now(),
+            ]);
+        }
+
+        if ($item['props']['parameters']['weaving']) {
+            DB::table('chain_prop_weaving')->insert([
+                'chain_prop_id' => $chain_prop_id,
+                'weaving_id' => DB::table('weavings')->where('name', $item['props']['parameters']['weaving']['weaving'])->first()->id,
+                'fullness' => $item['props']['parameters']['weaving']['fullness'],
+                'wire_diameter' => $item['props']['parameters']['weaving']['wire_diameter'],
+                'created_at' => now(),
+            ]);
+        }
+
+        return $chain_prop_id;
+    }
+
     private function getNecklaceProps(array $item, int $jewellery_id): int
     {
         $necklace_prop_id = DB::table('necklace_props')->insertGetId([

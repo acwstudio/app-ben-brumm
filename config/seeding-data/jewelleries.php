@@ -980,32 +980,51 @@ return [
                 ],
             ]
         ],
+        //            id = 28
         [
-//            id = 28
-            'prcs_metal_id' => 1,
-            'prcs_metal_sample_id' => 3,
-            'prcs_metal_colour_id' => 3,
-            'jewellery_category_id' => 11,
-            'coverage-jewellery' => [3],
+            'prcs_metal' => 'золото',
+            'prcs_metal_sample' => 585,
+            'prcs_metal_colour' => 'красный',
+            'jewellery_category' => 'цепи',
+            'coverage-jewellery' => ['без покрытия'],
             'name' => 'Цепь из золота, плетение Двойной ромб',
             'description' => '',
             'part_number' => '582011006',
             'approx_weight' => '14.04 грамм',
-            'price' => 114990,
+            'props' => [
+                'name-function' => 'getChainProps',
+                'parameters' =>
+                    [
+                        'weaving' => ['weaving' => 'ромб двойной', 'fullness' => 'пустотелая', 'wire_diameter' => '1 мм'],
+                        'chain_sizes' => [40, 45, 50, 55, 60, 65],
+                        'quantity' => 5,
+                        'price' => 114990
+                    ]
+            ],
             'insert-jewellery' => []
         ],
         [
 //            id = 29
-            'prcs_metal_id' => 1,
-            'prcs_metal_sample_id' => 3,
-            'prcs_metal_colour_id' => 3,
-            'jewellery_category_id' => 11,
-            'coverage-jewellery' => [3],
+            'prcs_metal' => 'золото',
+            'prcs_metal_sample' => 585,
+            'prcs_metal_colour' => 'красный',
+            'jewellery_category' => 'цепи',
+            'coverage-jewellery' => ['без покрытия'],
             'name' => 'Цепь из золота, плетение Нонна',
             'description' => '',
             'part_number' => '581020502',
             'approx_weight' => '7.48 грамм',
             'price' => 204990,
+            'props' => [
+                'name-function' => 'getChainProps',
+                'parameters' =>
+                    [
+                        'weaving' => ['weaving' => 'нонна', 'fullness' => 'полнотелая', 'wire_diameter' => '0,5 мм'],
+                        'chain_sizes' => [35, 40, 45, 50, 55, 70],
+                        'quantity' => 5,
+                        'price' => 204990
+                    ]
+            ],
             'insert-jewellery' => []
         ]
     ]
