@@ -692,216 +692,288 @@ return [
             ],
             'insert-jewellery' => []
         ],
+        //            id = 20
         [
-//            id = 20
-            'prcs_metal_id' => 2,
-            'prcs_metal_sample_id' => 11,
-            'prcs_metal_colour_id' => 1,
-            'jewellery_category_id' => 9,
-            'coverage-jewellery' => [1, 2],
+            'prcs_metal' => 'серебро',
+            'prcs_metal_sample' => 925,
+            'prcs_metal_colour' => 'желтый',
+            'jewellery_category' => 'подвеска-шарм',
+            'coverage-jewellery' => ['золочение', 'родирование'],
             'name' => 'Подвеска-шарм из золочёного серебра с эмалью',
             'description' => '',
             'part_number' => '93030569',
             'approx_weight' => '3.17 грамма',
-            'price' => 5990,
+            'props' => [
+                'name-function' => 'getCharmPendantProps',
+                'parameters' =>
+                    [
+                        'quantity' => 5,
+                        'price' => 5990,
+                        'dimensions' => ['ширина' => '8 мм', 'толщина' => '11 мм', 'высота' => '14 мм']
+                    ]
+            ],
             'insert-jewellery' => []
         ],
+        //            id = 21
         [
-//            id = 21
-            'prcs_metal_id' => 2,
-            'prcs_metal_sample_id' => 11,
-            'prcs_metal_colour_id' => 7,
-            'jewellery_category_id' => 9,
-            'coverage-jewellery' => [2],
+            'prcs_metal' => 'серебро',
+            'prcs_metal_sample' => 925,
+            'prcs_metal_colour' => 'платиновый оттенок',
+            'jewellery_category' => 'подвеска-шарм',
+            'coverage-jewellery' => ['родирование'],
             'name' => 'Подвеска - шарм из серебра с фианитами',
             'description' => '',
             'part_number' => '94032885',
             'approx_weight' => '2.55 грамма',
-            'price' => 10490,
+            'props' => [
+                'name-function' => 'getCharmPendantProps',
+                'parameters' =>
+                    [
+                        'quantity' => 5,
+                        'price' => 10490,
+                        'dimensions' => ['ширина' => '- мм', 'толщина' => '- мм', 'высота' => '- мм']
+                    ]
+            ],
             'insert-jewellery' => [
                 [
-                    'stone_id' => 2,
-                    'insert_colour_id' => 12,
-                    'insert_shape_id' => 9,
-                    'insert_property_id' => ['quantity' => 69, 'weight' => 0.587, 'weight_unit' => 'карат',
+                    'stone' => 'фианит',
+                    'insert_colour' => 'бесцветный',
+                    'insert_shape' => 'круг',
+                    'insert_property' => ['quantity' => 69, 'weight' => 0.587, 'weight_unit' => 'карат',
                         'dimensions' => ['диаметр' => '1 мм']
                     ],
                 ]
             ]
         ],
+        //            id = 22
         [
-//            id = 22
-            'prcs_metal_id' => 1,
-            'prcs_metal_sample_id' => 3,
-            'prcs_metal_colour_id' => 2,
-            'jewellery_category_id' => 10,
-            'coverage-jewellery' => [2],
+            'prcs_metal' => 'золото',
+            'prcs_metal_sample' => 585,
+            'prcs_metal_colour' => 'белый',
+            'jewellery_category' => 'серьги',
+            'coverage-jewellery' => ['родирование'],
             'name' => 'Серьги из белого золота с бриллиантами',
             'description' => '',
             'part_number' => '1021708',
             'approx_weight' => '2.03 грамма',
             'price' => 154990,
+            'props' => [
+                'name-function' => 'getEarringProps',
+                'parameters' =>
+                    [
+                        'quantity' => 5,
+                        'price' => 154990,
+                        'dimensions' => ['ширина' => '7 мм', 'толщина' => '4 мм', 'высота' => '7 мм'],
+                        'clasp' => 'пусет'
+                    ]
+            ],
             'insert-jewellery' => [
                 [
-                    'stone_id' => 1,
-                    'insert_colour_id' => 12,
-                    'insert_shape_id' => 9,
-                    'insert_property_id' => ['quantity' => 12, 'weight' => 0.0107, 'weight_unit' => 'карат',
+                    'stone' => 'бриллиант',
+                    'insert_colour' => 'бесцветный',
+                    'insert_shape' => 'круг',
+                    'insert_property' => ['quantity' => 12, 'weight' => 0.0107, 'weight_unit' => 'карат',
                         'dimensions' => ['диаметр' => '< 1 мм']
                     ],
                 ],
                 [
-                    'stone_id' => 1,
-                    'insert_colour_id' => 12,
-                    'insert_shape_id' => 9,
-                    'insert_property_id' => ['quantity' => 2, 'weight' => 0.043, 'weight_unit' => 'карат',
+                    'stone' => 'бриллиант',
+                    'insert_colour' => 'бесцветный',
+                    'insert_shape' => 'круг',
+                    'insert_property' => ['quantity' => 2, 'weight' => 0.043, 'weight_unit' => 'карат',
                         'dimensions' => ['диаметр' => '< 1 мм']
                     ],
                 ]
             ]
         ],
+        //            id = 23
         [
-//            id = 23
-            'prcs_metal_id' => 1,
-            'prcs_metal_sample_id' => 3,
-            'prcs_metal_colour_id' => 3,
-            'jewellery_category_id' => 10,
-            'coverage-jewellery' => [2],
+            'prcs_metal' => 'золото',
+            'prcs_metal_sample' => 585,
+            'prcs_metal_colour' => 'красный',
+            'jewellery_category' => 'серьги',
+            'coverage-jewellery' => ['родирование'],
             'name' => 'Серьги из золота с бриллиантами и камеей',
             'description' => '',
             'part_number' => '6024257',
             'approx_weight' => '3.6 грамм',
-            'price' => 159990,
+            'props' => [
+                'name-function' => 'getEarringProps',
+                'parameters' =>
+                    [
+                        'quantity' => 5,
+                        'price' => 159990,
+                        'dimensions' => ['ширина' => '16 мм', 'толщина' => '4 мм', 'высота' => '30 мм'],
+                        'clasp' => 'английский'
+                    ]
+            ],
             'insert-jewellery' => [
                 [
-                    'stone_id' => 1,
-                    'insert_colour_id' => 12,
-                    'insert_shape_id' => 9,
-                    'insert_property_id' => ['quantity' => 20, 'weight' => 0.059, 'weight_unit' => 'карат',
+                    'stone' => 'бриллиант',
+                    'insert_colour' => 'бесцветный',
+                    'insert_shape' => 'круг',
+                    'insert_property' => ['quantity' => 20, 'weight' => 0.059, 'weight_unit' => 'карат',
                         'dimensions' => ['диаметр' => '< 1 мм']
                     ],
                 ],
                 [
-                    'stone_id' => 10,
-                    'insert_colour_id' => 14,
-                    'insert_shape_id' => 9,
-                    'insert_property_id' => ['quantity' => 2, 'weight' => 9.9, 'weight_unit' => 'карат',
+                    'stone' => 'камея',
+                    'insert_colour' => 'коричневый',
+                    'insert_shape' => 'круг',
+                    'insert_property' => ['quantity' => 2, 'weight' => 9.9, 'weight_unit' => 'карат',
                         'dimensions' => ['диаметр' => '16 мм']
                     ],
                 ],
             ]
         ],
+        //            id = 24
         [
-//            id = 24
-            'prcs_metal_id' => 1,
-            'prcs_metal_sample_id' => 3,
-            'prcs_metal_colour_id' => 3,
-            'jewellery_category_id' => 10,
-            'coverage-jewellery' => [2],
+            'prcs_metal' => 'золото',
+            'prcs_metal_sample' => 585,
+            'prcs_metal_colour' => 'красный',
+            'jewellery_category' => 'серьги',
+            'coverage-jewellery' => ['родирование'],
             'name' => 'Серьги из золота с гранатами и фианитами',
             'description' => '',
             'part_number' => '728331',
             'approx_weight' => '1.64 грамм',
-            'price' => 16990,
+            'props' => [
+                'name-function' => 'getEarringProps',
+                'parameters' =>
+                    [
+                        'quantity' => 5,
+                        'price' => 16990,
+                        'dimensions' => ['ширина' => '6 мм', 'толщина' => '2 мм', 'высота' => '15 мм'],
+                        'clasp' => 'английский'
+                    ]
+            ],
             'insert-jewellery' => [
                 [
-                    'stone_id' => 5,
-                    'insert_colour_id' => 2,
-                    'insert_shape_id' => 3,
-                    'insert_property_id' => ['quantity' => 2, 'weight' => 0.579, 'weight_unit' => 'карат',
+                    'stone' => 'гранат',
+                    'insert_colour' => 'красный',
+                    'insert_shape' => 'овал',
+                    'insert_property' => ['quantity' => 2, 'weight' => 0.579, 'weight_unit' => 'карат',
                         'dimensions' => ['высота' => '5 мм', 'ширина' => '3 мм']
                     ],
                 ],
                 [
-                    'stone_id' => 2,
-                    'insert_colour_id' => 12,
-                    'insert_shape_id' => 9,
-                    'insert_property_id' => ['quantity' => 12, 'weight' => 0.102, 'weight_unit' => 'карат',
+                    'stone' => 'фианит',
+                    'insert_colour' => 'бесцветный',
+                    'insert_shape' => 'круг',
+                    'insert_property' => ['quantity' => 12, 'weight' => 0.102, 'weight_unit' => 'карат',
                         'dimensions' => ['диаметр' => '1 мм']
                     ],
                 ],
             ]
         ],
+        //            id = 25
         [
-//            id = 25
-            'prcs_metal_id' => 1,
-            'prcs_metal_sample_id' => 3,
-            'prcs_metal_colour_id' => 3,
-            'jewellery_category_id' => 10,
-            'coverage-jewellery' => [3],
+            'prcs_metal' => 'золото',
+            'prcs_metal_sample' => 585,
+            'prcs_metal_colour' => 'красный',
+            'jewellery_category' => 'серьги',
+            'coverage-jewellery' => ['без покрытия'],
             'name' => 'Серьги из золота с жемчугом',
             'description' => '',
             'part_number' => '792410',
             'approx_weight' => '2.31 грамм',
-            'price' => 14490,
+            'props' => [
+                'name-function' => 'getEarringProps',
+                'parameters' =>
+                    [
+                        'quantity' => 5,
+                        'price' => 14490,
+                        'dimensions' => ['ширина' => '7 мм', 'толщина' => '7 мм', 'высота' => '50 мм'],
+                        'clasp' => 'продевка'
+                    ]
+            ],
             'insert-jewellery' => [
                 [
-                    'stone_id' => 7,
-                    'insert_colour_id' => 8,
-                    'insert_shape_id' => 5,
-                    'insert_property_id' => ['quantity' => 1, 'weight' => 6.45, 'weight_unit' => 'карат',
+                    'stone' => 'жемчуг',
+                    'insert_colour_id' => 'белый',
+                    'insert_shape_id' => 'груша',
+                    'insert_property' => ['quantity' => 1, 'weight' => 6.45, 'weight_unit' => 'карат',
                         'dimensions' => ['высота' => '7 мм', 'ширина' => '7.5 мм']
                     ],
                 ]
             ]
         ],
+        //            id = 26
         [
-//            id = 26
-            'prcs_metal_id' => 1,
-            'prcs_metal_sample_id' => 3,
-            'prcs_metal_colour_id' => 3,
-            'jewellery_category_id' => 10,
-            'coverage-jewellery' => [2],
+            'prcs_metal' => 'золото',
+            'prcs_metal_sample' => 585,
+            'prcs_metal_colour' => 'красный',
+            'jewellery_category' => 'серьги',
+            'coverage-jewellery' => ['родирование'],
             'name' => 'Серьги из золота с топазами и фианитами',
             'description' => '',
             'part_number' => '727533',
             'approx_weight' => '1.81 грамм',
-            'price' => 16990,
+            'props' => [
+                'name-function' => 'getEarringProps',
+                'parameters' =>
+                    [
+                        'quantity' => 5,
+                        'price' => 16990,
+                        'dimensions' => ['ширина' => '5 мм', 'толщина' => '4 мм', 'высота' => '15 мм'],
+                        'clasp' => 'английский'
+                    ]
+            ],
             'insert-jewellery' => [
                 [
-                    'stone_id' => 3,
-                    'insert_colour_id' => 5,
-                    'insert_shape_id' => 9,
-                    'insert_property_id' => ['quantity' => 2, 'weight' => 1.179, 'weight_unit' => 'карат',
+                    'stone' => 'топаз',
+                    'insert_colour' => 'голубой',
+                    'insert_shape' => 'круг',
+                    'insert_property' => ['quantity' => 2, 'weight' => 1.179, 'weight_unit' => 'карат',
                         'dimensions' => ['диаметр' => '5 мм']
                     ],
                 ],
                 [
-                    'stone_id' => 2,
-                    'insert_colour_id' => 12,
-                    'insert_shape_id' => 9,
-                    'insert_property_id' => ['quantity' => 14, 'weight' => 0.119, 'weight_unit' => 'карат',
+                    'stone' => 'фианит',
+                    'insert_colour' => 'бесцветный',
+                    'insert_shape' => 'круг',
+                    'insert_property' => ['quantity' => 14, 'weight' => 0.119, 'weight_unit' => 'карат',
                         'dimensions' => ['диаметр' => '1 мм']
                     ],
                 ],
             ]
         ],
+        //            id = 27
         [
-//            id = 27
-            'prcs_metal_id' => 2,
-            'prcs_metal_sample_id' => 11,
-            'prcs_metal_colour_id' => 1,
-            'jewellery_category_id' => 10,
-            'coverage-jewellery' => [1],
+            'prcs_metal' => 'серебро',
+            'prcs_metal_sample_id' => 925,
+            'prcs_metal_colour_id' => 'желтый',
+            'jewellery_category_id' => 'серьги',
+            'coverage-jewellery' => ['золочение'],
             'name' => 'Серьги из золочёного серебра с агатами и малахитами',
             'description' => '',
             'part_number' => '83020096',
             'approx_weight' => '7.7 грамм',
             'price' => 18990,
+            'props' => [
+                'name-function' => 'getEarringProps',
+                'parameters' =>
+                    [
+                        'quantity' => 5,
+                        'price' => 18990,
+                        'dimensions' => ['ширина' => '12 мм', 'толщина' => '6 мм', 'высота' => '21 мм'],
+                        'clasp' => 'английский'
+                    ]
+            ],
             'insert-jewellery' => [
                 [
-                    'stone_id' => 8,
-                    'insert_colour_id' => 9,
-                    'insert_shape_id' => 9,
-                    'insert_property_id' => ['quantity' => 2, 'weight' => 4.074, 'weight_unit' => 'карат',
+                    'stone' => 'агат',
+                    'insert_colour' => 'черный',
+                    'insert_shape' => 'круг',
+                    'insert_property' => ['quantity' => 2, 'weight' => 4.074, 'weight_unit' => 'карат',
                         'dimensions' => ['диаметр' => '8 мм']
                     ],
                 ],
                 [
-                    'stone_id' => 9,
-                    'insert_colour_id' => 1,
-                    'insert_shape_id' => 9,
-                    'insert_property_id' => ['quantity' => 2, 'weight' => 13.927, 'weight_unit' => 'карат',
+                    'stone' => 'малахит',
+                    'insert_colour' => 'зеленый',
+                    'insert_shape' => 'круг',
+                    'insert_property' => ['quantity' => 2, 'weight' => 13.927, 'weight_unit' => 'карат',
                         'dimensions' => ['диаметр' => '12 мм']
                     ],
                 ],
