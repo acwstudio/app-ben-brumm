@@ -59,6 +59,14 @@ return [
         ['value' => 65, 'unit' => 'см'],
         ['value' => 70, 'unit' => 'см'],
     ],
+    'necklace_sizes' => [
+        ['value' => 38, 'unit' => 'см'],
+        ['value' => 42, 'unit' => 'см'],
+        ['value' => 40, 'unit' => 'см'],
+        ['value' => 45, 'unit' => 'см'],
+        ['value' => 50, 'unit' => 'см'],
+        ['value' => 55, 'unit' => 'см'],
+    ],
     'jewelleries' => [
         //            id = 1
         [
@@ -364,154 +372,207 @@ return [
                 ]
             ]
         ],
+        //            id = 10
         [
-//            id = 10
-            'prcs_metal_id' => 1,
-            'prcs_metal_sample_id' => 3,
-            'prcs_metal_colour_id' => 2,
-            'jewellery_category_id' => 5,
-            'coverage-jewellery' => [2],
+            'prcs_metal' => 'золото',
+            'prcs_metal_sample' => 585,
+            'prcs_metal_colour' => 'белый',
+            'jewellery_category' => 'колье',
+            'coverage-jewellery' => ['родирование'],
             'name' => 'Колье из белого золота с бриллиантом',
             'description' => '',
             'part_number' => '1070162',
             'approx_weight' => '1.69 грамма',
-            'price' => 319990,
+            'props' => [
+                'name-function' => 'getNecklaceProps',
+                'parameters' =>
+                    [
+                        'necklace_sizes' => [38, 42],
+                        'quantity' => 5,
+                        'price' => 319990,
+                    ]
+            ],
             'insert-jewellery' => [
                 [
-                    'stone_id' => 1,
-                    'insert_colour_id' => 12,
-                    'insert_shape_id' => 9,
-                    'insert_property_id' => ['quantity' => 1, 'weight' => 0.21, 'weight_unit' => 'карат',
+                    'stone' => 'бриллиант',
+                    'insert_colour' => 'бесцветный',
+                    'insert_shape' => 'круг',
+                    'insert_property' => ['quantity' => 1, 'weight' => 0.21, 'weight_unit' => 'карат',
                         'dimensions' => ['диаметр' => '2 мм']
                     ],
                 ]
             ]
         ],
+        //            id = 11
         [
-//            id = 11
-            'prcs_metal_id' => 2,
-            'prcs_metal_sample_id' => 11,
-            'prcs_metal_colour_id' => 7,
-            'jewellery_category_id' => 5,
-            'coverage-jewellery' => [2, 4],
+            'prcs_metal' => 'серебро',
+            'prcs_metal_sample' => 925,
+            'prcs_metal_colour' => 'платиновый оттенок',
+            'jewellery_category' => 'колье',
+            'coverage-jewellery' => ['родирование', 'эмаль'],
             'name' => 'Колье из серебра с эмалью',
             'description' => '',
             'part_number' => '94070950',
             'approx_weight' => '4.56 грамма',
-            'price' => 17990,
+            'props' => [
+                'name-function' => 'getNecklaceProps',
+                'parameters' =>
+                    [
+                        'necklace_sizes' => [40, 45, 50, 55],
+                        'quantity' => 5,
+                        'price' => 17990,
+                    ]
+            ],
             'insert-jewellery' => []
         ],
+        //            id = 12
         [
-//            id = 12
-            'prcs_metal_id' => 1,
-            'prcs_metal_sample_id' => 3,
-            'prcs_metal_colour_id' => 3,
-            'jewellery_category_id' => 6,
-            'coverage-jewellery' => [3],
+            'prcs_metal' => 'золото',
+            'prcs_metal_sample' => 585,
+            'prcs_metal_colour' => 'красный',
+            'jewellery_category' => 'кольца',
+            'coverage-jewellery' => ['без покрытия'],
             'name' => 'Кольцо из золота с бриллиантами и гидротермальным александритом',
             'description' => '',
             'part_number' => '71-00338',
             'approx_weight' => '1.85 грамма',
-            'price' => 114990,
+            'props' => [
+                'name-function' => 'getRingProps',
+                'parameters' =>
+                    [
+                        'ring_sizes' => [16.5, 17, 17.5, 18, 18.5],
+                        'quantity' => 5,
+                        'price' => 114990,
+                        'dimensions' => ['ширина' => '1 мм']
+                    ]
+            ],
             'insert-jewellery' => [
                 [
-                    'stone_id' => 13,
-                    'insert_colour_id' => 15,
-                    'insert_shape_id' => 3,
-                    'insert_property_id' => ['quantity' => 1, 'weight' => 1.16, 'weight_unit' => 'карат',
+                    'stone' => 'александрит гидротермальный',
+                    'insert_colour' => 'зеленовато-синий, фиолетовый',
+                    'insert_shape' => 'овал',
+                    'insert_property' => ['quantity' => 1, 'weight' => 1.16, 'weight_unit' => 'карат',
                         'dimensions' => ['высота' => '7 мм', 'ширина' => '5 мм']
                     ],
                 ],
                 [
-                    'stone_id' => 1,
-                    'insert_colour_id' => 12,
-                    'insert_shape_id' => 9,
-                    'insert_property_id' => ['quantity' => 2, 'weight' => 0.007, 'weight_unit' => 'карат',
+                    'stone' => 'бриллиант',
+                    'insert_colour' => 'бесцветный',
+                    'insert_shape' => 'круг',
+                    'insert_property' => ['quantity' => 2, 'weight' => 0.007, 'weight_unit' => 'карат',
                         'dimensions' => ['диаметр' => '< 1 мм']
                     ],
                 ],
                 [
-                    'stone_id' => 1,
-                    'insert_colour_id' => 12,
-                    'insert_shape_id' => 9,
-                    'insert_property_id' => ['quantity' => 2, 'weight' => 0.011, 'weight_unit' => 'карат',
+                    'stone' => 'бриллиант',
+                    'insert_colour' => 'бесцветный',
+                    'insert_shape' => 'круг',
+                    'insert_property' => ['quantity' => 2, 'weight' => 0.011, 'weight_unit' => 'карат',
                         'dimensions' => ['диаметр' => '< 1 мм']
                     ],
                 ],
                 [
-                    'stone_id' => 1,
-                    'insert_colour_id' => 12,
-                    'insert_shape_id' => 9,
-                    'insert_property_id' => ['quantity' => 8, 'weight' => 0.062, 'weight_unit' => 'карат',
+                    'stone' => 'бриллиант',
+                    'insert_colour' => 'бесцветный',
+                    'insert_shape' => 'круг',
+                    'insert_property' => ['quantity' => 8, 'weight' => 0.062, 'weight_unit' => 'карат',
                         'dimensions' => ['диаметр' => '1 мм']
                     ],
                 ]
             ]
         ],
+        //            id = 13
         [
-//            id = 13
-            'prcs_metal_id' => 2,
-            'prcs_metal_sample_id' => 11,
-            'prcs_metal_colour_id' => 7,
-            'jewellery_category_id' => 6,
-            'coverage-jewellery' => [2],
+            'prcs_metal' => 'серебро',
+            'prcs_metal_sample' => 925,
+            'prcs_metal_colour' => 'платиновый оттенок',
+            'jewellery_category' => 'кольца',
+            'coverage-jewellery' => ['родирование'],
             'name' => 'Кольцо из серебра с фианитами',
             'description' => '',
             'part_number' => '94014199',
             'approx_weight' => '2.54 грамма',
-            'price' => 11990,
+            'props' => [
+                'name-function' => 'getRingProps',
+                'parameters' =>
+                    [
+                        'ring_sizes' => [16.5, 17, 17.5, 18, 18.5, 19, 19.5],
+                        'quantity' => 5,
+                        'price' => 11990,
+                        'dimensions' => ['ширина' => '2 мм']
+                    ]
+            ],
             'insert-jewellery' => [
                 [
-                    'stone_id' => 2,
-                    'insert_colour_id' => 12,
-                    'insert_shape_id' => 9,
-                    'insert_property_id' => ['quantity' => 39, 'weight' => 0.332, 'weight_unit' => 'карат',
+                    'stone' => 'фианит',
+                    'insert_colour' => 'бесцветный',
+                    'insert_shape' => 'круг',
+                    'insert_property' => ['quantity' => 39, 'weight' => 0.332, 'weight_unit' => 'карат',
                         'dimensions' => ['диаметр' => '1 мм']
                     ],
                 ]
             ]
 
         ],
+        //            id = 14
         [
-//            id = 14
-            'prcs_metal_id' => 1,
-            'prcs_metal_sample_id' => 3,
-            'prcs_metal_colour_id' => 3,
-            'jewellery_category_id' => 6,
-            'coverage-jewellery' => [5],
+            'prcs_metal' => 'золото',
+            'prcs_metal_sample' => 585,
+            'prcs_metal_colour' => 'красный',
+            'jewellery_category' => 'кольца',
+            'coverage-jewellery' => ['алмазная грань'],
             'name' => 'Обручальное кольцо из золота с алмазной гранью',
             'description' => '',
             'part_number' => '110224',
             'approx_weight' => '2.15 грамма',
-            'price' => 79990,
+            'props' => [
+                'name-function' => 'getRingProps',
+                'parameters' =>
+                    [
+                        'ring_sizes' => [16, 16.5, 17, 17.5, 18, 18.5, 19, 19.5, 20, 21.5, 22, 22.5],
+                        'quantity' => 5,
+                        'price' => 79990,
+                        'dimensions' => ['ширина' => '4 мм']
+                    ]
+            ],
             'insert-jewellery' => []
         ],
+        //            id = 15
         [
-//            id = 15
-            'prcs_metal_id' => 2,
-            'prcs_metal_sample_id' => 11,
-            'prcs_metal_colour_id' => 7,
-            'jewellery_category_id' => 6,
-            'coverage-jewellery' => [2, 4],
+            'prcs_metal' => 'серебро',
+            'prcs_metal_sample' => 925,
+            'prcs_metal_colour' => 'платиновый оттенок',
+            'jewellery_category' => 'кольца',
+            'coverage-jewellery' => ['родирование', 'эмаль'],
             'name' => 'Серебряное наборное кольцо с фианитами',
             'description' => '',
             'part_number' => '94011705',
             'approx_weight' => '3 грамма',
             'price' => 13490,
+            'props' => [
+                'name-function' => 'getRingProps',
+                'parameters' =>
+                    [
+                        'ring_sizes' => [15.5, 16, 16.5, 17, 17.5, 18, 18.5, 19, 19.5],
+                        'quantity' => 5,
+                        'price' => 13490,
+                        'dimensions' => ['ширина' => '6 мм']
+                    ]
+            ],
             'insert-jewellery' => [
                 [
-                    'stone_id' => 2,
-                    'insert_colour_id' => 12,
-                    'insert_shape_id' => 9,
-                    'insert_property_id' => ['quantity' => 11, 'weight' => 0.094, 'weight_unit' => 'карат',
+                    'stone' => 'фианит',
+                    'insert_colour' => 'бесцветный',
+                    'insert_shape' => 'круг',
+                    'insert_property' => ['quantity' => 11, 'weight' => 0.094, 'weight_unit' => 'карат',
                         'dimensions' => ['диаметр' => '1 мм']
                     ],
                 ],
                 [
-                    'stone_id' => 2,
-                    'insert_colour_id' => 12,
-                    'insert_shape_id' => 9,
-                    'insert_property_id' => ['quantity' => 12, 'weight' => 0.342, 'weight_unit' => 'карат',
+                    'stone' => 'фианит',
+                    'insert_colour' => 'бесцветный',
+                    'insert_shape' => 'круг',
+                    'insert_property' => ['quantity' => 12, 'weight' => 0.342, 'weight_unit' => 'карат',
                         'dimensions' => ['диаметр' => '1.5 мм']
                     ],
                 ],

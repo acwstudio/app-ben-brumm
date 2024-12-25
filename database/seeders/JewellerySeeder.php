@@ -19,16 +19,18 @@ class JewellerySeeder extends Seeder
         DB::table('coverage_jewellery')->truncate();
         DB::table('insert_properties')->truncate();
         DB::table('bracelet_props')->truncate();
+        DB::table('bracelet_prop_bracelet_size')->truncate();
+        DB::table('bracelet_prop_weaving')->truncate();
         DB::table('brooch_props')->truncate();
         DB::table('tie_clip_props')->truncate();
         DB::table('cuff_link_props')->truncate();
         DB::table('ring_props')->truncate();
-        DB::table('chain_props')->truncate();
-        DB::table('bracelet_prop_bracelet_size')->truncate();
-        DB::table('bracelet_prop_weaving')->truncate();
         DB::table('ring_prop_ring_size')->truncate();
+        DB::table('chain_props')->truncate();
         DB::table('chain_prop_chain_size')->truncate();
         DB::table('chain_prop_weaving')->truncate();
+        DB::table('necklace_props')->truncate();
+        DB::table('necklace_prop_necklace_size')->truncate();
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
 
         $items = config('seeding-data.jewelleries.jewelleries');
@@ -110,6 +112,47 @@ class JewellerySeeder extends Seeder
         }
 
         return $bracelet_prop_id;
+    }
+
+    private function getNecklaceProps(array $item, int $jewellery_id): int
+    {
+        $necklace_prop_id = DB::table('necklace_props')->insertGetId([
+            'jewellery_id' => $jewellery_id,
+            'created_at' => now(),
+        ]);
+
+        foreach ($item['props']['parameters']['necklace_sizes'] as $size) {
+            DB::table('necklace_prop_necklace_size')->insert([
+                'necklace_prop_id' => $necklace_prop_id,
+                'necklace_size_id' => DB::table('necklace_sizes')->where('value', $size)->first()->id,
+                'quantity' => $item['props']['parameters']['quantity'],
+                'price' => $item['props']['parameters']['price'],
+                'created_at' => now(),
+            ]);
+        }
+
+        return $necklace_prop_id;
+    }
+
+    private function getRingProps(array $item, int $jewellery_id): int
+    {
+        $ring_prop_id = DB::table('ring_props')->insertGetId([
+            'jewellery_id' => $jewellery_id,
+            'dimensions' => json_encode($item['props']['parameters']['dimensions']),
+            'created_at' => now(),
+        ]);
+
+        foreach ($item['props']['parameters']['ring_sizes'] as $size) {
+            DB::table('ring_prop_ring_size')->insert([
+                'ring_prop_id' => $ring_prop_id,
+                'ring_size_id' => DB::table('ring_sizes')->where('value', $size)->first()->id,
+                'quantity' => $item['props']['parameters']['quantity'],
+                'price' => $item['props']['parameters']['price'],
+                'created_at' => now(),
+            ]);
+        }
+
+        return $ring_prop_id;
     }
 
     private function getBroochProps(array $item, int $jewellery_id): int

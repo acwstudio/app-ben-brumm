@@ -146,6 +146,34 @@ return new class extends Migration
             $table->foreign('jewellery_id')->references('id')->on('jewelleries');
         });
 
+        //************ NECKLACE PROPS **************
+        Schema::create('necklace_props', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('jewellery_id');
+            $table->timestamps();
+
+            $table->foreign('jewellery_id')->references('id')->on('jewelleries');
+        });
+
+        Schema::create('necklace_sizes', function (Blueprint $table) {
+            $table->id();
+            $table->decimal('value', 8, 2);
+            $table->string('unit')->default('см');
+            $table->timestamps();
+        });
+
+        Schema::create('necklace_prop_necklace_size', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('necklace_size_id');
+            $table->unsignedBigInteger('necklace_prop_id');
+            $table->integer('quantity');
+            $table->decimal('price', 8, 2);
+            $table->timestamps();
+
+            $table->foreign('necklace_size_id')->references('id')->on('necklace_sizes');
+            $table->foreign('necklace_prop_id')->references('id')->on('necklace_props');
+        });
+
         //************ CHAIN PROPS **************
         Schema::create('chain_props', function (Blueprint $table) {
             $table->id();
@@ -227,6 +255,10 @@ return new class extends Migration
         Schema::dropIfExists('weavings');
         Schema::dropIfExists('chain_sizes');
         Schema::dropIfExists('chain_props');
+        Schema::dropIfExists('cuff_link_props');
+        Schema::dropIfExists('necklace_prop_necklace_size');
+        Schema::dropIfExists('necklace_sizes');
+        Schema::dropIfExists('necklace_props');
         Schema::dropIfExists('coverage_jewellery');
         Schema::dropIfExists('jewelleries');
         Schema::dropIfExists('jewellery_categories');
