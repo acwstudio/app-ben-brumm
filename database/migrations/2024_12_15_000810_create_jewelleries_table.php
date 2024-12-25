@@ -11,6 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
+        Schema::create('clasps', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->timestamps();
+        });
+
         Schema::create('jewellery_categories', function (Blueprint $table) {
             $table->id();
             $table->string('category_code')->unique();
@@ -179,6 +185,18 @@ return new class extends Migration
             $table->foreign('jewellery_id')->references('id')->on('jewelleries');
         });
 
+        //************ EARRING PROPS **************
+        Schema::create('earring_props', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('jewellery_id');
+            $table->unsignedBigInteger('clasp_id');
+            $table->integer('quantity');
+            $table->decimal('price', 8, 2);
+            $table->timestamps();
+
+            $table->foreign('jewellery_id')->references('id')->on('jewelleries');
+        });
+
         //************ NECKLACE PROPS **************
         Schema::create('necklace_props', function (Blueprint $table) {
             $table->id();
@@ -291,6 +309,8 @@ return new class extends Migration
         Schema::dropIfExists('cuff_link_props');
         Schema::dropIfExists('piercing_props');
         Schema::dropIfExists('pendant_props');
+        Schema::dropIfExists('earring_props');
+        Schema::dropIfExists('clasps');
         Schema::dropIfExists('charm_pendant_props');
         Schema::dropIfExists('necklace_prop_necklace_size');
         Schema::dropIfExists('necklace_sizes');

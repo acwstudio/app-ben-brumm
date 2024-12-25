@@ -19,6 +19,7 @@ return [
         'ромб двойной', 'ромб тройной', 'сингапур', 'скорпион', 'снейк', 'улитка', 'фантазийное', 'фигаро', 'якорное',
         'якорь бриллиантовый', 'без плетения'
     ],
+    'clasps' => ['пусет', 'английский', 'продевка'],
     'bracelet_sizes' => [
         ['value' => 16, 'unit' => 'см'],
         ['value' => 17, 'unit' => 'см'],
@@ -890,8 +891,8 @@ return [
             'insert-jewellery' => [
                 [
                     'stone' => 'жемчуг',
-                    'insert_colour_id' => 'белый',
-                    'insert_shape_id' => 'груша',
+                    'insert_colour' => 'белый',
+                    'insert_shape' => 'груша',
                     'insert_property' => ['quantity' => 1, 'weight' => 6.45, 'weight_unit' => 'карат',
                         'dimensions' => ['высота' => '7 мм', 'ширина' => '7.5 мм']
                     ],
@@ -941,9 +942,9 @@ return [
         //            id = 27
         [
             'prcs_metal' => 'серебро',
-            'prcs_metal_sample_id' => 925,
-            'prcs_metal_colour_id' => 'желтый',
-            'jewellery_category_id' => 'серьги',
+            'prcs_metal_sample' => 925,
+            'prcs_metal_colour' => 'желтый',
+            'jewellery_category' => 'серьги',
             'coverage-jewellery' => ['золочение'],
             'name' => 'Серьги из золочёного серебра с агатами и малахитами',
             'description' => '',

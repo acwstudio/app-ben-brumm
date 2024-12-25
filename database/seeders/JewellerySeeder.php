@@ -26,6 +26,7 @@ class JewellerySeeder extends Seeder
         DB::table('cuff_link_props')->truncate();
         DB::table('piercing_props')->truncate();
         DB::table('pendant_props')->truncate();
+        DB::table('earring_props')->truncate();
         DB::table('charm_pendant_props')->truncate();
         DB::table('ring_props')->truncate();
         DB::table('ring_prop_ring_size')->truncate();
@@ -212,6 +213,17 @@ class JewellerySeeder extends Seeder
     {
         return DB::table('charm_pendant_props')->insertGetId([
             'jewellery_id' => $jewellery_id,
+            'quantity' => $item['props']['parameters']['quantity'],
+            'price' => $item['props']['parameters']['price'],
+            'created_at' => now(),
+        ]);
+    }
+
+    private function getEarringProps(array $item, int $jewellery_id): int
+    {
+        return DB::table('earring_props')->insertGetId([
+            'jewellery_id' => $jewellery_id,
+            'clasp_id' => DB::table('clasps')->where('name', $item['props']['parameters']['clasp'])->first()->id,
             'quantity' => $item['props']['parameters']['quantity'],
             'price' => $item['props']['parameters']['price'],
             'created_at' => now(),

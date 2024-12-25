@@ -21,6 +21,7 @@ class JewelleryCategorySeeder extends Seeder
         DB::table('chain_sizes')->truncate();
         DB::table('ring_sizes')->truncate();
         DB::table('necklace_sizes')->truncate();
+        DB::table('clasps')->truncate();
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
 
         $categories = config('seeding-data.jewelleries.jewellery-categories');
@@ -29,10 +30,18 @@ class JewelleryCategorySeeder extends Seeder
         $bracelet_sizes = config('seeding-data.jewelleries.bracelet_sizes');
         $chain_sizes = config('seeding-data.jewelleries.chain_sizes');
         $necklace_sizes = config('seeding-data.jewelleries.necklace_sizes');
+        $clasps = config('seeding-data.jewelleries.clasps');
 
         foreach ($weaves as $weave) {
             DB::table('weavings')->insert([
                 'name' => $weave,
+                'created_at' => now(),
+            ]);
+        }
+
+        foreach ($clasps as $clasp) {
+            DB::table('clasps')->insert([
+                'name' => $clasp,
                 'created_at' => now(),
             ]);
         }
