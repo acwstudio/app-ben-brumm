@@ -2,8 +2,9 @@
 
 namespace Database\Seeders;
 
+use Domain\Jewelleries\Models\BraceletProp;
 use Domain\PreciousMetals\Models\PrcsMetal;
-use Domain\Site\JewelleryBracelet;
+use Domain\Site\BraceletPropView;
 use Domain\Jewelleries\Models\Jewellery;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -75,10 +76,10 @@ class SQLRequestSeeder extends Seeder
 //            dump($item);
 //        }
 //        $jewelleries = Jewellery::with('inserts')->limit(2)->toSql();
-        JewelleryBracelet::with(['prcsMetal','prcsMetalColour','prcsMetalSample','braceletSizes'])->where('prcs_metal_id','>', 1)->each(function (JewelleryBracelet $bracelet) {
-            dump($bracelet);
-        });
-        dd('ok');
+//        BraceletPropView::with(['prcsMetal','prcsMetalColour','prcsMetalSample','braceletSizes'])->where('prcs_metal_id','>', 1)->each(function (BraceletPropView $bracelet) {
+//            dump($bracelet);
+//        });
+        dd(BraceletPropView::with(['braceletSizes','braceletPrices'])->get());
 //        dd(DB::table('jewellery_bracelets')->where('weave','бисмарк')->get());
     }
 }

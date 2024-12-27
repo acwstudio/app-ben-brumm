@@ -19,8 +19,8 @@ class JewellerySeeder extends Seeder
         DB::table('coverage_jewellery')->truncate();
         DB::table('insert_properties')->truncate();
         DB::table('bracelet_props')->truncate();
-        DB::table('bracelet_prop_bracelet_size')->truncate();
-        DB::table('bracelet_prop_weaving')->truncate();
+        DB::table('bracelet_prop_sizes')->truncate();
+        DB::table('bracelet_prop_weavings')->truncate();
         DB::table('brooch_props')->truncate();
         DB::table('tie_clip_props')->truncate();
         DB::table('cuff_link_props')->truncate();
@@ -29,10 +29,10 @@ class JewellerySeeder extends Seeder
         DB::table('earring_props')->truncate();
         DB::table('charm_pendant_props')->truncate();
         DB::table('ring_props')->truncate();
-        DB::table('ring_prop_ring_size')->truncate();
+        DB::table('ring_prop_sizes')->truncate();
         DB::table('chain_props')->truncate();
-        DB::table('chain_prop_chain_size')->truncate();
-        DB::table('chain_prop_weaving')->truncate();
+        DB::table('chain_prop_sizes')->truncate();
+        DB::table('chain_prop_weavings')->truncate();
         DB::table('necklace_props')->truncate();
         DB::table('necklace_prop_necklace_size')->truncate();
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
@@ -95,7 +95,7 @@ class JewellerySeeder extends Seeder
         ]);
 
         foreach ($item['props']['parameters']['bracelet_sizes'] as $size) {
-            DB::table('bracelet_prop_bracelet_size')->insert([
+            DB::table('bracelet_prop_sizes')->insert([
                 'bracelet_prop_id' => $bracelet_prop_id,
                 'bracelet_size_id' => DB::table('bracelet_sizes')->where('value', $size)->first()->id,
                 'quantity' => $item['props']['parameters']['quantity'],
@@ -106,7 +106,7 @@ class JewellerySeeder extends Seeder
 
         if ($item['props']['parameters']['weaving']) {
             dump($item['props']['parameters']['weaving']);
-            DB::table('bracelet_prop_weaving')->insert([
+            DB::table('bracelet_prop_weavings')->insert([
                 'bracelet_prop_id' => $bracelet_prop_id,
                 'weaving_id' => DB::table('weavings')->where('name', $item['props']['parameters']['weaving']['weaving'])->first()->id,
                 'fullness' => $item['props']['parameters']['weaving']['fullness'],
@@ -126,7 +126,7 @@ class JewellerySeeder extends Seeder
         ]);
 
         foreach ($item['props']['parameters']['chain_sizes'] as $size) {
-            DB::table('chain_prop_chain_size')->insert([
+            DB::table('chain_prop_sizes')->insert([
                 'chain_prop_id' => $chain_prop_id,
                 'chain_size_id' => DB::table('chain_sizes')->where('value', $size)->first()->id,
                 'quantity' => $item['props']['parameters']['quantity'],
@@ -136,7 +136,7 @@ class JewellerySeeder extends Seeder
         }
 
         if ($item['props']['parameters']['weaving']) {
-            DB::table('chain_prop_weaving')->insert([
+            DB::table('chain_prop_weavings')->insert([
                 'chain_prop_id' => $chain_prop_id,
                 'weaving_id' => DB::table('weavings')->where('name', $item['props']['parameters']['weaving']['weaving'])->first()->id,
                 'fullness' => $item['props']['parameters']['weaving']['fullness'],
@@ -177,7 +177,7 @@ class JewellerySeeder extends Seeder
         ]);
 
         foreach ($item['props']['parameters']['ring_sizes'] as $size) {
-            DB::table('ring_prop_ring_size')->insert([
+            DB::table('ring_prop_sizes')->insert([
                 'ring_prop_id' => $ring_prop_id,
                 'ring_size_id' => DB::table('ring_sizes')->where('value', $size)->first()->id,
                 'quantity' => $item['props']['parameters']['quantity'],

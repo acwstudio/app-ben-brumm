@@ -114,6 +114,29 @@ return [
         ],
         //            id = 2
         [
+            'prcs_metal' => 'золото',
+            'prcs_metal_sample' => 585,
+            'prcs_metal_colour' => 'красный',
+            'jewellery_category' => 'браслеты',
+            'coverage-jewellery' => ['без покрытия'],
+            'name' => 'Браслет из золота, плетение нонна, 585 проба',
+            'description' => '',
+            'part_number' => '552020702',
+            'approx_weight' => '2.93 грамм',
+            'props' => [
+                'name-function' => 'getBraceletProps',
+                'parameters' => [
+                    'weaving' => ['weaving' => 'нонна', 'fullness' => 'полнотелая', 'wire_diameter' => '0.7 мм'],
+                    'body_part' => 'на руку',
+                    'bracelet_sizes' => [16, 17, 18, 19, 20, 21],
+                    'quantity' => 5,
+                    'price' => 129990
+                ]
+            ],
+            'insert-jewellery' => []
+        ],
+        //            id = 3
+        [
             'prcs_metal' => 'серебро',
             'prcs_metal_sample' => 925,
             'prcs_metal_colour' => 'платиновый оттенок',
@@ -162,7 +185,7 @@ return [
                 ]
             ]
         ],
-        //            id = 3
+        //            id = 4
         [
             'prcs_metal' => 'серебро',
             'prcs_metal_sample' => 925,
@@ -186,7 +209,7 @@ return [
             ],
             'insert-jewellery' => []
         ],
-        //            id = 4
+        //            id = 5
         [
             'prcs_metal' => 'золото',
             'prcs_metal_sample' => 585,
@@ -224,7 +247,7 @@ return [
                 ],
             ]
         ],
-        //            id = 5
+        //            id = 6
         [
             'prcs_metal' => 'золото',
             'prcs_metal_sample' => 585,
@@ -245,7 +268,7 @@ return [
             ],
             'insert-jewellery' => []
         ],
-        //            id = 6
+        //            id = 7
         [
             'prcs_metal' => 'золото',
             'prcs_metal_sample' => 585,
@@ -284,7 +307,7 @@ return [
             ]
 
         ],
-        //            id => 7
+        //            id => 8
         [
             'prcs_metal' => 'золото',
             'prcs_metal_sample' => 585,
@@ -305,7 +328,7 @@ return [
             ],
             'insert-jewellery' => []
         ],
-        //            id => 8
+        //            id => 9
         [
             'prcs_metal' => 'золото',
             'prcs_metal_sample' => 585,
@@ -343,7 +366,7 @@ return [
                 ]
             ]
         ],
-        //            id = 9
+        //            id = 10
         [
             'prcs_metal' => 'серебро',
             'prcs_metal_sample' => 925,
@@ -373,7 +396,7 @@ return [
                 ]
             ]
         ],
-        //            id = 10
+        //            id = 11
         [
             'prcs_metal' => 'золото',
             'prcs_metal_sample' => 585,
@@ -404,7 +427,7 @@ return [
                 ]
             ]
         ],
-        //            id = 11
+        //            id = 12
         [
             'prcs_metal' => 'серебро',
             'prcs_metal_sample' => 925,
@@ -426,7 +449,7 @@ return [
             ],
             'insert-jewellery' => []
         ],
-        //            id = 12
+        //            id = 13
         [
             'prcs_metal' => 'золото',
             'prcs_metal_sample' => 585,
@@ -482,7 +505,7 @@ return [
                 ]
             ]
         ],
-        //            id = 13
+        //            id = 14
         [
             'prcs_metal' => 'серебро',
             'prcs_metal_sample' => 925,
@@ -515,7 +538,7 @@ return [
             ]
 
         ],
-        //            id = 14
+        //            id = 15
         [
             'prcs_metal' => 'золото',
             'prcs_metal_sample' => 585,
@@ -538,7 +561,7 @@ return [
             ],
             'insert-jewellery' => []
         ],
-        //            id = 15
+        //            id = 16
         [
             'prcs_metal' => 'серебро',
             'prcs_metal_sample' => 925,
@@ -579,7 +602,7 @@ return [
                 ],
             ]
         ],
-        //            id = 16
+        //            id = 17
         [
             'prcs_metal' => 'золото',
             'prcs_metal_sample' => 585,
@@ -601,7 +624,7 @@ return [
             ],
             'insert-jewellery' => []
         ],
-        //            id = 17
+        //            id = 18
         [
             'prcs_metal' => 'золото',
             'prcs_metal_sample' => 585,
@@ -631,7 +654,7 @@ return [
                 ]
             ]
         ],
-        //            id = 18
+        //            id = 19
         [
             'prcs_metal' => 'золото',
             'prcs_metal_sample' => 585,
@@ -670,7 +693,7 @@ return [
                 ]
             ]
         ],
-        //            id = 19
+        //            id = 20
         [
             'prcs_metal' => 'золото',
             'prcs_metal_sample' => 585,
@@ -693,7 +716,7 @@ return [
             ],
             'insert-jewellery' => []
         ],
-        //            id = 20
+        //            id = 21
         [
             'prcs_metal' => 'серебро',
             'prcs_metal_sample' => 925,
@@ -715,7 +738,7 @@ return [
             ],
             'insert-jewellery' => []
         ],
-        //            id = 21
+        //            id = 22
         [
             'prcs_metal' => 'серебро',
             'prcs_metal_sample' => 925,
@@ -746,7 +769,7 @@ return [
                 ]
             ]
         ],
-        //            id = 22
+        //            id = 23
         [
             'prcs_metal' => 'золото',
             'prcs_metal_sample' => 585,
@@ -787,7 +810,7 @@ return [
                 ]
             ]
         ],
-        //            id = 23
+        //            id = 24
         [
             'prcs_metal' => 'золото',
             'prcs_metal_sample' => 585,
@@ -827,7 +850,7 @@ return [
                 ],
             ]
         ],
-        //            id = 24
+        //            id = 25
         [
             'prcs_metal' => 'золото',
             'prcs_metal_sample' => 585,
@@ -867,7 +890,7 @@ return [
                 ],
             ]
         ],
-        //            id = 25
+        //            id = 26
         [
             'prcs_metal' => 'золото',
             'prcs_metal_sample' => 585,
@@ -899,7 +922,7 @@ return [
                 ]
             ]
         ],
-        //            id = 26
+        //            id = 27
         [
             'prcs_metal' => 'золото',
             'prcs_metal_sample' => 585,
@@ -939,7 +962,7 @@ return [
                 ],
             ]
         ],
-        //            id = 27
+        //            id = 28
         [
             'prcs_metal' => 'серебро',
             'prcs_metal_sample' => 925,
@@ -980,7 +1003,7 @@ return [
                 ],
             ]
         ],
-        //            id = 28
+        //            id = 29
         [
             'prcs_metal' => 'золото',
             'prcs_metal_sample' => 585,
@@ -1004,7 +1027,7 @@ return [
             'insert-jewellery' => []
         ],
         [
-//            id = 29
+//            id = 30
             'prcs_metal' => 'золото',
             'prcs_metal_sample' => 585,
             'prcs_metal_colour' => 'красный',

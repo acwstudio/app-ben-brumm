@@ -66,7 +66,7 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        Schema::create('ring_prop_ring_size', function (Blueprint $table) {
+        Schema::create('ring_prop_sizes', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('ring_size_id');
             $table->unsignedBigInteger('ring_prop_id');
@@ -95,7 +95,7 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        Schema::create('bracelet_prop_bracelet_size', function (Blueprint $table) {
+        Schema::create('bracelet_prop_sizes', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('bracelet_size_id');
             $table->unsignedBigInteger('bracelet_prop_id');
@@ -107,7 +107,7 @@ return new class extends Migration
             $table->foreign('bracelet_prop_id')->references('id')->on('bracelet_props');
         });
 
-        Schema::create('bracelet_prop_weaving', function (Blueprint $table) {
+        Schema::create('bracelet_prop_weavings', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('weaving_id');
             $table->unsignedBigInteger('bracelet_prop_id');
@@ -241,7 +241,7 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        Schema::create('chain_prop_chain_size', function (Blueprint $table) {
+        Schema::create('chain_prop_sizes', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('chain_size_id');
             $table->unsignedBigInteger('chain_prop_id');
@@ -253,7 +253,7 @@ return new class extends Migration
             $table->foreign('chain_prop_id')->references('id')->on('chain_props');
         });
 
-        Schema::create('chain_prop_weaving', function (Blueprint $table) {
+        Schema::create('chain_prop_weavings', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('weaving_id');
             $table->unsignedBigInteger('chain_prop_id');
@@ -292,17 +292,17 @@ return new class extends Migration
             $table->dropConstrainedForeignId('jewellery_id');
         });
 
-        Schema::dropIfExists('ring_prop_ring_size');
+        Schema::dropIfExists('ring_prop_sizes');
         Schema::dropIfExists('ring_sizes');
         Schema::dropIfExists('ring_props');
-        Schema::dropIfExists('bracelet_prop_bracelet_size');
-        Schema::dropIfExists('bracelet_prop_weaving');
+        Schema::dropIfExists('bracelet_prop_sizes');
+        Schema::dropIfExists('bracelet_prop_weavings');
         Schema::dropIfExists('bracelet_sizes');
         Schema::dropIfExists('bracelet_props');
         Schema::dropIfExists('brooch_props');
         Schema::dropIfExists('tie_clip_props');
-        Schema::dropIfExists('chain_prop_chain_size');
-        Schema::dropIfExists('chain_prop_weaving');
+        Schema::dropIfExists('chain_prop_sizes');
+        Schema::dropIfExists('chain_prop_weavings');
         Schema::dropIfExists('weavings');
         Schema::dropIfExists('chain_sizes');
         Schema::dropIfExists('chain_props');
