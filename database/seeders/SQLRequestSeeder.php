@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use Domain\PreciousMetals\Models\PrcsMetal;
+use Domain\Site\JewelleryBracelet;
 use Domain\Jewelleries\Models\Jewellery;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -13,9 +15,9 @@ class SQLRequestSeeder extends Seeder
      */
     public function run(): void
     {
-        $vowels = array("a", "e", "i", "o", "u", "A", "E", "I", "O", "U", " ");
-        $yourString = str_replace($vowels, "", 'tie clip');
-        dd(DB::table('prcs_metals')->where('name', 'золото')->first()->id);
+//        $vowels = array("a", "e", "i", "o", "u", "A", "E", "I", "O", "U", " ");
+//        $yourString = str_replace($vowels, "", 'tie clip');
+//        dd(DB::table('prcs_metals')->where('name', 'золото')->first()->id);
 //        dd(Insert::first()->jewelleries);
 //        $result = Insert::join('stones', 'inserts.stone_id', '=', 'stones.id')
 //            ->join('insert_colours', 'inserts.insert_colour_id', '=', 'insert_colours.id')
@@ -43,8 +45,9 @@ class SQLRequestSeeder extends Seeder
 //                'insert_colours.name as colour',
 //            )
 //            ->get();
+//        dd($result);
 
-        $result = DB::table('jewelleries')
+//        $result = DB::table('jewelleries')
 //            ->join('prcs_metal_properties', 'prcs_metal_properties.id', '=', 'jewelleries.prcs_metal_property_id')
 //            ->join('insert_jewellery', 'jewelleries.id', '=', 'insert_jewellery.jewellery_id')
 //            ->join('inserts', 'insert_jewellery.insert_id', '=', 'inserts.id')
@@ -66,12 +69,16 @@ class SQLRequestSeeder extends Seeder
 //            )
 //            ->orderBy('insert_jewellery.id')
 //            ->where('stones.name', '=', 'фианит')
-            ->get();
+//            ->get();
 
 //        foreach ($result as $item) {
 //            dump($item);
 //        }
-        $jewelleries = Jewellery::with('inserts')->limit(2)->toSql();
-        dd(Jewellery::with('inserts')->limit(2)->toSql());
+//        $jewelleries = Jewellery::with('inserts')->limit(2)->toSql();
+        JewelleryBracelet::with(['prcsMetal','prcsMetalColour','prcsMetalSample','braceletSizes'])->where('prcs_metal_id','>', 1)->each(function (JewelleryBracelet $bracelet) {
+            dump($bracelet);
+        });
+        dd('ok');
+//        dd(DB::table('jewellery_bracelets')->where('weave','бисмарк')->get());
     }
 }
