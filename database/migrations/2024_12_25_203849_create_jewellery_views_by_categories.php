@@ -23,6 +23,20 @@ return new class extends Migration
             join weavings w on bpw.weaving_id = w.id
             SQL
         );
+
+        DB::statement(
+            <<<'SQL'
+            CREATE VIEW chain_prop_views AS
+            select
+                chp.id as id,
+                w.name as weave,
+                chpw.fullness,
+                chpw.wire_diameter
+            from chain_props chp
+            join chain_prop_weavings chpw on chp.id = chpw.chain_prop_id
+            join weavings w on chpw.weaving_id = w.id
+            SQL
+        );
     }
 
     /**
@@ -31,5 +45,6 @@ return new class extends Migration
     public function down(): void
     {
         DB::statement('DROP VIEW bracelet_prop_views;');
+        DB::statement('DROP VIEW chain_prop_views;');
     }
 };
