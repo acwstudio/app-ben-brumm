@@ -15,7 +15,7 @@ class PrcsMetalController extends Controller
      */
     public function index()
     {
-        //
+        return PrcsMetal::all();
     }
 
     /**

@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
+namespace App\Http\Controllers\Auth\Users;
 
-namespace App\Http\Controllers\Auth\Users\Admin\Inserts\InsertStoneType;
-
-use App\Http\Controllers\Auth\Users\Controller;
-use Domain\Inserts\Models\StoneType;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class StoneTypeController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -29,7 +26,7 @@ class StoneTypeController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(StoneType $stoneType)
+    public function show(string $id)
     {
         //
     }
@@ -37,7 +34,7 @@ class StoneTypeController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, StoneType $stoneType)
+    public function update(Request $request, string $id)
     {
         //
     }
@@ -45,7 +42,7 @@ class StoneTypeController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(StoneType $stoneType)
+    public function destroy(string $id)
     {
         //
     }

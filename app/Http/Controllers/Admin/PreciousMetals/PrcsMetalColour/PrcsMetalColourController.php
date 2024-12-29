@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Controllers\Admin\PreciousMetals\PrcsMetalColour;
+namespace App\Http\Controllers\Auth\Users\Admin\PreciousMetals\PrcsMetalColour;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\Auth\Users\Controller;
 use Domain\PreciousMetals\Models\PrcsMetalColour;
 use Illuminate\Http\Request;
 

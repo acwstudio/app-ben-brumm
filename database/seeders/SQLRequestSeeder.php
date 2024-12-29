@@ -20,11 +20,11 @@ class SQLRequestSeeder extends Seeder
 //        $vowels = array("a", "e", "i", "o", "u", "A", "E", "I", "O", "U", " ");
 //        $yourString = str_replace($vowels, "", 'tie clip');
 
-//        BraceletPropView::with(['prcsMetal','prcsMetalColour','prcsMetalSample','braceletSizes'])->where('prcs_metal_id','>', 1)->each(function (BraceletPropView $bracelet) {
-//            dump($bracelet);
-//        });
+        BraceletPropView::with(['braceletSizes'])->each(function (BraceletPropView $bracelet) {
+            var_dump($bracelet);
+        });
 //        dd(BraceletPropView::with(['braceletSizes','braceletPrices'])->get());
-        dd(ChainPropView::with(['chainSizes','chainPrices'])->get());
+//        dd(ChainPropView::with(['chainSizes','chainPrices'])->get());
 //        dd(DB::table('chain_prop_views')->get());
 //        dd(DB::table('jewellery_bracelets')->where('weave','бисмарк')->get());
     }

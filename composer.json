@@ -7,7 +7,11 @@
     "require": {
         "php": "^8.2",
         "laravel/framework": "^11.9",
-        "laravel/tinker": "^2.9"
+        "laravel/sanctum": "^4.0",
+        "laravel/tinker": "^2.9",
+        "league/commonmark": "^2.6",
+        "php-open-source-saver/jwt-auth": "^2.7",
+        "ext-xdebug": "*"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
@@ -58,6 +62,9 @@
         }
     },
     "config": {
+        "audit": {
+            "abandoned": "report"
+        },
         "optimize-autoloader": true,
         "preferred-install": "dist",
         "sort-packages": true,

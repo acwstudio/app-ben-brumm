@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Controllers\Admin\Inserts\InsertShape;
+namespace App\Http\Controllers\Auth\Users\Admin\Inserts\InsertShape;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\Auth\Users\Controller;
 use Domain\Inserts\Models\InsertShape;
 use Illuminate\Http\Request;
 

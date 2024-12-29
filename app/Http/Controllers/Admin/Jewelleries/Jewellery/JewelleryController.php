@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Controllers\Admin\Jewelleries\Jewellery;
+namespace App\Http\Controllers\Auth\Users\Admin\Jewelleries\Jewellery;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\Auth\Users\Controller;
 use Domain\Jewelleries\Models\Jewellery;
 use Illuminate\Http\Request;
 
