@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Controllers\Auth\Users\Admin\Inserts\InsertStoneType;
+namespace App\Http\Controllers\Admin\Inserts\InsertStoneType;
 
-use App\Http\Controllers\Auth\Users\Controller;
+use App\Http\Controllers\Controller;
 use Domain\Inserts\Models\StoneType;
 use Illuminate\Http\Request;
 

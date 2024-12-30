@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Controllers\Auth\Users\Admin\Inserts\InsertColour;
+namespace App\Http\Controllers\Admin\Inserts\InsertColour;
 
-use App\Http\Controllers\Auth\Users\Controller;
+use App\Http\Controllers\Controller;
 use Domain\Inserts\Models\InsertColour;
 use Illuminate\Http\Request;
 

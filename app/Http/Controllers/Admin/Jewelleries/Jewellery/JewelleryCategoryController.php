@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\Auth\Users\Admin\Jewelleries\Jewellery;
+namespace App\Http\Controllers\Admin\Jewelleries\Jewellery;
 
-use App\Http\Controllers\Auth\Users\Controller;
+use App\Http\Controllers\Controller;
 use Domain\Jewelleries\Models\JewelleryCategory;
 use Illuminate\Http\Request;
 

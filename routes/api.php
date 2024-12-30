@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\Jewelleries\Jewellery\JewelleryController;
 use App\Http\Controllers\Admin\PreciousMetals\PrcsMetal\PrcsMetalController;
 use App\Http\Controllers\Auth\Users\AuthUserController;
 use App\Http\Controllers\Auth\Users\UserController;
@@ -27,4 +28,11 @@ Route::group([
     Route::delete('/users/{id}', [UserController::class, 'destroy']);
 
     Route::get('/prcs-metals', [PrcsMetalController::class, 'index']);
+    Route::get('/prcs-metals/{id}', [PrcsMetalController::class, 'show']);
+    Route::post('/prcs-metals', [PrcsMetalController::class, 'store']);
+    Route::patch('/prcs-metals/{id}', [PrcsMetalController::class, 'update']);
+    Route::delete('/prcs-metals/{id}', [PrcsMetalController::class, 'destroy']);
+
+    Route::get('/jewelleries', [JewelleryController::class, 'index']);
+
 });

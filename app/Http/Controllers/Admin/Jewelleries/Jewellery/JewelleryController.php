@@ -2,20 +2,30 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Controllers\Auth\Users\Admin\Jewelleries\Jewellery;
+namespace App\Http\Controllers\Admin\Jewelleries\Jewellery;
 
-use App\Http\Controllers\Auth\Users\Controller;
+use App\Http\Controllers\Controller;
 use Domain\Jewelleries\Models\Jewellery;
+use Domain\Jewelleries\Services\JewelleryService;
 use Illuminate\Http\Request;
 
-class JewelleryController extends Controller
+final class JewelleryController extends Controller
 {
+    public function __construct(public JewelleryService $jewelleryService)
+    {
+    }
+
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $data = $request->all();
+//        dd($data);
+        $items = $this->jewelleryService->index($data);
+
+        return $items;
+//        return (new BannerCollection($items))->response();
     }
 
     /**
@@ -29,9 +39,13 @@ class JewelleryController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Jewellery $jewelleries)
+    public function show(Request $request, int $id)
     {
-        //
+        $data = $request->all();
+        data_set($data, 'id', $id);
+        $model = $this->jewelleryService->show($id, $data);
+        return $model;
+//        return (new BannerResource($model))->response();
     }
 
     /**
