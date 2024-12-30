@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Http\Controllers\Admin\Jewelleries\Jewellery;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\Jewelleries\JewelleryCollection;
 use Domain\Jewelleries\Models\Jewellery;
 use Domain\Jewelleries\Services\JewelleryService;
 use Illuminate\Http\Request;
@@ -24,8 +25,8 @@ final class JewelleryController extends Controller
 //        dd($data);
         $items = $this->jewelleryService->index($data);
 
-        return $items;
-//        return (new BannerCollection($items))->response();
+//        return $items;
+        return (new JewelleryCollection($items))->response();
     }
 
     /**

@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\Jewelleries\Jewellery\JewelleriesJewelleryCategoryRelatedController;
+use App\Http\Controllers\Admin\Jewelleries\Jewellery\JewelleriesJewelleryCategoryRelationshipsController;
 use App\Http\Controllers\Admin\Jewelleries\Jewellery\JewelleryController;
 use App\Http\Controllers\Admin\PreciousMetals\PrcsMetal\PrcsMetalController;
 use App\Http\Controllers\Auth\Users\AuthUserController;
@@ -33,6 +35,20 @@ Route::group([
     Route::patch('/prcs-metals/{id}', [PrcsMetalController::class, 'update']);
     Route::delete('/prcs-metals/{id}', [PrcsMetalController::class, 'destroy']);
 
+    /*****************  JEWELLERIES ROUTES **************/
+    // CRUD
     Route::get('/jewelleries', [JewelleryController::class, 'index']);
+    Route::get('/jewelleries/{id}', [JewelleryController::class, 'show']);
+    Route::post('/jewelleries', [JewelleryController::class, 'store']);
+    Route::patch('/jewelleries/{id}', [JewelleryController::class, 'update']);
+    Route::delete('/jewelleries/{id}', [JewelleryController::class, 'destroy']);
+
+    //  many-to-one BlogPosts to  BlogCategory
+    Route::get('jewelleries/{id}/relationships/jewellery-category', [JewelleriesJewelleryCategoryRelationshipsController::class, 'index'])
+        ->name('jewelleries.relationships.jewellery-category');
+    Route::patch('jewelleries/{id}/relationships/jewellery-category', [JewelleriesJewelleryCategoryRelationshipsController::class, 'update'])
+        ->name('jewelleries.relationships.jewellery-category');
+    Route::get('jewelleries/{id}/jewellery-category', [JewelleriesJewelleryCategoryRelatedController::class, 'index'])
+        ->name('jewelleries.jewellery-category');
 
 });

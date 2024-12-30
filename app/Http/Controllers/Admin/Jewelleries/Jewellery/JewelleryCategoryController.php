@@ -1,12 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers\Admin\Jewelleries\Jewellery;
 
 use App\Http\Controllers\Controller;
 use Domain\Jewelleries\Models\JewelleryCategory;
 use Illuminate\Http\Request;
 
-class JewelleryCategoryController extends Controller
+final class JewelleryCategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
