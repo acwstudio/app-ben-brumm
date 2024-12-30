@@ -20,8 +20,12 @@ class SQLRequestSeeder extends Seeder
 //        $vowels = array("a", "e", "i", "o", "u", "A", "E", "I", "O", "U", " ");
 //        $yourString = str_replace($vowels, "", 'tie clip');
 
-        BraceletPropView::with(['braceletSizes'])->each(function (BraceletPropView $bracelet) {
-            var_dump($bracelet);
+//        BraceletPropView::with(['braceletSizes'])->each(function (BraceletPropView $bracelet) {
+//            dump($bracelet);
+//        });
+//        dd(Jewellery::find(2)->braceletPropView);
+        Jewellery::with(['braceletPropView'])->each(function (Jewellery $bracelet) {
+            dump($bracelet);
         });
 //        dd(BraceletPropView::with(['braceletSizes','braceletPrices'])->get());
 //        dd(ChainPropView::with(['chainSizes','chainPrices'])->get());

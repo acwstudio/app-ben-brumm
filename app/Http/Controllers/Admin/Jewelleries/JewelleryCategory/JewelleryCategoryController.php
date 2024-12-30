@@ -2,20 +2,29 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Controllers\Admin\Jewelleries\Jewellery;
+namespace App\Http\Controllers\Admin\Jewelleries\JewelleryCategory;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\JewelleryCategories\JewelleryCategoryCollection;
 use Domain\Jewelleries\Models\JewelleryCategory;
+use Domain\Jewelleries\Services\JewelleryCategory\JewelleryCategoryService;
 use Illuminate\Http\Request;
 
 final class JewelleryCategoryController extends Controller
 {
+    public function __construct(public JewelleryCategoryService $jewelleryCategoryService)
+    {
+    }
+
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $data = $request->all();
+        $items = $this->jewelleryCategoryService->index($data);
+
+        return (new JewelleryCategoryCollection($items))->response();
     }
 
     /**

@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class JewellerySeeder extends Seeder
 {
@@ -46,9 +47,11 @@ class JewellerySeeder extends Seeder
                 'prcs_metal_colour_id' => DB::table('prcs_metal_colours')->where('name', $item['prcs_metal_colour'])->first()->id,
                 'jewellery_category_id' => DB::table('jewellery_categories')->where('name', $item['jewellery_category'])->first()->id,
                 'name' => $item['name'],
+                'slug' => Str::slug($item['name'], '-'),
                 'description' => $item['description'],
                 'part_number' => $item['part_number'],
                 'approx_weight' => $item['approx_weight'],
+                'is_active' => $item['is_active'],
                 'created_at' => now(),
             ]);
 

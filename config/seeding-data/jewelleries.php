@@ -80,6 +80,7 @@ return [
             'description' => '',
             'part_number' => '1050166-3',
             'approx_weight' => '5.4 грамма',
+            'is_active' => true,
             'props' => [
                 'name-function' => 'getBraceletProps',
                 'parameters' =>
@@ -123,6 +124,7 @@ return [
             'description' => '',
             'part_number' => '552020702',
             'approx_weight' => '2.93 грамм',
+            'is_active' => true,
             'props' => [
                 'name-function' => 'getBraceletProps',
                 'parameters' => [
@@ -146,6 +148,7 @@ return [
             'description' => '',
             'part_number' => '92050107',
             'approx_weight' => '8.41 грамм',
+            'is_active' => true,
             'props' => [
                 'name-function' => 'getBraceletProps',
                 'parameters' =>
@@ -196,6 +199,7 @@ return [
             'description' => '',
             'part_number' => '965141004',
             'approx_weight' => '13.45 грамм',
+            'is_active' => true,
             'props' => [
                 'name-function' => 'getBraceletProps',
                 'parameters' =>
@@ -220,6 +224,7 @@ return [
             'description' => '',
             'part_number' => '740109',
             'approx_weight' => '1.14 грамм',
+            'is_active' => true,
             'props' => [
                 'name-function' => 'getBroochProps',
                 'parameters' =>
@@ -258,6 +263,7 @@ return [
             'description' => '',
             'part_number' => '40015',
             'approx_weight' => '0.91 грамм',
+            'is_active' => true,
             'props' => [
                 'name-function' => 'getBroochProps',
                 'parameters' =>
@@ -279,6 +285,7 @@ return [
             'description' => '',
             'part_number' => '3090001',
             'approx_weight' => '6.45 грамм',
+            'is_active' => true,
             'props' => [
                 'name-function' => 'getTieClipProps',
                 'parameters' =>
@@ -318,6 +325,7 @@ return [
             'description' => '',
             'part_number' => '090035',
             'approx_weight' => '4.44 грамма',
+            'is_active' => true,
             'props' => [
                 'name-function' => 'getTieClipProps',
                 'parameters' =>
@@ -339,6 +347,7 @@ return [
             'description' => '',
             'part_number' => '766001',
             'approx_weight' => '6.91 грамма',
+            'is_active' => true,
             'props' => [
                 'name-function' => 'getCuffLinkProps',
                 'parameters' =>
@@ -377,6 +386,7 @@ return [
             'description' => '',
             'part_number' => '94160039',
             'approx_weight' => '5.57 грамма',
+            'is_active' => true,
             'props' => [
                 'name-function' => 'getCuffLinkProps',
                 'parameters' =>
@@ -407,6 +417,7 @@ return [
             'description' => '',
             'part_number' => '1070162',
             'approx_weight' => '1.69 грамма',
+            'is_active' => true,
             'props' => [
                 'name-function' => 'getNecklaceProps',
                 'parameters' =>
@@ -438,6 +449,7 @@ return [
             'description' => '',
             'part_number' => '94070950',
             'approx_weight' => '4.56 грамма',
+            'is_active' => true,
             'props' => [
                 'name-function' => 'getNecklaceProps',
                 'parameters' =>
@@ -460,6 +472,7 @@ return [
             'description' => '',
             'part_number' => '71-00338',
             'approx_weight' => '1.85 грамма',
+            'is_active' => true,
             'props' => [
                 'name-function' => 'getRingProps',
                 'parameters' =>
@@ -516,6 +529,7 @@ return [
             'description' => '',
             'part_number' => '94014199',
             'approx_weight' => '2.54 грамма',
+            'is_active' => true,
             'props' => [
                 'name-function' => 'getRingProps',
                 'parameters' =>
@@ -549,6 +563,7 @@ return [
             'description' => '',
             'part_number' => '110224',
             'approx_weight' => '2.15 грамма',
+            'is_active' => true,
             'props' => [
                 'name-function' => 'getRingProps',
                 'parameters' =>
@@ -572,6 +587,7 @@ return [
             'description' => '',
             'part_number' => '94011705',
             'approx_weight' => '3 грамма',
+            'is_active' => true,
             'price' => 13490,
             'props' => [
                 'name-function' => 'getRingProps',
@@ -613,6 +629,7 @@ return [
             'description' => '',
             'part_number' => '060054',
             'approx_weight' => '1.04 грамма',
+            'is_active' => true,
             'price' => 55990,
             'props' => [
                 'name-function' => 'getPiercingProps',
@@ -635,6 +652,7 @@ return [
             'description' => '',
             'part_number' => '060204',
             'approx_weight' => '1.55 грамма',
+            'is_active' => true,
             'props' => [
                 'name-function' => 'getPiercingProps',
                 'parameters' =>
@@ -665,6 +683,7 @@ return [
             'description' => '',
             'part_number' => '73-00124',
             'approx_weight' => '0.74 грамма',
+            'is_active' => true,
             'props' => [
                 'name-function' => 'getPendantProps',
                 'parameters' =>
@@ -704,6 +723,7 @@ return [
             'description' => '',
             'part_number' => '36671',
             'approx_weight' => '0.95 грамма',
+            'is_active' => true,
             'price' => 46990,
             'props' => [
                 'name-function' => 'getPendantProps',
@@ -727,6 +747,7 @@ return [
             'description' => '',
             'part_number' => '93030569',
             'approx_weight' => '3.17 грамма',
+            'is_active' => true,
             'props' => [
                 'name-function' => 'getCharmPendantProps',
                 'parameters' =>
@@ -749,6 +770,7 @@ return [
             'description' => '',
             'part_number' => '94032885',
             'approx_weight' => '2.55 грамма',
+            'is_active' => true,
             'props' => [
                 'name-function' => 'getCharmPendantProps',
                 'parameters' =>
@@ -780,6 +802,7 @@ return [
             'description' => '',
             'part_number' => '1021708',
             'approx_weight' => '2.03 грамма',
+            'is_active' => true,
             'price' => 154990,
             'props' => [
                 'name-function' => 'getEarringProps',
@@ -821,6 +844,7 @@ return [
             'description' => '',
             'part_number' => '6024257',
             'approx_weight' => '3.6 грамм',
+            'is_active' => true,
             'props' => [
                 'name-function' => 'getEarringProps',
                 'parameters' =>
@@ -861,6 +885,7 @@ return [
             'description' => '',
             'part_number' => '728331',
             'approx_weight' => '1.64 грамм',
+            'is_active' => true,
             'props' => [
                 'name-function' => 'getEarringProps',
                 'parameters' =>
@@ -901,6 +926,7 @@ return [
             'description' => '',
             'part_number' => '792410',
             'approx_weight' => '2.31 грамм',
+            'is_active' => true,
             'props' => [
                 'name-function' => 'getEarringProps',
                 'parameters' =>
@@ -933,6 +959,7 @@ return [
             'description' => '',
             'part_number' => '727533',
             'approx_weight' => '1.81 грамм',
+            'is_active' => true,
             'props' => [
                 'name-function' => 'getEarringProps',
                 'parameters' =>
@@ -973,6 +1000,7 @@ return [
             'description' => '',
             'part_number' => '83020096',
             'approx_weight' => '7.7 грамм',
+            'is_active' => true,
             'price' => 18990,
             'props' => [
                 'name-function' => 'getEarringProps',
@@ -1014,6 +1042,7 @@ return [
             'description' => '',
             'part_number' => '582011006',
             'approx_weight' => '14.04 грамм',
+            'is_active' => true,
             'props' => [
                 'name-function' => 'getChainProps',
                 'parameters' =>
@@ -1037,6 +1066,7 @@ return [
             'description' => '',
             'part_number' => '581020502',
             'approx_weight' => '7.48 грамм',
+            'is_active' => true,
             'price' => 204990,
             'props' => [
                 'name-function' => 'getChainProps',

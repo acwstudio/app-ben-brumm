@@ -15,12 +15,17 @@ return new class extends Migration
             select
                 bp.id as id,
                 bp.body_part,
+                bp.jewellery_id,
                 w.name as weave,
                 bpw.fullness,
-                bpw.wire_diameter
+                bpw.wire_diameter,
+                json_arrayagg(json_object('quantity',bps.quantity, 'price', bps.price, 'size', bs.value)) as props
             from bracelet_props bp
-            join bracelet_prop_weavings bpw on bp.id = bpw.bracelet_prop_id
-            join weavings w on bpw.weaving_id = w.id
+            left join bracelet_prop_weavings bpw on bp.id = bpw.bracelet_prop_id
+            left join weavings w on bpw.weaving_id = w.id
+            join bracelet_prop_sizes bps on bp.id = bps.bracelet_prop_id
+            join bracelet_sizes bs on bps.bracelet_size_id = bs.id
+            group by bp.id, weave, bpw.fullness, bpw.wire_diameter
             SQL
         );
 

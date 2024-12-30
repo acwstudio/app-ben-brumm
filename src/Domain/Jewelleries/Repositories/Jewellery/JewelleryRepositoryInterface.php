@@ -1,6 +1,6 @@
 <?php
 
-namespace Domain\Jewelleries\Repositories;
+namespace Domain\Jewelleries\Repositories\Jewellery;
 
 use Domain\Jewelleries\Models\Jewellery;
 use Illuminate\Contracts\Pagination\Paginator;

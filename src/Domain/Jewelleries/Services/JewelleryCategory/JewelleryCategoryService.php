@@ -2,26 +2,24 @@
 
 declare(strict_types=1);
 
-namespace Domain\Jewelleries\Services;
+namespace Domain\Jewelleries\Services\JewelleryCategory;
 
 use Domain\AbstractCRUDService;
-use Domain\Jewelleries\Pipelines\JewelleryPipeline;
-use Domain\Jewelleries\Repositories\JewelleryRepositoryInterface;
+use Domain\Jewelleries\Repositories\jewelleryCategory\JewelleryCategoryRepositoryInterface;
 use Illuminate\Contracts\Pagination\Paginator;
 use Illuminate\Database\Eloquent\Model;
 
-final class JewelleryService extends AbstractCRUDService
+final class JewelleryCategoryService extends AbstractCRUDService
 {
     public function __construct(
-        public JewelleryRepositoryInterface $jewelleryRepositoryInterface,
+        public JewelleryCategoryRepositoryInterface $jewelleryCategoryRepositoryInterface,
 //        public JewelleryPipeline $jewelleryPipeline
     ) {
     }
 
-
     public function index(array $data): Paginator
     {
-        return $this->jewelleryRepositoryInterface->index($data);
+        return $this->jewelleryCategoryRepositoryInterface->index($data);
     }
 
     public function store(array $data): Model
@@ -31,7 +29,7 @@ final class JewelleryService extends AbstractCRUDService
 
     public function show(int $id, array $data): Model
     {
-        return $this->jewelleryRepositoryInterface->show($id, $data);
+        // TODO: Implement show() method.
     }
 
     public function update(array $data): void

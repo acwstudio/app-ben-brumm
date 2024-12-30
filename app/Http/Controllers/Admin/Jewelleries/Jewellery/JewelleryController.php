@@ -7,7 +7,7 @@ namespace App\Http\Controllers\Admin\Jewelleries\Jewellery;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\Jewelleries\JewelleryCollection;
 use Domain\Jewelleries\Models\Jewellery;
-use Domain\Jewelleries\Services\JewelleryService;
+use Domain\Jewelleries\Services\Jewellery\JewelleryService;
 use Illuminate\Http\Request;
 
 final class JewelleryController extends Controller
@@ -22,10 +22,8 @@ final class JewelleryController extends Controller
     public function index(Request $request)
     {
         $data = $request->all();
-//        dd($data);
         $items = $this->jewelleryService->index($data);
 
-//        return $items;
         return (new JewelleryCollection($items))->response();
     }
 

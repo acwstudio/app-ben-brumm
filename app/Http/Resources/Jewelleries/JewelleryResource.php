@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Resources\Jewelleries;
 
+use App\Http\Resources\BraceletPropViews\BraceletPropViewResource;
 use App\Http\Resources\IncludeRelatedEntitiesResourceTrait;
 use App\Http\Resources\JewelleryCategories\JewelleryCategoryResource;
 use Domain\Jewelleries\Models\Jewellery;
@@ -30,9 +31,13 @@ final class JewelleryResource extends JsonResource
             'attributes' => $this->attributeItems(),
             'relationships' => [
                 'jewelleryCategory' => $this->sectionRelationships(
-                    'jewelleries.jewellery-category',
+                    'jewellery-category.jewelleries',
                     JewelleryCategoryResource::class
-                )
+                ),
+                'braceletPropView' => $this->sectionRelationships(
+                    'bracelet-prop-view.jewellery',
+                    BraceletPropViewResource::class
+                ),
             ]
         ];
     }
@@ -41,6 +46,7 @@ final class JewelleryResource extends JsonResource
     {
         return [
             JewelleryCategoryResource::class => $this->whenLoaded('jewelleryCategory'),
+            BraceletPropViewResource::class  => $this->whenLoaded('braceletPropView'),
         ];
     }
 }

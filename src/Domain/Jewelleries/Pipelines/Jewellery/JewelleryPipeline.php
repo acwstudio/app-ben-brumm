@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Domain\Jewelleries\Pipelines;
+namespace Domain\Jewelleries\Pipelines\Jewellery;
 
 use Domain\AbstractPipeline;
 use Illuminate\Database\Eloquent\Model;

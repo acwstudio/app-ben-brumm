@@ -38,9 +38,11 @@ return new class extends Migration
             $table->unsignedBigInteger('prcs_metal_id');
             $table->unsignedBigInteger('jewellery_category_id');
             $table->string('name');
+            $table->string('slug')->unique();
             $table->string('description');
             $table->string('part_number')->unique();
             $table->string('approx_weight');
+            $table->boolean('is_active')->default(true);
             $table->timestamps();
 
             $table->foreign('prcs_metal_sample_id')->references('id')->on('prcs_metal_samples');

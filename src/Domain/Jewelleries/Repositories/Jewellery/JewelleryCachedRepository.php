@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Domain\Jewelleries\Repositories;
+namespace Domain\Jewelleries\Repositories\Jewellery;
 
 use Domain\AbstractCachedRepository;
 use Domain\Jewelleries\Models\Jewellery;
