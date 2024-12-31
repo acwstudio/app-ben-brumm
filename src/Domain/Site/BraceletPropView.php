@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Domain\Site;
 
 use Domain\Jewelleries\Models\BraceletPrice;
@@ -12,7 +14,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class BraceletPropView extends BaseModel
+final class BraceletPropView extends BaseModel
 {
     public const TYPE_RESOURCE = 'BraceletPropViews';
 

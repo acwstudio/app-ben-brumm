@@ -215,7 +215,7 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        Schema::create('necklace_prop_necklace_size', function (Blueprint $table) {
+        Schema::create('necklace_prop_size', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('necklace_size_id');
             $table->unsignedBigInteger('necklace_prop_id');
@@ -314,7 +314,7 @@ return new class extends Migration
         Schema::dropIfExists('earring_props');
         Schema::dropIfExists('clasps');
         Schema::dropIfExists('charm_pendant_props');
-        Schema::dropIfExists('necklace_prop_necklace_size');
+        Schema::dropIfExists('necklace_prop_size');
         Schema::dropIfExists('necklace_sizes');
         Schema::dropIfExists('necklace_props');
         Schema::dropIfExists('coverage_jewellery');

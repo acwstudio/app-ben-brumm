@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Domain\Site;
 
 use Domain\Jewelleries\Models\ChainPropSize;
@@ -8,7 +10,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class ChainPropView extends Model
+final class ChainPropView extends Model
 {
     public function chainSizes(): BelongsToMany
     {

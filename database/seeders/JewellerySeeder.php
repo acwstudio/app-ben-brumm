@@ -35,7 +35,7 @@ class JewellerySeeder extends Seeder
         DB::table('chain_prop_sizes')->truncate();
         DB::table('chain_prop_weavings')->truncate();
         DB::table('necklace_props')->truncate();
-        DB::table('necklace_prop_necklace_size')->truncate();
+        DB::table('necklace_prop_size')->truncate();
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
 
         $items = config('seeding-data.jewelleries.jewelleries');
@@ -159,7 +159,7 @@ class JewellerySeeder extends Seeder
         ]);
 
         foreach ($item['props']['parameters']['necklace_sizes'] as $size) {
-            DB::table('necklace_prop_necklace_size')->insert([
+            DB::table('necklace_prop_size')->insert([
                 'necklace_prop_id' => $necklace_prop_id,
                 'necklace_size_id' => DB::table('necklace_sizes')->where('value', $size)->first()->id,
                 'quantity' => $item['props']['parameters']['quantity'],
