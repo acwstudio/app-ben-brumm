@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Auth\Controllers\Users\UserAuthController;
 use App\Http\Controllers\Admin\Jewelleries\Jewellery\JewelleriesJewelleryCategoryRelatedController;
 use App\Http\Controllers\Admin\Jewelleries\Jewellery\JewelleriesJewelleryCategoryRelationshipsController;
 use App\Http\Controllers\Admin\Jewelleries\Jewellery\JewelleryBraceletPropViewRelatedController;
@@ -7,7 +8,6 @@ use App\Http\Controllers\Admin\Jewelleries\Jewellery\JewelleryBraceletPropViewRe
 use App\Http\Controllers\Admin\Jewelleries\Jewellery\JewelleryController;
 use App\Http\Controllers\Admin\Jewelleries\JewelleryCategory\JewelleryCategoryController;
 use App\Http\Controllers\Admin\PreciousMetals\PrcsMetal\PrcsMetalController;
-use App\Http\Controllers\Auth\Users\AuthUserController;
 use App\Http\Controllers\Auth\Users\UserController;
 use App\Http\Controllers\Site\Jewelleries\BraceletPropView\BraceletPropViewController;
 use App\Http\Controllers\Site\Jewelleries\BraceletPropView\BraceletPropViewJewelleryRelatedController;
@@ -18,15 +18,16 @@ Route::group([
     'middleware' => 'api',
     'prefix' => 'auth'
 ], function () {
-    Route::post('/register', [AuthUserController::class, 'register']);
-    Route::post('/login', [AuthUserController::class, 'login']);
-    Route::post('/logout', [AuthUserController::class, 'logout'])->middleware('auth:api');
-    Route::patch('/refresh', [AuthUserController::class, 'refresh'])->middleware('auth:api');
-    Route::get('/profile', [AuthUserController::class, 'profile'])->middleware('auth:api');
+    Route::post('/register', [UserAuthController::class, 'register']);
+    Route::post('/login', [UserAuthController::class, 'login']);
+    Route::post('/logout', [UserAuthController::class, 'logout'])->middleware('auth:api');
+    Route::patch('/refresh', [UserAuthController::class, 'refresh'])->middleware('auth:api');
+    Route::get('/profile', [UserAuthController::class, 'profile'])->middleware('auth:api');
 });
 
 Route::group([
     'middleware' => 'api',
+    'prefix' => 'api'
 ], function () {
 
     Route::get('/users', [UserController::class, 'index']);

@@ -1,25 +1,25 @@
 <?php
 
-namespace App\Http\Controllers\Auth\Users;
+declare(strict_types=1);
+
+namespace App\Http\Auth\Controllers\Employees;
 
 use App\Http\Controllers\Auth\BaseController;
-use App\Http\Controllers\Controller;
-use Domain\Users\Models\User;
+use Domain\Employees\Models\Employee;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-//use PHPOpenSourceSaver\JWTAuth\Facades\JWTAuth;
-use PHPOpenSourceSaver\JWTAuth\JWT;
-use PHPOpenSourceSaver\JWTAuth\JWTAuth;
 
-class AuthUserController extends BaseController
+final class EmployeeAuthController extends BaseController
 {
     /**
-     * Register a User.
+     * Register an Employee.
      *
-     * @return \Illuminate\Http\JsonResponse
+     * @param Request $request
+     * @return JsonResponse
      */
-    public function register(Request $request) {
-
+    public function register(Request $request): JsonResponse
+    {
         $validator = Validator::make($request->all(), [
             'name' => 'required',
             'email' => 'required|email',
@@ -33,39 +33,38 @@ class AuthUserController extends BaseController
 
         $input = $request->all();
         $input['password'] = bcrypt($input['password']);
-        $user = User::create($input);
-        $success['user'] =  $user;
+        $employee = Employee::create($input);
+        $success['employee'] =  $employee;
 
-        return $this->sendResponse($success, 'User register successfully.');
+        return $this->sendResponse($success, 'Employee register successfully.');
     }
-
 
     /**
      * Get a JWT via given credentials.
      *
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
-    public function login()
+    public function login(): JsonResponse
     {
         $credentials = request(['email', 'password']);
 
-        if (! $token = auth()->attempt($credentials)) {
+        if (! $token = auth('employee')->attempt($credentials)) {
             return $this->sendError('Unauthorised.', ['error'=>'Unauthorised']);
         }
 
         $success = $this->respondWithToken($token);
 
-        return $this->sendResponse($success, 'User login successfully.');
+        return $this->sendResponse($success, 'Employee login successfully.');
     }
 
     /**
      * Get the authenticated User.
      *
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
-    public function profile()
+    public function profile(): JsonResponse
     {
-        $success = auth()->user();
+        $success = auth('employee')->user();
 
         return $this->sendResponse($success, 'Refresh token return successfully.');
     }
@@ -73,11 +72,11 @@ class AuthUserController extends BaseController
     /**
      * Log the user out (Invalidate the token).
      *
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
-    public function logout()
+    public function logout(): JsonResponse
     {
-        auth()->logout();
+        auth('employee')->logout();
 
         return $this->sendResponse([], 'Successfully logged out.');
     }
@@ -85,11 +84,11 @@ class AuthUserController extends BaseController
     /**
      * Refresh a token.
      *
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
-    public function refresh()
+    public function refresh(): JsonResponse
     {
-        $success = $this->respondWithToken(auth()->refresh());
+        $success = $this->respondWithToken(auth('employee')->refresh());
 
         return $this->sendResponse($success, 'Refresh token return successfully.');
     }
@@ -99,15 +98,15 @@ class AuthUserController extends BaseController
      *
      * @param string $token
      *
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
-    protected function respondWithToken(string $token)
+    protected function respondWithToken($token): JsonResponse
     {
         return response()->json(
             [
                 'access_token' => $token,
                 'token_type' => 'bearer',
-                'expires_in' => auth()->factory()->getTTL() * 60,
+                'expires_in' => auth('employee')->factory()->getTTL() * 60,
             ]
         );
     }

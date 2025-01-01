@@ -1,14 +1,16 @@
 <?php
 
-namespace Domain\Users\Models;
+namespace Domain\Customers\Models;
 
 use Domain\Shared\Models\BaseModel;
 use Illuminate\Notifications\Notifiable;
 use PHPOpenSourceSaver\JWTAuth\Contracts\JWTSubject;
 
-class User extends BaseModel implements JWTSubject
+class Customer extends BaseModel implements JWTSubject
 {
     use Notifiable;
+
+    protected string $guard = 'customer';
 
     /**
      * The attributes that are mass assignable.
