@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Auth\Controllers\Customers;
 
 use App\Http\Controllers\Auth\BaseController;
@@ -8,7 +10,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
-class CustomerAuthController extends BaseController
+final class CustomerAuthController extends BaseController
 {
     /**
      * Register a User.
