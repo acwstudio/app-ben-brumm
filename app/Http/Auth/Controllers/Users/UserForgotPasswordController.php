@@ -4,28 +4,26 @@ declare(strict_types=1);
 
 namespace App\Http\Auth\Controllers\Users;
 
+use App\Http\Auth\Requests\Users\UserForgotPasswordRequest;
+use App\Http\Auth\Requests\Users\UserResetPasswordRequest;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Password;
 
-final class ForgotUserPasswordController extends Controller
+final class UserForgotPasswordController extends Controller
 {
-    public function forgot(): JsonResponse
+    public function forgot(UserForgotPasswordRequest $request): JsonResponse
     {
-        $credentials = request()->validate(['email' => 'required|email']);
+        $credentials = $request->only('email');
 
         Password::broker('users')->sendResetLink($credentials);
 
         return response()->json(["msg" => 'Reset password link sent on your email id.']);
     }
 
-    public function reset(): JsonResponse
+    public function reset(UserResetPasswordRequest $request): JsonResponse
     {
-        $credentials = request()->validate([
-            'email' => 'required|email',
-            'token' => 'required|string',
-            'password' => 'required|string|confirmed'
-        ]);
+        $credentials = $request->only('email', 'password', 'token');
 
         $reset_password_status = Password::broker('users')->reset($credentials, function ($user, $password) {
             $user->password = $password;

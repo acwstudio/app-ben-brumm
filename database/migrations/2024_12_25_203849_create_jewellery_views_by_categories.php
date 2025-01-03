@@ -34,12 +34,17 @@ return new class extends Migration
             CREATE VIEW chain_prop_views AS
             select
                 chp.id as id,
+                chp.jewellery_id,
                 w.name as weave,
                 chpw.fullness,
-                chpw.wire_diameter
+                chpw.wire_diameter,
+                json_arrayagg(json_object('quantity',chps.quantity, 'price', chps.price, 'size', chs.value)) as props
             from chain_props chp
-            join chain_prop_weavings chpw on chp.id = chpw.chain_prop_id
-            join weavings w on chpw.weaving_id = w.id
+            left join chain_prop_weavings chpw on chp.id = chpw.chain_prop_id
+            left join weavings w on chpw.weaving_id = w.id
+            join chain_prop_sizes chps on chps.chain_prop_id = chp.id
+            join chain_sizes chs on chps.chain_size_id = chs.id
+            group by chp.id, weave, chpw.fullness, chpw.wire_diameter
             SQL
         );
     }

@@ -4,28 +4,26 @@ declare(strict_types=1);
 
 namespace App\Http\Auth\Controllers\Employees;
 
+use App\Http\Auth\Requests\Employees\EmployeeForgotPasswordRequest;
+use App\Http\Auth\Requests\Employees\EmployeeResetPasswordRequest;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Password;
 
-final class ForgotEmployeePasswordController extends Controller
+final class EmployeeForgotPasswordController extends Controller
 {
-    public function forgot(): JsonResponse
+    public function forgot(EmployeeForgotPasswordRequest $request): JsonResponse
     {
-        $credentials = request()->validate(['email' => ['required','email','exists:employees,email']]);
+        $credentials = $request->only('email');
 
         Password::broker('employees')->sendResetLink($credentials);
 
         return response()->json(["msg" => 'Reset password link sent on your email id.']);
     }
 
-    public function reset(): JsonResponse
+    public function reset(EmployeeResetPasswordRequest $request): JsonResponse
     {
-        $credentials = request()->validate([
-            'email' => ['required','email','exists:employees,email'],
-            'token' => ['required','string'],
-            'password' => ['required','string','confirmed']
-        ]);
+        $credentials = $request->only('email', 'password', 'token');
 
         $reset_password_status = Password::broker('employees')->reset($credentials, function ($user, $password) {
             $user->password = $password;

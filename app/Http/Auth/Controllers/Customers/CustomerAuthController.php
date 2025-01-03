@@ -4,33 +4,22 @@ declare(strict_types=1);
 
 namespace App\Http\Auth\Controllers\Customers;
 
-use App\Http\Controllers\Auth\BaseController;
+use App\Http\Auth\Controllers\BaseAuthController;
+use App\Http\Auth\Requests\Customers\CustomerLoginRequest;
+use App\Http\Auth\Requests\Customers\CustomerRegisterRequest;
 use Domain\Customers\Models\Customer;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
 
-final class CustomerAuthController extends BaseController
+final class CustomerAuthController extends BaseAuthController
 {
     /**
      * Register a User.
      *
-     * @param Request $request
+     * @param CustomerRegisterRequest $request
      * @return JsonResponse
      */
-    public function register(Request $request): JsonResponse
+    public function register(CustomerRegisterRequest $request): JsonResponse
     {
-        $validator = Validator::make($request->all(), [
-            'name' => 'required',
-            'email' => 'required|email',
-            'password' => 'required',
-            'c_password' => 'required|same:password',
-        ]);
-
-        if($validator->fails()){
-            return $this->sendError('Validation Error.', $validator->errors());
-        }
-
         $input = $request->all();
         $input['password'] = bcrypt($input['password']);
         $customer = Customer::create($input);
@@ -42,17 +31,18 @@ final class CustomerAuthController extends BaseController
     /**
      * Get a JWT via given credentials.
      *
+     * @param CustomerLoginRequest $request
      * @return JsonResponse
      */
-    public function login(): JsonResponse
+    public function login(CustomerLoginRequest $request): JsonResponse
     {
-        $credentials = request(['email', 'password']);
+        $credentials = $request->only('email', 'password');
 
         if (! $token = auth('customer')->attempt($credentials)) {
             return $this->sendError('Unauthorised.', ['error'=>'Unauthorised']);
         }
 
-        $success = $this->respondWithToken($token);
+        $success = $this->respondWithToken((string)$token);
 
         return $this->sendResponse($success, 'Customer login successfully.');
     }
@@ -100,7 +90,7 @@ final class CustomerAuthController extends BaseController
      *
      * @return JsonResponse
      */
-    protected function respondWithToken($token): JsonResponse
+    protected function respondWithToken(string $token): JsonResponse
     {
         return response()->json(
             [

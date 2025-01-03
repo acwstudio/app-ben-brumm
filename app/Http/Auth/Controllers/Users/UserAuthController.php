@@ -4,33 +4,22 @@ declare(strict_types=1);
 
 namespace App\Http\Auth\Controllers\Users;
 
-use App\Http\Controllers\Auth\BaseController;
+use App\Http\Auth\Controllers\BaseAuthController;
+use App\Http\Auth\Requests\Users\UserLoginRequest;
+use App\Http\Auth\Requests\Users\UserRegisterRequest;
 use Domain\Users\Models\User;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
 
-final class UserAuthController extends BaseController
+final class UserAuthController extends BaseAuthController
 {
     /**
      * Register a User.
      *
-     * @param Request $request
+     * @param UserRegisterRequest $request
      * @return JsonResponse
      */
-    public function register(Request $request): JsonResponse
+    public function register(UserRegisterRequest $request): JsonResponse
     {
-        $validator = Validator::make($request->all(), [
-            'name' => 'required',
-            'email' => 'required|email',
-            'password' => 'required',
-            'c_password' => 'required|same:password',
-        ]);
-
-        if($validator->fails()){
-            return $this->sendError('Validation Error.', $validator->errors());
-        }
-
         $input = $request->all();
         $input['password'] = bcrypt($input['password']);
         $user = User::create($input);
@@ -43,17 +32,18 @@ final class UserAuthController extends BaseController
     /**
      * Get a JWT via given credentials.
      *
+     * @param UserLoginRequest $request
      * @return JsonResponse
      */
-    public function login(): JsonResponse
+    public function login(UserLoginRequest $request): JsonResponse
     {
-        $credentials = request(['email', 'password']);
+        $credentials = $request->only('email', 'password');
 
-        if (! $token = auth()->attempt($credentials)) {
+        if (! $token = auth('api')->attempt($credentials)) {
             return $this->sendError('Unauthorised.', ['error'=>'Unauthorised']);
         }
 
-        $success = $this->respondWithToken($token);
+        $success = $this->respondWithToken((string)$token);
 
         return $this->sendResponse($success, 'User login successfully.');
     }
@@ -65,7 +55,7 @@ final class UserAuthController extends BaseController
      */
     public function profile(): JsonResponse
     {
-        $success = auth()->user();
+        $success = auth('api')->user();
 
         return $this->sendResponse($success, 'Refresh token return successfully.');
     }
@@ -77,7 +67,7 @@ final class UserAuthController extends BaseController
      */
     public function logout(): JsonResponse
     {
-        auth()->logout();
+        auth('api')->logout();
 
         return $this->sendResponse([], 'Successfully logged out.');
     }
@@ -89,7 +79,7 @@ final class UserAuthController extends BaseController
      */
     public function refresh(): JsonResponse
     {
-        $success = $this->respondWithToken(auth()->refresh());
+        $success = $this->respondWithToken(auth('api')->refresh());
 
         return $this->sendResponse($success, 'Refresh token return successfully.');
     }
@@ -101,13 +91,13 @@ final class UserAuthController extends BaseController
      *
      * @return JsonResponse
      */
-    protected function respondWithToken($token): JsonResponse
+    protected function respondWithToken(string $token): JsonResponse
     {
         return response()->json(
             [
                 'access_token' => $token,
                 'token_type' => 'bearer',
-                'expires_in' => auth()->factory()->getTTL() * 60,
+                'expires_in' => auth('api')->factory()->getTTL() * 60,
             ]
         );
     }

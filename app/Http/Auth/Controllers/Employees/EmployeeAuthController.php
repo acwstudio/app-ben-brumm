@@ -4,33 +4,22 @@ declare(strict_types=1);
 
 namespace App\Http\Auth\Controllers\Employees;
 
-use App\Http\Controllers\Auth\BaseController;
+use App\Http\Auth\Controllers\BaseAuthController;
+use App\Http\Auth\Requests\Employees\EmployeeLoginRequest;
+use App\Http\Auth\Requests\Employees\EmployeeRegisterRequest;
 use Domain\Employees\Models\Employee;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
 
-final class EmployeeAuthController extends BaseController
+final class EmployeeAuthController extends BaseAuthController
 {
     /**
      * Register an Employee.
      *
-     * @param Request $request
+     * @param EmployeeRegisterRequest $request
      * @return JsonResponse
      */
-    public function register(Request $request): JsonResponse
+    public function register(EmployeeRegisterRequest $request): JsonResponse
     {
-        $validator = Validator::make($request->all(), [
-            'name' => 'required',
-            'email' => 'required|email',
-            'password' => 'required',
-            'c_password' => 'required|same:password',
-        ]);
-
-        if($validator->fails()){
-            return $this->sendError('Validation Error.', $validator->errors());
-        }
-
         $input = $request->all();
         $input['password'] = bcrypt($input['password']);
         $employee = Employee::create($input);
@@ -42,11 +31,12 @@ final class EmployeeAuthController extends BaseController
     /**
      * Get a JWT via given credentials.
      *
+     * @param EmployeeLoginRequest $request
      * @return JsonResponse
      */
-    public function login(): JsonResponse
+    public function login(EmployeeLoginRequest $request): JsonResponse
     {
-        $credentials = request(['email', 'password']);
+        $credentials = $request->only('email', 'password');
 
         if (! $token = auth('employee')->attempt($credentials)) {
             return $this->sendError('Unauthorised.', ['error'=>'Unauthorised']);
