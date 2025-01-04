@@ -3,9 +3,16 @@
 use App\Http\Admin\Inserts\Insert\Controllers\InsertController;
 use App\Http\Admin\Inserts\Insert\Controllers\InsertsInsertColourRelatedController;
 use App\Http\Admin\Inserts\Insert\Controllers\InsertsInsertColourRelationshipsController;
+use App\Http\Admin\Inserts\Insert\Controllers\InsertsInsertShapeRelatedController;
+use App\Http\Admin\Inserts\Insert\Controllers\InsertsInsertShapeRelationshipsController;
+use App\Http\Admin\Inserts\Insert\Controllers\InsertsStoneRelatedController;
+use App\Http\Admin\Inserts\Insert\Controllers\InsertsStoneRelationshipsController;
 use App\Http\Admin\Inserts\InsertColour\Controllers\InsertColourController;
 use App\Http\Admin\Inserts\InsertColour\Controllers\InsertColourInsertsRelatedController;
 use App\Http\Admin\Inserts\InsertColour\Controllers\InsertColourInsertsRelationshipsController;
+use App\Http\Admin\Inserts\InsertShape\Controllers\InsertShapeController;
+use App\Http\Admin\Inserts\InsertShape\Controllers\InsertShapeInsertsRelatedController;
+use App\Http\Admin\Inserts\InsertShape\Controllers\InsertShapeInsertsRelationshipsController;
 use App\Http\Admin\Inserts\StoneType\Controllers\StoneTypeController;
 use App\Http\Admin\Inserts\StoneType\Controllers\StoneTypeStonesRelatedController;
 use App\Http\Admin\Inserts\StoneType\Controllers\StoneTypeStonesRelationshipsController;
@@ -25,12 +32,12 @@ Route::group([
     Route::patch('/inserts/{id}', [InsertController::class, 'update']);
     Route::delete('/inserts/{id}', [InsertController::class, 'destroy']);
     //  many-to-one Inserts to Stone
-//    Route::get('inserts/{id}/relationships/stone', [InsertsStoneRelationshipsController::class, 'index'])
-//        ->name('inserts.relationships.stone');
-//    Route::patch('inserts/{id}/relationships/stone', [InsertsStoneRelationshipsController::class, 'update'])
-//        ->name('inserts.relationships.stone');
-//    Route::get('inserts/{id}/stone', [InsertsStoneRelatedController::class, 'index'])
-//        ->name('inserts.stone');
+    Route::get('inserts/{id}/relationships/stone', [InsertsStoneRelationshipsController::class, 'index'])
+        ->name('inserts.relationships.stone');
+    Route::patch('inserts/{id}/relationships/stone', [InsertsStoneRelationshipsController::class, 'update'])
+        ->name('inserts.relationships.stone');
+    Route::get('inserts/{id}/stone', [InsertsStoneRelatedController::class, 'index'])
+        ->name('inserts.stone');
     //  many-to-one Inserts to Insert Colour
     Route::get('inserts/{id}/relationships/insert-colour', [InsertsInsertColourRelationshipsController::class, 'index'])
         ->name('inserts.relationships.insert-colour');
@@ -39,12 +46,12 @@ Route::group([
     Route::get('inserts/{id}/insert-colour', [InsertsInsertColourRelatedController::class, 'index'])
         ->name('inserts.insert-colour');
     //  many-to-one Inserts to Insert Shape
-//    Route::get('inserts/{id}/relationships/insert-shape', [InsertsInsertShapeRelationshipsController::class, 'index'])
-//        ->name('inserts.relationships.insert-shape');
-//    Route::patch('inserts/{id}/relationships/insert-shape', [InsertsInsertShapeRelationshipsController::class, 'update'])
-//        ->name('inserts.relationships.insert-shape');
-//    Route::get('inserts/{id}/insert-shape', [InsertsInsertShapeRelatedController::class, 'index'])
-//        ->name('inserts.insert-shape');
+    Route::get('inserts/{id}/relationships/insert-shape', [InsertsInsertShapeRelationshipsController::class, 'index'])
+        ->name('inserts.relationships.insert-shape');
+    Route::patch('inserts/{id}/relationships/insert-shape', [InsertsInsertShapeRelationshipsController::class, 'update'])
+        ->name('inserts.relationships.insert-shape');
+    Route::get('inserts/{id}/insert-shape', [InsertsInsertShapeRelatedController::class, 'index'])
+        ->name('inserts.insert-shape');
     //  one-to-one Insert to Insert Property
 //    Route::get('inserts/{id}/relationships/insert-property', [InsertInsertPropertyRelationshipsController::class, 'index'])
 //        ->name('insert.relationships.insert-property');
@@ -83,7 +90,7 @@ Route::group([
     Route::get('stone-types/{id}/stones', [StoneTypeStonesRelatedController::class, 'index'])
         ->name('stone-type.stones');
 
-    /*****************  INSERT COLOUR ROUTES **************/
+    /*****************  INSERT COLOURS ROUTES **************/
     // CRUD
     Route::get('/insert-colours', [InsertColourController::class, 'index']);
     Route::get('/insert-colours/{id}', [InsertColourController::class, 'show']);
@@ -97,4 +104,19 @@ Route::group([
         ->name('insert-colour.relationships.inserts');
     Route::get('insert-colours/{id}/inserts', [InsertColourInsertsRelatedController::class, 'index'])
         ->name('insert-colour.inserts');
+
+    /*****************  INSERT SHAPES ROUTES **************/
+    // CRUD
+    Route::get('/insert-shapes', [InsertShapeController::class, 'index']);
+    Route::get('/insert-shapes/{id}', [InsertShapeController::class, 'show']);
+    Route::post('/insert-shapes', [InsertShapeController::class, 'store']);
+    Route::patch('/insert-shapes/{id}', [InsertShapeController::class, 'update']);
+    Route::delete('/insert-shapes/{id}', [InsertShapeController::class, 'destroy']);
+    //  one-to-many Insert Shape to Inserts
+    Route::get('insert-shapes/{id}/relationships/inserts', [InsertShapeInsertsRelationshipsController::class, 'index'])
+        ->name('insert-shape.relationships.inserts');
+    Route::patch('insert-shapes/{id}/relationships/inserts', [InsertShapeInsertsRelationshipsController::class, 'update'])
+        ->name('insert-shape.relationships.inserts');
+    Route::get('insert-shapes/{id}/inserts', [InsertShapeInsertsRelatedController::class, 'index'])
+        ->name('insert-shape.inserts');
 });

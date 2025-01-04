@@ -4,18 +4,28 @@ declare(strict_types=1);
 
 namespace App\Http\Admin\Inserts\InsertShape\Controllers;
 
+use App\Http\Admin\Inserts\InsertShape\Resources\InsertShapeCollection;
 use App\Http\Controllers\Controller;
 use Domain\Inserts\Models\InsertShape;
+use Domain\Inserts\Services\InsertShape\InsertShapeService;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
-class InsertShapeController extends Controller
+final class InsertShapeController extends Controller
 {
+    public function __construct(public InsertShapeService $insertShapeService)
+    {
+    }
+
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request): JsonResponse
     {
-        //
+        $data = $request->all();
+        $items = $this->insertShapeService->index($data);
+
+        return (new InsertShapeCollection($items))->response();
     }
 
     /**

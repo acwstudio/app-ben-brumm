@@ -3,6 +3,9 @@
 use Domain\Inserts\Repositories\InsertColour\InsertColourCachedRepository;
 use Domain\Inserts\Repositories\InsertColour\InsertColourRepository;
 use Domain\Inserts\Repositories\InsertColour\InsertColourRepositoryInterface;
+use Domain\Inserts\Repositories\InsertProperty\InsertShapeCachedRepository;
+use Domain\Inserts\Repositories\InsertProperty\InsertShapeRepository;
+use Domain\Inserts\Repositories\InsertProperty\InsertShapeRepositoryInterface;
 use Domain\Inserts\Repositories\Stone\StoneCachedRepository;
 use Domain\Inserts\Repositories\Stone\StoneRepository;
 use Domain\Inserts\Repositories\Stone\StoneRepositoryInterface;
@@ -41,5 +44,10 @@ return [
         'interface'      => InsertColourRepositoryInterface::class,
         'implementation' => InsertColourRepository::class,
 //        'cache'          => InsertColourCachedRepository::class
+    ],
+    [
+        'interface'      => InsertShapeRepositoryInterface::class,
+        'implementation' => InsertShapeRepository::class,
+//        'cache'          => InsertShapeCachedRepository::class
     ],
 ];

@@ -13,7 +13,7 @@ final class InsertColourService implements InsertColourRepositoryInterface
 {
     public function __construct(
         public InsertColourRepositoryInterface $insertColourRepositoryInterface,
-//        public StonePipeline $stonePipeline
+//        public InsertColourPipeline $insertColourPipeline
     ) {
     }
 
