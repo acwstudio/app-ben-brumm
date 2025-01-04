@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Admin\Inserts\InsertStone\Controllers;
+namespace App\Http\Admin\Inserts\Insert\Controllers;
 
 use App\Http\Controllers\Controller;
 
-final class StonesStoneTypeRelationshipsController extends Controller
+final class InsertsInsertColourRelationshipsController extends Controller
 {
     public function index()
     {

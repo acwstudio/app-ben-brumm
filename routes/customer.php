@@ -7,7 +7,7 @@ use App\Http\Admin\Jewelleries\Jewellery\Controllers\JewelleryBraceletPropViewRe
 use App\Http\Admin\Jewelleries\Jewellery\Controllers\JewelleryController;
 use App\Http\Admin\Jewelleries\JewelleryCategory\Controllers\JewelleryCategoryController;
 use App\Http\Admin\PreciousMetals\PrcsMetal\Controllers\PrcsMetalController;
-use App\Http\Admin\Users\Controllers\UserController;
+use App\Http\Admin\Users\User\Controllers\UserController;
 use App\Http\Auth\Controllers\Customers\CustomerAuthController;
 use App\Http\Auth\Controllers\Customers\CustomerForgotPasswordController;
 use App\Http\Controllers\Site\Jewelleries\BraceletPropView\BraceletPropViewController;

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Admin\Inserts\InsertStone\Resources;
+namespace App\Http\Admin\Inserts\Stone\Resources;
 
 use App\Http\Admin\Shared\Resources\Traits\IncludeRelatedEntitiesCollectionTrait;
 use Illuminate\Http\Request;

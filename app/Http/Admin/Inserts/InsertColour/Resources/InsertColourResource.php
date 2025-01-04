@@ -1,16 +1,17 @@
 <?php
 
-namespace App\Http\Admin\Inserts\InsertStone\Resources;
+declare(strict_types=1);
 
-use App\Http\Admin\Inserts\InsertStoneType\Resources\StoneTypeResource;
+namespace App\Http\Admin\Inserts\InsertColour\Resources;
+
+use App\Http\Admin\Inserts\Insert\Resources\InsertCollection;
 use App\Http\Admin\Shared\Resources\Traits\IncludeRelatedEntitiesResourceTrait;
-use Domain\Inserts\Models\Stone;
-use Domain\Inserts\Models\StoneType;
+use Domain\Inserts\Models\InsertColour;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-/** @mixin Stone */
-class StoneResource extends JsonResource
+/** @mixin InsertColour */
+final class InsertColourResource extends JsonResource
 {
     use IncludeRelatedEntitiesResourceTrait;
 
@@ -23,12 +24,12 @@ class StoneResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'type' => Stone::TYPE_RESOURCE,
+            'type' => InsertColour::TYPE_RESOURCE,
             'attributes' => $this->attributeItems(),
             'relationships' => [
-                'stoneType' => $this->sectionRelationships(
-                    'stone-type.stones',
-                    StoneTyperesource::class
+                'inserts' => $this->sectionRelationships(
+                    'inserts.insert-colour',
+                    InsertCollection::class
                 )
             ]
         ];
@@ -37,7 +38,7 @@ class StoneResource extends JsonResource
     function relations(): array
     {
         return [
-            StoneTypeResource::class => $this->whenLoaded('stoneType'),
+            InsertCollection::class => $this->whenLoaded('inserts'),
         ];
     }
 }

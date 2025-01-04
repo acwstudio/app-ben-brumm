@@ -9,6 +9,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 final class InsertColour extends BaseModel
 {
+    const TYPE_RESOURCE = 'insertColours';
+
     public function inserts(): HasMany
     {
         return $this->hasMany(Insert::class);

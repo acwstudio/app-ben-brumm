@@ -2,20 +2,30 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Admin\Inserts\InsertStoneType\Controllers;
+namespace App\Http\Admin\Inserts\StoneType\Controllers;
 
+use App\Http\Admin\Inserts\StoneType\Resources\StoneTypeCollection;
 use App\Http\Controllers\Controller;
 use Domain\Inserts\Models\StoneType;
+use Domain\Inserts\Services\StoneType\StoneTypeService;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 final class StoneTypeController extends Controller
 {
+    public function __construct(public StoneTypeService $stoneTypeService)
+    {
+    }
+
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request): JsonResponse
     {
-        //
+        $data = $request->all();
+        $items = $this->stoneTypeService->index($data);
+
+        return (new StoneTypeCollection($items))->response();
     }
 
     /**

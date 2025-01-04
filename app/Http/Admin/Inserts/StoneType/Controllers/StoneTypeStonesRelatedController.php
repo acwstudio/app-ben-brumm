@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Admin\Inserts\InsertStoneType\Controllers;
+namespace App\Http\Admin\Inserts\StoneType\Controllers;
 
 use App\Http\Controllers\Controller;
 

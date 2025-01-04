@@ -10,6 +10,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 final class Insert extends BaseModel
 {
+    const TYPE_RESOURCE = 'inserts';
+
     public function jewelleries(): BelongsTo
     {
         return $this->belongsTo(Jewellery::class);

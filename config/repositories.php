@@ -1,8 +1,14 @@
 <?php
 
+use Domain\Inserts\Repositories\InsertColour\InsertColourCachedRepository;
+use Domain\Inserts\Repositories\InsertColour\InsertColourRepository;
+use Domain\Inserts\Repositories\InsertColour\InsertColourRepositoryInterface;
 use Domain\Inserts\Repositories\Stone\StoneCachedRepository;
 use Domain\Inserts\Repositories\Stone\StoneRepository;
 use Domain\Inserts\Repositories\Stone\StoneRepositoryInterface;
+use Domain\Inserts\Repositories\StoneType\StoneTypeCachedRepository;
+use Domain\Inserts\Repositories\StoneType\StoneTypeRepository;
+use Domain\Inserts\Repositories\StoneType\StoneTypeRepositoryInterface;
 use Domain\Jewelleries\Repositories\Jewellery\JewelleryCachedRepository;
 use Domain\Jewelleries\Repositories\Jewellery\JewelleryRepository;
 use Domain\Jewelleries\Repositories\Jewellery\JewelleryRepositoryInterface;
@@ -27,8 +33,13 @@ return [
 //        'cache'          => StoneCachedRepository::class
     ],
     [
-//        'interface'      => StoneTypeRepositoryInterface::class,
-//        'implementation' => StoneTypeRepository::class,
+        'interface'      => StoneTypeRepositoryInterface::class,
+        'implementation' => StoneTypeRepository::class,
 //        'cache'          => StoneTypeCachedRepository::class
+    ],
+    [
+        'interface'      => InsertColourRepositoryInterface::class,
+        'implementation' => InsertColourRepository::class,
+//        'cache'          => InsertColourCachedRepository::class
     ],
 ];

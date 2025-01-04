@@ -2,13 +2,12 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Admin\Inserts\InsertStoneType\Resources;
+namespace App\Http\Admin\Inserts\InsertColour\Resources;
 
 use App\Http\Admin\Shared\Resources\Traits\IncludeRelatedEntitiesCollectionTrait;
-use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
-final class StoneTypeCollection extends ResourceCollection
+final class InsertColourCollection extends ResourceCollection
 {
     use IncludeRelatedEntitiesCollectionTrait;
 }

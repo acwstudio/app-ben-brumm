@@ -4,18 +4,28 @@ declare(strict_types=1);
 
 namespace App\Http\Admin\Inserts\InsertColour\Controllers;
 
+use App\Http\Admin\Inserts\InsertColour\Resources\InsertColourCollection;
 use App\Http\Controllers\Controller;
 use Domain\Inserts\Models\InsertColour;
+use Domain\Inserts\Services\InsertColour\InsertColourService;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 final class InsertColourController extends Controller
 {
+    public function __construct(public InsertColourService $insertColourService)
+    {
+    }
+
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request): JsonResponse
     {
-        //
+        $data = $request->all();
+        $items = $this->insertColourService->index($data);
+
+        return (new InsertColourCollection($items))->response();
     }
 
     /**

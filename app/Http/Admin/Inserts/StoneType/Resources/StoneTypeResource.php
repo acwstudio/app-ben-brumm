@@ -2,12 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Admin\Inserts\InsertStoneType\Resources;
+namespace App\Http\Admin\Inserts\StoneType\Resources;
 
-use App\Http\Admin\Inserts\InsertStone\Resources\StoneCollection;
-use App\Http\Admin\Inserts\InsertStone\Resources\StoneResource;
+use App\Http\Admin\Inserts\Stone\Resources\StoneCollection;
 use App\Http\Admin\Shared\Resources\Traits\IncludeRelatedEntitiesResourceTrait;
-use Domain\Inserts\Models\Stone;
 use Domain\Inserts\Models\StoneType;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
