@@ -5,8 +5,12 @@ declare(strict_types=1);
 namespace Domain\Inserts\Models;
 
 use Domain\Shared\Models\BaseModel;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class InsertColour extends BaseModel
+final class InsertColour extends BaseModel
 {
-    //
+    public function inserts(): HasMany
+    {
+        return $this->hasMany(Insert::class);
+    }
 }

@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Http\Resources\BraceletPropViews;
 
-use App\Http\Resources\IncludeRelatedEntitiesResourceTrait;
-use App\Http\Resources\Jewelleries\JewelleryResource;
+use App\Http\Admin\Jewelleries\Jewellery\Resources\JewelleryResource;
+use App\Http\Admin\Shared\Resources\Traits\IncludeRelatedEntitiesResourceTrait;
 use Domain\Site\BraceletPropView;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;

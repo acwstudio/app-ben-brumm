@@ -17,7 +17,6 @@ final class JewelleryService extends AbstractCRUDService
     ) {
     }
 
-
     public function index(array $data): Paginator
     {
         return $this->jewelleryRepositoryInterface->index($data);

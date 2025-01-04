@@ -1,10 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Domain\Jewelleries\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use Domain\Shared\Models\BaseModel;
 
-class BraceletPrice extends Model
+final class BraceletPrice extends BaseModel
 {
     //
 }

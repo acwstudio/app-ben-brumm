@@ -2,6 +2,10 @@
 
 namespace Database\Seeders;
 
+use Domain\Inserts\Models\Insert;
+use Domain\Inserts\Models\InsertColour;
+use Domain\Inserts\Models\InsertProperty;
+use Domain\Inserts\Models\Stone;
 use Domain\Jewelleries\Models\BraceletProp;
 use Domain\PreciousMetals\Models\PrcsMetal;
 use Domain\Site\BraceletPropView;
@@ -19,7 +23,7 @@ class SQLRequestSeeder extends Seeder
     {
 //        $vowels = array("a", "e", "i", "o", "u", "A", "E", "I", "O", "U", " ");
 //        $yourString = str_replace($vowels, "", 'tie clip');
-
+        dd(Stone::find(2)->stoneType);
 //        BraceletPropView::with(['braceletSizes'])->each(function (BraceletPropView $bracelet) {
 //            dump($bracelet);
 //        });
