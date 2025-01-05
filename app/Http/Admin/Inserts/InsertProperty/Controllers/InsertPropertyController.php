@@ -4,18 +4,28 @@ declare(strict_types=1);
 
 namespace App\Http\Admin\Inserts\InsertProperty\Controllers;
 
+use App\Http\Admin\Inserts\InsertProperty\Resources\InsertPropertyCollection;
 use App\Http\Controllers\Controller;
 use Domain\Inserts\Models\InsertProperty;
+use Domain\Inserts\Services\InsertProperty\InsertPropertyService;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 class InsertPropertyController extends Controller
 {
+    public function __construct(public InsertPropertyService $insertPropertyService)
+    {
+    }
+
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request): JsonResponse
     {
-        //
+        $data = $request->all();
+        $items = $this->insertPropertyService->index($data);
+//        dd($items);
+        return (new InsertPropertyCollection($items))->response();
     }
 
     /**

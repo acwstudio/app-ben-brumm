@@ -2,15 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Domain\Inserts\Repositories\InsertProperty;
+namespace Domain\Inserts\Repositories\InsertShape;
 
 use Domain\AbstractCachedRepository;
 use Domain\Inserts\Models\InsertShape;
 use Illuminate\Contracts\Pagination\Paginator;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Cache;
-use Spatie\QueryBuilder\AllowedFilter;
-use Spatie\QueryBuilder\QueryBuilder;
 
 final class InsertShapeCachedRepository extends AbstractCachedRepository implements InsertShapeRepositoryInterface
 {

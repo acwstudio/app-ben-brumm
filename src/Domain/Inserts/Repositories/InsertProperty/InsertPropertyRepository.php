@@ -4,32 +4,31 @@ declare(strict_types=1);
 
 namespace Domain\Inserts\Repositories\InsertProperty;
 
-use Domain\AbstractCachedRepository;
-use Domain\Inserts\Models\InsertShape;
+use Domain\Inserts\Models\InsertProperty;
 use Illuminate\Contracts\Pagination\Paginator;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\QueryBuilder\AllowedFilter;
 use Spatie\QueryBuilder\QueryBuilder;
 
-final class InsertShapeRepository implements InsertShapeRepositoryInterface
+/** @mixin InsertProperty */
+final class InsertPropertyRepository
 {
-
     public function index(array $data): Paginator
     {
-        return QueryBuilder::for(InsertShape::class)
-            ->allowedFields(\DB::getSchemaBuilder()->getColumnListing('insert_shapes'))
-            ->allowedIncludes(['inserts'])
+        return QueryBuilder::for(InsertProperty::class)
+            ->allowedFields(\DB::getSchemaBuilder()->getColumnListing('insert_properties'))
+            ->allowedIncludes(['insert'])
             ->allowedFilters([
                 AllowedFilter::exact('id'),
-                'is_active','name'
+                AllowedFilter::exact('quantity'),
             ])
             ->paginate($data['per_page'] ?? null)
             ->appends($data);
     }
 
-    public function show(int $id, array $data): Model|InsertShape
+    public function show(int $id, array $data): Model|InsertProperty
     {
-        return QueryBuilder::for(InsertShape::class)
+        return QueryBuilder::for(InsertProperty::class)
             ->where('id', $id)
 //            ->allowedFields(\DB::getSchemaBuilder()->getColumnListing('blog_posts'))
 //            ->allowedIncludes(['blogCategory'])

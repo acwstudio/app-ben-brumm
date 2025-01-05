@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Domain\Inserts\Services\InsertShape;
 
 use Domain\Inserts\Models\InsertShape;
-use Domain\Inserts\Repositories\InsertProperty\InsertShapeRepositoryInterface;
+use Domain\Inserts\Repositories\InsertShape\InsertShapeRepositoryInterface;
 use Illuminate\Contracts\Pagination\Paginator;
 use Illuminate\Database\Eloquent\Model;
 

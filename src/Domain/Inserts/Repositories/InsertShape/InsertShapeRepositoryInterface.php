@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Domain\Inserts\Repositories\InsertProperty;
+namespace Domain\Inserts\Repositories\InsertShape;
 
 use Domain\Inserts\Models\InsertShape;
 use Illuminate\Contracts\Pagination\Paginator;
