@@ -23,7 +23,7 @@ class SQLRequestSeeder extends Seeder
     {
 //        $vowels = array("a", "e", "i", "o", "u", "A", "E", "I", "O", "U", " ");
 //        $yourString = str_replace($vowels, "", 'tie clip');
-        dd(Insert::find(2)->insertProperty);
+        dd(Jewellery::find(7)->stones);
 //        BraceletPropView::with(['braceletSizes'])->each(function (BraceletPropView $bracelet) {
 //            dump($bracelet);
 //        });

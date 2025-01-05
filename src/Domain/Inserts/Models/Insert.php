@@ -12,22 +12,22 @@ final class Insert extends BaseModel
 {
     const TYPE_RESOURCE = 'inserts';
 
-    public function jewelleries(): BelongsTo
+    public function jewellery(): BelongsTo
     {
         return $this->belongsTo(Jewellery::class);
     }
 
-    public function stones(): BelongsTo
+    public function stone(): BelongsTo
     {
         return $this->belongsTo(Stone::class);
     }
 
-    public function insertShapes(): BelongsTo
+    public function insertShape(): BelongsTo
     {
         return $this->belongsTo(InsertShape::class);
     }
 
-    public function insertColours(): BelongsTo
+    public function insertColour(): BelongsTo
     {
         return $this->belongsTo(InsertColour::class);
     }

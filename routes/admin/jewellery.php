@@ -5,6 +5,8 @@ use App\Http\Admin\Jewelleries\Jewellery\Controllers\JewelleriesJewelleryCategor
 use App\Http\Admin\Jewelleries\Jewellery\Controllers\JewelleryBraceletPropViewRelatedController;
 use App\Http\Admin\Jewelleries\Jewellery\Controllers\JewelleryBraceletPropViewRelationshipsController;
 use App\Http\Admin\Jewelleries\Jewellery\Controllers\JewelleryController;
+use App\Http\Admin\Jewelleries\Jewellery\Controllers\JewelleryInsertsRelatedController;
+use App\Http\Admin\Jewelleries\Jewellery\Controllers\JewelleryInsertsRelationshipsController;
 use App\Http\Admin\Jewelleries\JewelleryCategory\Controllers\JewelleryCategoryController;
 use App\Http\Controllers\Site\Jewelleries\BraceletPropView\BraceletPropViewController;
 use App\Http\Controllers\Site\Jewelleries\BraceletPropView\BraceletPropViewJewelleryRelatedController;
@@ -20,7 +22,6 @@ Route::group([
     Route::post('/jewelleries', [JewelleryController::class, 'store']);
     Route::patch('/jewelleries/{id}', [JewelleryController::class, 'update']);
     Route::delete('/jewelleries/{id}', [JewelleryController::class, 'destroy']);
-
     //  many-to-one Jewelleries to Jewellery Category
     Route::get('jewelleries/{id}/relationships/jewellery-category', [JewelleriesJewelleryCategoryRelationshipsController::class, 'index'])
         ->name('jewelleries.relationships.jewellery-category');
@@ -28,7 +29,6 @@ Route::group([
         ->name('jewelleries.relationships.jewellery-category');
     Route::get('jewelleries/{id}/jewellery-category', [JewelleriesJewelleryCategoryRelatedController::class, 'index'])
         ->name('jewelleries.jewellery-category');
-
     //  one-to-one Jewellery to Bracelet Prop View
     Route::get('jewelleries/{id}/relationships/bracelet-prop-view', [JewelleryBraceletPropViewRelationshipsController::class, 'index'])
         ->name('jewellery.relationships.bracelet-prop-view');
@@ -36,6 +36,13 @@ Route::group([
         ->name('jewellery.relationships.bracelet-prop-view');
     Route::get('jewelleries/{id}/bracelet-prop-view', [JewelleryBraceletPropViewRelatedController::class, 'index'])
         ->name('jewellery.bracelet-prop-view');
+    //  one-to-many Jewellery to Inserts
+    Route::get('jewelleries/{id}/relationships/inserts', [JewelleryInsertsRelationshipsController::class, 'index'])
+        ->name('jewellery.relationships.inserts');
+    Route::patch('jewelleries/{id}/relationships/inserts', [JewelleryInsertsRelationshipsController::class, 'update'])
+        ->name('jewellery.relationships.inserts');
+    Route::get('jewelleries/{id}/inserts', [JewelleryInsertsRelatedController::class, 'index'])
+        ->name('jewellery.inserts');
 
     /*****************  JEWELLERY CATEGORIES ROUTES **************/
     // CRUD

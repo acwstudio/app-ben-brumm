@@ -7,6 +7,8 @@ use App\Http\Admin\Inserts\Insert\Controllers\InsertsInsertColourRelatedControll
 use App\Http\Admin\Inserts\Insert\Controllers\InsertsInsertColourRelationshipsController;
 use App\Http\Admin\Inserts\Insert\Controllers\InsertsInsertShapeRelatedController;
 use App\Http\Admin\Inserts\Insert\Controllers\InsertsInsertShapeRelationshipsController;
+use App\Http\Admin\Inserts\Insert\Controllers\InsertsJewelleryRelatedController;
+use App\Http\Admin\Inserts\Insert\Controllers\InsertsJewelleryRelationshipsController;
 use App\Http\Admin\Inserts\Insert\Controllers\InsertsStoneRelatedController;
 use App\Http\Admin\Inserts\Insert\Controllers\InsertsStoneRelationshipsController;
 use App\Http\Admin\Inserts\InsertColour\Controllers\InsertColourController;
@@ -18,6 +20,8 @@ use App\Http\Admin\Inserts\InsertProperty\Controllers\InsertPropertyInsertRelati
 use App\Http\Admin\Inserts\InsertShape\Controllers\InsertShapeController;
 use App\Http\Admin\Inserts\InsertShape\Controllers\InsertShapeInsertsRelatedController;
 use App\Http\Admin\Inserts\InsertShape\Controllers\InsertShapeInsertsRelationshipsController;
+use App\Http\Admin\Inserts\Stone\Controllers\StoneInsertsRelatedController;
+use App\Http\Admin\Inserts\Stone\Controllers\StoneInsertsRelationshipsController;
 use App\Http\Admin\Inserts\StoneType\Controllers\StoneTypeController;
 use App\Http\Admin\Inserts\StoneType\Controllers\StoneTypeStonesRelatedController;
 use App\Http\Admin\Inserts\StoneType\Controllers\StoneTypeStonesRelationshipsController;
@@ -64,6 +68,13 @@ Route::group([
         ->name('insert.relationships.insert-property');
     Route::get('inserts/{id}/insert-property', [InsertInsertPropertyRelatedController::class, 'index'])
         ->name('insert.insert-property');
+    //  many-to-one Inserts to Jewellery
+    Route::get('inserts/{id}/relationships/jewellery', [InsertsJewelleryRelationshipsController::class, 'index'])
+        ->name('inserts.relationships.jewellery');
+    Route::patch('inserts/{id}/relationships/jewellery', [InsertsJewelleryRelationshipsController::class, 'update'])
+        ->name('inserts.relationships.jewellery');
+    Route::get('inserts/{id}/jewellery', [InsertsJewelleryRelatedController::class, 'index'])
+        ->name('inserts.jewellery');
 
     /*****************  STONES ROUTES **************/
     // CRUD
@@ -79,6 +90,13 @@ Route::group([
         ->name('stones.relationships.stone-type');
     Route::get('stones/{id}/stone-type', [StonesStoneTypeRelatedController::class, 'index'])
         ->name('stones.stone-type');
+    //  one-to-many stones to Inserts
+    Route::get('stones/{id}/relationships/inserts', [StoneInsertsRelationshipsController::class, 'index'])
+        ->name('stone.relationships.inserts');
+    Route::patch('stones/{id}/relationships/inserts', [StoneInsertsRelationshipsController::class, 'update'])
+        ->name('stone.relationships.inserts');
+    Route::get('stones/{id}/inserts', [StoneInsertsRelatedController::class, 'index'])
+        ->name('stone.inserts');
 
     /*****************  STONE TYPES ROUTES **************/
     // CRUD
