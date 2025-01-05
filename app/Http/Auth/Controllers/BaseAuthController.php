@@ -2,7 +2,7 @@
 
 namespace App\Http\Auth\Controllers;
 
-use App\Http\Controllers\Controller as Controller;
+use App\Http\Shared\Controller as Controller;
 use Illuminate\Http\JsonResponse;
 
 class BaseAuthController extends Controller

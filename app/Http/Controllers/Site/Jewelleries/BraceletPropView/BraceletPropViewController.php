@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Site\Jewelleries\BraceletPropView;
 
-use App\Http\Controllers\Controller;
+use App\Http\Shared\Controller;
 
 class BraceletPropViewController extends Controller
 {

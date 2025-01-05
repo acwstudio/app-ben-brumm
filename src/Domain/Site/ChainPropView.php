@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Domain\Site;
 
-use Domain\Jewelleries\Models\ChainPropSize;
-use Domain\Jewelleries\Models\ChainSize;
+use Domain\JewelleryProperties\Models\ChainPropSize;
+use Domain\JewelleryProperties\Models\ChainSize;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;

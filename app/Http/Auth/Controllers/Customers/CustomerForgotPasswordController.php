@@ -6,7 +6,7 @@ namespace App\Http\Auth\Controllers\Customers;
 
 use App\Http\Auth\Requests\Customers\CustomerForgotPasswordRequest;
 use App\Http\Auth\Requests\Customers\CustomerResetPasswordRequest;
-use App\Http\Controllers\Controller;
+use App\Http\Shared\Controller;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Password;
 

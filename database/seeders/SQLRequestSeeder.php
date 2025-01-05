@@ -2,17 +2,12 @@
 
 namespace Database\Seeders;
 
-use Domain\Inserts\Models\Insert;
-use Domain\Inserts\Models\InsertColour;
-use Domain\Inserts\Models\InsertProperty;
-use Domain\Inserts\Models\Stone;
-use Domain\Jewelleries\Models\BraceletProp;
-use Domain\PreciousMetals\Models\PrcsMetal;
-use Domain\Site\BraceletPropView;
 use Domain\Jewelleries\Models\Jewellery;
-use Domain\Site\ChainPropView;
+use Domain\JewelleryProperties\Models\BraceletProp;
+use Domain\JewelleryProperties\Models\BraceletPropSize;
+use Domain\JewelleryProperties\Models\BraceletSize;
+use Domain\JewelleryProperties\Models\Weaving;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 
 class SQLRequestSeeder extends Seeder
 {
@@ -23,7 +18,8 @@ class SQLRequestSeeder extends Seeder
     {
 //        $vowels = array("a", "e", "i", "o", "u", "A", "E", "I", "O", "U", " ");
 //        $yourString = str_replace($vowels, "", 'tie clip');
-        dd(Jewellery::find(7)->stones);
+//        dd(Jewellery::find(2)->braceletProp);
+        dd(Weaving::find(6)->chainPropWeavings);
 //        BraceletPropView::with(['braceletSizes'])->each(function (BraceletPropView $bracelet) {
 //            dump($bracelet);
 //        });

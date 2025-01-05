@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Admin\Inserts\Insert\Controllers;
 
-use App\Http\Controllers\Controller;
+use App\Http\Shared\Controller;
 
 final class InsertsInsertColourRelationshipsController extends Controller
 {

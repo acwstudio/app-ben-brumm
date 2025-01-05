@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Http\Admin\Jewelleries\JewelleryCategory\Controllers;
 
-use App\Http\Controllers\Controller;
 use App\Http\Resources\JewelleryCategories\JewelleryCategoryCollection;
+use App\Http\Shared\Controller;
 use Domain\Jewelleries\Models\JewelleryCategory;
 use Domain\Jewelleries\Services\JewelleryCategory\JewelleryCategoryService;
 use Illuminate\Http\Request;

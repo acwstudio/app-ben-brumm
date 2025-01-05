@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Http\Admin\Jewelleries\Jewellery\Controllers;
 
 use App\Http\Admin\Jewelleries\Jewellery\Resources\JewelleryCollection;
-use App\Http\Controllers\Controller;
+use App\Http\Shared\Controller;
 use Domain\Jewelleries\Models\Jewellery;
 use Domain\Jewelleries\Services\Jewellery\JewelleryService;
 use Illuminate\Http\JsonResponse;

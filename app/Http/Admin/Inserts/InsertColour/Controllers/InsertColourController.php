@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Http\Admin\Inserts\InsertColour\Controllers;
 
 use App\Http\Admin\Inserts\InsertColour\Resources\InsertColourCollection;
-use App\Http\Controllers\Controller;
+use App\Http\Shared\Controller;
 use Domain\Inserts\Models\InsertColour;
 use Domain\Inserts\Services\InsertColour\InsertColourService;
 use Illuminate\Http\JsonResponse;

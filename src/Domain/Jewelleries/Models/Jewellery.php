@@ -6,6 +6,7 @@ namespace Domain\Jewelleries\Models;
 
 use Domain\Inserts\Models\Insert;
 use Domain\Inserts\Models\Stone;
+use Domain\JewelleryProperties\Models\BraceletProp;
 use Domain\Shared\Models\BaseModel;
 use Domain\Site\BraceletPropView;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -20,6 +21,11 @@ final class Jewellery extends BaseModel
     public function inserts(): HasMany
     {
         return $this->hasMany(Insert::class);
+    }
+
+    public function braceletProp(): HasOne
+    {
+        return $this->hasOne(BraceletProp::class);
     }
 
     public function jewelleryCategory(): BelongsTo

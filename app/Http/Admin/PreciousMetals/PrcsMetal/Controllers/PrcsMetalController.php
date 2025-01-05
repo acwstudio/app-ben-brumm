@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Admin\PreciousMetals\PrcsMetal\Controllers;
 
-use App\Http\Controllers\Controller;
+use App\Http\Shared\Controller;
 use Domain\PreciousMetals\Models\PrcsMetal;
 use Illuminate\Http\Request;
 

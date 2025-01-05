@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Http\Admin\Inserts\Insert\Controllers;
 
 use App\Http\Admin\Inserts\Insert\Resources\InsertCollection;
-use App\Http\Controllers\Controller;
+use App\Http\Shared\Controller;
 use Domain\Inserts\Models\Insert;
 use Domain\Inserts\Services\Insert\InsertService;
 use Illuminate\Http\JsonResponse;

@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Http\Admin\Inserts\InsertProperty\Controllers;
 
 use App\Http\Admin\Inserts\InsertProperty\Resources\InsertPropertyCollection;
-use App\Http\Controllers\Controller;
+use App\Http\Shared\Controller;
 use Domain\Inserts\Models\InsertProperty;
 use Domain\Inserts\Services\InsertProperty\InsertPropertyService;
 use Illuminate\Http\JsonResponse;

@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Http\Admin\Inserts\StoneType\Controllers;
 
 use App\Http\Admin\Inserts\StoneType\Resources\StoneTypeCollection;
-use App\Http\Controllers\Controller;
+use App\Http\Shared\Controller;
 use Domain\Inserts\Models\StoneType;
 use Domain\Inserts\Services\StoneType\StoneTypeService;
 use Illuminate\Http\JsonResponse;

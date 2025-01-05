@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Http\Admin\Inserts\InsertShape\Controllers;
 
 use App\Http\Admin\Inserts\InsertShape\Resources\InsertShapeCollection;
-use App\Http\Controllers\Controller;
+use App\Http\Shared\Controller;
 use Domain\Inserts\Models\InsertShape;
 use Domain\Inserts\Services\InsertShape\InsertShapeService;
 use Illuminate\Http\JsonResponse;

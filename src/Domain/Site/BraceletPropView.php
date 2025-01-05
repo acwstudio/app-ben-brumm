@@ -4,11 +4,9 @@ declare(strict_types=1);
 
 namespace Domain\Site;
 
-use Domain\Jewelleries\Models\BraceletPrice;
-use Domain\Jewelleries\Models\BraceletProp;
-use Domain\Jewelleries\Models\BraceletPropSize;
-use Domain\Jewelleries\Models\BraceletSize;
 use Domain\Jewelleries\Models\Jewellery;
+use Domain\JewelleryProperties\Models\BraceletPropSize;
+use Domain\JewelleryProperties\Models\BraceletSize;
 use Domain\Shared\Models\BaseModel;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
