@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Admin\JewelleryProperties\CharmPendantProps\Controllers;
 
-use Domain\JewelleryProperties\Models\CharmPendantProp;
+use Domain\JewelleryProperties\CharmPendantProp\Models\CharmPendantProp;
 use Illuminate\Http\Request;
 
 final class CharmPendantPropController

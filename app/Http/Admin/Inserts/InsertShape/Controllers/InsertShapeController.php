@@ -6,8 +6,8 @@ namespace App\Http\Admin\Inserts\InsertShape\Controllers;
 
 use App\Http\Admin\Inserts\InsertShape\Resources\InsertShapeCollection;
 use App\Http\Shared\Controller;
-use Domain\Inserts\Models\InsertShape;
-use Domain\Inserts\Services\InsertShape\InsertShapeService;
+use Domain\Inserts\InsertShape\Models\InsertShape;
+use Domain\Inserts\InsertShape\Services\InsertShapeService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Admin\JewelleryProperties\BroochProps\Controllers;
 
-use Domain\JewelleryProperties\Models\BroochProp;
+use Domain\JewelleryProperties\BroochProp\Models\BroochProp;
 use Illuminate\Http\Request;
 
 final class BroochPropController

@@ -6,8 +6,8 @@ namespace App\Http\Admin\Jewelleries\JewelleryCategory\Controllers;
 
 use App\Http\Resources\JewelleryCategories\JewelleryCategoryCollection;
 use App\Http\Shared\Controller;
-use Domain\Jewelleries\Models\JewelleryCategory;
-use Domain\Jewelleries\Services\JewelleryCategory\JewelleryCategoryService;
+use Domain\Jewelleries\JewelleryCategory\Models\JewelleryCategory;
+use Domain\Jewelleries\JewelleryCategory\Services\JewelleryCategoryService;
 use Illuminate\Http\Request;
 
 final class JewelleryCategoryController extends Controller

@@ -4,8 +4,7 @@ namespace App\Http\Admin\Inserts\Stone\Resources;
 
 use App\Http\Admin\Inserts\StoneType\Resources\StoneTypeResource;
 use App\Http\Admin\Shared\Resources\Traits\IncludeRelatedEntitiesResourceTrait;
-use Domain\Inserts\Models\Stone;
-use Domain\Inserts\Models\StoneType;
+use Domain\Inserts\Stone\Models\Stone;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 

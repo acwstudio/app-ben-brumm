@@ -4,10 +4,9 @@ declare(strict_types=1);
 
 namespace App\Http\Admin\Inserts\InsertProperty\Resources;
 
-use App\Http\Admin\Inserts\Insert\Resources\InsertCollection;
 use App\Http\Admin\Inserts\Insert\Resources\InsertResource;
 use App\Http\Admin\Shared\Resources\Traits\IncludeRelatedEntitiesResourceTrait;
-use Domain\Inserts\Models\InsertProperty;
+use Domain\Inserts\InsertProperty\Models\InsertProperty;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 

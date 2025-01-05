@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Admin\JewelleryProperties\ChainPropWeavings\Controllers;
 
-use Domain\JewelleryProperties\Models\ChainPropWeaving;
+use Domain\JewelleryProperties\ChainPropWeaving\Models\ChainPropWeaving;
 use Illuminate\Http\Request;
 
 final class ChainPropWeavingController

@@ -6,7 +6,7 @@ namespace App\Http\Resources\JewelleryCategories;
 
 use App\Http\Admin\Jewelleries\Jewellery\Resources\JewelleryCollection;
 use App\Http\Admin\Shared\Resources\Traits\IncludeRelatedEntitiesResourceTrait;
-use Domain\Jewelleries\Models\JewelleryCategory;
+use Domain\Jewelleries\JewelleryCategory\Models\JewelleryCategory;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 

@@ -6,8 +6,8 @@ namespace App\Http\Admin\Jewelleries\Jewellery\Controllers;
 
 use App\Http\Admin\Jewelleries\Jewellery\Resources\JewelleryCollection;
 use App\Http\Shared\Controller;
-use Domain\Jewelleries\Models\Jewellery;
-use Domain\Jewelleries\Services\Jewellery\JewelleryService;
+use Domain\Jewelleries\Jewellery\Models\Jewellery;
+use Domain\Jewelleries\Jewellery\Services\JewelleryService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 

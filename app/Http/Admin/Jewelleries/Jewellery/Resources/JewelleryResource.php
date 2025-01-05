@@ -7,7 +7,7 @@ namespace App\Http\Admin\Jewelleries\Jewellery\Resources;
 use App\Http\Admin\Shared\Resources\Traits\IncludeRelatedEntitiesResourceTrait;
 use App\Http\Resources\BraceletPropViews\BraceletPropViewResource;
 use App\Http\Resources\JewelleryCategories\JewelleryCategoryResource;
-use Domain\Jewelleries\Models\Jewellery;
+use Domain\Jewelleries\Jewellery\Models\Jewellery;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;

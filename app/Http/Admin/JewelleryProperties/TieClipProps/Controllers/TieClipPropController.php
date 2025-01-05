@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Admin\JewelleryProperties\TieClipProps\Controllers;
 
-use Domain\JewelleryProperties\Models\TieClipProp;
+use Domain\JewelleryProperties\TieClipProp\Models\TieClipProp;
 use Illuminate\Http\Request;
 
 final class TieClipPropController

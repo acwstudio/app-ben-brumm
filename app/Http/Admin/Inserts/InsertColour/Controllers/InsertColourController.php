@@ -6,8 +6,8 @@ namespace App\Http\Admin\Inserts\InsertColour\Controllers;
 
 use App\Http\Admin\Inserts\InsertColour\Resources\InsertColourCollection;
 use App\Http\Shared\Controller;
-use Domain\Inserts\Models\InsertColour;
-use Domain\Inserts\Services\InsertColour\InsertColourService;
+use Domain\Inserts\InsertColour\Models\InsertColour;
+use Domain\Inserts\InsertColour\Services\InsertColourService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 

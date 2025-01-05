@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Admin\JewelleryProperties\EarringProps\Controllers;
 
-use Domain\JewelleryProperties\Models\EarringProp;
+use Domain\JewelleryProperties\EarringProp\Models\EarringProp;
 use Illuminate\Http\Request;
 
 final class EarringPropController

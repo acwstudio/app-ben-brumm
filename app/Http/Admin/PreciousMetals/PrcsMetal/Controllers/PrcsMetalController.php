@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Http\Admin\PreciousMetals\PrcsMetal\Controllers;
 
 use App\Http\Shared\Controller;
-use Domain\PreciousMetals\Models\PrcsMetal;
+use Domain\PreciousMetals\PrcsMetal\Models\PrcsMetal;
 use Illuminate\Http\Request;
 
 class PrcsMetalController extends Controller

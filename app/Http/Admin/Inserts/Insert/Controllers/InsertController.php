@@ -6,8 +6,8 @@ namespace App\Http\Admin\Inserts\Insert\Controllers;
 
 use App\Http\Admin\Inserts\Insert\Resources\InsertCollection;
 use App\Http\Shared\Controller;
-use Domain\Inserts\Models\Insert;
-use Domain\Inserts\Services\Insert\InsertService;
+use Domain\Inserts\Insert\Models\Insert;
+use Domain\Inserts\Insert\Services\InsertService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Admin\JewelleryProperties\CufflinkProps\Controllers;
 
-use Domain\JewelleryProperties\Models\CufflinkProp;
+use Domain\JewelleryProperties\CufflinkProp\Models\CufflinkProp;
 use Illuminate\Http\Request;
 
 final class CufflinkPropController

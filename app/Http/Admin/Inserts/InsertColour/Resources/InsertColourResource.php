@@ -6,7 +6,7 @@ namespace App\Http\Admin\Inserts\InsertColour\Resources;
 
 use App\Http\Admin\Inserts\Insert\Resources\InsertCollection;
 use App\Http\Admin\Shared\Resources\Traits\IncludeRelatedEntitiesResourceTrait;
-use Domain\Inserts\Models\InsertColour;
+use Domain\Inserts\InsertColour\Models\InsertColour;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 

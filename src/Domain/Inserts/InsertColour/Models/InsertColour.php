@@ -1,0 +1,19 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Domain\Inserts\InsertColour\Models;
+
+use Domain\Inserts\Insert\Models\Insert;
+use Domain\Shared\Models\BaseModel;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+
+final class InsertColour extends BaseModel
+{
+    const TYPE_RESOURCE = 'insertColours';
+
+    public function inserts(): HasMany
+    {
+        return $this->hasMany(Insert::class);
+    }
+}

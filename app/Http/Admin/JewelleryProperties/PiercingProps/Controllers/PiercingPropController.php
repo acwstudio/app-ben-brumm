@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Admin\JewelleryProperties\PiercingProps\Controllers;
 
-use Domain\JewelleryProperties\Models\PiercingProp;
+use Domain\JewelleryProperties\PiercingProp\Models\PiercingProp;
 use Illuminate\Http\Request;
 
 final class PiercingPropController

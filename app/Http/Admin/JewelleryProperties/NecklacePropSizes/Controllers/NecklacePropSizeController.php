@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Admin\JewelleryProperties\NecklacePropSizes\Controllers;
 
-use Domain\JewelleryProperties\Models\NecklacePropSize;
+use Domain\JewelleryProperties\NecklacePropSize\Models\NecklacePropSize;
 use Illuminate\Http\Request;
 
 final class NecklacePropSizeController

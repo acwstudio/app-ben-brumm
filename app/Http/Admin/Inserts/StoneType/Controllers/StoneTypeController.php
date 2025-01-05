@@ -6,8 +6,8 @@ namespace App\Http\Admin\Inserts\StoneType\Controllers;
 
 use App\Http\Admin\Inserts\StoneType\Resources\StoneTypeCollection;
 use App\Http\Shared\Controller;
-use Domain\Inserts\Models\StoneType;
-use Domain\Inserts\Services\StoneType\StoneTypeService;
+use Domain\Inserts\StoneType\Models\StoneType;
+use Domain\Inserts\StoneType\Services\StoneTypeService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 

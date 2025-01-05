@@ -10,7 +10,7 @@ use App\Http\Admin\Inserts\InsertShape\Resources\InsertShapeResource;
 use App\Http\Admin\Inserts\Stone\Resources\StoneResource;
 use App\Http\Admin\Jewelleries\Jewellery\Resources\JewelleryResource;
 use App\Http\Admin\Shared\Resources\Traits\IncludeRelatedEntitiesResourceTrait;
-use Domain\Inserts\Models\Insert;
+use Domain\Inserts\Insert\Models\Insert;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 

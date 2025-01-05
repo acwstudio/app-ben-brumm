@@ -2,11 +2,8 @@
 
 namespace Database\Seeders;
 
-use Domain\Jewelleries\Models\Jewellery;
-use Domain\JewelleryProperties\Models\BraceletProp;
-use Domain\JewelleryProperties\Models\BraceletPropSize;
-use Domain\JewelleryProperties\Models\BraceletSize;
-use Domain\JewelleryProperties\Models\Weaving;
+use Domain\Jewelleries\Jewellery\Models\Jewellery;
+use Domain\JewelleryProperties\Weaving\Models\Weaving;
 use Illuminate\Database\Seeder;
 
 class SQLRequestSeeder extends Seeder

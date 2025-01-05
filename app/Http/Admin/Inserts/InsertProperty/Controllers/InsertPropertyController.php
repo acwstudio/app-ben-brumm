@@ -6,8 +6,8 @@ namespace App\Http\Admin\Inserts\InsertProperty\Controllers;
 
 use App\Http\Admin\Inserts\InsertProperty\Resources\InsertPropertyCollection;
 use App\Http\Shared\Controller;
-use Domain\Inserts\Models\InsertProperty;
-use Domain\Inserts\Services\InsertProperty\InsertPropertyService;
+use Domain\Inserts\InsertProperty\Models\InsertProperty;
+use Domain\Inserts\InsertProperty\Services\InsertPropertyService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 

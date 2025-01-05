@@ -6,7 +6,7 @@ namespace App\Http\Admin\Inserts\StoneType\Resources;
 
 use App\Http\Admin\Inserts\Stone\Resources\StoneCollection;
 use App\Http\Admin\Shared\Resources\Traits\IncludeRelatedEntitiesResourceTrait;
-use Domain\Inserts\Models\StoneType;
+use Domain\Inserts\StoneType\Models\StoneType;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 

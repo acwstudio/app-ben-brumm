@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Admin\JewelleryProperties\Clasps\Controllers;
 
-use Domain\JewelleryProperties\Models\Clasp;
+use Domain\JewelleryProperties\Clasp\Models\Clasp;
 use Illuminate\Http\Request;
 
 final class ClaspController

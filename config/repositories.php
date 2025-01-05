@@ -1,20 +1,19 @@
 <?php
 
-use Domain\Inserts\Repositories\Insert\InsertCachedRepository;
-use Domain\Inserts\Repositories\Insert\InsertRepository;
-use Domain\Inserts\Repositories\Insert\InsertRepositoryInterface;
-use Domain\Inserts\Repositories\InsertColour\InsertColourRepository;
-use Domain\Inserts\Repositories\InsertColour\InsertColourRepositoryInterface;
-use Domain\Inserts\Repositories\InsertShape\InsertShapeRepository;
-use Domain\Inserts\Repositories\InsertShape\InsertShapeRepositoryInterface;
-use Domain\Inserts\Repositories\Stone\StoneRepository;
-use Domain\Inserts\Repositories\Stone\StoneRepositoryInterface;
-use Domain\Inserts\Repositories\StoneType\StoneTypeRepository;
-use Domain\Inserts\Repositories\StoneType\StoneTypeRepositoryInterface;
-use Domain\Jewelleries\Repositories\Jewellery\JewelleryRepository;
-use Domain\Jewelleries\Repositories\Jewellery\JewelleryRepositoryInterface;
-use Domain\Jewelleries\Repositories\jewelleryCategory\JewelleryCategoryRepository;
-use Domain\Jewelleries\Repositories\jewelleryCategory\JewelleryCategoryRepositoryInterface;
+use Domain\Inserts\Insert\Repositories\InsertRepository;
+use Domain\Inserts\Insert\Repositories\InsertRepositoryInterface;
+use Domain\Inserts\InsertColour\Repositories\InsertColourRepository;
+use Domain\Inserts\InsertColour\Repositories\InsertColourRepositoryInterface;
+use Domain\Inserts\InsertShape\Repositories\InsertShapeRepository;
+use Domain\Inserts\InsertShape\Repositories\InsertShapeRepositoryInterface;
+use Domain\Inserts\Stone\Repositories\StoneRepository;
+use Domain\Inserts\Stone\Repositories\StoneRepositoryInterface;
+use Domain\Inserts\StoneType\Repositories\StoneTypeRepository;
+use Domain\Inserts\StoneType\Repositories\StoneTypeRepositoryInterface;
+use Domain\Jewelleries\Jewellery\Repositories\JewelleryRepository;
+use Domain\Jewelleries\Jewellery\Repositories\JewelleryRepositoryInterface;
+use Domain\Jewelleries\JewelleryCategory\Repositories\JewelleryCategoryRepository;
+use Domain\Jewelleries\JewelleryCategory\Repositories\JewelleryCategoryRepositoryInterface;
 
 return [
     [
