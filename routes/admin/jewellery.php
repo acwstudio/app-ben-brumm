@@ -8,11 +8,9 @@ use App\Http\Admin\Jewelleries\Jewellery\Controllers\JewelleryController;
 use App\Http\Admin\Jewelleries\Jewellery\Controllers\JewelleryInsertsRelatedController;
 use App\Http\Admin\Jewelleries\Jewellery\Controllers\JewelleryInsertsRelationshipsController;
 use App\Http\Admin\Jewelleries\JewelleryCategory\Controllers\JewelleryCategoryController;
-use App\Http\Controllers\Site\Jewelleries\BraceletPropView\BraceletPropViewController;
-use App\Http\Controllers\Site\Jewelleries\BraceletPropView\BraceletPropViewJewelleryRelatedController;
-use App\Http\Controllers\Site\Jewelleries\BraceletPropView\BraceletPropViewJewelleryRelationshipsController;
 
 Route::group([
+//    'middleware' => 'auth:employee',
     'prefix' => 'admin'
 ], function () {
     /*****************  JEWELLERIES ROUTES **************/
