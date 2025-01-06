@@ -16,10 +16,11 @@ class SQLRequestSeeder extends Seeder
 //        $vowels = array("a", "e", "i", "o", "u", "A", "E", "I", "O", "U", " ");
 //        $yourString = str_replace($vowels, "", 'tie clip');
 //        dd(Jewellery::find(2)->braceletProp);
-        dd(Weaving::find(6)->chainPropWeavings);
+//        dd(Weaving::find(6)->chainPropWeavings);
 //        BraceletPropView::with(['braceletSizes'])->each(function (BraceletPropView $bracelet) {
 //            dump($bracelet);
 //        });
+//        dd(json_encode(config('seeding-data.jewelleries'), JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT));
 //        dd(Jewellery::find(2)->braceletPropView);
         Jewellery::with(['braceletPropView'])->each(function (Jewellery $bracelet) {
             dump($bracelet);

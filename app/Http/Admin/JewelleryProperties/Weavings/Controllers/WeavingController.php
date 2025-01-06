@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Admin\JewelleryProperties\Weavings\Controllers;
 
+use App\Http\Admin\JewelleryProperties\Weavings\Requests\WeavingStoreRequest;
 use App\Http\Admin\JewelleryProperties\Weavings\Resources\WeavingCollection;
 use Domain\JewelleryProperties\Weaving\Models\Weaving;
 use Domain\JewelleryProperties\Weaving\Services\WeavingService;
@@ -30,9 +31,9 @@ final class WeavingController
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(WeavingStoreRequest $request)
     {
-        //
+        dd($request->all());
     }
 
     /**

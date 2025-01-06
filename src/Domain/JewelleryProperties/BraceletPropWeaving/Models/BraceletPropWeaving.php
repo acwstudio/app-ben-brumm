@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 
 final class BraceletPropWeaving extends Model
 {
-    const TYPE_RESOURCE = 'BraceletPropWeavings';
+    const TYPE_RESOURCE = 'braceletPropWeavings';
 }
