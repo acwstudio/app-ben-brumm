@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Domain\JewelleryProperties\PiercingProp\Pipelines;
 
-use Domain\AbstractPipeline;
+use Domain\Shared\AbstractPipeline;
 use Illuminate\Database\Eloquent\Model;
 
 final class PiercingPropPipeline extends AbstractPipeline

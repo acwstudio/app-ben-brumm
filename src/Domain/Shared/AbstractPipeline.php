@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Domain;
+namespace Domain\Shared;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Pipeline\Pipeline;

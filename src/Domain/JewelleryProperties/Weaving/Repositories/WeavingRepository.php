@@ -29,8 +29,13 @@ final class WeavingRepository
     {
         return QueryBuilder::for(Weaving::class)
             ->where('id', $id)
-//            ->allowedFields(\DB::getSchemaBuilder()->getColumnListing('blog_posts'))
-//            ->allowedIncludes(['blogCategory'])
+            ->allowedFields(\DB::getSchemaBuilder()->getColumnListing('weavings'))
+            ->allowedIncludes(['braceletPropWeavings','chainPropWeavings','braceletProps','chainProps'])
             ->firstOrFail();
+    }
+
+    public function store(array $data): Model|Weaving
+    {
+        return Weaving::create(data_get($data, 'data.attributes'));
     }
 }

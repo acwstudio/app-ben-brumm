@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Domain\Inserts\InsertColour\Pipelines;
 
-use Domain\AbstractPipeline;
+use Domain\Shared\AbstractPipeline;
 use Illuminate\Database\Eloquent\Model;
 
 final class InsertColourPipeline extends AbstractPipeline

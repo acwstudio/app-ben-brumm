@@ -6,6 +6,7 @@ namespace App\Http\Admin\JewelleryProperties\Weavings\Controllers;
 
 use App\Http\Admin\JewelleryProperties\Weavings\Requests\WeavingStoreRequest;
 use App\Http\Admin\JewelleryProperties\Weavings\Resources\WeavingCollection;
+use App\Http\Admin\JewelleryProperties\Weavings\Resources\WeavingResource;
 use Domain\JewelleryProperties\Weaving\Models\Weaving;
 use Domain\JewelleryProperties\Weaving\Services\WeavingService;
 use Illuminate\Http\JsonResponse;
@@ -31,17 +32,29 @@ final class WeavingController
     /**
      * Store a newly created resource in storage.
      */
-    public function store(WeavingStoreRequest $request)
+    public function store(WeavingStoreRequest $request): JsonResponse
     {
-        dd($request->all());
+        $data = $request->all();
+
+        $weaving = $this->weavingService->store($data);
+
+        return (new WeavingResource(Weaving::find($weaving->id)))
+            ->response()
+            ->header('Location', route('admin.weavings.show', [
+                'id' => $weaving->id
+            ]));
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Weaving $weaving)
+    public function show(Request $request, int $id): JsonResponse
     {
-        //
+        $data = $request->all();
+        data_set($data, 'id', $id);
+        $model = $this->weavingService->show($id, $data);
+
+        return (new WeavingResource($model))->response();
     }
 
     /**

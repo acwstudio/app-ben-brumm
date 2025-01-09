@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Domain\Jewelleries\Jewellery\Services;
 
-use Domain\AbstractCRUDService;
 use Domain\Jewelleries\Jewellery\Repositories\JewelleryRepositoryInterface;
+use Domain\Shared\AbstractCRUDService;
 use Illuminate\Contracts\Pagination\Paginator;
 use Illuminate\Database\Eloquent\Model;
 

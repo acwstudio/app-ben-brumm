@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Domain\Jewelleries\Jewellery\Repositories;
 
-use Domain\AbstractCachedRepository;
 use Domain\Jewelleries\Jewellery\Models\Jewellery;
+use Domain\Shared\AbstractCachedRepository;
 use Illuminate\Contracts\Pagination\Paginator;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Cache;

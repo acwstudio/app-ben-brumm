@@ -28,15 +28,31 @@ final class WeavingStoreRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
-            'data'                                => ['required','array','min:2'],
-            'data.type'                           => ['required','string','in:' . Weaving::TYPE_RESOURCE],
-            'data.attributes'                     => ['required','array:name'],
-            'data.attributes.name'                => ['required','string'],
-            // relationships
-            'data.relationships'                       => [
-                'sometimes','required','array:chainProps,braceletProps,chainPropWeavings,braceletPropWeavings'
-            ],
+        if ($this->getMethod() === 'POST') {
+            $attributes = [
+                'data'                                => ['required','array','min:2'],
+                'data.type'                           => ['required','string','in:' . Weaving::TYPE_RESOURCE],
+                'data.attributes'                     => ['required','array:name'],
+                'data.attributes.name'                => ['required','string','unique:weavings,name'],
+                // relationships
+                'data.relationships'                       => [
+                    'sometimes','required','array:chainPropWeavings,braceletPropWeavings'
+                ],
+            ];
+        } else {
+            $attributes = [
+                'data'                                => ['sometimes','required','array','min:2'],
+                'data.type'                           => ['sometimes','required','string','in:' . Weaving::TYPE_RESOURCE],
+                'data.attributes'                     => ['sometimes','required','array:name'],
+                'data.attributes.name'                => ['sometimes','required','string','unique:weavings,name'],
+                // relationships
+                'data.relationships'                       => [
+                    'sometimes','required','array:chainProps,braceletProps,chainPropWeavings,braceletPropWeavings'
+                ],
+            ];
+        }
+
+        $relationships = [
             // many to many chainProps
             'data.relationships.chainProps'             => ['sometimes','required','array','required_array_keys:data'],
             'data.relationships.chainProps.data'        => ['array','min:1'],
@@ -61,6 +77,15 @@ final class WeavingStoreRequest extends FormRequest
             'data.relationships.braceletPropWeavings.data.*'      => ['sometimes','required','array','required_array_keys:id,type'],
             'data.relationships.braceletPropWeavings.data.*.type' => ['present','string','in:' . BraceletPropWeaving::TYPE_RESOURCE],
             'data.relationships.braceletPropWeavings.data.*.id'   => ['present','string', 'distinct', 'exists:bracelet_prop_weavings,id'],
+        ];
+
+        return array_merge($attributes, $relationships);
+    }
+
+    public function messages(): array
+    {
+        return [
+            'data.relationships' => 'The :attribute field includes unacceptable relationships.',
         ];
     }
 }

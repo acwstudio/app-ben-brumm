@@ -16,6 +16,8 @@ final class Weaving extends Model
 {
     const TYPE_RESOURCE = 'weavings';
 
+    protected $fillable = ['name'];
+
     public function braceletProps(): BelongsToMany
     {
         return $this->belongsToMany(BraceletProp::class, 'bracelet_prop_weavings');

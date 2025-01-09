@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Domain\Inserts\InsertShape\Repositories;
 
-use Domain\AbstractCachedRepository;
 use Domain\Inserts\InsertShape\Models\InsertShape;
+use Domain\Shared\AbstractCachedRepository;
 use Illuminate\Contracts\Pagination\Paginator;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Cache;

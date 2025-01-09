@@ -4,9 +4,14 @@ declare(strict_types=1);
 
 namespace App\Http\Admin\JewelleryProperties\ChainProps\Controllers;
 
-final class ChainPropsWeavingRelatedController
+final class ChainPropsWeavingsRelationshipsController
 {
     public function index()
+    {
+
+    }
+
+    public function update()
     {
 
     }

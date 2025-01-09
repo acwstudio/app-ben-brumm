@@ -31,7 +31,7 @@ final class WeavingResource extends JsonResource
             'attributes' => $this->attributeItems(),
             'relationships' => [
                 'braceletProps' => $this->sectionRelationships(
-                    'bracelet-props.weaving',
+                    'bracelet-props.weavings',
                     BraceletPropCollection::class
                 ),
                 'braceletPropWeavings' => $this->sectionRelationships(
@@ -43,7 +43,7 @@ final class WeavingResource extends JsonResource
                     ChainPropWeavingCollection::class
                 ),
                 'chainProps' => $this->sectionRelationships(
-                    'chain-props.weaving',
+                    'chain-props.weavings',
                     ChainPropCollection::class
                 ),
             ]
