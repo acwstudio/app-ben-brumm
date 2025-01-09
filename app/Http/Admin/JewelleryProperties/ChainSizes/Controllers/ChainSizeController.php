@@ -4,17 +4,27 @@ declare(strict_types=1);
 
 namespace App\Http\Admin\JewelleryProperties\ChainSizes\Controllers;
 
-use App\Models\ChainSize;
+use App\Http\Admin\JewelleryProperties\ChainSizes\Resources\ChainSizeCollection;
+use App\Http\Admin\JewelleryProperties\ChainSizes\Resources\ChainSizeResource;
+use Domain\JewelleryProperties\ChainSize\Services\ChainSizeService;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 final class ChainSizeController
 {
+    public function __construct(public ChainSizeService $chainSizeService)
+    {
+    }
+
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request): JsonResponse
     {
-        //
+        $data = $request->all();
+        $items = $this->chainSizeService->index($data);
+
+        return (new ChainSizeCollection($items))->response();
     }
 
     /**
@@ -28,15 +38,19 @@ final class ChainSizeController
     /**
      * Display the specified resource.
      */
-    public function show(ChainSize $chainSize)
+    public function show(Request $request, int $id): JsonResponse
     {
-        //
+        $data = $request->all();
+        data_set($data, 'id', $id);
+        $model = $this->chainSizeService->show($id, $data);
+
+        return (new ChainSizeResource($model))->response();
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, ChainSize $chainSize)
+    public function update(Request $request, int $id)
     {
         //
     }
@@ -44,7 +58,7 @@ final class ChainSizeController
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(ChainSize $chainSize)
+    public function destroy(int $id)
     {
         //
     }
