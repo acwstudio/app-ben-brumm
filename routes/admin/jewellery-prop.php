@@ -26,8 +26,8 @@ use App\Http\Admin\JewelleryProperties\ChainProps\Controllers\ChainPropsChainSiz
 use App\Http\Admin\JewelleryProperties\ChainProps\Controllers\ChainPropsWeavingsRelatedController;
 use App\Http\Admin\JewelleryProperties\ChainProps\Controllers\ChainPropsWeavingsRelationshipsController;
 use App\Http\Admin\JewelleryProperties\ChainPropSizes\Controllers\ChainPropSizeController;
-use App\Http\Admin\JewelleryProperties\ChainPropSizes\Controllers\ChainPropSizesChainPropRelatedController;
-use App\Http\Admin\JewelleryProperties\ChainPropSizes\Controllers\ChainPropSizesChainPropRelationshipsController;
+use App\Http\Admin\JewelleryProperties\ChainPropSizes\Controllers\ChainPropSizesChainSizeRelatedController;
+use App\Http\Admin\JewelleryProperties\ChainPropSizes\Controllers\ChainPropSizesChainSizeRelationshipsController;
 use App\Http\Admin\JewelleryProperties\ChainPropWeavings\Controllers\ChainPropWeavingController;
 use App\Http\Admin\JewelleryProperties\ChainPropWeavings\Controllers\ChainPropWeavingsWeavingRelatedController;
 use App\Http\Admin\JewelleryProperties\ChainPropWeavings\Controllers\ChainPropWeavingsWeavingRelationshipsController;
@@ -36,6 +36,17 @@ use App\Http\Admin\JewelleryProperties\ChainSizes\Controllers\ChainSizeChainProp
 use App\Http\Admin\JewelleryProperties\ChainSizes\Controllers\ChainSizeController;
 use App\Http\Admin\JewelleryProperties\ChainSizes\Controllers\ChainSizesChainPropsRelatedController;
 use App\Http\Admin\JewelleryProperties\ChainSizes\Controllers\ChainSizesChainPropsRelationshipsController;
+use App\Http\Admin\JewelleryProperties\RingProps\Controllers\RingPropController;
+use App\Http\Admin\JewelleryProperties\RingProps\Controllers\RingPropsRingSizesRelatedController;
+use App\Http\Admin\JewelleryProperties\RingProps\Controllers\RingPropsRingSizesRelationshipsController;
+use App\Http\Admin\JewelleryProperties\RingPropSizes\Controllers\RingPropSizeController;
+use App\Http\Admin\JewelleryProperties\RingPropSizes\Controllers\RingPropSizesRingSizeRelatedController;
+use App\Http\Admin\JewelleryProperties\RingPropSizes\Controllers\RingPropSizesRingSizeRelationshipsController;
+use App\Http\Admin\JewelleryProperties\RingSizes\Controllers\RingSizeController;
+use App\Http\Admin\JewelleryProperties\RingSizes\Controllers\RingSizeRingPropSizesRelatedController;
+use App\Http\Admin\JewelleryProperties\RingSizes\Controllers\RingSizeRingPropSizesRelationshipsController;
+use App\Http\Admin\JewelleryProperties\RingSizes\Controllers\RingSizesRingPropsRelatedController;
+use App\Http\Admin\JewelleryProperties\RingSizes\Controllers\RingSizesRingPropsRelationshipsController;
 use App\Http\Admin\JewelleryProperties\Weavings\Controllers\WeavingBraceletPropWeavingsRelatedController;
 use App\Http\Admin\JewelleryProperties\Weavings\Controllers\WeavingBraceletPropWeavingsRelationshipsController;
 use App\Http\Admin\JewelleryProperties\Weavings\Controllers\WeavingChainPropWeavingsRelatedController;
@@ -140,12 +151,12 @@ Route::group([
     Route::post('/chain-prop-sizes', [ChainPropSizeController::class, 'store']);
     Route::patch('/chain-prop-sizes/{id}', [ChainPropSizeController::class, 'update']);
     Route::delete('/chain-prop-sizes/{id}', [ChainPropSizeController::class, 'destroy']);
-    //  many-to-one Chain Size Prop Weavings to Weaving
-    Route::get('chain-prop-sizes/{id}/relationships/chain-size', [ChainPropSizesChainPropRelationshipsController::class, 'index'])
+    //  many-to-one Chain Prop Sizes to Chain Size
+    Route::get('chain-prop-sizes/{id}/relationships/chain-size', [ChainPropSizesChainSizeRelationshipsController::class, 'index'])
         ->name('chain-prop-sizes.relationships.chain-size');
-    Route::patch('chain-prop-sizes/{id}/relationships/chain-size', [ChainPropSizesChainPropRelationshipsController::class, 'update'])
+    Route::patch('chain-prop-sizes/{id}/relationships/chain-size', [ChainPropSizesChainSizeRelationshipsController::class, 'update'])
         ->name('chain-prop-sizes.relationships.chain-size');
-    Route::get('chain-prop-sizes/{id}/chain-size', [ChainPropSizesChainPropRelatedController::class, 'index'])
+    Route::get('chain-prop-sizes/{id}/chain-size', [ChainPropSizesChainSizeRelatedController::class, 'index'])
         ->name('chain-prop-sizes.chain-size');
 
     /*****************  CHAIN PROP WEAVINGS ROUTES **************/
@@ -204,6 +215,56 @@ Route::group([
         ->name('chain-sizes.relationships.chain-props');
     Route::get('chain-sizes/{id}/chain-props', [ChainSizesChainPropsRelatedController::class, 'index'])
         ->name('chain-sizes.chain-props');
+
+    /*****************  RING PROP SIZES ROUTES **************/
+    // CRUD
+    Route::get('/ring-prop-sizes', [RingPropSizeController::class, 'index']);
+    Route::get('/ring-prop-sizes/{id}', [RingPropSizeController::class, 'show']);
+    Route::post('/ring-prop-sizes', [RingPropSizeController::class, 'store']);
+    Route::patch('/ring-prop-sizes/{id}', [RingPropSizeController::class, 'update']);
+    Route::delete('/ring-prop-sizes/{id}', [RingPropSizeController::class, 'destroy']);
+    //  many-to-one Ring Prop Sizes to Ring Size
+    Route::get('ring-prop-sizes/{id}/relationships/ring-size', [RingPropSizesRingSizeRelationshipsController::class, 'index'])
+        ->name('ring-prop-sizes.relationships.ring-size');
+    Route::patch('ring-prop-sizes/{id}/relationships/ring-size', [RingPropSizesRingSizeRelationshipsController::class, 'update'])
+        ->name('ring-prop-sizes.relationships.ring-size');
+    Route::get('ring-prop-sizes/{id}/ring-size', [RingPropSizesRingSizeRelatedController::class, 'index'])
+        ->name('ring-prop-sizes.ring-size');
+
+    /*****************  RING PROPS ROUTES **************/
+    // CRUD
+    Route::get('/ring-props', [RingPropController::class, 'index']);
+    Route::get('/ring-props/{id}', [RingPropController::class, 'show']);
+    Route::post('/ring-props', [RingPropController::class, 'store']);
+    Route::patch('/ring-props/{id}', [RingPropController::class, 'update']);
+    Route::delete('/ring-props/{id}', [RingPropController::class, 'destroy']);
+    //  many-to-many Ring Props to Ring Size
+    Route::get('ring-props/{id}/relationships/ring-sizes', [RingPropsRingSizesRelationshipsController::class, 'index'])
+        ->name('ring-props.relationships.ring-sizes');
+    Route::patch('ring-props/{id}/relationships/ring-sizes', [RingPropsRingSizesRelationshipsController::class, 'update'])
+        ->name('ring-props.relationships.ring-sizes');
+    Route::get('ring-props/{id}/ring-sizes', [RingPropsRingSizesRelatedController::class, 'index'])
+        ->name('ring-props.ring-sizes');
+
+    /*****************  RING SIZES ROUTES **************/
+    // CRUD
+    Route::get('/ring-sizes', [RingSizeController::class, 'index']);
+    Route::get('/ring-sizes/{id}', [RingSizeController::class, 'show']);
+    Route::post('/ring-sizes', [RingSizeController::class, 'store']);
+    Route::patch('/ring-sizes/{id}', [RingSizeController::class, 'update']);
+    Route::delete('/ring-sizes/{id}', [RingSizeController::class, 'destroy']);
+    //  one-to-many Ring Size to Ring Prop Sizes
+    Route::get('ring-sizes/{id}/relationships/ring-prop-sizes', [RingSizeRingPropSizesRelationshipsController::class, 'index'])
+        ->name('ring-size.relationships.ring-prop-sizes');
+    Route::patch('ring-sizes/{id}/relationships/ring-prop-sizes', [RingSizeRingPropSizesRelationshipsController::class, 'update'])
+        ->name('ring-size.relationships.ring-prop-sizes');
+    Route::get('ring-sizes/{id}/ring-prop-sizes', [RingSizeRingPropSizesRelatedController::class, 'index'])
+        ->name('ring-size.ring-prop-sizes');
+    //  many-to-many Ring Sizes to Ring Props
+    Route::get('ring-sizes/{id}/relationships/ring-props', [RingSizesRingPropsRelationshipsController::class, 'index'])
+        ->name('ring-sizes.relationships.ring-props');
+    Route::get('ring-sizes/{id}/ring-props', [RingSizesRingPropsRelatedController::class, 'index'])
+        ->name('ring-sizes.ring-props');
 
     /*****************  WEAVINGS ROUTES **************/
     // CRUD
