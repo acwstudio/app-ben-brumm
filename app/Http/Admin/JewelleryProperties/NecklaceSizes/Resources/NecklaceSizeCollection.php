@@ -2,12 +2,13 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Admin\JewelleryProperties\ChainSizes\Resources;
+namespace App\Http\Admin\JewelleryProperties\NecklaceSizes\Resources;
 
 use App\Http\Admin\Shared\Resources\Traits\IncludeRelatedEntitiesCollectionTrait;
+use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
-final class ChainSizeCollection extends ResourceCollection
+final class NecklaceSizeCollection extends ResourceCollection
 {
     use IncludeRelatedEntitiesCollectionTrait;
 }

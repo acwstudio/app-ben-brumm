@@ -28,12 +28,12 @@ final class ChainSizeResource extends JsonResource
             'type' => ChainSize::TYPE_RESOURCE,
             'attributes' => $this->attributeItems(),
             'relationships' => [
-                'braceletProps' => $this->sectionRelationships(
-                    'chain-props.chain-sizes',
+                'chainProps' => $this->sectionRelationships(
+                    'chain-sizes.chain-props',
                     ChainPropCollection::class
                 ),
-                'braceletPropSizes' => $this->sectionRelationships(
-                    'chain-prop-sizes.chain-size',
+                'chainPropSizes' => $this->sectionRelationships(
+                    'chain-size.chain-prop-sizes',
                     ChainPropSizeCollection::class
                 )
             ]

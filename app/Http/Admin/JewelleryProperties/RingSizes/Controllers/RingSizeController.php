@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Http\Admin\JewelleryProperties\RingSizes\Controllers;
 
 use App\Http\Admin\JewelleryProperties\RingSizes\Resources\RingSizeCollection;
+use App\Http\Admin\JewelleryProperties\RingSizes\Resources\RingSizeResource;
 use Domain\JewelleryProperties\RingSize\RingPropService\RingSizeService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -37,9 +38,13 @@ final class RingSizeController
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Request $request, int $id): JsonResponse
     {
-        //
+        $data = $request->all();
+        data_set($data, 'id', $id);
+        $model = $this->ringSizeService->show($id, $data);
+
+        return (new RingSizeResource($model))->response();
     }
 
     /**

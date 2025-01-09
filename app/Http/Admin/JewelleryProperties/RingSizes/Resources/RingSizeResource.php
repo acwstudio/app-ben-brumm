@@ -29,11 +29,11 @@ final class RingSizeResource extends JsonResource
             'attributes' => $this->attributeItems(),
             'relationships' => [
                 'ringProps' => $this->sectionRelationships(
-                    'ring-props.ring-sizes',
+                    'ring-sizes.ring-props',
                     RingPropCollection::class
                 ),
                 'ringPropSizes' => $this->sectionRelationships(
-                    'ring-prop-sizes.ring-size',
+                    'ring-size.ring-prop-sizes',
                     RingPropSizeCollection::class
                 )
             ]

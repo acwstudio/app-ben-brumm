@@ -215,7 +215,7 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        Schema::create('necklace_prop_size', function (Blueprint $table) {
+        Schema::create('necklace_prop_sizes', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('necklace_size_id');
             $table->unsignedBigInteger('necklace_prop_id');

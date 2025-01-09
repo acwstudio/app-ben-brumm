@@ -30,11 +30,11 @@ final class BraceletSizeResource extends JsonResource
             'attributes' => $this->attributeItems(),
             'relationships' => [
                 'braceletProps' => $this->sectionRelationships(
-                    'bracelet-props.bracelet-sizes',
+                    'bracelet-sizes.bracelet-props',
                     BraceletPropCollection::class
                 ),
                 'braceletPropSizes' => $this->sectionRelationships(
-                    'bracelet-prop-sizes.bracelet-size',
+                    'bracelet-size.bracelet-prop-sizes',
                     BraceletPropSizeCollection::class
                 )
             ]
