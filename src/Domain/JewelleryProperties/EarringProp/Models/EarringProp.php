@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Domain\JewelleryProperties\EarringProp\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 final class EarringProp extends Model
 {

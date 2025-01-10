@@ -44,6 +44,12 @@ use App\Http\Admin\JewelleryProperties\ChainSizes\Controllers\ChainSizeChainProp
 use App\Http\Admin\JewelleryProperties\ChainSizes\Controllers\ChainSizeController;
 use App\Http\Admin\JewelleryProperties\ChainSizes\Controllers\ChainSizesChainPropsRelatedController;
 use App\Http\Admin\JewelleryProperties\ChainSizes\Controllers\ChainSizesChainPropsRelationshipsController;
+use App\Http\Admin\JewelleryProperties\Clasps\Controllers\ClaspController;
+use App\Http\Admin\JewelleryProperties\Clasps\Controllers\ClaspEarringPropsRelatedController;
+use App\Http\Admin\JewelleryProperties\Clasps\Controllers\ClaspEarringPropsRelationshipsController;
+use App\Http\Admin\JewelleryProperties\EarringProps\Controllers\EarringPropController;
+use App\Http\Admin\JewelleryProperties\EarringProps\Controllers\EarringPropsClaspRelatedController;
+use App\Http\Admin\JewelleryProperties\EarringProps\Controllers\EarringPropsClaspRelationshipsController;
 use App\Http\Admin\JewelleryProperties\NecklaceProps\Controllers\NecklacePropController;
 use App\Http\Admin\JewelleryProperties\NecklaceProps\Controllers\NecklacePropsNecklaceSizesRelatedController;
 use App\Http\Admin\JewelleryProperties\NecklaceProps\Controllers\NecklacePropsNecklaceSizesRelationshipsController;
@@ -266,6 +272,36 @@ Route::group([
         ->name('chain-sizes.relationships.chain-props');
     Route::get('chain-sizes/{id}/chain-props', [ChainSizesChainPropsRelatedController::class, 'index'])
         ->name('chain-sizes.chain-props');
+
+    /*****************  CLASPS ROUTES **************/
+    // CRUD
+    Route::get('/clasps', [ClaspController::class, 'index']);
+    Route::get('/clasps/{id}', [ClaspController::class, 'show']);
+    Route::post('/clasps', [ClaspController::class, 'store']);
+    Route::patch('/clasps/{id}', [ClaspController::class, 'update']);
+    Route::delete('/clasps/{id}', [ClaspController::class, 'destroy']);
+    //  one-to-many Clasp to Earring Props
+    Route::get('clasps/{id}/relationships/earring-props', [ClaspEarringPropsRelationshipsController::class, 'index'])
+        ->name('clasp.relationships.earring-props');
+    Route::patch('clasps/{id}/relationships/earring-props', [ClaspEarringPropsRelationshipsController::class, 'update'])
+        ->name('clasp.relationships.earring-props');
+    Route::get('clasps/{id}/earring-props', [ClaspEarringPropsRelatedController::class, 'index'])
+        ->name('clasp.earring-props');
+
+    /*****************  EARRING PROPS ROUTES **************/
+    // CRUD
+    Route::get('/earring-props', [EarringPropController::class, 'index']);
+    Route::get('/earring-props/{id}', [EarringPropController::class, 'show']);
+    Route::post('/earring-props', [EarringPropController::class, 'store']);
+    Route::patch('/earring-props/{id}', [EarringPropController::class, 'update']);
+    Route::delete('/earring-props/{id}', [EarringPropController::class, 'destroy']);
+    //  one-to-many Earring Props to Clasp
+    Route::get('earring-props/{id}/relationships/clasp', [EarringPropsClaspRelationshipsController::class, 'index'])
+        ->name('earring-props.relationships.clasp');
+    Route::patch('earring-props/{id}/relationships/clasp', [EarringPropsClaspRelationshipsController::class, 'update'])
+        ->name('earring-props.relationships.clasp');
+    Route::get('earring-props/{id}/clasp', [EarringPropsClaspRelatedController::class, 'index'])
+        ->name('earring-props.clasp');
 
     /*****************  NECKLACE PROP SIZES ROUTES **************/
     // CRUD

@@ -24,17 +24,17 @@ final class WeavingService  extends AbstractCRUDService
         return $this->weavingRepository->index($data);
     }
 
-    public function show(int $id, array $data): Model|Weaving
-    {
-        return $this->weavingRepository->show($id, $data);
-    }
-
     /**
      * @throws \Throwable
      */
     public function store(array $data): Model|Weaving
     {
         return $this->weavingPipeline->store($data);
+    }
+
+    public function show(int $id, array $data): Model|Weaving
+    {
+        return $this->weavingRepository->show($id, $data);
     }
 
     public function update(array $data): void
