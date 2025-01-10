@@ -64,6 +64,10 @@ use App\Http\Admin\JewelleryProperties\NecklaceSizes\Controllers\NecklaceSizeNec
 use App\Http\Admin\JewelleryProperties\NecklaceSizes\Controllers\NecklaceSizesNecklacePropsRelatedController;
 use App\Http\Admin\JewelleryProperties\NecklaceSizes\Controllers\NecklaceSizesNecklacePropsRelationshipsController;
 use App\Http\Admin\JewelleryProperties\RingProps\Controllers\RingPropController;
+use App\Http\Admin\JewelleryProperties\RingProps\Controllers\RingPropJewelleryRelatedController;
+use App\Http\Admin\JewelleryProperties\RingProps\Controllers\RingPropJewelleryRelationshipsController;
+use App\Http\Admin\JewelleryProperties\RingProps\Controllers\RingPropRingPropSizesRelatedController;
+use App\Http\Admin\JewelleryProperties\RingProps\Controllers\RingPropRingPropSizesRelationshipsController;
 use App\Http\Admin\JewelleryProperties\RingProps\Controllers\RingPropsRingSizesRelatedController;
 use App\Http\Admin\JewelleryProperties\RingProps\Controllers\RingPropsRingSizesRelationshipsController;
 use App\Http\Admin\JewelleryProperties\RingPropSizes\Controllers\RingPropSizeController;
@@ -396,6 +400,20 @@ Route::group([
         ->name('ring-props.relationships.ring-sizes');
     Route::get('ring-props/{id}/ring-sizes', [RingPropsRingSizesRelatedController::class, 'index'])
         ->name('ring-props.ring-sizes');
+    //  one-to-one Ring Prop to Jewellery
+    Route::get('ring-props/{id}/relationships/jewellery', [RingPropJewelleryRelationshipsController::class, 'index'])
+        ->name('ring-prop.relationships.jewellery');
+    Route::patch('ring-props/{id}/relationships/jewellery', [RingPropJewelleryRelationshipsController::class, 'update'])
+        ->name('ring-prop.relationships.jewellery');
+    Route::get('ring-props/{id}/jewellery', [RingPropJewelleryRelatedController::class, 'index'])
+        ->name('ring-prop.jewellery');
+    //  one-to-many Ring Props to Ring Sizes
+    Route::get('ring-props/{id}/relationships/ring-prop-sizes', [RingPropRingPropSizesRelationshipsController::class, 'index'])
+        ->name('ring-prop.relationships.ring-prop-sizes');
+    Route::patch('ring-props/{id}/relationships/ring-prop-sizes', [RingPropRingPropSizesRelationshipsController::class, 'update'])
+        ->name('ring-prop.relationships.ring-prop-sizes');
+    Route::get('ring-props/{id}/ring-prop-sizes', [RingPropRingPropSizesRelatedController::class, 'index'])
+        ->name('ring-prop.ring-prop-sizes');
 
     /*****************  RING SIZES ROUTES **************/
     // CRUD
