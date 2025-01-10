@@ -48,6 +48,8 @@ use App\Http\Admin\JewelleryProperties\NecklaceProps\Controllers\NecklacePropCon
 use App\Http\Admin\JewelleryProperties\NecklaceProps\Controllers\NecklacePropsNecklaceSizesRelatedController;
 use App\Http\Admin\JewelleryProperties\NecklaceProps\Controllers\NecklacePropsNecklaceSizesRelationshipsController;
 use App\Http\Admin\JewelleryProperties\NecklacePropSizes\Controllers\NecklacePropSizeController;
+use App\Http\Admin\JewelleryProperties\NecklacePropSizes\Controllers\NecklacePropSizesNecklacePropRelatedController;
+use App\Http\Admin\JewelleryProperties\NecklacePropSizes\Controllers\NecklacePropSizesNecklacePropRelationshipsController;
 use App\Http\Admin\JewelleryProperties\NecklacePropSizes\Controllers\NecklacePropSizesNecklaceSizeRelatedController;
 use App\Http\Admin\JewelleryProperties\NecklacePropSizes\Controllers\NecklacePropSizesNecklaceSizeRelationshipsController;
 use App\Http\Admin\JewelleryProperties\NecklaceSizes\Controllers\NecklaceSizeController;
@@ -279,6 +281,13 @@ Route::group([
         ->name('necklace-prop-sizes.relationships.necklace-size');
     Route::get('necklace-prop-sizes/{id}/necklace-size', [NecklacePropSizesNecklaceSizeRelatedController::class, 'index'])
         ->name('necklace-prop-sizes.necklace-size');
+    //  many-to-one Necklace Prop Sizes to Necklace Prop
+    Route::get('necklace-prop-sizes/{id}/relationships/necklace-prop', [NecklacePropSizesNecklacePropRelationshipsController::class, 'index'])
+        ->name('necklace-prop-sizes.relationships.necklace-prop');
+    Route::patch('necklace-prop-sizes/{id}/relationships/necklace-prop', [NecklacePropSizesNecklacePropRelationshipsController::class, 'update'])
+        ->name('necklace-prop-sizes.relationships.necklace-prop');
+    Route::get('necklace-prop-sizes/{id}/necklace-prop', [NecklacePropSizesNecklacePropRelatedController::class, 'index'])
+        ->name('necklace-prop-sizes.necklace-prop');
 
     /*****************  NECKLACE SIZES ROUTES **************/
     // CRUD
