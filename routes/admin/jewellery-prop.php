@@ -35,6 +35,8 @@ use App\Http\Admin\JewelleryProperties\ChainPropSizes\Controllers\ChainPropSizes
 use App\Http\Admin\JewelleryProperties\ChainPropSizes\Controllers\ChainPropSizesChainSizeRelatedController;
 use App\Http\Admin\JewelleryProperties\ChainPropSizes\Controllers\ChainPropSizesChainSizeRelationshipsController;
 use App\Http\Admin\JewelleryProperties\ChainPropWeavings\Controllers\ChainPropWeavingController;
+use App\Http\Admin\JewelleryProperties\ChainPropWeavings\Controllers\ChainPropWeavingsChainPropRelatedController;
+use App\Http\Admin\JewelleryProperties\ChainPropWeavings\Controllers\ChainPropWeavingsChainPropRelationshipsController;
 use App\Http\Admin\JewelleryProperties\ChainPropWeavings\Controllers\ChainPropWeavingsWeavingRelatedController;
 use App\Http\Admin\JewelleryProperties\ChainPropWeavings\Controllers\ChainPropWeavingsWeavingRelationshipsController;
 use App\Http\Admin\JewelleryProperties\ChainSizes\Controllers\ChainSizeChainPropSizesRelatedController;
@@ -206,13 +208,20 @@ Route::group([
     Route::post('/chain-prop-weavings', [ChainPropWeavingController::class, 'store']);
     Route::patch('/chain-prop-weavings/{id}', [ChainPropWeavingController::class, 'update']);
     Route::delete('/chain-prop-weavings/{id}', [ChainPropWeavingController::class, 'destroy']);
-    //  many-to-one Bracelet Prop Weavings to Weaving
+    //  many-to-one Chain Prop Weavings to Weaving
     Route::get('chain-prop-weavings/{id}/relationships/weaving', [ChainPropWeavingsWeavingRelationshipsController::class, 'index'])
         ->name('chain-prop-weavings.relationships.weaving');
     Route::patch('chain-prop-weavings/{id}/relationships/weaving', [ChainPropWeavingsWeavingRelationshipsController::class, 'update'])
         ->name('chain-prop-weavings.relationships.weaving');
     Route::get('chain-prop-weavings/{id}/weaving', [ChainPropWeavingsWeavingRelatedController::class, 'index'])
         ->name('chain-prop-weavings.weaving');
+    //  many-to-one Chain Prop Weavings to Chain Prop
+    Route::get('chain-prop-weavings/{id}/relationships/chain-prop', [ChainPropWeavingsChainPropRelationshipsController::class, 'index'])
+        ->name('chain-prop-weavings.relationships.chain-prop');
+    Route::patch('chain-prop-weavings/{id}/relationships/chain-prop', [ChainPropWeavingsChainPropRelationshipsController::class, 'update'])
+        ->name('chain-prop-weavings.relationships.chain-prop');
+    Route::get('chain-prop-weavings/{id}/chain-prop', [ChainPropWeavingsChainPropRelatedController::class, 'index'])
+        ->name('chain-prop-weavings.chain-prop');
 
     /*****************  CHAIN PROPS ROUTES **************/
     // CRUD
