@@ -1,0 +1,45 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Domain\JewelleryProperties\BraceletPropWeaving\Services;
+
+use Domain\JewelleryProperties\BraceletPropWeaving\Pipelines\BraceletPropWeavingPipeline;
+use Domain\JewelleryProperties\BraceletPropWeaving\Repositories\BraceletPropWeavingRepository;
+use Domain\Shared\AbstractCRUDService;
+use Illuminate\Contracts\Pagination\Paginator;
+use Illuminate\Database\Eloquent\Model;
+
+final class BraceletPropWeavingService extends AbstractCRUDService
+{
+    public function __construct(
+        public BraceletPropWeavingRepository $braceletPropWeavingRepository,
+        public BraceletPropWeavingPipeline $braceletPropWeavingPipeline
+    ) {
+    }
+
+    public function index(array $data): Paginator
+    {
+        return $this->braceletPropWeavingRepository->index($data);
+    }
+
+    public function store(array $data): Model
+    {
+        // TODO: Implement store() method.
+    }
+
+    public function show(int $id, array $data): Model
+    {
+        return $this->braceletPropWeavingRepository->show($id, $data);
+    }
+
+    public function update(array $data): void
+    {
+        // TODO: Implement update() method.
+    }
+
+    public function destroy(int $id): void
+    {
+        // TODO: Implement destroy() method.
+    }
+}

@@ -15,6 +15,8 @@ use App\Http\Admin\JewelleryProperties\BraceletPropSizes\Controllers\BraceletPro
 use App\Http\Admin\JewelleryProperties\BraceletPropSizes\Controllers\BraceletPropSizesBraceletSizeRelatedController;
 use App\Http\Admin\JewelleryProperties\BraceletPropSizes\Controllers\BraceletPropSizesBraceletSizeRelationshipsController;
 use App\Http\Admin\JewelleryProperties\BraceletPropWeavings\Controllers\BraceletPropWeavingController;
+use App\Http\Admin\JewelleryProperties\BraceletPropWeavings\Controllers\BraceletPropWeavingsBraceletPropRelatedController;
+use App\Http\Admin\JewelleryProperties\BraceletPropWeavings\Controllers\BraceletPropWeavingsBraceletPropRelationshipsController;
 use App\Http\Admin\JewelleryProperties\BraceletPropWeavings\Controllers\BraceletPropWeavingsWeavingRelatedController;
 use App\Http\Admin\JewelleryProperties\BraceletPropWeavings\Controllers\BraceletPropWeavingsWeavingRelationshipsController;
 use App\Http\Admin\JewelleryProperties\BraceletSizes\Controllers\BraceletSizeBraceletPropSizesRelatedController;
@@ -28,6 +30,8 @@ use App\Http\Admin\JewelleryProperties\ChainProps\Controllers\ChainPropsChainSiz
 use App\Http\Admin\JewelleryProperties\ChainProps\Controllers\ChainPropsWeavingsRelatedController;
 use App\Http\Admin\JewelleryProperties\ChainProps\Controllers\ChainPropsWeavingsRelationshipsController;
 use App\Http\Admin\JewelleryProperties\ChainPropSizes\Controllers\ChainPropSizeController;
+use App\Http\Admin\JewelleryProperties\ChainPropSizes\Controllers\ChainPropSizesChainPropRelatedController;
+use App\Http\Admin\JewelleryProperties\ChainPropSizes\Controllers\ChainPropSizesChainPropRelationshipsController;
 use App\Http\Admin\JewelleryProperties\ChainPropSizes\Controllers\ChainPropSizesChainSizeRelatedController;
 use App\Http\Admin\JewelleryProperties\ChainPropSizes\Controllers\ChainPropSizesChainSizeRelationshipsController;
 use App\Http\Admin\JewelleryProperties\ChainPropWeavings\Controllers\ChainPropWeavingController;
@@ -91,6 +95,13 @@ Route::group([
         ->name('bracelet-prop-weavings.relationships.weaving');
     Route::get('bracelet-prop-weavings/{id}/weaving', [BraceletPropWeavingsWeavingRelatedController::class, 'index'])
         ->name('bracelet-prop-weavings.weaving');
+    //  many-to-one Bracelet Prop Weavings to Bracelet Prop
+    Route::get('bracelet-prop-weavings/{id}/relationships/bracelet-prop', [BraceletPropWeavingsBraceletPropRelationshipsController::class, 'index'])
+        ->name('bracelet-prop-weavings.relationships.bracelet-prop');
+    Route::patch('bracelet-prop-weavings/{id}/relationships/bracelet-prop', [BraceletPropWeavingsBraceletPropRelationshipsController::class, 'update'])
+        ->name('bracelet-prop-weavings.relationships.bracelet-prop');
+    Route::get('bracelet-prop-weavings/{id}/bracelet-prop', [BraceletPropWeavingsBraceletPropRelatedController::class, 'index'])
+        ->name('bracelet-prop-weavings.bracelet-prop');
 
     /*****************  BRACELET PROP SIZES ROUTES **************/
     // CRUD
@@ -180,6 +191,13 @@ Route::group([
         ->name('chain-prop-sizes.relationships.chain-size');
     Route::get('chain-prop-sizes/{id}/chain-size', [ChainPropSizesChainSizeRelatedController::class, 'index'])
         ->name('chain-prop-sizes.chain-size');
+    //  many-to-one Chain Prop Sizes to Chain Prop
+    Route::get('chain-prop-sizes/{id}/relationships/chain-prop', [ChainPropSizesChainPropRelationshipsController::class, 'index'])
+        ->name('chain-prop-sizes.relationships.chain-prop');
+    Route::patch('chain-prop-sizes/{id}/relationships/chain-prop', [ChainPropSizesChainPropRelationshipsController::class, 'update'])
+        ->name('chain-prop-sizes.relationships.chain-prop');
+    Route::get('chain-prop-sizes/{id}/chain-prop', [ChainPropSizesChainPropRelatedController::class, 'index'])
+        ->name('chain-prop-sizes.chain-prop');
 
     /*****************  CHAIN PROP WEAVINGS ROUTES **************/
     // CRUD
