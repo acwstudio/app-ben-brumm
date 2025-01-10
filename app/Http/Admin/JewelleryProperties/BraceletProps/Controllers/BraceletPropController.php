@@ -4,16 +4,26 @@ declare(strict_types=1);
 
 namespace App\Http\Admin\JewelleryProperties\BraceletProps\Controllers;
 
+use App\Http\Admin\JewelleryProperties\BraceletProps\Resources\BraceletPropCollection;
+use App\Http\Admin\JewelleryProperties\BraceletProps\Resources\BraceletPropResource;
+use Domain\JewelleryProperties\BraceletProp\Services\BraceletPropService;
 use Illuminate\Http\Request;
 
 final class BraceletPropController
 {
+    public function __construct(public BraceletPropService $braceletPropService)
+    {
+    }
+
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $data = $request->all();
+        $items = $this->braceletPropService->index($data);
+
+        return (new BraceletPropCollection($items))->response();
     }
 
     /**
@@ -27,9 +37,13 @@ final class BraceletPropController
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Request $request, int $id)
     {
-        //
+        $data = $request->all();
+        data_set($data, 'id', $id);
+        $model = $this->braceletPropService->show($id, $data);
+
+        return (new BraceletPropResource($model))->response();
     }
 
     /**

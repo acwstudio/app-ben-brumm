@@ -5,6 +5,8 @@ use App\Http\Admin\JewelleryProperties\BraceletProps\Controllers\BraceletPropBra
 use App\Http\Admin\JewelleryProperties\BraceletProps\Controllers\BraceletPropBraceletPropWeavingsRelatedController;
 use App\Http\Admin\JewelleryProperties\BraceletProps\Controllers\BraceletPropBraceletPropWeavingsRelationshipsController;
 use App\Http\Admin\JewelleryProperties\BraceletProps\Controllers\BraceletPropController;
+use App\Http\Admin\JewelleryProperties\BraceletProps\Controllers\BraceletPropJewelleryRelatedController;
+use App\Http\Admin\JewelleryProperties\BraceletProps\Controllers\BraceletPropJewelleryRelationshipsController;
 use App\Http\Admin\JewelleryProperties\BraceletProps\Controllers\BraceletPropsBraceletSizesRelatedController;
 use App\Http\Admin\JewelleryProperties\BraceletProps\Controllers\BraceletPropsBraceletSizesRelationshipsController;
 use App\Http\Admin\JewelleryProperties\BraceletProps\Controllers\BraceletPropsWeavingsRelatedController;
@@ -170,6 +172,13 @@ Route::group([
         ->name('bracelet-prop.relationships.bracelet-prop-weavings');
     Route::get('bracelet-props/{id}/bracelet-prop-weavings', [BraceletPropBraceletPropWeavingsRelatedController::class, 'index'])
         ->name('bracelet-prop.bracelet-prop-weavings');
+    //  one-to-one Bracelet Prop to Jewellery
+    Route::get('bracelet-props/{id}/relationships/jewellery', [BraceletPropJewelleryRelationshipsController::class, 'index'])
+        ->name('bracelet-prop.relationships.jewellery');
+    Route::patch('bracelet-props/{id}/relationships/jewellery', [BraceletPropJewelleryRelationshipsController::class, 'update'])
+        ->name('bracelet-prop.relationships.jewellery');
+    Route::get('bracelet-props/{id}/jewellery', [BraceletPropJewelleryRelatedController::class, 'index'])
+        ->name('bracelet-prop.jewellery');
 
     /*****************  BRACELET SIZES ROUTES **************/
     // CRUD
