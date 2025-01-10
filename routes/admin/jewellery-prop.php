@@ -10,6 +10,8 @@ use App\Http\Admin\JewelleryProperties\BraceletProps\Controllers\BraceletPropsBr
 use App\Http\Admin\JewelleryProperties\BraceletProps\Controllers\BraceletPropsWeavingsRelatedController;
 use App\Http\Admin\JewelleryProperties\BraceletProps\Controllers\BraceletPropsWeavingsRelationshipsController;
 use App\Http\Admin\JewelleryProperties\BraceletPropSizes\Controllers\BraceletPropSizeController;
+use App\Http\Admin\JewelleryProperties\BraceletPropSizes\Controllers\BraceletPropSizesBraceletPropRelatedController;
+use App\Http\Admin\JewelleryProperties\BraceletPropSizes\Controllers\BraceletPropSizesBraceletPropRelationshipsController;
 use App\Http\Admin\JewelleryProperties\BraceletPropSizes\Controllers\BraceletPropSizesBraceletSizeRelatedController;
 use App\Http\Admin\JewelleryProperties\BraceletPropSizes\Controllers\BraceletPropSizesBraceletSizeRelationshipsController;
 use App\Http\Admin\JewelleryProperties\BraceletPropWeavings\Controllers\BraceletPropWeavingController;
@@ -104,6 +106,13 @@ Route::group([
         ->name('bracelet-prop-sizes.relationships.bracelet-size');
     Route::get('bracelet-prop-sizes/{id}/bracelet-size', [BraceletPropSizesBraceletSizeRelatedController::class, 'index'])
         ->name('bracelet-prop-sizes.bracelet-size');
+    //  many-to-one Bracelet Prop Sizes to Bracelet Prop
+    Route::get('bracelet-prop-sizes/{id}/relationships/bracelet-prop', [BraceletPropSizesBraceletPropRelationshipsController::class, 'index'])
+        ->name('bracelet-prop-sizes.relationships.bracelet-prop');
+    Route::patch('bracelet-prop-sizes/{id}/relationships/bracelet-prop', [BraceletPropSizesBraceletPropRelationshipsController::class, 'update'])
+        ->name('bracelet-prop-sizes.relationships.bracelet-prop');
+    Route::get('bracelet-prop-sizes/{id}/bracelet-prop', [BraceletPropSizesBraceletPropRelatedController::class, 'index'])
+        ->name('bracelet-prop-sizes.bracelet-prop');
 
     /*****************  BRACELET PROPS ROUTES **************/
     // CRUD
