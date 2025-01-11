@@ -3,6 +3,9 @@
 use App\Http\Admin\JewelleryProperties\BroochProps\Controllers\BroochPropController;
 use App\Http\Admin\JewelleryProperties\BroochProps\Controllers\BroochPropJewelleryRelatedController;
 use App\Http\Admin\JewelleryProperties\BroochProps\Controllers\BroochPropJewelleryRelationshipsController;
+use App\Http\Admin\JewelleryProperties\CharmPendantProps\Controllers\CharmPendantPropController;
+use App\Http\Admin\JewelleryProperties\CharmPendantProps\Controllers\CharmPendantPropJewelleryRelatedController;
+use App\Http\Admin\JewelleryProperties\CharmPendantProps\Controllers\CharmPendantPropJewelleryRelationshipsController;
 use App\Http\Admin\JewelleryProperties\Clasps\Controllers\ClaspController;
 use App\Http\Admin\JewelleryProperties\Clasps\Controllers\ClaspEarringPropsRelatedController;
 use App\Http\Admin\JewelleryProperties\Clasps\Controllers\ClaspEarringPropsRelationshipsController;
@@ -46,6 +49,21 @@ Route::group([
         ->name('brooch-prop.relationships.jewellery');
     Route::get('brooch-props/{id}/jewellery', [BroochPropJewelleryRelatedController::class, 'index'])
         ->name('brooch-prop.jewellery');
+
+    /*****************  CHARM PENDANT PROPS ROUTES **************/
+    // CRUD
+    Route::get('/charm-pendant-props', [CharmPendantPropController::class, 'index']);
+    Route::get('/charm-pendant-props/{id}', [CharmPendantPropController::class, 'show']);
+    Route::post('/charm-pendant-props', [CharmPendantPropController::class, 'store']);
+    Route::patch('/charm-pendant-props/{id}', [CharmPendantPropController::class, 'update']);
+    Route::delete('/charm-pendant-props/{id}', [CharmPendantPropController::class, 'destroy']);
+    //  one-to-one Brooch Prop to Jewellery
+    Route::get('charm-pendant-props/{id}/relationships/jewellery', [CharmPendantPropJewelleryRelationshipsController::class, 'index'])
+        ->name('charm-pendant-prop.relationships.jewellery');
+    Route::patch('charm-pendant-props/{id}/relationships/jewellery', [CharmPendantPropJewelleryRelationshipsController::class, 'update'])
+        ->name('charm-pendant-prop.relationships.jewellery');
+    Route::get('charm-pendant-props/{id}/jewellery', [CharmPendantPropJewelleryRelatedController::class, 'index'])
+        ->name('charm-pendant-prop.jewellery');
 
     /*****************  CLASPS ROUTES **************/
     // CRUD

@@ -4,17 +4,28 @@ declare(strict_types=1);
 
 namespace App\Http\Admin\JewelleryProperties\CharmPendantProps\Controllers;
 
+use App\Http\Admin\JewelleryProperties\CharmPendantProps\Resources\CharmPendantPropCollection;
+use App\Http\Admin\JewelleryProperties\CharmPendantProps\Resources\CharmPendantPropResource;
 use Domain\JewelleryProperties\CharmPendantProp\Models\CharmPendantProp;
+use Domain\JewelleryProperties\CharmPendantProp\Services\CharmPendantPropService;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 final class CharmPendantPropController
 {
+    public function __construct(public CharmPendantPropService $charmPendantPropService)
+    {
+    }
+
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request): JsonResponse
     {
-        //
+        $data = $request->all();
+        $items = $this->charmPendantPropService->index($data);
+
+        return (new CharmPendantPropCollection($items))->response();
     }
 
     /**
@@ -28,9 +39,13 @@ final class CharmPendantPropController
     /**
      * Display the specified resource.
      */
-    public function show(CharmPendantProp $charmPendantProp)
+    public function show(Request $request, int $id): JsonResponse
     {
-        //
+        $data = $request->all();
+        data_set($data, 'id', $id);
+        $model = $this->charmPendantPropService->show($id, $data);
+
+        return (new CharmPendantPropResource($model))->response();
     }
 
     /**
