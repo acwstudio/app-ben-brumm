@@ -4,17 +4,27 @@ declare(strict_types=1);
 
 namespace App\Http\Admin\JewelleryProperties\NecklaceProps\Controllers;
 
+use App\Http\Admin\JewelleryProperties\NecklaceProps\Resources\NecklacePropCollection;
+use App\Http\Admin\JewelleryProperties\NecklaceProps\Resources\NecklacePropResource;
 use Domain\JewelleryProperties\NecklaceProp\Models\NecklaceProp;
+use Domain\JewelleryProperties\NecklaceProp\Services\NecklacePropService;
 use Illuminate\Http\Request;
 
 final class NecklacePropController
 {
+    public function __construct(public NecklacePropService $necklacePropService)
+    {
+    }
+
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $data = $request->all();
+        $items = $this->necklacePropService->index($data);
+
+        return (new NecklacePropCollection($items))->response();
     }
 
     /**
@@ -28,9 +38,13 @@ final class NecklacePropController
     /**
      * Display the specified resource.
      */
-    public function show(NecklaceProp $necklaceProp)
+    public function show(Request $request, int $id)
     {
-        //
+        $data = $request->all();
+        data_set($data, 'id', $id);
+        $model = $this->necklacePropService->show($id, $data);
+
+        return (new NecklacePropResource($model))->response();
     }
 
     /**

@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Admin\JewelleryProperties\NecklaceProps\Controllers\NecklacePropController;
+use App\Http\Admin\JewelleryProperties\NecklaceProps\Controllers\NecklacePropNecklacePropSizesRelatedController;
+use App\Http\Admin\JewelleryProperties\NecklaceProps\Controllers\NecklacePropNecklacePropSizesRelationshipsController;
 use App\Http\Admin\JewelleryProperties\NecklaceProps\Controllers\NecklacePropsNecklaceSizesRelatedController;
 use App\Http\Admin\JewelleryProperties\NecklaceProps\Controllers\NecklacePropsNecklaceSizesRelationshipsController;
 use App\Http\Admin\JewelleryProperties\NecklacePropSizes\Controllers\NecklacePropSizeController;
@@ -30,6 +32,8 @@ use App\Http\Admin\JewelleryProperties\RingSizes\Controllers\RingSizeRingPropSiz
 use App\Http\Admin\JewelleryProperties\RingSizes\Controllers\RingSizeRingPropSizesRelationshipsController;
 use App\Http\Admin\JewelleryProperties\RingSizes\Controllers\RingSizesRingPropsRelatedController;
 use App\Http\Admin\JewelleryProperties\RingSizes\Controllers\RingSizesRingPropsRelationshipsController;
+use App\Http\Controllers\NecklacePropJewelleryRelatedController;
+use App\Http\Controllers\NecklacePropJewelleryRelationshipsController;
 
 Route::group([
 //    'middleware' => 'auth:employee',
@@ -91,6 +95,20 @@ Route::group([
         ->name('necklace-props.relationships.necklace-sizes');
     Route::get('necklace-props/{id}/necklace-sizes', [NecklacePropsNecklaceSizesRelatedController::class, 'index'])
         ->name('necklace-props.necklace-sizes');
+    //  one-to-one Necklace Prop to Jewellery
+    Route::get('necklace-props/{id}/relationships/jewellery', [NecklacePropJewelleryRelationshipsController::class, 'index'])
+        ->name('necklace-prop.relationships.jewellery');
+    Route::patch('necklace-props/{id}/relationships/jewellery', [NecklacePropJewelleryRelationshipsController::class, 'update'])
+        ->name('necklace-prop.relationships.jewellery');
+    Route::get('necklace-props/{id}/jewellery', [NecklacePropJewelleryRelatedController::class, 'index'])
+        ->name('necklace-prop.jewellery');
+    //  one-to-many Necklace Prop to Necklace Prop Sizes
+    Route::get('necklace-props/{id}/relationships/necklace-prop-sizes', [NecklacePropNecklacePropSizesRelationshipsController::class, 'index'])
+        ->name('necklace-prop.relationships.necklace-prop-sizes');
+    Route::patch('necklace-props/{id}/relationships/necklace-prop-sizes', [NecklacePropNecklacePropSizesRelationshipsController::class, 'update'])
+        ->name('necklace-prop.relationships.necklace-prop-sizes');
+    Route::get('necklace-props/{id}/necklace-prop-sizes', [NecklacePropNecklacePropSizesRelatedController::class, 'index'])
+        ->name('necklace-prop.necklace-prop-sizes');
 
     /*****************  RING PROP SIZES ROUTES **************/
     // CRUD

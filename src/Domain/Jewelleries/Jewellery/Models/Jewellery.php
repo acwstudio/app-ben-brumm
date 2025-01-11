@@ -11,6 +11,7 @@ use Domain\JewelleryProperties\BraceletProp\Models\BraceletProp;
 use Domain\JewelleryProperties\BroochProp\Models\BroochProp;
 use Domain\JewelleryProperties\ChainProp\Models\ChainProp;
 use Domain\JewelleryProperties\CufflinkProp\Models\CuffLinkProp;
+use Domain\JewelleryProperties\NecklaceProp\Models\NecklaceProp;
 use Domain\JewelleryProperties\RingProp\Models\RingProp;
 use Domain\JewelleryProperties\TieClipProp\Models\TieClipProp;
 use Domain\Shared\Models\BaseModel;
@@ -52,6 +53,11 @@ final class Jewellery extends BaseModel
     public function ringProp(): HasOne
     {
         return $this->hasOne(RingProp::class);
+    }
+
+    public function necklaceProp(): HasOne
+    {
+        return $this->hasOne(NecklaceProp::class);
     }
 
     public function tieClipProp(): HasOne
