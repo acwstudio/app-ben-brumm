@@ -4,17 +4,28 @@ declare(strict_types=1);
 
 namespace App\Http\Admin\JewelleryProperties\TieClipProps\Controllers;
 
+use App\Http\Admin\JewelleryProperties\TieClipProps\Resources\TieClipPropCollection;
+use App\Http\Admin\JewelleryProperties\TieClipProps\Resources\TieClipPropResource;
 use Domain\JewelleryProperties\TieClipProp\Models\TieClipProp;
+use Domain\JewelleryProperties\TieClipProp\Services\TieClipPropService;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 final class TieClipPropController
 {
+    public function __construct(public TieClipPropService $tieClipPropService)
+    {
+    }
+
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request): JsonResponse
     {
-        //
+        $data = $request->all();
+        $items = $this->tieClipPropService->index($data);
+
+        return (new TieClipPropCollection($items))->response();
     }
 
     /**
@@ -28,9 +39,13 @@ final class TieClipPropController
     /**
      * Display the specified resource.
      */
-    public function show(TieClipProp $tieClipProp)
+    public function show(Request $request, int $id): JsonResponse
     {
-        //
+        $data = $request->all();
+        data_set($data, 'id', $id);
+        $model = $this->tieClipPropService->show($id, $data);
+
+        return (new TieClipPropResource($model))->response();
     }
 
     /**

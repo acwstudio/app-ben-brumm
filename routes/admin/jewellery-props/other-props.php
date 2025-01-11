@@ -1,11 +1,17 @@
 <?php
 
+use App\Http\Admin\JewelleryProperties\BroochProps\Controllers\BroochPropController;
+use App\Http\Admin\JewelleryProperties\BroochProps\Controllers\BroochPropJewelleryRelatedController;
+use App\Http\Admin\JewelleryProperties\BroochProps\Controllers\BroochPropJewelleryRelationshipsController;
 use App\Http\Admin\JewelleryProperties\Clasps\Controllers\ClaspController;
 use App\Http\Admin\JewelleryProperties\Clasps\Controllers\ClaspEarringPropsRelatedController;
 use App\Http\Admin\JewelleryProperties\Clasps\Controllers\ClaspEarringPropsRelationshipsController;
 use App\Http\Admin\JewelleryProperties\EarringProps\Controllers\EarringPropController;
 use App\Http\Admin\JewelleryProperties\EarringProps\Controllers\EarringPropsClaspRelatedController;
 use App\Http\Admin\JewelleryProperties\EarringProps\Controllers\EarringPropsClaspRelationshipsController;
+use App\Http\Admin\JewelleryProperties\TieClipProps\Controllers\TieClipPropController;
+use App\Http\Admin\JewelleryProperties\TieClipProps\Controllers\TieClipPropJewelleryRelatedController;
+use App\Http\Admin\JewelleryProperties\TieClipProps\Controllers\TieClipPropJewelleryRelationshipsController;
 use App\Http\Admin\JewelleryProperties\Weavings\Controllers\WeavingBraceletPropWeavingsRelatedController;
 use App\Http\Admin\JewelleryProperties\Weavings\Controllers\WeavingBraceletPropWeavingsRelationshipsController;
 use App\Http\Admin\JewelleryProperties\Weavings\Controllers\WeavingChainPropWeavingsRelatedController;
@@ -20,6 +26,21 @@ Route::group([
 //    'middleware' => 'auth:employee',
     'prefix' => 'admin'
 ], function () {
+    /*****************  BROOCHES ROUTES **************/
+    // CRUD
+    Route::get('/brooch-props', [BroochPropController::class, 'index']);
+    Route::get('/brooch-props/{id}', [BroochPropController::class, 'show']);
+    Route::post('/brooch-props', [BroochPropController::class, 'store']);
+    Route::patch('/brooch-props/{id}', [BroochPropController::class, 'update']);
+    Route::delete('/brooch-props/{id}', [BroochPropController::class, 'destroy']);
+    //  one-to-one Brooch Prop to Jewellery
+    Route::get('brooch-props/{id}/relationships/jewellery', [BroochPropJewelleryRelationshipsController::class, 'index'])
+        ->name('brooch-prop.relationships.jewellery');
+    Route::patch('brooch-props/{id}/relationships/jewellery', [BroochPropJewelleryRelationshipsController::class, 'update'])
+        ->name('brooch-prop.relationships.jewellery');
+    Route::get('brooch-props/{id}/jewellery', [BroochPropJewelleryRelatedController::class, 'index'])
+        ->name('brooch-prop.jewellery');
+
     /*****************  CLASPS ROUTES **************/
     // CRUD
     Route::get('/clasps', [ClaspController::class, 'index']);
@@ -49,6 +70,21 @@ Route::group([
         ->name('earring-props.relationships.clasp');
     Route::get('earring-props/{id}/clasp', [EarringPropsClaspRelatedController::class, 'index'])
         ->name('earring-props.clasp');
+
+    /*****************  TIE CLIP PROPS ROUTES **************/
+    // CRUD
+    Route::get('/tie-clip-props', [TieClipPropController::class, 'index']);
+    Route::get('/tie-clip-props/{id}', [TieClipPropController::class, 'show']);
+    Route::post('/tie-clip-props', [TieClipPropController::class, 'store']);
+    Route::patch('/tie-clip-props/{id}', [TieClipPropController::class, 'update']);
+    Route::delete('/tie-clip-props/{id}', [TieClipPropController::class, 'destroy']);
+    //  one-to-one Tie Clip Prop to Jewellery
+    Route::get('tie-clip-props/{id}/relationships/jewellery', [TieClipPropJewelleryRelationshipsController::class, 'index'])
+        ->name('tie-clip-prop.relationships.jewellery');
+    Route::patch('tie-clip-props/{id}/relationships/jewellery', [TieClipPropJewelleryRelationshipsController::class, 'update'])
+        ->name('tie-clip-prop.relationships.jewellery');
+    Route::get('tie-clip-props/{id}/jewellery', [TieClipPropJewelleryRelatedController::class, 'index'])
+        ->name('tie-clip-prop.jewellery');
 
     /*****************  WEAVINGS ROUTES **************/
     // CRUD

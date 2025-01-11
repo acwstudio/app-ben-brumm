@@ -8,6 +8,9 @@ use Domain\Inserts\Insert\Models\Insert;
 use Domain\Inserts\Stone\Models\Stone;
 use Domain\Jewelleries\JewelleryCategory\Models\JewelleryCategory;
 use Domain\JewelleryProperties\BraceletProp\Models\BraceletProp;
+use Domain\JewelleryProperties\BroochProp\Models\BroochProp;
+use Domain\JewelleryProperties\RingProp\Models\RingProp;
+use Domain\JewelleryProperties\TieClipProp\Models\TieClipProp;
 use Domain\Shared\Models\BaseModel;
 use Domain\Site\BraceletPropView;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -27,6 +30,21 @@ final class Jewellery extends BaseModel
     public function braceletProp(): HasOne
     {
         return $this->hasOne(BraceletProp::class);
+    }
+
+    public function broochProp(): HasOne
+    {
+        return $this->hasOne(BroochProp::class);
+    }
+
+    public function ringProp(): HasOne
+    {
+        return $this->hasOne(RingProp::class);
+    }
+
+    public function tieClipProp(): HasOne
+    {
+        return $this->hasOne(TieClipProp::class);
     }
 
     public function jewelleryCategory(): BelongsTo
