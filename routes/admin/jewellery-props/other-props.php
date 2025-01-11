@@ -6,6 +6,9 @@ use App\Http\Admin\JewelleryProperties\BroochProps\Controllers\BroochPropJewelle
 use App\Http\Admin\JewelleryProperties\Clasps\Controllers\ClaspController;
 use App\Http\Admin\JewelleryProperties\Clasps\Controllers\ClaspEarringPropsRelatedController;
 use App\Http\Admin\JewelleryProperties\Clasps\Controllers\ClaspEarringPropsRelationshipsController;
+use App\Http\Admin\JewelleryProperties\CufflinkProps\Controllers\CuffLinkPropController;
+use App\Http\Admin\JewelleryProperties\CufflinkProps\Controllers\CuffLinkPropJewelleryRelatedController;
+use App\Http\Admin\JewelleryProperties\CufflinkProps\Controllers\CuffLinkPropJewelleryRelationshipsController;
 use App\Http\Admin\JewelleryProperties\EarringProps\Controllers\EarringPropController;
 use App\Http\Admin\JewelleryProperties\EarringProps\Controllers\EarringPropsClaspRelatedController;
 use App\Http\Admin\JewelleryProperties\EarringProps\Controllers\EarringPropsClaspRelationshipsController;
@@ -26,7 +29,7 @@ Route::group([
 //    'middleware' => 'auth:employee',
     'prefix' => 'admin'
 ], function () {
-    /*****************  BROOCHES ROUTES **************/
+    /*****************  BROOCH PROPS ROUTES **************/
     // CRUD
     Route::get('/brooch-props', [BroochPropController::class, 'index']);
     Route::get('/brooch-props/{id}', [BroochPropController::class, 'show']);
@@ -55,6 +58,21 @@ Route::group([
         ->name('clasp.relationships.earring-props');
     Route::get('clasps/{id}/earring-props', [ClaspEarringPropsRelatedController::class, 'index'])
         ->name('clasp.earring-props');
+
+    /*****************  CUFFLINK PROPS ROUTES **************/
+    // CRUD
+    Route::get('/cuff-link-props', [CuffLinkPropController::class, 'index']);
+    Route::get('/cuff-link-props/{id}', [CuffLinkPropController::class, 'show']);
+    Route::post('/cuff-link-props', [CuffLinkPropController::class, 'store']);
+    Route::patch('/cuff-link-props/{id}', [CuffLinkPropController::class, 'update']);
+    Route::delete('/cuff-link-props/{id}', [CuffLinkPropController::class, 'destroy']);
+    //  one-to-one Cufflink to Jewellery
+    Route::get('cuff-link-props/{id}/relationships/jewellery', [CuffLinkPropJewelleryRelationshipsController::class, 'index'])
+        ->name('cuff-link-prop.relationships.jewellery');
+    Route::patch('cuff-link-props/{id}/relationships/jewellery', [CuffLinkPropJewelleryRelationshipsController::class, 'update'])
+        ->name('cuff-link-prop.relationships.jewellery');
+    Route::get('cuff-link-props/{id}/jewellery', [CuffLinkPropJewelleryRelatedController::class, 'index'])
+        ->name('cuff-link-prop.jewellery');
 
     /*****************  EARRING PROPS ROUTES **************/
     // CRUD
