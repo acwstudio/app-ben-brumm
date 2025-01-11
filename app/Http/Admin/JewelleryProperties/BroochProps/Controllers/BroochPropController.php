@@ -39,7 +39,7 @@ final class BroochPropController
     /**
      * Display the specified resource.
      */
-        public function show(Request $request, int $id): JsonResponse
+    public function show(Request $request, int $id): JsonResponse
     {
         $data = $request->all();
         data_set($data, 'id', $id);

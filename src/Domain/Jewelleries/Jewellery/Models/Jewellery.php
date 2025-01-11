@@ -10,8 +10,12 @@ use Domain\Jewelleries\JewelleryCategory\Models\JewelleryCategory;
 use Domain\JewelleryProperties\BraceletProp\Models\BraceletProp;
 use Domain\JewelleryProperties\BroochProp\Models\BroochProp;
 use Domain\JewelleryProperties\ChainProp\Models\ChainProp;
+use Domain\JewelleryProperties\CharmPendantProp\Models\CharmPendantProp;
 use Domain\JewelleryProperties\CufflinkProp\Models\CuffLinkProp;
+use Domain\JewelleryProperties\EarringProp\Models\EarringProp;
 use Domain\JewelleryProperties\NecklaceProp\Models\NecklaceProp;
+use Domain\JewelleryProperties\PendantProp\Models\PendantProp;
+use Domain\JewelleryProperties\PiercingProp\Models\PiercingProp;
 use Domain\JewelleryProperties\RingProp\Models\RingProp;
 use Domain\JewelleryProperties\TieClipProp\Models\TieClipProp;
 use Domain\Shared\Models\BaseModel;
@@ -45,9 +49,19 @@ final class Jewellery extends BaseModel
         return $this->hasOne(ChainProp::class);
     }
 
-    public function cufflinkProp(): HasOne
+    public function charmPendantProp(): HasOne
+    {
+        return $this->hasOne(CharmPendantProp::class);
+    }
+
+    public function cuffLinkProp(): HasOne
     {
         return $this->hasOne(CuffLinkProp::class);
+    }
+
+    public function earringProp(): HasOne
+    {
+        return $this->hasOne(EarringProp::class);
     }
 
     public function ringProp(): HasOne
@@ -58,6 +72,16 @@ final class Jewellery extends BaseModel
     public function necklaceProp(): HasOne
     {
         return $this->hasOne(NecklaceProp::class);
+    }
+
+    public function pendantProp(): HasOne
+    {
+        return $this->hasOne(PendantProp::class);
+    }
+
+    public function piercingProp(): HasOne
+    {
+        return $this->hasOne(PiercingProp::class);
     }
 
     public function tieClipProp(): HasOne

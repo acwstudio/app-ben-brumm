@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Admin\JewelleryProperties\NecklaceProps\Controllers\NecklacePropController;
+use App\Http\Admin\JewelleryProperties\NecklaceProps\Controllers\NecklacePropJewelleryRelatedController;
+use App\Http\Admin\JewelleryProperties\NecklaceProps\Controllers\NecklacePropJewelleryRelationshipsController;
 use App\Http\Admin\JewelleryProperties\NecklaceProps\Controllers\NecklacePropNecklacePropSizesRelatedController;
 use App\Http\Admin\JewelleryProperties\NecklaceProps\Controllers\NecklacePropNecklacePropSizesRelationshipsController;
 use App\Http\Admin\JewelleryProperties\NecklaceProps\Controllers\NecklacePropsNecklaceSizesRelatedController;
@@ -32,8 +34,6 @@ use App\Http\Admin\JewelleryProperties\RingSizes\Controllers\RingSizeRingPropSiz
 use App\Http\Admin\JewelleryProperties\RingSizes\Controllers\RingSizeRingPropSizesRelationshipsController;
 use App\Http\Admin\JewelleryProperties\RingSizes\Controllers\RingSizesRingPropsRelatedController;
 use App\Http\Admin\JewelleryProperties\RingSizes\Controllers\RingSizesRingPropsRelationshipsController;
-use App\Http\Controllers\NecklacePropJewelleryRelatedController;
-use App\Http\Controllers\NecklacePropJewelleryRelationshipsController;
 
 Route::group([
 //    'middleware' => 'auth:employee',

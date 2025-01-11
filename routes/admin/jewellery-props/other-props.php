@@ -12,6 +12,9 @@ use App\Http\Admin\JewelleryProperties\CufflinkProps\Controllers\CuffLinkPropJew
 use App\Http\Admin\JewelleryProperties\EarringProps\Controllers\EarringPropController;
 use App\Http\Admin\JewelleryProperties\EarringProps\Controllers\EarringPropsClaspRelatedController;
 use App\Http\Admin\JewelleryProperties\EarringProps\Controllers\EarringPropsClaspRelationshipsController;
+use App\Http\Admin\JewelleryProperties\PendantProps\Controllers\PendantPropController;
+use App\Http\Admin\JewelleryProperties\PendantProps\Controllers\PendantPropJewelleryRelatedController;
+use App\Http\Admin\JewelleryProperties\PendantProps\Controllers\PendantPropJewelleryRelationshipsController;
 use App\Http\Admin\JewelleryProperties\TieClipProps\Controllers\TieClipPropController;
 use App\Http\Admin\JewelleryProperties\TieClipProps\Controllers\TieClipPropJewelleryRelatedController;
 use App\Http\Admin\JewelleryProperties\TieClipProps\Controllers\TieClipPropJewelleryRelationshipsController;
@@ -59,7 +62,7 @@ Route::group([
     Route::get('clasps/{id}/earring-props', [ClaspEarringPropsRelatedController::class, 'index'])
         ->name('clasp.earring-props');
 
-    /*****************  CUFFLINK PROPS ROUTES **************/
+    /*****************  CUFF LINK PROPS ROUTES **************/
     // CRUD
     Route::get('/cuff-link-props', [CuffLinkPropController::class, 'index']);
     Route::get('/cuff-link-props/{id}', [CuffLinkPropController::class, 'show']);
@@ -88,6 +91,21 @@ Route::group([
         ->name('earring-props.relationships.clasp');
     Route::get('earring-props/{id}/clasp', [EarringPropsClaspRelatedController::class, 'index'])
         ->name('earring-props.clasp');
+
+    /*****************  PENDANT PROPS ROUTES **************/
+    // CRUD
+    Route::get('/pendant-props', [PendantPropController::class, 'index']);
+    Route::get('/pendant-props/{id}', [PendantPropController::class, 'show']);
+    Route::post('/pendant-props', [PendantPropController::class, 'store']);
+    Route::patch('/pendant-props/{id}', [PendantPropController::class, 'update']);
+    Route::delete('/pendant-props/{id}', [PendantPropController::class, 'destroy']);
+    //  one-to-one Brooch Prop to Jewellery
+    Route::get('pendant-props/{id}/relationships/jewellery', [PendantPropJewelleryRelationshipsController::class, 'index'])
+        ->name('pendant-prop.relationships.jewellery');
+    Route::patch('pendant-props/{id}/relationships/jewellery', [PendantPropJewelleryRelationshipsController::class, 'update'])
+        ->name('pendant-prop.relationships.jewellery');
+    Route::get('pendant-props/{id}/jewellery', [PendantPropJewelleryRelatedController::class, 'index'])
+        ->name('pendant-prop.jewellery');
 
     /*****************  TIE CLIP PROPS ROUTES **************/
     // CRUD
