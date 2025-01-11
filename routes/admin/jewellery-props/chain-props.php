@@ -1,6 +1,12 @@
 <?php
 
+use App\Http\Admin\JewelleryProperties\ChainProps\Controllers\ChainPropChainPropSizesRelatedController;
+use App\Http\Admin\JewelleryProperties\ChainProps\Controllers\ChainPropChainPropSizesRelationshipsController;
+use App\Http\Admin\JewelleryProperties\ChainProps\Controllers\ChainPropChainPropWeavingsRelatedController;
+use App\Http\Admin\JewelleryProperties\ChainProps\Controllers\ChainPropChainPropWeavingsRelationshipsController;
 use App\Http\Admin\JewelleryProperties\ChainProps\Controllers\ChainPropController;
+use App\Http\Admin\JewelleryProperties\ChainProps\Controllers\ChainPropJewelleryRelatedController;
+use App\Http\Admin\JewelleryProperties\ChainProps\Controllers\ChainPropJewelleryRelationshipsController;
 use App\Http\Admin\JewelleryProperties\ChainProps\Controllers\ChainPropsChainSizesRelatedController;
 use App\Http\Admin\JewelleryProperties\ChainProps\Controllers\ChainPropsChainSizesRelationshipsController;
 use App\Http\Admin\JewelleryProperties\ChainProps\Controllers\ChainPropsWeavingsRelatedController;
@@ -90,6 +96,27 @@ Route::group([
         ->name('chain-props.relationships.chain-sizes');
     Route::get('chain-props/{id}/chain-sizes', [ChainPropsChainSizesRelatedController::class, 'index'])
         ->name('chain-props.chain-sizes');
+    //  one-to-many Chain Prop to Chain Prop Sizes
+    Route::get('chain-props/{id}/relationships/chain-prop-sizes', [ChainPropChainPropSizesRelationshipsController::class, 'index'])
+        ->name('chain-prop.relationships.chain-prop-sizes');
+    Route::patch('chain-props/{id}/relationships/chain-prop-sizes', [ChainPropChainPropSizesRelationshipsController::class, 'update'])
+        ->name('chain-prop.relationships.chain-prop-sizes');
+    Route::get('chain-props/{id}/chain-prop-sizes', [ChainPropChainPropSizesRelatedController::class, 'index'])
+        ->name('chain-prop.chain-prop-sizes');
+    //  one-to-many Chain Prop to Chain Prop Weavings
+    Route::get('chain-props/{id}/relationships/chain-prop-weavings', [ChainPropChainPropWeavingsRelationshipsController::class, 'index'])
+        ->name('chain-prop.relationships.chain-prop-weavings');
+    Route::patch('chain-props/{id}/relationships/chain-prop-weavings', [ChainPropChainPropWeavingsRelationshipsController::class, 'update'])
+        ->name('chain-prop.relationships.chain-prop-weavings');
+    Route::get('chain-props/{id}/chain-prop-weavings', [ChainPropChainPropWeavingsRelatedController::class, 'index'])
+        ->name('chain-prop.chain-prop-weavings');
+    //  one-to-many Chain Prop to Jewellery
+    Route::get('chain-props/{id}/relationships/jewellery', [ChainPropJewelleryRelationshipsController::class, 'index'])
+        ->name('chain-prop.relationships.jewellery');
+    Route::patch('chain-props/{id}/relationships/jewellery', [ChainPropJewelleryRelationshipsController::class, 'update'])
+        ->name('chain-prop.relationships.jewellery');
+    Route::get('chain-props/{id}/jewellery', [ChainPropJewelleryRelatedController::class, 'index'])
+        ->name('chain-prop.jewellery');
 
     /*****************  CHAIN SIZES ROUTES **************/
     // CRUD

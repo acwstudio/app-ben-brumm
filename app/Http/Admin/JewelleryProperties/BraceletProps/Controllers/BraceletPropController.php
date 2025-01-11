@@ -7,6 +7,7 @@ namespace App\Http\Admin\JewelleryProperties\BraceletProps\Controllers;
 use App\Http\Admin\JewelleryProperties\BraceletProps\Resources\BraceletPropCollection;
 use App\Http\Admin\JewelleryProperties\BraceletProps\Resources\BraceletPropResource;
 use Domain\JewelleryProperties\BraceletProp\Services\BraceletPropService;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 final class BraceletPropController
@@ -18,7 +19,7 @@ final class BraceletPropController
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $request)
+    public function index(Request $request): JsonResponse
     {
         $data = $request->all();
         $items = $this->braceletPropService->index($data);
@@ -37,7 +38,7 @@ final class BraceletPropController
     /**
      * Display the specified resource.
      */
-    public function show(Request $request, int $id)
+    public function show(Request $request, int $id): JsonResponse
     {
         $data = $request->all();
         data_set($data, 'id', $id);
