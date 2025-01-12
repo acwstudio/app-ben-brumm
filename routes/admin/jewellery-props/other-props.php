@@ -13,6 +13,8 @@ use App\Http\Admin\JewelleryProperties\CufflinkProps\Controllers\CuffLinkPropCon
 use App\Http\Admin\JewelleryProperties\CufflinkProps\Controllers\CuffLinkPropJewelleryRelatedController;
 use App\Http\Admin\JewelleryProperties\CufflinkProps\Controllers\CuffLinkPropJewelleryRelationshipsController;
 use App\Http\Admin\JewelleryProperties\EarringProps\Controllers\EarringPropController;
+use App\Http\Admin\JewelleryProperties\EarringProps\Controllers\EarringPropJewelleryRelatedController;
+use App\Http\Admin\JewelleryProperties\EarringProps\Controllers\EarringPropJewelleryRelationshipsController;
 use App\Http\Admin\JewelleryProperties\EarringProps\Controllers\EarringPropsClaspRelatedController;
 use App\Http\Admin\JewelleryProperties\EarringProps\Controllers\EarringPropsClaspRelationshipsController;
 use App\Http\Admin\JewelleryProperties\PendantProps\Controllers\PendantPropController;
@@ -112,6 +114,13 @@ Route::group([
         ->name('earring-props.relationships.clasp');
     Route::get('earring-props/{id}/clasp', [EarringPropsClaspRelatedController::class, 'index'])
         ->name('earring-props.clasp');
+    //  one-to-one Earring Prop to Jewellery
+    Route::get('earring-props/{id}/relationships/jewellery', [EarringPropJewelleryRelationshipsController::class, 'index'])
+        ->name('earring-prop.relationships.jewellery');
+    Route::patch('earring-props/{id}/relationships/jewellery', [EarringPropJewelleryRelationshipsController::class, 'update'])
+        ->name('earring-prop.relationships.jewellery');
+    Route::get('earring-props/{id}/jewellery', [EarringPropJewelleryRelatedController::class, 'index'])
+        ->name('earring-prop.jewellery');
 
     /*****************  PENDANT PROPS ROUTES **************/
     // CRUD
