@@ -4,17 +4,28 @@ declare(strict_types=1);
 
 namespace App\Http\Admin\JewelleryProperties\PiercingProps\Controllers;
 
+use App\Http\Admin\JewelleryProperties\PiercingProps\Resources\PiercingPropCollection;
+use App\Http\Admin\JewelleryProperties\PiercingProps\Resources\PiercingPropResource;
 use Domain\JewelleryProperties\PiercingProp\Models\PiercingProp;
+use Domain\JewelleryProperties\PiercingProp\Services\PiercingPropService;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 final class PiercingPropController
 {
+    public function __construct(public PiercingPropService $piercingPropService)
+    {
+    }
+
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request): JsonResponse
     {
-        //
+        $data = $request->all();
+        $items = $this->piercingPropService->index($data);
+
+        return (new PiercingPropCollection($items))->response();
     }
 
     /**
@@ -28,9 +39,13 @@ final class PiercingPropController
     /**
      * Display the specified resource.
      */
-    public function show(PiercingProp $piercingProp)
+    public function show(Request $request, int $id): JsonResponse
     {
-        //
+        $data = $request->all();
+        data_set($data, 'id', $id);
+        $model = $this->piercingPropService->show($id, $data);
+
+        return (new PiercingPropResource($model))->response();
     }
 
     /**
