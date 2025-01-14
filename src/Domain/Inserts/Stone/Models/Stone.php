@@ -6,8 +6,10 @@ namespace Domain\Inserts\Stone\Models;
 
 use Domain\Inserts\Insert\Models\Insert;
 use Domain\Inserts\StoneType\Models\StoneType;
+use Domain\Jewelleries\Jewellery\Models\Jewellery;
 use Domain\Shared\Models\BaseModel;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 final class Stone extends BaseModel
@@ -22,5 +24,10 @@ final class Stone extends BaseModel
     public function stoneType(): BelongsTo
     {
         return $this->belongsTo(StoneType::class);
+    }
+
+    public function jewelleries(): BelongsToMany
+    {
+        return $this->belongsToMany(Jewellery::class, 'inserts');
     }
 }

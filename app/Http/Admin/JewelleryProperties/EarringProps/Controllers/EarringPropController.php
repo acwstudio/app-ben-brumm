@@ -53,7 +53,8 @@ final class EarringPropController
      */
     public function update(Request $request, EarringProp $earringProp)
     {
-        //
+
+
     }
 
     /**

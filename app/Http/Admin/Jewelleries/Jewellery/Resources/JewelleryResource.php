@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace App\Http\Admin\Jewelleries\Jewellery\Resources;
 
+use App\Http\Admin\Inserts\Insert\Resources\InsertCollection;
+use App\Http\Admin\Inserts\Insert\Resources\InsertResource;
+use App\Http\Admin\Inserts\Stone\Resources\StoneCollection;
 use App\Http\Admin\Jewelleries\JewelleryCategory\Resources\JewelleryCategoryResource;
 use App\Http\Admin\Shared\Resources\Traits\IncludeRelatedEntitiesResourceTrait;
 use App\Http\Resources\BraceletPropViews\BraceletPropViewResource;
@@ -31,12 +34,20 @@ final class JewelleryResource extends JsonResource
             'attributes' => $this->attributeItems(),
             'relationships' => [
                 'jewelleryCategory' => $this->sectionRelationships(
-                    'jewellery-category.jewelleries',
+                    'jewelleries.jewellery-category',
                     JewelleryCategoryResource::class
                 ),
                 'braceletPropView' => $this->sectionRelationships(
-                    'bracelet-prop-view.jewellery',
+                    'jewellery.bracelet-prop-view',
                     BraceletPropViewResource::class
+                ),
+                'inserts' => $this->sectionRelationships(
+                    'jewellery.inserts',
+                    InsertCollection::class
+                ),
+                'stones' => $this->sectionRelationships(
+                    'jewelleries.stones',
+                    StoneCollection::class
                 ),
             ]
         ];
@@ -47,6 +58,8 @@ final class JewelleryResource extends JsonResource
         return [
             JewelleryCategoryResource::class => $this->whenLoaded('jewelleryCategory'),
             BraceletPropViewResource::class  => $this->whenLoaded('braceletPropView'),
+            InsertCollection::class  => $this->whenLoaded('inserts'),
+            StoneCollection::class  => $this->whenLoaded('stones'),
         ];
     }
 }

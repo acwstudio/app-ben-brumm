@@ -22,6 +22,8 @@ use App\Http\Admin\Inserts\InsertShape\Controllers\InsertShapeInsertsRelatedCont
 use App\Http\Admin\Inserts\InsertShape\Controllers\InsertShapeInsertsRelationshipsController;
 use App\Http\Admin\Inserts\Stone\Controllers\StoneInsertsRelatedController;
 use App\Http\Admin\Inserts\Stone\Controllers\StoneInsertsRelationshipsController;
+use App\Http\Admin\Inserts\Stone\Controllers\StonesJewelleriesRelatedController;
+use App\Http\Admin\Inserts\Stone\Controllers\StonesJewelleriesRelationshipsController;
 use App\Http\Admin\Inserts\StoneType\Controllers\StoneTypeController;
 use App\Http\Admin\Inserts\StoneType\Controllers\StoneTypeStonesRelatedController;
 use App\Http\Admin\Inserts\StoneType\Controllers\StoneTypeStonesRelationshipsController;
@@ -97,6 +99,13 @@ Route::group([
         ->name('stone.relationships.inserts');
     Route::get('stones/{id}/inserts', [StoneInsertsRelatedController::class, 'index'])
         ->name('stone.inserts');
+    //  many-to-many Stones to Jewelleries
+    Route::get('stones/{id}/relationships/jewelleries', [StonesJewelleriesRelationshipsController::class, 'index'])
+        ->name('stones.relationships.jewelleries');
+    Route::patch('stones/{id}/relationships/jewelleries', [StonesJewelleriesRelationshipsController::class, 'update'])
+        ->name('stones.relationships.jewelleries');
+    Route::get('stones/{id}/jewelleries', [StonesJewelleriesRelatedController::class, 'index'])
+        ->name('stones.jewelleries');
 
     /*****************  STONE TYPES ROUTES **************/
     // CRUD

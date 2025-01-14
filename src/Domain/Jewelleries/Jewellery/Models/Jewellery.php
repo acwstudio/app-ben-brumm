@@ -101,6 +101,6 @@ final class Jewellery extends BaseModel
 
     public function stones(): BelongsToMany
     {
-        return $this->belongsToMany(Stone::class, 'inserts', 'jewellery_id', 'stone_id');
+        return $this->belongsToMany(Stone::class, 'inserts', 'jewellery_id', 'stone_id')->withPivot('insert_property_id');
     }
 }

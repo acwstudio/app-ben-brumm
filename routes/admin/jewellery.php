@@ -2,6 +2,8 @@
 
 use App\Http\Admin\Jewelleries\Jewellery\Controllers\JewelleriesJewelleryCategoryRelatedController;
 use App\Http\Admin\Jewelleries\Jewellery\Controllers\JewelleriesJewelleryCategoryRelationshipsController;
+use App\Http\Admin\Jewelleries\Jewellery\Controllers\JewelleriesStonesRelatedController;
+use App\Http\Admin\Jewelleries\Jewellery\Controllers\JewelleriesStonesRelationshipsController;
 use App\Http\Admin\Jewelleries\Jewellery\Controllers\JewelleryBraceletPropViewRelatedController;
 use App\Http\Admin\Jewelleries\Jewellery\Controllers\JewelleryBraceletPropViewRelationshipsController;
 use App\Http\Admin\Jewelleries\Jewellery\Controllers\JewelleryController;
@@ -41,6 +43,13 @@ Route::group([
         ->name('jewellery.relationships.inserts');
     Route::get('jewelleries/{id}/inserts', [JewelleryInsertsRelatedController::class, 'index'])
         ->name('jewellery.inserts');
+    //  many-to-many Jewellery to Stones
+    Route::get('jewelleries/{id}/relationships/stones', [JewelleriesStonesRelationshipsController::class, 'index'])
+        ->name('jewelleries.relationships.stones');
+    Route::patch('jewelleries/{id}/relationships/stones', [JewelleriesStonesRelationshipsController::class, 'update'])
+        ->name('jewelleries.relationships.stones');
+    Route::get('jewelleries/{id}/stones', [JewelleriesStonesRelatedController::class, 'index'])
+        ->name('jewelleries.stones');
 
     /*****************  JEWELLERY CATEGORIES ROUTES **************/
     // CRUD

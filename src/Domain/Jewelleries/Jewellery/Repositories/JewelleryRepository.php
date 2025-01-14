@@ -15,8 +15,7 @@ final class JewelleryRepository implements JewelleryRepositoryInterface
     public function index(array $data): Paginator
     {
         return QueryBuilder::for(Jewellery::class)
-            ->allowedFields(\DB::getSchemaBuilder()->getColumnListing('jewelleries'))
-            ->allowedIncludes(['jewelleryCategory','braceletPropView'])
+            ->allowedIncludes(['jewelleryCategory','braceletPropView','inserts','stones'])
             ->allowedFilters([
                 AllowedFilter::exact('slug'),
                 AllowedFilter::exact('id'),
@@ -30,8 +29,7 @@ final class JewelleryRepository implements JewelleryRepositoryInterface
     {
         return QueryBuilder::for(Jewellery::class)
             ->where('id', $id)
-//            ->allowedFields(\DB::getSchemaBuilder()->getColumnListing('blog_posts'))
-//            ->allowedIncludes(['blogCategory'])
+            ->allowedIncludes(['jewelleryCategory','braceletPropView','inserts','stones'])
             ->firstOrFail();
     }
 }

@@ -2,7 +2,9 @@
 
 namespace App\Http\Admin\Inserts\Stone\Resources;
 
+use App\Http\Admin\Inserts\Insert\Resources\InsertCollection;
 use App\Http\Admin\Inserts\StoneType\Resources\StoneTypeResource;
+use App\Http\Admin\Jewelleries\Jewellery\Resources\JewelleryCollection;
 use App\Http\Admin\Shared\Resources\Traits\IncludeRelatedEntitiesResourceTrait;
 use Domain\Inserts\Stone\Models\Stone;
 use Illuminate\Http\Request;
@@ -26,9 +28,17 @@ class StoneResource extends JsonResource
             'attributes' => $this->attributeItems(),
             'relationships' => [
                 'stoneType' => $this->sectionRelationships(
-                    'stone-type.stones',
+                    'stones.stone-type',
                     StoneTypeResource::class
-                )
+                ),
+                'inserts' => $this->sectionRelationships(
+                    'stone.inserts',
+                    InsertCollection::class
+                ),
+                'jewelleries' => $this->sectionRelationships(
+                    'stones.jewelleries',
+                    JewelleryCollection::class
+                ),
             ]
         ];
     }
@@ -37,6 +47,8 @@ class StoneResource extends JsonResource
     {
         return [
             StoneTypeResource::class => $this->whenLoaded('stoneType'),
+            InsertCollection::class => $this->whenLoaded('inserts'),
+            JewelleryCollection::class => $this->whenLoaded('jewelleries'),
         ];
     }
 }
