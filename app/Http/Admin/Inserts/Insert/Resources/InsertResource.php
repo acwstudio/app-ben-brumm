@@ -32,20 +32,20 @@ final class InsertResource extends JsonResource
             'attributes' => $this->attributeItems(),
             'relationships' => [
                 'jewellery' => $this->sectionRelationships(
-                    'jewellery.inserts',
+                    'inserts.jewellery',
                     JewelleryResource::class
                 ),
                 'stone' => $this->sectionRelationships(
-                    'stone.inserts',
+                    'inserts.stone',
                     StoneResource::class
                 ),'insert-shape' => $this->sectionRelationships(
-                    'insert-shape.inserts',
+                    'inserts.insert-shape',
                     InsertShapeResource::class
                 ),'insert-colour' => $this->sectionRelationships(
-                    'insert-colour.inserts',
+                    'inserts.insert-colour',
                     InsertColourResource::class
                 ),'insert-property' => $this->sectionRelationships(
-                    'insert-property.insert',
+                    'insert.insert-property',
                     InsertPropertyResource::class
                 ),
             ]

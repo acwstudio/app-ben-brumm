@@ -27,7 +27,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 
 final class Jewellery extends BaseModel
 {
-    public const TYPE_RESOURCE = 'Jewelleries';
+    public const TYPE_RESOURCE = 'jewelleries';
 
     public function inserts(): HasMany
     {
