@@ -41,9 +41,9 @@ final class WeavingStoreRequest extends FormRequest
             ];
         } else {
             $attributes = [
-                'data'                                => ['sometimes','required','array','min:2'],
-                'data.type'                           => ['sometimes','required','string','in:' . Weaving::TYPE_RESOURCE],
-                'data.attributes'                     => ['sometimes','required','array:name'],
+                'data'                                => ['required','array','min:2'],
+                'data.type'                           => ['required','string','in:' . Weaving::TYPE_RESOURCE],
+                'data.attributes'                     => ['required','array','min:1'],
                 'data.attributes.name'                => ['sometimes','required','string','unique:weavings,name'],
                 // relationships
                 'data.relationships'                       => [

@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Admin\Inserts\Insert\Requests;
 
 use Domain\Inserts\InsertProperty\Models\InsertProperty;
 use Illuminate\Foundation\Http\FormRequest;
 
-class InsertInsertPropertyUpdateRelationsRequest extends FormRequest
+final class InsertInsertPropertyUpdateRelationsRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +26,7 @@ class InsertInsertPropertyUpdateRelationsRequest extends FormRequest
     {
         return [
             'data'      => ['required', 'array'],
-            'data.id'   => ['required','integer','exists:insert_properties,id'],
+            'data.id'   => ['required','integer','exists:insert_properties,id','unique:inserts,insert_property_id'],
             'data.type' => ['required','string','in:' . InsertProperty::TYPE_RESOURCE],
         ];
     }

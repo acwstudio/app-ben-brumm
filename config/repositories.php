@@ -1,5 +1,6 @@
 <?php
 
+use Domain\Inserts\Insert\Repositories\InsertCachedRepository;
 use Domain\Inserts\Insert\Repositories\InsertRepository;
 use Domain\Inserts\Insert\Repositories\InsertRepositoryInterface;
 use Domain\Inserts\InsertColour\Repositories\InsertColourRepository;
@@ -49,6 +50,6 @@ return [
     [
         'interface'      => InsertRepositoryInterface::class,
         'implementation' => InsertRepository::class,
-//        'cache'          => InsertCachedRepository::class
+        'cache'          => InsertCachedRepository::class
     ],
 ];

@@ -4,7 +4,10 @@ declare(strict_types=1);
 
 namespace App\Http\Admin\Inserts\Insert\Controllers;
 
+use App\Http\Admin\Inserts\Insert\Requests\InsertStoreRequest;
+use App\Http\Admin\Inserts\Insert\Requests\InsertUpdateRequest;
 use App\Http\Admin\Inserts\Insert\Resources\InsertCollection;
+use App\Http\Admin\Inserts\Insert\Resources\InsertResource;
 use App\Http\Shared\Controller;
 use Domain\Inserts\Insert\Models\Insert;
 use Domain\Inserts\Insert\Services\InsertService;
@@ -31,7 +34,7 @@ final class InsertController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(InsertStoreRequest $request): JsonResponse
     {
         //
     }
@@ -39,15 +42,19 @@ final class InsertController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Insert $insert)
+    public function show(Request $request, int $id): JsonResponse
     {
-        //
+        $data = $request->all();
+        data_set($data, 'id', $id);
+        $model = $this->insertService->show($id, $data);
+
+        return (new InsertResource($model))->response();
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Insert $insert)
+    public function update(InsertUpdateRequest $request, Insert $insert): JsonResponse
     {
         //
     }
@@ -55,8 +62,10 @@ final class InsertController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Insert $insert)
+    public function destroy(int $id): JsonResponse
     {
-        //
+        $this->insertService->destroy($id);
+
+        return response()->json(null, 204);
     }
 }

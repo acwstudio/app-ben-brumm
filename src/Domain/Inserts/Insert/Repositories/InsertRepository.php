@@ -16,7 +16,6 @@ final class InsertRepository implements InsertRepositoryInterface
     public function index(array $data): Paginator
     {
         return QueryBuilder::for(Insert::class)
-            ->allowedFields(\DB::getSchemaBuilder()->getColumnListing('inserts'))
             ->allowedIncludes(['stone','jewellery','insertShape','insertColour','insertProperty'])
             ->allowedFilters([
                 AllowedFilter::exact('id'),
@@ -30,12 +29,26 @@ final class InsertRepository implements InsertRepositoryInterface
             ->appends($data);
     }
 
-    public function show(int $id, array $data): Model|Insert
+    public function store(array $data): Insert
+    {
+        // TODO: Implement store() method.
+    }
+
+    public function show(int $id, array $data): Insert
     {
         return QueryBuilder::for(Insert::class)
             ->where('id', $id)
-//            ->allowedFields(\DB::getSchemaBuilder()->getColumnListing('blog_posts'))
-//            ->allowedIncludes(['blogCategory'])
+            ->allowedIncludes(['stone','jewellery','insertShape','insertColour','insertProperty'])
             ->firstOrFail();
+    }
+
+    public function update(array $data): void
+    {
+        // TODO: Implement update() method.
+    }
+
+    public function destroy(int $id): void
+    {
+        // TODO: Implement destroy() method.
     }
 }

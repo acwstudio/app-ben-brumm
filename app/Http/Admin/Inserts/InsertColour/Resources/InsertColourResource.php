@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Http\Admin\Inserts\InsertColour\Resources;
 
 use App\Http\Admin\Inserts\Insert\Resources\InsertCollection;
+use App\Http\Admin\Jewelleries\Jewellery\Resources\JewelleryCollection;
 use App\Http\Admin\Shared\Resources\Traits\IncludeRelatedEntitiesResourceTrait;
 use Domain\Inserts\InsertColour\Models\InsertColour;
 use Illuminate\Http\Request;
@@ -28,8 +29,12 @@ final class InsertColourResource extends JsonResource
             'attributes' => $this->attributeItems(),
             'relationships' => [
                 'inserts' => $this->sectionRelationships(
-                    'inserts.insert-colour',
+                    'insert-colour.inserts',
                     InsertCollection::class
+                ),
+                'jewelleries' => $this->sectionRelationships(
+                    'insert-colours.jewelleries',
+                    JewelleryCollection::class
                 )
             ]
         ];
@@ -39,6 +44,7 @@ final class InsertColourResource extends JsonResource
     {
         return [
             InsertCollection::class => $this->whenLoaded('inserts'),
+            JewelleryCollection::class => $this->whenLoaded('jewelleries'),
         ];
     }
 }

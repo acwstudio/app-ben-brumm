@@ -73,11 +73,11 @@ return new class extends Migration
             $table->foreign('insert_colour_id')->references('id')->on('insert_colours');
             $table->foreign('insert_shape_id')->references('id')->on('insert_shapes');
             $table->foreign('insert_property_id')->references('id')->on('insert_properties');
+//            This foreign key is created in 2024_12_15_000810_create_jewelleries_table migration, when jewelleries table
+//            already exists
 //            $table->foreign('jewellery_id')->references('id')->on('jewelleries');
 
-            $table->unique([
-                'stone_id', 'insert_colour_id', 'insert_shape_id', 'jewellery_id', 'insert_property_id'
-            ], 'unique_inserts');
+            $table->unique(['insert_property_id']);
         });
     }
 

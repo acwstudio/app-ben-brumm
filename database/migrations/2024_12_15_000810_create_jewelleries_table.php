@@ -290,6 +290,7 @@ return new class extends Migration
      */
     public function down(): void
     {
+//        we need to delete this constrained before deleting jewelleries table
         Schema::table('inserts', function (Blueprint $table) {
             $table->dropConstrainedForeignId('jewellery_id');
         });
@@ -314,7 +315,7 @@ return new class extends Migration
         Schema::dropIfExists('earring_props');
         Schema::dropIfExists('clasps');
         Schema::dropIfExists('charm_pendant_props');
-        Schema::dropIfExists('necklace_prop_size');
+        Schema::dropIfExists('necklace_prop_sizes');
         Schema::dropIfExists('necklace_sizes');
         Schema::dropIfExists('necklace_props');
         Schema::dropIfExists('coverage_jewellery');

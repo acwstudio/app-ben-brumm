@@ -6,10 +6,10 @@ namespace Domain\Inserts\InsertProperty\Services;
 
 use Domain\Inserts\InsertProperty\Models\InsertProperty;
 use Domain\Inserts\InsertProperty\Repositories\InsertPropertyRepository;
+use Domain\Shared\AbstractCRUDService;
 use Illuminate\Contracts\Pagination\Paginator;
-use Illuminate\Database\Eloquent\Model;
 
-final class InsertPropertyService
+final class InsertPropertyService extends AbstractCRUDService
 {
     public function __construct(
         public InsertPropertyRepository $insertPropertyRepository,
@@ -22,8 +22,23 @@ final class InsertPropertyService
         return $this->insertPropertyRepository->index($data);
     }
 
-    public function show(int $id, array $data): Model|InsertProperty
+    public function store(array $data): InsertProperty
     {
-        // TODO: Implement show() method.
+        // TODO: Implement store() method.
+    }
+
+    public function show(int $id, array $data): InsertProperty
+    {
+        return $this->insertPropertyRepository->show($id, $data);
+    }
+
+    public function update(array $data): void
+    {
+        // TODO: Implement update() method.
+    }
+
+    public function destroy(int $id): void
+    {
+        // TODO: Implement destroy() method.
     }
 }

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Http\Admin\Inserts\InsertProperty\Controllers;
 
 use App\Http\Admin\Inserts\InsertProperty\Resources\InsertPropertyCollection;
+use App\Http\Admin\Inserts\InsertProperty\Resources\InsertPropertyResource;
 use App\Http\Shared\Controller;
 use Domain\Inserts\InsertProperty\Models\InsertProperty;
 use Domain\Inserts\InsertProperty\Services\InsertPropertyService;
@@ -39,9 +40,13 @@ class InsertPropertyController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(InsertProperty $insertProperty)
+    public function show(Request $request, int $id): JsonResponse
     {
-        //
+        $data = $request->all();
+        data_set($data, 'id', $id);
+        $model = $this->insertPropertyService->show($id, $data);
+
+        return (new InsertPropertyResource($model))->response();
     }
 
     /**

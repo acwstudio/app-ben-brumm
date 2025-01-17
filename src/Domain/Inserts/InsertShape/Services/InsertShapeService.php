@@ -22,8 +22,23 @@ final class InsertShapeService implements InsertShapeRepositoryInterface
         return $this->insertShapeRepositoryInterface->index($data);
     }
 
-    public function show(int $id, array $data): Model|InsertShape
+    public function store(array $data): InsertShape
+    {
+        // TODO: Implement store() method.
+    }
+
+    public function show(int $id, array $data): InsertShape
     {
         // TODO: Implement show() method.
+    }
+
+    public function update(array $data): void
+    {
+        // TODO: Implement update() method.
+    }
+
+    public function destroy(int $id): void
+    {
+        // TODO: Implement destroy() method.
     }
 }

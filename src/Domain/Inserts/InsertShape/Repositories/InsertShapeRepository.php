@@ -25,12 +25,27 @@ final class InsertShapeRepository implements InsertShapeRepositoryInterface
             ->appends($data);
     }
 
-    public function show(int $id, array $data): Model|InsertShape
+    public function store(array $data): InsertShape
+    {
+        // TODO: Implement store() method.
+    }
+
+    public function show(int $id, array $data): InsertShape
     {
         return QueryBuilder::for(InsertShape::class)
             ->where('id', $id)
 //            ->allowedFields(\DB::getSchemaBuilder()->getColumnListing('blog_posts'))
 //            ->allowedIncludes(['blogCategory'])
             ->firstOrFail();
+    }
+
+    public function update(array $data): void
+    {
+        // TODO: Implement update() method.
+    }
+
+    public function destroy(int $id): void
+    {
+        // TODO: Implement destroy() method.
     }
 }

@@ -11,7 +11,7 @@ use Spatie\QueryBuilder\AllowedFilter;
 use Spatie\QueryBuilder\QueryBuilder;
 
 /** @mixin InsertProperty */
-final class InsertPropertyRepository
+final class InsertPropertyRepository implements InsertPropertyInterface
 {
     public function index(array $data): Paginator
     {
@@ -26,12 +26,27 @@ final class InsertPropertyRepository
             ->appends($data);
     }
 
-    public function show(int $id, array $data): Model|InsertProperty
+    public function store(array $data): InsertProperty
+    {
+        // TODO: Implement store() method.
+    }
+
+    public function show(int $id, array $data): InsertProperty
     {
         return QueryBuilder::for(InsertProperty::class)
             ->where('id', $id)
 //            ->allowedFields(\DB::getSchemaBuilder()->getColumnListing('blog_posts'))
 //            ->allowedIncludes(['blogCategory'])
             ->firstOrFail();
+    }
+
+    public function update(array $data): void
+    {
+        // TODO: Implement update() method.
+    }
+
+    public function destroy(int $id): void
+    {
+        // TODO: Implement destroy() method.
     }
 }

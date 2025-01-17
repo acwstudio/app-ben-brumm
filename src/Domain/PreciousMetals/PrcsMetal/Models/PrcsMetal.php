@@ -8,7 +8,7 @@ use Domain\Shared\Models\BaseModel;
 use Domain\Site\BraceletPropView;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class PrcsMetal extends BaseModel
+final class PrcsMetal extends BaseModel
 {
     const TYPE_RESOURCE = 'prcsMetals';
 

@@ -5,11 +5,13 @@ declare(strict_types=1);
 namespace App\Http\Admin\Inserts\InsertColour\Controllers;
 
 use App\Http\Admin\Inserts\InsertColour\Resources\InsertColourCollection;
+use App\Http\Admin\Inserts\InsertColour\Resources\InsertColourResource;
 use App\Http\Shared\Controller;
 use Domain\Inserts\InsertColour\Models\InsertColour;
 use Domain\Inserts\InsertColour\Services\InsertColourService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Console\ControllerMakeCommand;
 
 final class InsertColourController extends Controller
 {
@@ -39,9 +41,13 @@ final class InsertColourController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(InsertColour $insertColours)
+    public function show(Request $request, int $id): JsonResponse
     {
-        //
+        $data = $request->all();
+        data_set($data, 'id', $id);
+        $model = $this->insertColourService->show($id, $data);
+
+        return (new InsertColourResource($model))->response();
     }
 
     /**

@@ -38,13 +38,16 @@ final class InsertResource extends JsonResource
                 'stone' => $this->sectionRelationships(
                     'inserts.stone',
                     StoneResource::class
-                ),'insert-shape' => $this->sectionRelationships(
+                ),
+                'insert-shape' => $this->sectionRelationships(
                     'inserts.insert-shape',
                     InsertShapeResource::class
-                ),'insert-colour' => $this->sectionRelationships(
+                ),
+                'insert-colour' => $this->sectionRelationships(
                     'inserts.insert-colour',
                     InsertColourResource::class
-                ),'insert-property' => $this->sectionRelationships(
+                ),
+                'insert-property' => $this->sectionRelationships(
                     'insert.insert-property',
                     InsertPropertyResource::class
                 ),

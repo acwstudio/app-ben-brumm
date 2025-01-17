@@ -25,11 +25,26 @@ final class InsertCachedRepository extends AbstractCachedRepository implements I
             });
     }
 
-    public function show(int $id, array $data): Model|Insert
+    public function store(array $data): Insert
+    {
+        // TODO: Implement store() method.
+    }
+
+    public function show(int $id, array $data): Insert
     {
         return Cache::tags([Insert::class])->remember($this->getCacheKey($data), $this->getTtl(),
             function () use ($id, $data) {
                 return $this->insertRepositoryInterface->show($id, $data);
             });
+    }
+
+    public function update(array $data): void
+    {
+        // TODO: Implement update() method.
+    }
+
+    public function destroy(int $id): void
+    {
+        // TODO: Implement destroy() method.
     }
 }

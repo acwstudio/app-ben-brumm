@@ -12,12 +12,10 @@ use Spatie\QueryBuilder\QueryBuilder;
 
 final class InsertColourRepository implements InsertColourRepositoryInterface
 {
-
     public function index(array $data): Paginator
     {
         return QueryBuilder::for(InsertColour::class)
-            ->allowedFields(\DB::getSchemaBuilder()->getColumnListing('insert_colours'))
-            ->allowedIncludes(['inserts'])
+            ->allowedIncludes(['inserts','jewelleries'])
             ->allowedFilters([
                 AllowedFilter::exact('id'),
                 'is_active','name'
@@ -26,12 +24,26 @@ final class InsertColourRepository implements InsertColourRepositoryInterface
             ->appends($data);
     }
 
-    public function show(int $id, array $data): Model|InsertColour
+    public function store(array $data): InsertColour
+    {
+        // TODO: Implement store() method.
+    }
+
+    public function show(int $id, array $data): InsertColour
     {
         return QueryBuilder::for(InsertColour::class)
             ->where('id', $id)
-//            ->allowedFields(\DB::getSchemaBuilder()->getColumnListing('blog_posts'))
-//            ->allowedIncludes(['blogCategory'])
+            ->allowedIncludes(['inserts','jewelleries'])
             ->firstOrFail();
+    }
+
+    public function update(array $data): void
+    {
+        // TODO: Implement update() method.
+    }
+
+    public function destroy(int $id): void
+    {
+        // TODO: Implement destroy() method.
     }
 }

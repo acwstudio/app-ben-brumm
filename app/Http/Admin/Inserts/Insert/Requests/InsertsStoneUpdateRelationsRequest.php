@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Admin\Inserts\Insert\Requests;
 
 use Domain\Inserts\Stone\Models\Stone;
 use Illuminate\Foundation\Http\FormRequest;
 
-class InsertsStoneUpdateRelationsRequest extends FormRequest
+final class InsertsStoneUpdateRelationsRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.

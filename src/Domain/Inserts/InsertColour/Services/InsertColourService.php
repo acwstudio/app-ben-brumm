@@ -22,8 +22,23 @@ final class InsertColourService implements InsertColourRepositoryInterface
         return $this->insertColourRepositoryInterface->index($data);
     }
 
-    public function show(int $id, array $data): Model|InsertColour
+    public function store(array $data): InsertColour
     {
-        // TODO: Implement show() method.
+        // TODO: Implement store() method.
+    }
+
+    public function show(int $id, array $data): InsertColour
+    {
+        return $this->insertColourRepositoryInterface->show($id, $data);
+    }
+
+    public function update(array $data): void
+    {
+        // TODO: Implement update() method.
+    }
+
+    public function destroy(int $id): void
+    {
+        // TODO: Implement destroy() method.
     }
 }

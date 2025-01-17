@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Admin\Inserts\Insert\Requests;
 
 use Domain\Inserts\InsertColour\Models\InsertColour;
 use Illuminate\Foundation\Http\FormRequest;
 
-class InsertsInsertColourUpdateRelationsRequest extends FormRequest
+final class InsertsInsertColourUpdateRelationsRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.

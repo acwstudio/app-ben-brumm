@@ -6,10 +6,11 @@ namespace Domain\Inserts\Insert\Services;
 
 use Domain\Inserts\Insert\Models\Insert;
 use Domain\Inserts\Insert\Repositories\InsertRepositoryInterface;
+use Domain\Shared\AbstractCRUDService;
 use Illuminate\Contracts\Pagination\Paginator;
 use Illuminate\Database\Eloquent\Model;
 
-final class InsertService implements InsertRepositoryInterface
+final class InsertService extends AbstractCRUDService
 {
     public function __construct(
         public InsertRepositoryInterface $insertRepositoryInterface,
@@ -22,8 +23,23 @@ final class InsertService implements InsertRepositoryInterface
         return $this->insertRepositoryInterface->index($data);
     }
 
-    public function show(int $id, array $data): Model|Insert
+    public function store(array $data): Insert
     {
-        // TODO: Implement show() method.
+        // TODO: Implement store() method.
+    }
+
+    public function show(int $id, array $data): Insert
+    {
+        return $this->insertRepositoryInterface->show($id, $data);
+    }
+
+    public function update(array $data): void
+    {
+        $this->insertRepositoryInterface->update($data);
+    }
+
+    public function destroy(int $id): void
+    {
+        $this->insertRepositoryInterface->destroy($id);
     }
 }
