@@ -39,11 +39,11 @@ Route::group([
 ], function () {
     /*****************  INSERTS ROUTES **************/
     // CRUD
-    Route::get('/inserts', [InsertController::class, 'index']);
-    Route::get('/inserts/{id}', [InsertController::class, 'show']);
-    Route::post('/inserts', [InsertController::class, 'store']);
-    Route::patch('/inserts/{id}', [InsertController::class, 'update']);
-    Route::delete('/inserts/{id}', [InsertController::class, 'destroy']);
+    Route::get('/inserts', [InsertController::class, 'index'])->name('admin.inserts.index');
+    Route::get('/inserts/{id}', [InsertController::class, 'show'])->name('admin.inserts.show');
+    Route::post('/inserts', [InsertController::class, 'store'])->name('admin.inserts.store');
+    Route::patch('/inserts/{id}', [InsertController::class, 'update'])->name('admin.inserts.update');
+    Route::delete('/inserts/{id}', [InsertController::class, 'destroy'])->name('admin.inserts.destroy');
     //  many-to-one Inserts to Stone
     Route::get('inserts/{id}/relationships/stone', [InsertsStoneRelationshipsController::class, 'index'])
         ->name('inserts.relationships.stone');
@@ -82,11 +82,11 @@ Route::group([
 
     /*****************  STONES ROUTES **************/
     // CRUD
-    Route::get('/stones', [StoneController::class, 'index']);
-    Route::get('/stones/{id}', [StoneController::class, 'show']);
-    Route::post('/stones', [StoneController::class, 'store']);
-    Route::patch('/stones/{id}', [StoneController::class, 'update']);
-    Route::delete('/stones/{id}', [StoneController::class, 'destroy']);
+    Route::get('/stones', [StoneController::class, 'index'])->name('admin.stones.index');
+    Route::get('/stones/{id}', [StoneController::class, 'show'])->name('admin.stones.show');
+    Route::post('/stones', [StoneController::class, 'store'])->name('admin.stones.store');
+    Route::patch('/stones/{id}', [StoneController::class, 'update'])->name('admin.stones.update');
+    Route::delete('/stones/{id}', [StoneController::class, 'destroy'])->name('admin.stones.destroy');
     //  many-to-one stones to Stone Type
     Route::get('stones/{id}/relationships/stone-type', [StonesStoneTypeRelationshipsController::class, 'index'])
         ->name('stones.relationships.stone-type');
@@ -111,11 +111,11 @@ Route::group([
 
     /*****************  STONE TYPES ROUTES **************/
     // CRUD
-    Route::get('/stone-types', [StoneTypeController::class, 'index']);
-    Route::get('/stone-types/{id}', [StoneTypeController::class, 'show']);
-    Route::post('/stone-types', [StoneTypeController::class, 'store']);
-    Route::patch('/stone-types/{id}', [StoneTypeController::class, 'update']);
-    Route::delete('/stone-types/{id}', [StoneTypeController::class, 'destroy']);
+    Route::get('/stone-types', [StoneTypeController::class, 'index'])->name('admin.stone-types.index');
+    Route::get('/stone-types/{id}', [StoneTypeController::class, 'show'])->name('admin.stone-types.show');
+    Route::post('/stone-types', [StoneTypeController::class, 'store'])->name('admin.stone-types.store');
+    Route::patch('/stone-types/{id}', [StoneTypeController::class, 'update'])->name('admin.stone-types.update');
+    Route::delete('/stone-types/{id}', [StoneTypeController::class, 'destroy'])->name('admin.stone-types.destroy');
     //  one-to-many Stone Type to Stones
     Route::get('stone-types/{id}/relationships/stones', [StoneTypeStonesRelationshipsController::class, 'index'])
         ->name('stone-type.relationships.stones');
@@ -126,11 +126,11 @@ Route::group([
 
     /*****************  INSERT COLOURS ROUTES **************/
     // CRUD
-    Route::get('/insert-colours', [InsertColourController::class, 'index']);
-    Route::get('/insert-colours/{id}', [InsertColourController::class, 'show']);
-    Route::post('/insert-colours', [InsertColourController::class, 'store']);
-    Route::patch('/insert-colours/{id}', [InsertColourController::class, 'update']);
-    Route::delete('/insert-colours/{id}', [InsertColourController::class, 'destroy']);
+    Route::get('/insert-colours', [InsertColourController::class, 'index'])->name('admin.insert-colours.index');
+    Route::get('/insert-colours/{id}', [InsertColourController::class, 'show'])->name('admin.insert-colours.show');
+    Route::post('/insert-colours', [InsertColourController::class, 'store'])->name('admin.insert-colours.store');
+    Route::patch('/insert-colours/{id}', [InsertColourController::class, 'update'])->name('admin.insert-colours.update');
+    Route::delete('/insert-colours/{id}', [InsertColourController::class, 'destroy'])->name('admin.insert-colours.destroy');
     //  one-to-many Insert Colour to Inserts
     Route::get('insert-colours/{id}/relationships/inserts', [InsertColourInsertsRelationshipsController::class, 'index'])
         ->name('insert-colour.relationships.inserts');
@@ -146,11 +146,11 @@ Route::group([
 
     /*****************  INSERT SHAPES ROUTES **************/
     // CRUD
-    Route::get('/insert-shapes', [InsertShapeController::class, 'index']);
-    Route::get('/insert-shapes/{id}', [InsertShapeController::class, 'show']);
-    Route::post('/insert-shapes', [InsertShapeController::class, 'store']);
-    Route::patch('/insert-shapes/{id}', [InsertShapeController::class, 'update']);
-    Route::delete('/insert-shapes/{id}', [InsertShapeController::class, 'destroy']);
+    Route::get('/insert-shapes', [InsertShapeController::class, 'index'])->name('admin.insert-shapes.index');
+    Route::get('/insert-shapes/{id}', [InsertShapeController::class, 'show'])->name('admin.insert-shapes.show');
+    Route::post('/insert-shapes', [InsertShapeController::class, 'store'])->name('admin.insert-shapes.store');
+    Route::patch('/insert-shapes/{id}', [InsertShapeController::class, 'update'])->name('admin.insert-shapes.update');
+    Route::delete('/insert-shapes/{id}', [InsertShapeController::class, 'destroy'])->name('admin.insert-shapes.destroy');
     //  one-to-many Insert Shape to Inserts
     Route::get('insert-shapes/{id}/relationships/inserts', [InsertShapeInsertsRelationshipsController::class, 'index'])
         ->name('insert-shape.relationships.inserts');
@@ -161,11 +161,11 @@ Route::group([
 
     /*****************  INSERT PROPERTIES ROUTES **************/
     // CRUD
-    Route::get('/insert-properties', [InsertPropertyController::class, 'index']);
-    Route::get('/insert-properties/{id}', [InsertPropertyController::class, 'show']);
-    Route::post('/insert-properties', [InsertPropertyController::class, 'store']);
-    Route::patch('/insert-properties/{id}', [InsertPropertyController::class, 'update']);
-    Route::delete('/insert-properties/{id}', [InsertPropertyController::class, 'destroy']);
+    Route::get('/insert-properties', [InsertPropertyController::class, 'index'])->name('admin.insert-properties.index');
+    Route::get('/insert-properties/{id}', [InsertPropertyController::class, 'show'])->name('admin.insert-properties.show');
+    Route::post('/insert-properties', [InsertPropertyController::class, 'store'])->name('admin.insert-properties.store');
+    Route::patch('/insert-properties/{id}', [InsertPropertyController::class, 'update'])->name('admin.insert-properties.update');
+    Route::delete('/insert-properties/{id}', [InsertPropertyController::class, 'destroy'])->name('admin.insert-properties.destroy');
     //  one-to-many Insert Shape to Inserts
     Route::get('insert-properties/{id}/relationships/insert', [InsertPropertyInsertRelationshipsController::class, 'index'])
         ->name('insert-property.relationships.insert');

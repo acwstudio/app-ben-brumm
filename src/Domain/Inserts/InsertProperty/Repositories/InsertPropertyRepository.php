@@ -16,7 +16,6 @@ final class InsertPropertyRepository implements InsertPropertyInterface
     public function index(array $data): Paginator
     {
         return QueryBuilder::for(InsertProperty::class)
-            ->allowedFields(\DB::getSchemaBuilder()->getColumnListing('insert_properties'))
             ->allowedIncludes(['insert'])
             ->allowedFilters([
                 AllowedFilter::exact('id'),
@@ -28,15 +27,14 @@ final class InsertPropertyRepository implements InsertPropertyInterface
 
     public function store(array $data): InsertProperty
     {
-        // TODO: Implement store() method.
+        return InsertProperty::create(data_get($data, 'data.attributes'));
     }
 
     public function show(int $id, array $data): InsertProperty
     {
         return QueryBuilder::for(InsertProperty::class)
             ->where('id', $id)
-//            ->allowedFields(\DB::getSchemaBuilder()->getColumnListing('blog_posts'))
-//            ->allowedIncludes(['blogCategory'])
+            ->allowedIncludes(['insert'])
             ->firstOrFail();
     }
 

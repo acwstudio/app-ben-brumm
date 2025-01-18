@@ -12,6 +12,8 @@ final class InsertProperty extends BaseModel
 {
     const TYPE_RESOURCE = 'insertProperties';
 
+    protected $guarded = [];
+
     public function insert(): HasOne
     {
         return $this->hasOne(Insert::class);

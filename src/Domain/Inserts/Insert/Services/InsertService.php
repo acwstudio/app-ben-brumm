@@ -5,16 +5,16 @@ declare(strict_types=1);
 namespace Domain\Inserts\Insert\Services;
 
 use Domain\Inserts\Insert\Models\Insert;
+use Domain\Inserts\Insert\Pipelines\InsertPipeline;
 use Domain\Inserts\Insert\Repositories\InsertRepositoryInterface;
 use Domain\Shared\AbstractCRUDService;
 use Illuminate\Contracts\Pagination\Paginator;
-use Illuminate\Database\Eloquent\Model;
 
 final class InsertService extends AbstractCRUDService
 {
     public function __construct(
         public InsertRepositoryInterface $insertRepositoryInterface,
-//        public InsertPipeline $insertPipeline
+        public InsertPipeline $insertPipeline
     ) {
     }
 
@@ -25,7 +25,7 @@ final class InsertService extends AbstractCRUDService
 
     public function store(array $data): Insert
     {
-        // TODO: Implement store() method.
+        return $this->insertRepositoryInterface->store($data);
     }
 
     public function show(int $id, array $data): Insert

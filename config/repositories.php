@@ -50,6 +50,6 @@ return [
     [
         'interface'      => InsertRepositoryInterface::class,
         'implementation' => InsertRepository::class,
-        'cache'          => InsertCachedRepository::class
+//        'cache'          => InsertCachedRepository::class
     ],
 ];

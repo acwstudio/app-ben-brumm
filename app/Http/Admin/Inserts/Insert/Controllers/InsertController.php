@@ -36,7 +36,15 @@ final class InsertController extends Controller
      */
     public function store(InsertStoreRequest $request): JsonResponse
     {
-        //
+        $data = $request->all();
+
+        $model = $this->insertService->store($data);
+
+        return (new InsertResource(Insert::find($model->id)))
+            ->response()
+            ->header('Location', route('admin.inserts.show', [
+                'id' => $model->id
+            ]));
     }
 
     /**

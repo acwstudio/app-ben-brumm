@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Admin\Inserts\InsertProperty\Controllers;
 
+use App\Http\Admin\Inserts\InsertProperty\Requests\InsertPropertyStoreRequest;
 use App\Http\Admin\Inserts\InsertProperty\Resources\InsertPropertyCollection;
 use App\Http\Admin\Inserts\InsertProperty\Resources\InsertPropertyResource;
 use App\Http\Shared\Controller;
@@ -12,7 +13,7 @@ use Domain\Inserts\InsertProperty\Services\InsertPropertyService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
-class InsertPropertyController extends Controller
+final class InsertPropertyController extends Controller
 {
     public function __construct(public InsertPropertyService $insertPropertyService)
     {
@@ -32,9 +33,17 @@ class InsertPropertyController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(InsertPropertyStoreRequest $request): JsonResponse
     {
-        //
+        $data = $request->all();
+
+        $model = $this->insertPropertyService->store($data);
+
+        return (new InsertPropertyResource(InsertProperty::find($model->id)))
+            ->response()
+            ->header('Location', route('admin.insert-properties.show', [
+                'id' => $model->id
+            ]));
     }
 
     /**

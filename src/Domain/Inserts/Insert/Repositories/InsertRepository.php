@@ -31,7 +31,7 @@ final class InsertRepository implements InsertRepositoryInterface
 
     public function store(array $data): Insert
     {
-        // TODO: Implement store() method.
+        return Insert::create(data_get($data, 'data.attributes'));
     }
 
     public function show(int $id, array $data): Insert

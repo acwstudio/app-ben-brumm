@@ -280,6 +280,7 @@ return new class extends Migration
             $table->unique(['coverage_id', 'jewellery_id'], 'unique_coverage_jewellery');
         });
 
+//        Now, when jewelleries table is ready, we can have foreign jewellery_id key for inserts table
         Schema::table('inserts', function (Blueprint $table) {
             $table->foreign('jewellery_id')->references('id')->on('jewelleries');
         });
