@@ -14,7 +14,8 @@ final class InsertStorePipe
 
     public function handle(array $data, \Closure $next): mixed
     {
-        $model = $this->insertRepository->store($data);
+        $model = $this->insertRepository->store(data_get($data, 'data.attributes'));
+
         data_set($data, 'model', $model);
         data_set($data, 'id', $model->id);
 

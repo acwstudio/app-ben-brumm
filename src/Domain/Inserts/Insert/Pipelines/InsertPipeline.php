@@ -5,11 +5,7 @@ declare(strict_types=1);
 namespace Domain\Inserts\Insert\Pipelines;
 
 use Domain\Inserts\Insert\Models\Insert;
-use Domain\Inserts\Insert\Pipelines\Pipes\InsertInsertPropertyUpdateRelationsPipe;
-use Domain\Inserts\Insert\Pipelines\Pipes\InsertsInsertColourUpdateRelationsPipe;
-use Domain\Inserts\Insert\Pipelines\Pipes\InsertsInsertShapeUpdateRelationsPipe;
-use Domain\Inserts\Insert\Pipelines\Pipes\InsertsJewelleryUpdateRelationsPipe;
-use Domain\Inserts\Insert\Pipelines\Pipes\InsertsStoneUpdateRelationsPipe;
+use Domain\Inserts\Insert\Pipelines\Pipes\InsertStorePipe;
 use Domain\Shared\AbstractPipeline;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
@@ -17,7 +13,6 @@ use Throwable;
 
 final class InsertPipeline extends AbstractPipeline
 {
-
     /**
      * @throws Throwable
      */
@@ -29,7 +24,7 @@ final class InsertPipeline extends AbstractPipeline
             $data = $this->pipeline
                 ->send($data)
                 ->through([
-
+                    InsertStorePipe::class
                 ])
                 ->thenReturn();
 

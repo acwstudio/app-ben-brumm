@@ -16,6 +16,8 @@ final class Stone extends BaseModel
 {
     const TYPE_RESOURCE = 'stones';
 
+    protected $guarded = [];
+
     public function inserts(): HasMany
     {
         return $this->hasMany(Insert::class);

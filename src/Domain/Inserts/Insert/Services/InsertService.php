@@ -9,6 +9,7 @@ use Domain\Inserts\Insert\Pipelines\InsertPipeline;
 use Domain\Inserts\Insert\Repositories\InsertRepositoryInterface;
 use Domain\Shared\AbstractCRUDService;
 use Illuminate\Contracts\Pagination\Paginator;
+use Throwable;
 
 final class InsertService extends AbstractCRUDService
 {
@@ -23,9 +24,12 @@ final class InsertService extends AbstractCRUDService
         return $this->insertRepositoryInterface->index($data);
     }
 
+    /**
+     * @throws Throwable
+     */
     public function store(array $data): Insert
     {
-        return $this->insertRepositoryInterface->store($data);
+        return $this->insertPipeline->store($data);
     }
 
     public function show(int $id, array $data): Insert
@@ -35,11 +39,11 @@ final class InsertService extends AbstractCRUDService
 
     public function update(array $data): void
     {
-        $this->insertRepositoryInterface->update($data);
+        $this->insertPipeline->update($data);
     }
 
     public function destroy(int $id): void
     {
-        $this->insertRepositoryInterface->destroy($id);
+        $this->insertPipeline->destroy($id);
     }
 }

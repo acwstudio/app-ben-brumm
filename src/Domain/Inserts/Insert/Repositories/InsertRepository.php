@@ -5,12 +5,13 @@ declare(strict_types=1);
 namespace Domain\Inserts\Insert\Repositories;
 
 use Domain\Inserts\Insert\Models\Insert;
+use Domain\Shared\CRUDRepositoryInterface;
 use Illuminate\Contracts\Pagination\Paginator;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\QueryBuilder\AllowedFilter;
 use Spatie\QueryBuilder\QueryBuilder;
 
-final class InsertRepository implements InsertRepositoryInterface
+final class InsertRepository implements InsertRepositoryInterface, CRUDRepositoryInterface
 {
 
     public function index(array $data): Paginator
@@ -31,7 +32,7 @@ final class InsertRepository implements InsertRepositoryInterface
 
     public function store(array $data): Insert
     {
-        return Insert::create(data_get($data, 'data.attributes'));
+        return Insert::create($data);
     }
 
     public function show(int $id, array $data): Insert

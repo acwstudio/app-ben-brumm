@@ -9,6 +9,7 @@ use Domain\Inserts\InsertShape\Repositories\InsertShapeRepository;
 use Domain\Inserts\InsertShape\Repositories\InsertShapeRepositoryInterface;
 use Domain\Inserts\Stone\Repositories\StoneRepository;
 use Domain\Inserts\Stone\Repositories\StoneRepositoryInterface;
+use Domain\Inserts\StoneType\Repositories\StoneTypeCachedRepository;
 use Domain\Inserts\StoneType\Repositories\StoneTypeRepository;
 use Domain\Inserts\StoneType\Repositories\StoneTypeRepositoryInterface;
 use Domain\Jewelleries\Jewellery\Repositories\JewelleryRepository;

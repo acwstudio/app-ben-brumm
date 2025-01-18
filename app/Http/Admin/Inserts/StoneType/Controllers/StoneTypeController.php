@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace App\Http\Admin\Inserts\StoneType\Controllers;
 
+use App\Http\Admin\Inserts\StoneType\Requests\StoneTypeStoreRequest;
 use App\Http\Admin\Inserts\StoneType\Resources\StoneTypeCollection;
+use App\Http\Admin\Inserts\StoneType\Resources\StoneTypeResource;
 use App\Http\Shared\Controller;
 use Domain\Inserts\StoneType\Models\StoneType;
 use Domain\Inserts\StoneType\Services\StoneTypeService;
@@ -31,17 +33,28 @@ final class StoneTypeController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoneTypeStoreRequest $request): JsonResponse
     {
-        //
+        $data = $request->all();
+        $model = $this->stoneTypeService->store($data);
+
+        return (new StoneTypeResource(StoneType::find($model->id)))
+            ->response()
+            ->header('Location', route('admin.stone-types.show', [
+                'id' => $model->id
+            ]));
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(StoneType $stoneType)
+    public function show(Request $request, int $id): JsonResponse
     {
-        //
+        $data = $request->all();
+        data_set($data, 'id', $id);
+        $model = $this->stoneTypeService->show($id, $data);
+
+        return (new StoneTypeResource($model))->response();
     }
 
     /**

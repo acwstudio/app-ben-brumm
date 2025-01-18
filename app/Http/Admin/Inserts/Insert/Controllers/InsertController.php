@@ -33,11 +33,11 @@ final class InsertController extends Controller
 
     /**
      * Store a newly created resource in storage.
+     * @throws \Throwable
      */
     public function store(InsertStoreRequest $request): JsonResponse
     {
         $data = $request->all();
-
         $model = $this->insertService->store($data);
 
         return (new InsertResource(Insert::find($model->id)))

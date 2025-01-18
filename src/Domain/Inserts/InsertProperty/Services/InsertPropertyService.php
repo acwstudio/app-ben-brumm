@@ -4,13 +4,15 @@ declare(strict_types=1);
 
 namespace Domain\Inserts\InsertProperty\Services;
 
+use Domain\Inserts\Insert\Repositories\InsertRepositoryInterface;
 use Domain\Inserts\InsertProperty\Models\InsertProperty;
 use Domain\Inserts\InsertProperty\Pipelines\InsertPropertyPipeline;
+use Domain\Inserts\InsertProperty\Repositories\InsertPropertyInterface;
 use Domain\Inserts\InsertProperty\Repositories\InsertPropertyRepository;
 use Domain\Shared\AbstractCRUDService;
 use Illuminate\Contracts\Pagination\Paginator;
 
-final class InsertPropertyService extends AbstractCRUDService
+final class InsertPropertyService extends AbstractCRUDService implements InsertPropertyInterface
 {
     public function __construct(
         public InsertPropertyRepository $insertPropertyRepository,
