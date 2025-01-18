@@ -7,22 +7,25 @@ namespace App\Http\Admin\Inserts\Insert\Controllers;
 use App\Http\Admin\Inserts\Insert\Requests\InsertsJewelleryUpdateRelationsRequest;
 use App\Http\Admin\Shared\Resources\Identifiers\ApiEntityIdentifierResource;
 use App\Http\Shared\Controller;
-use Domain\Inserts\Insert\Models\Insert;
+use Domain\Inserts\Insert\Services\RelationServices\InsertsJewelleryService;
 use Illuminate\Http\JsonResponse;
 
 final class InsertsJewelleryRelationshipsController extends Controller
 {
+    public function __construct(public InsertsJewelleryService $insertsJewelleryService)
+    {
+    }
+
     public function index(int $id): JsonResponse
     {
-        $model = Insert::findOrFail($id)->jewellery;
+        $model = $this->insertsJewelleryService->index($id);
         return (new ApiEntityIdentifierResource($model))->response();
     }
 
     public function update(InsertsJewelleryUpdateRelationsRequest $request, int $id): JsonResponse
     {
-        Insert::find($id)->update([
-            'jewellery_id' => $request->input('data.id'),
-        ]);
+        $data = $request->all();
+        $this->insertsJewelleryService->update($data, $id);
 
         return response()->json(null, 204);
     }

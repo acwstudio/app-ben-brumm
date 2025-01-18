@@ -8,21 +8,25 @@ use App\Http\Admin\Inserts\Insert\Requests\InsertsStoneUpdateRelationsRequest;
 use App\Http\Admin\Shared\Resources\Identifiers\ApiEntityIdentifierResource;
 use App\Http\Shared\Controller;
 use Domain\Inserts\Insert\Models\Insert;
+use Domain\Inserts\Insert\Services\RelationServices\InsertsStoneService;
 use Illuminate\Http\JsonResponse;
 
 final class InsertsStoneRelationshipsController extends Controller
 {
+    public function __construct(public InsertsStoneService $insertsStoneService)
+    {
+    }
+
     public function index(int $id): JsonResponse
     {
-        $model = Insert::findOrFail($id)->stone;
+        $model = $this->insertsStoneService->index($id);
         return (new ApiEntityIdentifierResource($model))->response();
     }
 
     public function update(InsertsStoneUpdateRelationsRequest $request, int $id): JsonResponse
     {
-        Insert::find($id)->update([
-            'stone_id' => $request->input('data.id'),
-        ]);
+        $data = $request->all();
+        $this->insertsStoneService->update($data, $id);
 
         return response()->json(null, 204);
     }
