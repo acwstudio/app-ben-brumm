@@ -7,22 +7,25 @@ namespace App\Http\Admin\Inserts\Insert\Controllers;
 use App\Http\Admin\Inserts\Insert\Requests\InsertInsertPropertyUpdateRelationsRequest;
 use App\Http\Admin\Shared\Resources\Identifiers\ApiEntityIdentifierResource;
 use App\Http\Shared\Controller;
-use Domain\Inserts\Insert\Models\Insert;
+use Domain\Inserts\Insert\Services\RelationServices\InsertInsertPropertyService;
 use Illuminate\Http\JsonResponse;
 
 final class InsertInsertPropertyRelationshipsController extends Controller
 {
+    public function __construct(public InsertInsertPropertyService $insertInsertPropertyService)
+    {
+    }
+
     public function index(int $id): JsonResponse
     {
-        $model = Insert::findOrFail($id)->insertProperty;
+        $model = $this->insertInsertPropertyService->index($id);
         return (new ApiEntityIdentifierResource($model))->response();
     }
 
     public function update(InsertInsertPropertyUpdateRelationsRequest $request, int $id): JsonResponse
     {
-        Insert::find($id)->update([
-            'insert_property_id' => $request->input('data.id'),
-        ]);
+        $data = $request->all();
+        $this->insertInsertPropertyService->update($data, $id);
 
         return response()->json(null, 204);
     }

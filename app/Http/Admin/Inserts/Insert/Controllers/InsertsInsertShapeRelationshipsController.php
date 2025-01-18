@@ -7,22 +7,25 @@ namespace App\Http\Admin\Inserts\Insert\Controllers;
 use App\Http\Admin\Inserts\Insert\Requests\InsertsInsertShapeUpdateRelationsRequest;
 use App\Http\Admin\Shared\Resources\Identifiers\ApiEntityIdentifierResource;
 use App\Http\Shared\Controller;
-use Domain\Inserts\Insert\Models\Insert;
+use Domain\Inserts\Insert\Services\RelationServices\InsertsInsertShapeService;
 use Illuminate\Http\JsonResponse;
 
 final class InsertsInsertShapeRelationshipsController extends Controller
 {
+    public function __construct(public InsertsInsertShapeService $insertsInsertShapeService)
+    {
+    }
+
     public function index(int $id): JsonResponse
     {
-        $model = Insert::findOrFail($id)->insertShape;
+        $model = $this->insertsInsertShapeService->index($id);
         return (new ApiEntityIdentifierResource($model))->response();
     }
 
     public function update(InsertsInsertShapeUpdateRelationsRequest $request, int $id): JsonResponse
     {
-        Insert::find($id)->update([
-            'insert_shape_id' => $request->input('data.id'),
-        ]);
+        $data = $request->all();
+        $this->insertsInsertShapeService->update($data, $id);
 
         return response()->json(null, 204);
     }

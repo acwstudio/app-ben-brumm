@@ -7,7 +7,7 @@ namespace Domain\Shared;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
 
-abstract class AbstractRelationsRepository
+abstract class AbstractRelationsService
 {
     abstract public function index(int $id): Model|Collection;
 
