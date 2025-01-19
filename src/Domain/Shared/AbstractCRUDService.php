@@ -13,7 +13,7 @@ abstract class AbstractCRUDService
 
     abstract public function store(array $data): Model;
 
-    abstract public function show(int $id, array $data): Model;
+    abstract public function show(array $data, int $id): Model;
 
     abstract public function update(array $data, int $id): void;
 

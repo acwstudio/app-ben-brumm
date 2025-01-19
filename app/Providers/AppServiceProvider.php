@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-use App\Policies\InsertPolicy;
+use App\Http\Admin\Inserts\Insert\Policies\InsertPolicy;
 use Domain\Inserts\Insert\Models\Insert;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;

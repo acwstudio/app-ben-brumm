@@ -54,7 +54,7 @@ final class InsertController extends Controller
     {
         $data = $request->all();
         data_set($data, 'id', $id);
-        $model = $this->insertService->show($id, $data);
+        $model = $this->insertService->show($data, $id);
 
         return (new InsertResource($model))->response();
     }

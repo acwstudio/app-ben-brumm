@@ -35,7 +35,7 @@ final class InsertRepository implements InsertRepositoryInterface, CRUDRepositor
         return Insert::create($data);
     }
 
-    public function show(int $id, array $data): Insert
+    public function show(array $data, int $id): Insert
     {
         return QueryBuilder::for(Insert::class)
             ->where('id', $id)

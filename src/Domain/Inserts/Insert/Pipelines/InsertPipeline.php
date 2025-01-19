@@ -72,22 +72,22 @@ final class InsertPipeline extends AbstractPipeline
     public function destroy(int $id): void
     {
         try {
-            DB::beginTransaction();
+        DB::beginTransaction();
 
-            $this->pipeline
-                ->send($id)
-                ->through([
-                    InsertDestroyPipe::class
+        $this->pipeline
+            ->send($id)
+            ->through([
+                InsertDestroyPipe::class
 //                    InsertPropertyDestroyPipe::class
-                ])
-                ->thenReturn();
+            ])
+            ->thenReturn();
 
-            DB::commit();
-        } catch (Exception | Throwable $e) {
-            DB::rollBack();
-            Log::error($e);
+        DB::commit();
+    } catch (Exception | Throwable $e) {
+        DB::rollBack();
+        Log::error($e);
 
-            throw ($e);
-        }
+        throw ($e);
+    }
     }
 }

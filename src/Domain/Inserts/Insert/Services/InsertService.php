@@ -17,14 +17,13 @@ final class InsertService extends AbstractCRUDService
         public InsertRepositoryInterface $insertRepositoryInterface,
         public InsertPipeline $insertPipeline
     ) {
+//        if (!auth('employee')->user()->can('index', Insert::class)) {
+//            abort(403, 'Access to the requested resource is forbidden.');
+//        }
     }
 
     public function index(array $data): Paginator
     {
-        if (!auth('employee')->user()->can('index', Insert::class)) {
-            abort(403, 'Access to the requested resource is forbidden.');
-        }
-
         return $this->insertRepositoryInterface->index($data);
     }
 
@@ -36,9 +35,9 @@ final class InsertService extends AbstractCRUDService
         return $this->insertPipeline->store($data);
     }
 
-    public function show(int $id, array $data): Insert
+    public function show(array $data, int $id): Insert
     {
-        return $this->insertRepositoryInterface->show($id, $data);
+        return $this->insertRepositoryInterface->show($data, $id);
     }
 
     /**

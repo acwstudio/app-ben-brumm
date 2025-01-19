@@ -25,11 +25,11 @@ final class InsertColourCachedRepository extends AbstractCachedRepository implem
             });
     }
 
-    public function show(int $id, array $data): Model|InsertColour
+    public function show(array $data, $id): InsertColour
     {
         return Cache::tags([InsertColour::class])->remember($this->getCacheKey($data), $this->getTtl(),
             function () use ($id, $data) {
-                return $this->insertColourRepositoryInterface->show($id, $data);
+                return $this->insertColourRepositoryInterface->show($data, $id);
             });
     }
 }

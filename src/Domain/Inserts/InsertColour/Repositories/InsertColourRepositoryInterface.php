@@ -9,9 +9,9 @@ use Domain\Shared\CRUDRepositoryInterface;
 use Illuminate\Contracts\Pagination\Paginator;
 use Illuminate\Database\Eloquent\Model;
 
-interface InsertColourRepositoryInterface extends CRUDRepositoryInterface
+interface InsertColourRepositoryInterface
 {
-    public function store(array $data): InsertColour;
+    public function index(array $data): Paginator;
 
-    public function show(int $id, array $data): InsertColour;
+    public function show(array $data, int $id): InsertColour;
 }

@@ -13,5 +13,5 @@ interface StoneTypeRepositoryInterface
 {
     public function index(array $data): Paginator;
 
-    public function show(int $id, array $data): Model|StoneType;
+    public function show(array $data, int $id): Model|StoneType;
 }

@@ -5,12 +5,13 @@ declare(strict_types=1);
 namespace Domain\Inserts\InsertColour\Repositories;
 
 use Domain\Inserts\InsertColour\Models\InsertColour;
+use Domain\Shared\CRUDRepositoryInterface;
 use Illuminate\Contracts\Pagination\Paginator;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\QueryBuilder\AllowedFilter;
 use Spatie\QueryBuilder\QueryBuilder;
 
-final class InsertColourRepository implements InsertColourRepositoryInterface
+final class InsertColourRepository implements InsertColourRepositoryInterface, CRUDRepositoryInterface
 {
     public function index(array $data): Paginator
     {
@@ -26,10 +27,10 @@ final class InsertColourRepository implements InsertColourRepositoryInterface
 
     public function store(array $data): InsertColour
     {
-        // TODO: Implement store() method.
+        return InsertColour::create($data);
     }
 
-    public function show(int $id, array $data): InsertColour
+    public function show(array $data, int $id): InsertColour
     {
         return QueryBuilder::for(InsertColour::class)
             ->where('id', $id)
@@ -37,13 +38,13 @@ final class InsertColourRepository implements InsertColourRepositoryInterface
             ->firstOrFail();
     }
 
-    public function update(array $data): void
+    public function update(array $data, int $id): void
     {
-        // TODO: Implement update() method.
+        InsertColour::find($id)->update($data);
     }
 
     public function destroy(int $id): void
     {
-        // TODO: Implement destroy() method.
+        InsertColour::findOrFail($id)->delete();
     }
 }

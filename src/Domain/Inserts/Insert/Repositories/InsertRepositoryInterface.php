@@ -11,5 +11,5 @@ interface InsertRepositoryInterface
 {
     public function index(array $data): Paginator;
 
-    public function show(int $id, array $data): Insert;
+    public function show(array $data, int $id): Insert;
 }

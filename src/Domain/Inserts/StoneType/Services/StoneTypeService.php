@@ -32,7 +32,7 @@ final class StoneTypeService extends AbstractCRUDService implements StoneTypeRep
         return $this->stoneTypePipeline->store($data);
     }
 
-    public function show(int $id, array $data): StoneType
+    public function show(array $data, int $id): StoneType
     {
         return $this->stoneTypeRepositoryInterface->show($id, $data);
     }

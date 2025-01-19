@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Http\Admin\Inserts\InsertColour\Controllers;
 
+use App\Http\Admin\Inserts\InsertColour\Requests\InsertColourStoreRequest;
+use App\Http\Admin\Inserts\InsertColour\Requests\InsertColourUpdateRequest;
 use App\Http\Admin\Inserts\InsertColour\Resources\InsertColourCollection;
 use App\Http\Admin\Inserts\InsertColour\Resources\InsertColourResource;
 use App\Http\Shared\Controller;
@@ -11,7 +13,6 @@ use Domain\Inserts\InsertColour\Models\InsertColour;
 use Domain\Inserts\InsertColour\Services\InsertColourService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Illuminate\Routing\Console\ControllerMakeCommand;
 
 final class InsertColourController extends Controller
 {
@@ -33,9 +34,16 @@ final class InsertColourController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(InsertColourStoreRequest $request): JsonResponse
     {
-        //
+        $data = $request->all();
+        $model = $this->insertColourService->store($data);
+
+        return (new InsertColourResource(InsertColour::find($model->id)))
+            ->response()
+            ->header('Location', route('admin.insert-colours.show', [
+                'id' => $model->id
+            ]));
     }
 
     /**
@@ -45,7 +53,7 @@ final class InsertColourController extends Controller
     {
         $data = $request->all();
         data_set($data, 'id', $id);
-        $model = $this->insertColourService->show($id, $data);
+        $model = $this->insertColourService->show($data, $id);
 
         return (new InsertColourResource($model))->response();
     }
@@ -53,16 +61,21 @@ final class InsertColourController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, InsertColour $insertColours)
+    public function update(InsertColourUpdateRequest $request, int $id): JsonResponse
     {
-        //
+        $data = $request->all();
+        $this->insertColourService->update($data, $id);
+
+        return response()->json(null, 204);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(InsertColour $insertColours)
+    public function destroy(int $id): JsonResponse
     {
-        //
+        $this->insertColourService->destroy($id);
+
+        return response()->json(null, 204);
     }
 }

@@ -13,7 +13,7 @@ interface CRUDRepositoryInterface
 
     public function store(array $data): Model;
 
-    public function show(int $id, array $data): Model;
+    public function show(array $data, int $id): Model;
 
     public function update(array $data, int $id): void;
 
