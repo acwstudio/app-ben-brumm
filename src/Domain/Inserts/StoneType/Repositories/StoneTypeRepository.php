@@ -26,12 +26,12 @@ final class StoneTypeRepository implements StoneTypeRepositoryInterface, CRUDRep
             ->appends($data);
     }
 
-    public function store(array $data): Model
+    public function store(array $data): StoneType
     {
-        // TODO: Implement store() method.
+        return StoneType::create($data);
     }
 
-    public function show(int $id, array $data): Model|StoneType
+    public function show(int $id, array $data): StoneType
     {
         return QueryBuilder::for(StoneType::class)
             ->where('id', $id)
@@ -39,9 +39,9 @@ final class StoneTypeRepository implements StoneTypeRepositoryInterface, CRUDRep
             ->firstOrFail();
     }
 
-    public function update(array $data): void
+    public function update(array $data, int $id): void
     {
-        // TODO: Implement update() method.
+        StoneType::find($id)->update($data);
     }
 
     public function destroy(int $id): void

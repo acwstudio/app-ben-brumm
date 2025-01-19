@@ -40,7 +40,7 @@ final class InsertPropertyPipeline extends AbstractPipeline
         }
     }
 
-    public function update(array $data): void
+    public function update(array $data, int $id): void
     {
         // TODO: Implement update() method.
     }

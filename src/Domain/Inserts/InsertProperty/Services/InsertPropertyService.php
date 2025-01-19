@@ -38,7 +38,7 @@ final class InsertPropertyService extends AbstractCRUDService implements InsertP
         return $this->insertPropertyRepository->show($id, $data);
     }
 
-    public function update(array $data): void
+    public function update(array $data, int $id): void
     {
         // TODO: Implement update() method.
     }

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Http\Admin\Inserts\StoneType\Controllers;
 
 use App\Http\Admin\Inserts\StoneType\Requests\StoneTypeStoreRequest;
+use App\Http\Admin\Inserts\StoneType\Requests\StoneTypeUpdateRequest;
 use App\Http\Admin\Inserts\StoneType\Resources\StoneTypeCollection;
 use App\Http\Admin\Inserts\StoneType\Resources\StoneTypeResource;
 use App\Http\Shared\Controller;
@@ -60,9 +61,12 @@ final class StoneTypeController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, StoneType $stoneType)
+    public function update(StoneTypeUpdateRequest $request, int $id): JsonResponse
     {
-        //
+        $data = $request->all();
+        $this->stoneTypeService->update($data, $id);
+
+        return response()->json(null, 204);
     }
 
     /**

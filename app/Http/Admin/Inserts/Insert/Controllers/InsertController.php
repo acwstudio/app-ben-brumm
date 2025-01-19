@@ -64,9 +64,7 @@ final class InsertController extends Controller
      */
     public function update(InsertUpdateRequest $request, int $id): JsonResponse
     {
-//        dd($request->input());
         $data = $request->all();
-
         $this->insertService->update($data, $id);
 
         return response()->json(null, 204);
