@@ -43,9 +43,9 @@ final class InsertRepository implements InsertRepositoryInterface, CRUDRepositor
             ->firstOrFail();
     }
 
-    public function update(array $data): void
+    public function update(array $data, int $id): void
     {
-        // TODO: Implement update() method.
+        Insert::find($id)->update($data);
     }
 
     public function destroy(int $id): void

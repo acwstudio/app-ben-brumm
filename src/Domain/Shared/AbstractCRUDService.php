@@ -15,7 +15,7 @@ abstract class AbstractCRUDService
 
     abstract public function show(int $id, array $data): Model;
 
-    abstract public function update(array $data): void;
+    abstract public function update(array $data, int $id): void;
 
     abstract public function destroy(int $id): void;
 }

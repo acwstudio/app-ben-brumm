@@ -26,7 +26,7 @@ final class StoneTypeStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'data'                                => ['required','array','min:2'],
+            'data'                                => ['required','array:type,attributes,relationships','min:2'],
             'data.type'                           => ['required','string','in:' . StoneType::TYPE_RESOURCE],
             'data.attributes'                     => [
                 'required','array:name,description,is_active'

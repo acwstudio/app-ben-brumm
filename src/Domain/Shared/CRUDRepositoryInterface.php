@@ -15,7 +15,7 @@ interface CRUDRepositoryInterface
 
     public function show(int $id, array $data): Model;
 
-    public function update(array $data): void;
+    public function update(array $data, int $id): void;
 
     public function destroy(int $id): void;
 }

@@ -37,9 +37,9 @@ final class InsertService extends AbstractCRUDService
         return $this->insertRepositoryInterface->show($id, $data);
     }
 
-    public function update(array $data): void
+    public function update(array $data, int $id): void
     {
-        $this->insertPipeline->update($data);
+        $this->insertPipeline->update($data, $id);
     }
 
     public function destroy(int $id): void

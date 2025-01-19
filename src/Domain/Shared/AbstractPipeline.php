@@ -27,9 +27,10 @@ abstract class AbstractPipeline
 
     /**
      * @param array $data
+     * @param int $id
      * @return void
      */
-    abstract public function update(array $data): void;
+    abstract public function update(array $data, int $id): void;
 
     /**
      * @param int $id

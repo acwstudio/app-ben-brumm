@@ -6,6 +6,7 @@ namespace Domain\Inserts\Insert\Pipelines;
 
 use Domain\Inserts\Insert\Models\Insert;
 use Domain\Inserts\Insert\Pipelines\Pipes\InsertStorePipe;
+use Domain\Inserts\Insert\Pipelines\Pipes\InsertUpdatePipe;
 use Domain\Shared\AbstractPipeline;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
@@ -39,9 +40,28 @@ final class InsertPipeline extends AbstractPipeline
         }
     }
 
-    public function update(array $data): void
+    /**
+     * @throws Throwable
+     */
+    public function update(array $data, int $id): void
     {
-        // TODO: Implement update() method.
+        try {
+            DB::beginTransaction();
+
+            $this->pipeline
+                ->send(data_set($data,'id',$id))
+                ->through([
+                    InsertUpdatePipe::class
+                ])
+                ->thenReturn();
+
+            DB::commit();
+        } catch (\Exception | \Throwable $e) {
+            DB::rollBack();
+            Log::error($e);
+
+            throw ($e);
+        }
     }
 
     public function destroy(int $id): void

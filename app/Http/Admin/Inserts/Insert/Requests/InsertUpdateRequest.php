@@ -25,7 +25,7 @@ final class InsertUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'data'                                => ['required','array','min:2'],
+            'data'                                => ['required','array:type,attributes','min:2'],
             'data.type'                           => ['required','string','in:' . Insert::TYPE_RESOURCE],
             'data.attributes'                     => [
                 'required','array:jewellery_id,stone_id,insert_colour_id,insert_shape_id,insert_property_id'
