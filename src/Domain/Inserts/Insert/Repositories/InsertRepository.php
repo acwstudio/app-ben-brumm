@@ -50,6 +50,6 @@ final class InsertRepository implements InsertRepositoryInterface, CRUDRepositor
 
     public function destroy(int $id): void
     {
-        // TODO: Implement destroy() method.
+        Insert::findOrFail($id)->delete();
     }
 }

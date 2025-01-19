@@ -36,4 +36,11 @@ return Application::configure(basePath: dirname(__DIR__))
                 ], 401);
             }
         });
+        $exceptions->render(function (\Symfony\Component\HttpKernel\Exception\HttpException $e, Request $request) {
+            if ($request->is('api/*')) {
+                return response()->json([
+                    'message' => $e->getMessage(),
+                ], 403);
+            }
+        });
     })->create();

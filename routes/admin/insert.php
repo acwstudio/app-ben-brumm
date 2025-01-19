@@ -34,7 +34,7 @@ use App\Http\Admin\Inserts\Stone\Controllers\StonesStoneTypeRelatedController;
 use App\Http\Admin\Inserts\Stone\Controllers\StonesStoneTypeRelationshipsController;
 
 Route::group([
-//    'middleware' => ['auth:employee'],
+    'middleware' => ['auth:employee'],
     'prefix' => 'admin'
 ], function () {
     /*****************  INSERTS ROUTES **************/

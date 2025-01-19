@@ -72,6 +72,7 @@ final class InsertController extends Controller
 
     /**
      * Remove the specified resource from storage.
+     * @throws \Throwable
      */
     public function destroy(int $id): JsonResponse
     {
