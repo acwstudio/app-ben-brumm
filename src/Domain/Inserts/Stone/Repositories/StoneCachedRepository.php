@@ -25,7 +25,7 @@ final class StoneCachedRepository extends AbstractCachedRepository implements St
             });
     }
 
-    public function show(int $id, array $data): Model|Stone
+    public function show(array $data, int $id): Model|Stone
     {
         return Cache::tags([Stone::class])->remember($this->getCacheKey($data), $this->getTtl(),
             function () use ($id, $data) {

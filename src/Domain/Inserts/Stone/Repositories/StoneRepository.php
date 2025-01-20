@@ -5,17 +5,17 @@ declare(strict_types=1);
 namespace Domain\Inserts\Stone\Repositories;
 
 use Domain\Inserts\Stone\Models\Stone;
+use Domain\Shared\CRUDRepositoryInterface;
 use Illuminate\Contracts\Pagination\Paginator;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\QueryBuilder\AllowedFilter;
 use Spatie\QueryBuilder\QueryBuilder;
 
-final class StoneRepository implements StoneRepositoryInterface
+final class StoneRepository implements StoneRepositoryInterface, CRUDRepositoryInterface
 {
     public function index(array $data): Paginator
     {
         return QueryBuilder::for(Stone::class)
-            ->allowedFields(\DB::getSchemaBuilder()->getColumnListing('stones'))
             ->allowedIncludes(['stoneType','inserts'])
             ->allowedFilters([
                 AllowedFilter::exact('id'),
@@ -25,12 +25,26 @@ final class StoneRepository implements StoneRepositoryInterface
             ->appends($data);
     }
 
-    public function show(int $id, array $data): Model|Stone
+    public function store(array $data): Stone
+    {
+        return Stone::create($data);
+    }
+
+    public function show(array $data, int $id): Model|Stone
     {
         return QueryBuilder::for(Stone::class)
             ->where('id', $id)
-//            ->allowedFields(\DB::getSchemaBuilder()->getColumnListing('blog_posts'))
-//            ->allowedIncludes(['blogCategory'])
+            ->allowedIncludes(['stoneType','inserts'])
             ->firstOrFail();
+    }
+
+    public function update(array $data, int $id): void
+    {
+        Stone::find($id)->update($data);
+    }
+
+    public function destroy(int $id): void
+    {
+        Stone::findOrFail($id)->delete();
     }
 }

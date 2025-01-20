@@ -12,5 +12,5 @@ interface StoneRepositoryInterface
 {
     public function index(array $data): Paginator;
 
-    public function show(int $id, array $data): Model|Stone;
+    public function show(array $data, int $id): Model|Stone;
 }

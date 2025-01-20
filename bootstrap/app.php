@@ -59,4 +59,11 @@ return Application::configure(basePath: dirname(__DIR__))
                 ], 500);
             }
         });
+        $exceptions->render(function (TypeError $e, Request $request) {
+            if ($request->is('api/*')) {
+                return response()->json([
+                    'message' => Str::limit($e->getMessage(), '60'),
+                ], 500);
+            }
+        });
     })->create();

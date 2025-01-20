@@ -4,7 +4,10 @@ declare(strict_types=1);
 
 namespace App\Http\Admin\Inserts\Stone\Controllers;
 
+use App\Http\Admin\Inserts\Stone\Requests\StoneStoreRequest;
+use App\Http\Admin\Inserts\Stone\Requests\StoneUpdateRequest;
 use App\Http\Admin\Inserts\Stone\Resources\StoneCollection;
+use App\Http\Admin\Inserts\Stone\Resources\StoneResource;
 use App\Http\Shared\Controller;
 use Domain\Inserts\Stone\Models\Stone;
 use Domain\Inserts\Stone\Services\StoneService;
@@ -31,32 +34,48 @@ final class StoneController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoneStoreRequest $request): JsonResponse
     {
-        //
+        $data = $request->all();
+        $model = $this->stoneService->store($data);
+
+        return (new StoneResource(Stone::find($model->id)))
+            ->response()
+            ->header('Location', route('admin.stones.show', [
+                'id' => $model->id
+            ]));
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Stone $stone)
+    public function show(Request $request, int $id): JsonResponse
     {
-        //
+        $data = $request->all();
+        data_set($data, 'id', $id);
+        $model = $this->stoneService->show($data, $id);
+
+        return (new StoneResource($model))->response();
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Stone $stone)
+    public function update(StoneUpdateRequest $request, int $id): JsonResponse
     {
-        //
+        $data = $request->all();
+        $this->stoneService->update($data, $id);
+
+        return response()->json(null, 204);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Stone $stone)
+    public function destroy(int $id): JsonResponse
     {
-        //
+        $this->stoneService->destroy($id);
+
+        return response()->json(null, 204);
     }
 }
