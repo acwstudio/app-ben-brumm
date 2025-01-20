@@ -31,7 +31,7 @@ final class StoneTypeRepository implements StoneTypeRepositoryInterface, CRUDRep
         return StoneType::create($data);
     }
 
-    public function show(int $id, array $data): StoneType
+    public function show(array $data, int $id): StoneType
     {
         return QueryBuilder::for(StoneType::class)
             ->where('id', $id)
@@ -46,6 +46,6 @@ final class StoneTypeRepository implements StoneTypeRepositoryInterface, CRUDRep
 
     public function destroy(int $id): void
     {
-        // TODO: Implement destroy() method.
+        StoneType::findOrFail($id)->delete();
     }
 }

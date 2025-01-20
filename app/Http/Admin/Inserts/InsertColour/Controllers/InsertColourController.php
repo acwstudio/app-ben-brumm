@@ -33,6 +33,7 @@ final class InsertColourController extends Controller
 
     /**
      * Store a newly created resource in storage.
+     * @throws \Throwable
      */
     public function store(InsertColourStoreRequest $request): JsonResponse
     {
@@ -60,6 +61,7 @@ final class InsertColourController extends Controller
 
     /**
      * Update the specified resource in storage.
+     * @throws \Throwable
      */
     public function update(InsertColourUpdateRequest $request, int $id): JsonResponse
     {
@@ -71,6 +73,7 @@ final class InsertColourController extends Controller
 
     /**
      * Remove the specified resource from storage.
+     * @throws \Throwable
      */
     public function destroy(int $id): JsonResponse
     {

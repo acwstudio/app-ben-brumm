@@ -5,10 +5,12 @@ declare(strict_types=1);
 namespace Domain\Inserts\StoneType\Pipelines;
 
 use Domain\Inserts\StoneType\Models\StoneType;
+use Domain\Inserts\StoneType\Pipelines\Pipes\StoneTypeDestroyPipe;
 use Domain\Inserts\StoneType\Pipelines\Pipes\StoneTypeStonesUpdateRelationsPipe;
 use Domain\Inserts\StoneType\Pipelines\Pipes\StoneTypeStorePipe;
 use Domain\Inserts\StoneType\Pipelines\Pipes\StoneTypeUpdatePipe;
 use Domain\Shared\AbstractPipeline;
+use Exception;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
@@ -36,7 +38,7 @@ final class StoneTypePipeline extends AbstractPipeline
             DB::commit();
 
             return data_get($data, 'model');
-        } catch (\Exception | Throwable $e) {
+        } catch (Exception | Throwable $e) {
             DB::rollBack();
             Log::error($e);
 
@@ -60,7 +62,7 @@ final class StoneTypePipeline extends AbstractPipeline
                 ->thenReturn();
 
             DB::commit();
-        } catch (\Exception | \Throwable $e) {
+        } catch (Exception | \Throwable $e) {
             DB::rollBack();
             Log::error($e);
 
@@ -68,8 +70,27 @@ final class StoneTypePipeline extends AbstractPipeline
         }
     }
 
+    /**
+     * @throws Throwable
+     */
     public function destroy(int $id): void
     {
-        // TODO: Implement destroy() method.
+        try {
+            DB::beginTransaction();
+
+            $this->pipeline
+                ->send($id)
+                ->through([
+                    StoneTypeDestroyPipe::class
+                ])
+                ->thenReturn();
+
+            DB::commit();
+        } catch (Exception | Throwable $e) {
+            DB::rollBack();
+            Log::error($e);
+
+            throw ($e);
+        }
     }
 }

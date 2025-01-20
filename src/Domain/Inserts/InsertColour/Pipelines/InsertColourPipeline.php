@@ -43,6 +43,9 @@ final class InsertColourPipeline extends AbstractPipeline
         }
     }
 
+    /**
+     * @throws Throwable
+     */
     public function update(array $data, int $id): void
     {
         try {
@@ -64,6 +67,9 @@ final class InsertColourPipeline extends AbstractPipeline
         }
     }
 
+    /**
+     * @throws Throwable
+     */
     public function destroy(int $id): void
     {
         try {

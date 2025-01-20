@@ -33,6 +33,7 @@ final class StoneTypeController extends Controller
 
     /**
      * Store a newly created resource in storage.
+     * @throws \Throwable
      */
     public function store(StoneTypeStoreRequest $request): JsonResponse
     {
@@ -53,13 +54,14 @@ final class StoneTypeController extends Controller
     {
         $data = $request->all();
         data_set($data, 'id', $id);
-        $model = $this->stoneTypeService->show($id, $data);
+        $model = $this->stoneTypeService->show($data, $id);
 
         return (new StoneTypeResource($model))->response();
     }
 
     /**
      * Update the specified resource in storage.
+     * @throws \Throwable
      */
     public function update(StoneTypeUpdateRequest $request, int $id): JsonResponse
     {
@@ -71,9 +73,12 @@ final class StoneTypeController extends Controller
 
     /**
      * Remove the specified resource from storage.
+     * @throws \Throwable
      */
-    public function destroy(StoneType $stoneType)
+    public function destroy(int $id): JsonResponse
     {
-        //
+        $this->stoneTypeService->destroy($id);
+
+        return response()->json(null, 204);
     }
 }

@@ -11,7 +11,7 @@ use Domain\Shared\AbstractCRUDService;
 use Illuminate\Contracts\Pagination\Paginator;
 use Illuminate\Database\Eloquent\Model;
 
-final class StoneTypeService extends AbstractCRUDService implements StoneTypeRepositoryInterface
+final class StoneTypeService extends AbstractCRUDService
 {
     public function __construct(
         public StoneTypeRepositoryInterface $stoneTypeRepositoryInterface,
@@ -34,7 +34,7 @@ final class StoneTypeService extends AbstractCRUDService implements StoneTypeRep
 
     public function show(array $data, int $id): StoneType
     {
-        return $this->stoneTypeRepositoryInterface->show($id, $data);
+        return $this->stoneTypeRepositoryInterface->show($data, $id);
     }
 
     /**
@@ -45,8 +45,11 @@ final class StoneTypeService extends AbstractCRUDService implements StoneTypeRep
         $this->stoneTypePipeline->update($data, $id);
     }
 
+    /**
+     * @throws \Throwable
+     */
     public function destroy(int $id): void
     {
-        // TODO: Implement destroy() method.
+        $this->stoneTypePipeline->destroy($id);
     }
 }
