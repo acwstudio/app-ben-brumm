@@ -25,11 +25,11 @@ final class InsertShapeCachedRepository extends AbstractCachedRepository impleme
             });
     }
 
-    public function show(int $id, array $data): Model|InsertShape
+    public function show(array $data, int $id): InsertShape
     {
         return Cache::tags([InsertShape::class])->remember($this->getCacheKey($data), $this->getTtl(),
             function () use ($id, $data) {
-                return $this->insertShapeRepositoryInterface->show($id, $data);
+                return $this->insertShapeRepositoryInterface->show($data, $id);
             });
     }
 }

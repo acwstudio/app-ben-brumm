@@ -1,0 +1,33 @@
+<?php
+
+declare(strict_types=1);
+
+namespace App\Http\Admin\Inserts\InsertShape\Requests;
+
+use Domain\Inserts\Insert\Models\Insert;
+use Illuminate\Foundation\Http\FormRequest;
+
+final class InsertShapeInsertsUpdateRelationsRequest extends FormRequest
+{
+    /**
+     * Determine if the user is authorized to make this request.
+     */
+    public function authorize(): bool
+    {
+        return true;
+    }
+
+    /**
+     * Get the validation rules that apply to the request.
+     *
+     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
+     */
+    public function rules(): array
+    {
+        return [
+            'data'        => ['required','array', 'min:1'],
+            'data.*.id'   => ['required','integer','exists:inserts,id'],
+            'data.*.type' => ['required','string','in:' . Insert::TYPE_RESOURCE],
+        ];
+    }
+}

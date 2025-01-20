@@ -5,15 +5,16 @@ declare(strict_types=1);
 namespace Domain\Inserts\InsertShape\Services;
 
 use Domain\Inserts\InsertShape\Models\InsertShape;
+use Domain\Inserts\InsertShape\Pipelines\InsertShapePipeline;
 use Domain\Inserts\InsertShape\Repositories\InsertShapeRepositoryInterface;
+use Domain\Shared\AbstractCRUDService;
 use Illuminate\Contracts\Pagination\Paginator;
-use Illuminate\Database\Eloquent\Model;
 
-final class InsertShapeService implements InsertShapeRepositoryInterface
+final class InsertShapeService extends AbstractCRUDService
 {
     public function __construct(
         public InsertShapeRepositoryInterface $insertShapeRepositoryInterface,
-//        public InsertShapePipeline $insertShapePipeline
+        public InsertShapePipeline $insertShapePipeline
     ) {
     }
 
@@ -22,23 +23,32 @@ final class InsertShapeService implements InsertShapeRepositoryInterface
         return $this->insertShapeRepositoryInterface->index($data);
     }
 
+    /**
+     * @throws \Throwable
+     */
     public function store(array $data): InsertShape
     {
-        // TODO: Implement store() method.
+        return $this->insertShapePipeline->store($data);
     }
 
-    public function show(int $id, array $data): InsertShape
+    public function show(array $data, int $id): InsertShape
     {
-        // TODO: Implement show() method.
+        return $this->insertShapeRepositoryInterface->show($data, $id);
     }
 
-    public function update(array $data): void
+    /**
+     * @throws \Throwable
+     */
+    public function update(array $data, $id): void
     {
-        // TODO: Implement update() method.
+        $this->insertShapePipeline->update($data, $id);
     }
 
+    /**
+     * @throws \Throwable
+     */
     public function destroy(int $id): void
     {
-        // TODO: Implement destroy() method.
+        $this->insertShapePipeline->destroy($id);
     }
 }

@@ -5,17 +5,17 @@ declare(strict_types=1);
 namespace Domain\Inserts\InsertShape\Repositories;
 
 use Domain\Inserts\InsertShape\Models\InsertShape;
+use Domain\Shared\CRUDRepositoryInterface;
 use Illuminate\Contracts\Pagination\Paginator;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\QueryBuilder\AllowedFilter;
 use Spatie\QueryBuilder\QueryBuilder;
 
-final class InsertShapeRepository implements InsertShapeRepositoryInterface
+final class InsertShapeRepository implements InsertShapeRepositoryInterface, CRUDRepositoryInterface
 {
     public function index(array $data): Paginator
     {
         return QueryBuilder::for(InsertShape::class)
-            ->allowedFields(\DB::getSchemaBuilder()->getColumnListing('insert_shapes'))
             ->allowedIncludes(['inserts'])
             ->allowedFilters([
                 AllowedFilter::exact('id'),
@@ -27,25 +27,24 @@ final class InsertShapeRepository implements InsertShapeRepositoryInterface
 
     public function store(array $data): InsertShape
     {
-        // TODO: Implement store() method.
+        return InsertShape::create($data);
     }
 
-    public function show(int $id, array $data): InsertShape
+    public function show(array $data, int $id): InsertShape
     {
         return QueryBuilder::for(InsertShape::class)
             ->where('id', $id)
-//            ->allowedFields(\DB::getSchemaBuilder()->getColumnListing('blog_posts'))
-//            ->allowedIncludes(['blogCategory'])
+            ->allowedIncludes(['inserts'])
             ->firstOrFail();
     }
 
-    public function update(array $data): void
+    public function update(array $data, int $id): void
     {
-        // TODO: Implement update() method.
+        InsertShape::find($id)->update($data);
     }
 
     public function destroy(int $id): void
     {
-        // TODO: Implement destroy() method.
+        InsertShape::findOrFail($id)->delete();
     }
 }

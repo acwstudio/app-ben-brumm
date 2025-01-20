@@ -12,6 +12,8 @@ final class InsertShape extends BaseModel
 {
     const TYPE_RESOURCE = 'insertShapes';
 
+    protected $guarded = [];
+
     public function inserts(): HasMany
     {
         return $this->hasMany(Insert::class);
