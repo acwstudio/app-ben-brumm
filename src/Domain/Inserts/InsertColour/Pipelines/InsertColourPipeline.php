@@ -59,7 +59,7 @@ final class InsertColourPipeline extends AbstractPipeline
                 ->thenReturn();
 
             DB::commit();
-        } catch (Exception | \Throwable $e) {
+        } catch (Exception | Throwable $e) {
             DB::rollBack();
             Log::error($e);
 

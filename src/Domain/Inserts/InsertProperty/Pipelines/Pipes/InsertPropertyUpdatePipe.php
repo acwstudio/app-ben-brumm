@@ -6,7 +6,7 @@ namespace Domain\Inserts\InsertProperty\Pipelines\Pipes;
 
 use Domain\Inserts\InsertProperty\Repositories\InsertPropertyRepository;
 
-final class InsertPropertyStorePipe
+final class InsertPropertyUpdatePipe
 {
     public function __construct(public InsertPropertyRepository $repository)
     {
@@ -14,9 +14,7 @@ final class InsertPropertyStorePipe
 
     public function handle(array $data, \Closure $next): mixed
     {
-        $model = $this->repository->store($data);
-        data_set($data, 'model', $model);
-        data_set($data, 'id', $model->id);
+        $this->repository->update(data_get($data, 'data.attributes'), data_get($data, 'id'));
 
         return $next($data);
     }

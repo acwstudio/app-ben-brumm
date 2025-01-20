@@ -4,6 +4,7 @@ namespace App\Http\Admin\Inserts\Insert\Policies;
 
 use Domain\Employees\Models\Employee;
 use Illuminate\Auth\Access\HandlesAuthorization;
+use Illuminate\Auth\Access\Response;
 
 class InsertPolicy
 {
@@ -41,9 +42,14 @@ class InsertPolicy
         return auth('employee')->id() === 2;
     }
 
-    public function destroy(Employee $employee): bool
+    public function destroy(Employee $employee): Response
     {
+//        if (auth('employee')->id() !== 2) {
+//            return Response::deny('Your team does not have access to this server');
+//        }
+//
+//        return Response::allow();
 //        dd(auth('employee')->id() === 1);
-        return auth('employee')->id() === 2;
+//        return auth('employee')->id() === 2;
     }
 }

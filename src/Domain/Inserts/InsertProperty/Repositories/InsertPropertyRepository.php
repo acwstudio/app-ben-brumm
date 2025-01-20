@@ -5,13 +5,13 @@ declare(strict_types=1);
 namespace Domain\Inserts\InsertProperty\Repositories;
 
 use Domain\Inserts\InsertProperty\Models\InsertProperty;
+use Domain\Shared\CRUDRepositoryInterface;
 use Illuminate\Contracts\Pagination\Paginator;
-use Illuminate\Database\Eloquent\Model;
 use Spatie\QueryBuilder\AllowedFilter;
 use Spatie\QueryBuilder\QueryBuilder;
 
 /** @mixin InsertProperty */
-final class InsertPropertyRepository implements InsertPropertyInterface
+final class InsertPropertyRepository implements InsertPropertyRepositoryInterface, CRUDRepositoryInterface
 {
     public function index(array $data): Paginator
     {
@@ -30,7 +30,7 @@ final class InsertPropertyRepository implements InsertPropertyInterface
         return InsertProperty::create(data_get($data, 'data.attributes'));
     }
 
-    public function show(int $id, array $data): InsertProperty
+    public function show(array $data, int $id): InsertProperty
     {
         return QueryBuilder::for(InsertProperty::class)
             ->where('id', $id)
@@ -40,11 +40,11 @@ final class InsertPropertyRepository implements InsertPropertyInterface
 
     public function update(array $data, int $id): void
     {
-        // TODO: Implement update() method.
+        InsertProperty::find($id)->update($data);
     }
 
     public function destroy(int $id): void
     {
-        // TODO: Implement destroy() method.
+        InsertProperty::findOrFail($id)->delete();
     }
 }

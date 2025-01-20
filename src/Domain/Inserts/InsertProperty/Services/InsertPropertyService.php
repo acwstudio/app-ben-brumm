@@ -4,19 +4,17 @@ declare(strict_types=1);
 
 namespace Domain\Inserts\InsertProperty\Services;
 
-use Domain\Inserts\Insert\Repositories\InsertRepositoryInterface;
 use Domain\Inserts\InsertProperty\Models\InsertProperty;
 use Domain\Inserts\InsertProperty\Pipelines\InsertPropertyPipeline;
-use Domain\Inserts\InsertProperty\Repositories\InsertPropertyInterface;
 use Domain\Inserts\InsertProperty\Repositories\InsertPropertyRepository;
 use Domain\Shared\AbstractCRUDService;
 use Illuminate\Contracts\Pagination\Paginator;
 
-final class InsertPropertyService extends AbstractCRUDService implements InsertPropertyInterface
+final class InsertPropertyService extends AbstractCRUDService
 {
     public function __construct(
         public InsertPropertyRepository $insertPropertyRepository,
-        public InsertPropertyPipeline $insertPropertyPipeline
+        public InsertPropertyPipeline   $insertPropertyPipeline
     ) {
     }
 
@@ -33,18 +31,24 @@ final class InsertPropertyService extends AbstractCRUDService implements InsertP
         return $this->insertPropertyPipeline->store($data);
     }
 
-    public function show(int $id, array $data): InsertProperty
+    public function show(array $data, int $id): InsertProperty
     {
-        return $this->insertPropertyRepository->show($id, $data);
+        return $this->insertPropertyRepository->show($data, $id);
     }
 
+    /**
+     * @throws \Throwable
+     */
     public function update(array $data, int $id): void
     {
-        // TODO: Implement update() method.
+        $this->insertPropertyPipeline->update($data, $id);
     }
 
+    /**
+     * @throws \Throwable
+     */
     public function destroy(int $id): void
     {
-        // TODO: Implement destroy() method.
+        $this->insertPropertyPipeline->destroy($id);
     }
 }

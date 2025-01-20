@@ -6,18 +6,16 @@ namespace Domain\Inserts\InsertProperty\Pipelines\Pipes;
 
 use Domain\Inserts\InsertProperty\Repositories\InsertPropertyRepository;
 
-final class InsertPropertyStorePipe
+final class InsertPropertyDestroyPipe
 {
     public function __construct(public InsertPropertyRepository $repository)
     {
     }
 
-    public function handle(array $data, \Closure $next): mixed
+    public function handle(int $id, \Closure $next): mixed
     {
-        $model = $this->repository->store($data);
-        data_set($data, 'model', $model);
-        data_set($data, 'id', $model->id);
+        $this->repository->destroy($id);
 
-        return $next($data);
+        return $next($id);
     }
 }

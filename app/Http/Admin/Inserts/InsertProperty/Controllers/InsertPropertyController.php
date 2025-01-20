@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Http\Admin\Inserts\InsertProperty\Controllers;
 
 use App\Http\Admin\Inserts\InsertProperty\Requests\InsertPropertyStoreRequest;
+use App\Http\Admin\Inserts\InsertProperty\Requests\InsertPropertyUpdateRequest;
 use App\Http\Admin\Inserts\InsertProperty\Resources\InsertPropertyCollection;
 use App\Http\Admin\Inserts\InsertProperty\Resources\InsertPropertyResource;
 use App\Http\Shared\Controller;
@@ -26,12 +27,13 @@ final class InsertPropertyController extends Controller
     {
         $data = $request->all();
         $items = $this->insertPropertyService->index($data);
-//        dd($items);
+
         return (new InsertPropertyCollection($items))->response();
     }
 
     /**
      * Store a newly created resource in storage.
+     * @throws \Throwable
      */
     public function store(InsertPropertyStoreRequest $request): JsonResponse
     {
@@ -53,24 +55,31 @@ final class InsertPropertyController extends Controller
     {
         $data = $request->all();
         data_set($data, 'id', $id);
-        $model = $this->insertPropertyService->show($id, $data);
+        $model = $this->insertPropertyService->show($data, $id);
 
         return (new InsertPropertyResource($model))->response();
     }
 
     /**
      * Update the specified resource in storage.
+     * @throws \Throwable
      */
-    public function update(Request $request, InsertProperty $insertProperty)
+    public function update(InsertPropertyUpdateRequest $request, int $id): JsonResponse
     {
-        //
+        $data = $request->all();
+        $this->insertPropertyService->update($data, $id);
+
+        return response()->json(null, 204);
     }
 
     /**
      * Remove the specified resource from storage.
+     * @throws \Throwable
      */
-    public function destroy(InsertProperty $insertProperty)
+    public function destroy(int $id): JsonResponse
     {
-        //
+        $this->insertPropertyService->destroy($id);
+
+        return response()->json(null, 204);
     }
 }
