@@ -6,12 +6,12 @@ namespace App\Http\Admin\Inserts\Insert\Controllers;
 
 use App\Http\Admin\Inserts\InsertColour\Resources\InsertColourResource;
 use App\Http\Shared\Controller;
-use Domain\Inserts\Insert\Services\RelationServices\InsertsInsertColourService;
+use Domain\Inserts\Insert\Services\RelationServices\InsertsInsertColourRelationsService;
 use Illuminate\Http\JsonResponse;
 
 final class InsertsInsertColourRelatedController extends Controller
 {
-    public function __construct(public InsertsInsertColourService $insertsInsertColourService)
+    public function __construct(public InsertsInsertColourRelationsService $insertsInsertColourService)
     {
     }
 

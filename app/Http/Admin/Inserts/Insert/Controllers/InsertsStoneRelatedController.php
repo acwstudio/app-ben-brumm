@@ -6,12 +6,12 @@ namespace App\Http\Admin\Inserts\Insert\Controllers;
 
 use App\Http\Admin\Inserts\Stone\Resources\StoneResource;
 use App\Http\Shared\Controller;
-use Domain\Inserts\Insert\Services\RelationServices\InsertsStoneService;
+use Domain\Inserts\Insert\Services\RelationServices\InsertsStoneRelationsService;
 use Illuminate\Http\JsonResponse;
 
 final class InsertsStoneRelatedController extends Controller
 {
-    public function __construct(public InsertsStoneService $insertsStoneService)
+    public function __construct(public InsertsStoneRelationsService $insertsStoneService)
     {
     }
 

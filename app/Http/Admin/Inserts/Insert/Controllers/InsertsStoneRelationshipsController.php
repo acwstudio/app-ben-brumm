@@ -8,12 +8,12 @@ use App\Http\Admin\Inserts\Insert\Requests\InsertsStoneUpdateRelationsRequest;
 use App\Http\Admin\Shared\Resources\Identifiers\ApiEntityIdentifierResource;
 use App\Http\Shared\Controller;
 use Domain\Inserts\Insert\Models\Insert;
-use Domain\Inserts\Insert\Services\RelationServices\InsertsStoneService;
+use Domain\Inserts\Insert\Services\RelationServices\InsertsStoneRelationsService;
 use Illuminate\Http\JsonResponse;
 
 final class InsertsStoneRelationshipsController extends Controller
 {
-    public function __construct(public InsertsStoneService $insertsStoneService)
+    public function __construct(public InsertsStoneRelationsService $insertsStoneService)
     {
     }
 

@@ -10,7 +10,7 @@ use Domain\Shared\AbstractRelationsService;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
 
-final class InsertsStoneService extends AbstractRelationsService
+final class InsertsStoneRelationsService extends AbstractRelationsService
 {
     public function __construct(public InsertsStoneRepository $repository)
     {

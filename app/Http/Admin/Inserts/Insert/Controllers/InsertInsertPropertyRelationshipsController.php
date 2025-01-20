@@ -7,12 +7,12 @@ namespace App\Http\Admin\Inserts\Insert\Controllers;
 use App\Http\Admin\Inserts\Insert\Requests\InsertInsertPropertyUpdateRelationsRequest;
 use App\Http\Admin\Shared\Resources\Identifiers\ApiEntityIdentifierResource;
 use App\Http\Shared\Controller;
-use Domain\Inserts\Insert\Services\RelationServices\InsertInsertPropertyService;
+use Domain\Inserts\Insert\Services\RelationServices\InsertInsertPropertyRelationsService;
 use Illuminate\Http\JsonResponse;
 
 final class InsertInsertPropertyRelationshipsController extends Controller
 {
-    public function __construct(public InsertInsertPropertyService $insertInsertPropertyService)
+    public function __construct(public InsertInsertPropertyRelationsService $insertInsertPropertyService)
     {
     }
 

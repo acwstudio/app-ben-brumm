@@ -78,7 +78,6 @@ final class InsertPipeline extends AbstractPipeline
             ->send($id)
             ->through([
                 InsertDestroyPipe::class
-//                    InsertPropertyDestroyPipe::class
             ])
             ->thenReturn();
 

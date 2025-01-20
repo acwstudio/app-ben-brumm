@@ -8,7 +8,7 @@ use Domain\Inserts\Insert\Repositories\RelationRepositories\InsertInsertProperty
 use Domain\Inserts\InsertProperty\Models\InsertProperty;
 use Domain\Shared\AbstractRelationsService;
 
-final class InsertInsertPropertyService extends AbstractRelationsService
+final class InsertInsertPropertyRelationsService extends AbstractRelationsService
 {
     public function __construct(public InsertInsertPropertyRepository $repository)
     {

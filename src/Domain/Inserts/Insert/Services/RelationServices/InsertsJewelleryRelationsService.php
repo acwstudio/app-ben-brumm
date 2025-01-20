@@ -4,19 +4,18 @@ declare(strict_types=1);
 
 namespace Domain\Inserts\Insert\Services\RelationServices;
 
-use Domain\Inserts\Insert\Repositories\RelationRepositories\InsertsInsertColourRepository;
-use Domain\Inserts\InsertColour\Models\InsertColour;
+use Domain\Inserts\Insert\Repositories\RelationRepositories\InsertsJewelleryRepository;
 use Domain\Shared\AbstractRelationsService;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
 
-final class InsertsInsertColourService extends AbstractRelationsService
+final class InsertsJewelleryRelationsService extends AbstractRelationsService
 {
-    public function __construct(public InsertsInsertColourRepository $repository)
+    public function __construct(public InsertsJewelleryRepository $repository)
     {
     }
 
-    public function index(int $id): Model|Collection|InsertColour
+    public function index(int $id): Model|Collection
     {
         return $this->repository->index($id);
     }

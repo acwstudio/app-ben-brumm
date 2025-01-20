@@ -7,12 +7,12 @@ namespace App\Http\Admin\Inserts\Insert\Controllers;
 use App\Http\Admin\Inserts\Insert\Requests\InsertsJewelleryUpdateRelationsRequest;
 use App\Http\Admin\Shared\Resources\Identifiers\ApiEntityIdentifierResource;
 use App\Http\Shared\Controller;
-use Domain\Inserts\Insert\Services\RelationServices\InsertsJewelleryService;
+use Domain\Inserts\Insert\Services\RelationServices\InsertsJewelleryRelationsService;
 use Illuminate\Http\JsonResponse;
 
 final class InsertsJewelleryRelationshipsController extends Controller
 {
-    public function __construct(public InsertsJewelleryService $insertsJewelleryService)
+    public function __construct(public InsertsJewelleryRelationsService $insertsJewelleryService)
     {
     }
 

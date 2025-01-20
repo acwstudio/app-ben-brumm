@@ -8,7 +8,7 @@ use Domain\Inserts\Insert\Repositories\RelationRepositories\InsertsInsertShapeRe
 use Domain\Inserts\InsertShape\Models\InsertShape;
 use Domain\Shared\AbstractRelationsService;
 
-final class InsertsInsertShapeService extends AbstractRelationsService
+final class InsertsInsertShapeRelationsService extends AbstractRelationsService
 {
     public function __construct(public InsertsInsertShapeRepository $repository)
     {
