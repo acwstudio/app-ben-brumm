@@ -5,14 +5,14 @@ declare(strict_types=1);
 namespace Domain\Inserts\StoneType\Services\RelationServices;
 
 use Domain\Inserts\Stone\Models\Stone;
-use Domain\Inserts\StoneType\Repositories\RelationRepositories\StoneTypeStonesRepository;
+use Domain\Inserts\StoneType\Repositories\RelationRepositories\StoneTypeStonesRelationsRepository;
 use Domain\Shared\AbstractRelationsService;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
 
-final class StoneTypeStonesService extends AbstractRelationsService
+final class StoneTypeStonesRelationsService extends AbstractRelationsService
 {
-    public function __construct(public StoneTypeStonesRepository $repository)
+    public function __construct(public StoneTypeStonesRelationsRepository $repository)
     {
     }
 

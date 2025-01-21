@@ -20,9 +20,4 @@ final class StoneType extends BaseModel
     {
         return $this->hasMany(Stone::class);
     }
-
-    public function inserts(): BelongsToMany
-    {
-        return $this->belongsToMany(Insert::class, 'stones');
-    }
 }

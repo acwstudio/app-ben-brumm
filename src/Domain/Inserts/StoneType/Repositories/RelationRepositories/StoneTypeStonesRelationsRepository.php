@@ -10,7 +10,7 @@ use Domain\Shared\AbstractRelationsRepository;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
 
-final class StoneTypeStonesRepository extends AbstractRelationsRepository
+final class StoneTypeStonesRelationsRepository extends AbstractRelationsRepository
 {
 
     public function index(int $id): Model|Collection|Stone

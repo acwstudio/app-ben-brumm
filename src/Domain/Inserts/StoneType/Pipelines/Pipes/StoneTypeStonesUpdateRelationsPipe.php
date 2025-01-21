@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace Domain\Inserts\StoneType\Pipelines\Pipes;
 
-use Domain\Inserts\StoneType\Repositories\RelationRepositories\StoneTypeStonesRepository;
+use Domain\Inserts\StoneType\Repositories\RelationRepositories\StoneTypeStonesRelationsRepository;
 
 final class StoneTypeStonesUpdateRelationsPipe
 {
-    public function __construct(public StoneTypeStonesRepository $repository)
+    public function __construct(public StoneTypeStonesRelationsRepository $repository)
     {
     }
 
