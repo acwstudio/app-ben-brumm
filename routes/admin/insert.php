@@ -106,8 +106,6 @@ Route::group([
     //  many-to-many Stones to Jewelleries
     Route::get('stones/{id}/relationships/jewelleries', [StonesJewelleriesRelationshipsController::class, 'index'])
         ->name('stones.relationships.jewelleries');
-    Route::patch('stones/{id}/relationships/jewelleries', [StonesJewelleriesRelationshipsController::class, 'update'])
-        ->name('stones.relationships.jewelleries');
     Route::get('stones/{id}/jewelleries', [StonesJewelleriesRelatedController::class, 'index'])
         ->name('stones.jewelleries');
 
