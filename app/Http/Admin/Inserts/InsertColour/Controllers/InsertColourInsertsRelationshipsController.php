@@ -8,12 +8,12 @@ use App\Http\Admin\Inserts\InsertColour\Requests\InsertColourInsertsUpdateRelati
 use App\Http\Admin\Shared\Resources\Identifiers\ApiEntityIdentifierResource;
 use App\Http\Shared\Controller;
 use Domain\Inserts\InsertColour\Models\InsertColour;
-use Domain\Inserts\InsertColour\Services\RelationServices\InsertColourInsertsService;
+use Domain\Inserts\InsertColour\Services\RelationServices\InsertColourInsertsRelationsService;
 use Illuminate\Http\JsonResponse;
 
 final class InsertColourInsertsRelationshipsController extends Controller
 {
-    public function __construct(public InsertColourInsertsService $service)
+    public function __construct(public InsertColourInsertsRelationsService $service)
     {
     }
 

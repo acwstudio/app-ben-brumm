@@ -22,6 +22,8 @@ use App\Http\Admin\Inserts\InsertProperty\Controllers\InsertPropertyInsertRelati
 use App\Http\Admin\Inserts\InsertShape\Controllers\InsertShapeController;
 use App\Http\Admin\Inserts\InsertShape\Controllers\InsertShapeInsertsRelatedController;
 use App\Http\Admin\Inserts\InsertShape\Controllers\InsertShapeInsertsRelationshipsController;
+use App\Http\Admin\Inserts\InsertShape\Controllers\InsertShapesJewelleriesRelatedController;
+use App\Http\Admin\Inserts\InsertShape\Controllers\InsertShapesJewelleriesRelationshipsController;
 use App\Http\Admin\Inserts\Stone\Controllers\StoneInsertsRelatedController;
 use App\Http\Admin\Inserts\Stone\Controllers\StoneInsertsRelationshipsController;
 use App\Http\Admin\Inserts\Stone\Controllers\StonesJewelleriesRelatedController;
@@ -158,6 +160,11 @@ Route::group([
         ->name('insert-shape.relationships.inserts');
     Route::get('insert-shapes/{id}/inserts', [InsertShapeInsertsRelatedController::class, 'index'])
         ->name('insert-shape.inserts');
+    //  many-to-many Insert Shapes to Jewelleries
+    Route::get('insert-shapes/{id}/relationships/jewelleries', [InsertShapesJewelleriesRelationshipsController::class, 'index'])
+        ->name('insert-shapes.relationships.jewelleries');
+    Route::get('insert-shapes/{id}/jewelleries', [InsertShapesJewelleriesRelatedController::class, 'index'])
+        ->name('insert-shapes.jewelleries');
 
     /*****************  INSERT PROPERTIES ROUTES **************/
     // CRUD

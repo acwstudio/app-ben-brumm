@@ -5,14 +5,14 @@ declare(strict_types=1);
 namespace Domain\Inserts\InsertColour\Services\RelationServices;
 
 use Domain\Inserts\Insert\Models\Insert;
-use Domain\Inserts\InsertColour\Repositories\RelationRepositories\InsertColourInsertsRepository;
+use Domain\Inserts\InsertColour\Repositories\RelationRepositories\InsertColourInsertsRelationsRepository;
 use Domain\Shared\AbstractRelationsService;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
 
-final class InsertColourInsertsService extends AbstractRelationsService
+final class InsertColourInsertsRelationsService extends AbstractRelationsService
 {
-    public function __construct(public InsertColourInsertsRepository $repository)
+    public function __construct(public InsertColourInsertsRelationsRepository $repository)
     {
     }
 

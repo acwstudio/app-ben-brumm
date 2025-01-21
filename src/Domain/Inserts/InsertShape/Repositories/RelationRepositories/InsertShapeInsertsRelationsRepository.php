@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Domain\Inserts\InsertColour\Repositories\RelationRepositories;
+namespace Domain\Inserts\InsertShape\Repositories\RelationRepositories;
 
 use Domain\Inserts\Insert\Models\Insert;
-use Domain\Inserts\InsertColour\Models\InsertColour;
+use Domain\Inserts\InsertShape\Models\InsertShape;
 use Domain\Shared\AbstractRelationsRepository;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
 
-final class InsertColourInsertsRepository extends AbstractRelationsRepository
+final class InsertShapeInsertsRelationsRepository extends AbstractRelationsRepository
 {
     public function index(int $id): Model|Collection
     {
-        return InsertColour::find($id)->inserts;
+        return InsertShape::find($id)->inserts;
     }
 
     public function update(array $data, int $id): void
@@ -23,7 +23,7 @@ final class InsertColourInsertsRepository extends AbstractRelationsRepository
 
         foreach ($ids as $itemId) {
             Insert::find($itemId)->update([
-                'insert_colour_id' => $id,
+                'insert_shape_id' => $id,
             ]);
         }
     }

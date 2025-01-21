@@ -23,6 +23,6 @@ final class InsertColour extends BaseModel
 
     public function jewelleries(): BelongsToMany
     {
-        return $this->belongsToMany(Jewellery::class, 'inserts');
+        return $this->belongsToMany(Jewellery::class, 'inserts', 'insert_colour_id', 'jewellery_id');
     }
 }

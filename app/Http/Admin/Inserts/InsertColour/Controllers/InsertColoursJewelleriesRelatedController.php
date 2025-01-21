@@ -6,13 +6,18 @@ namespace App\Http\Admin\Inserts\InsertColour\Controllers;
 
 use App\Http\Admin\Jewelleries\Jewellery\Resources\JewelleryCollection;
 use Domain\Inserts\InsertColour\Models\InsertColour;
+use Domain\Inserts\InsertColour\Services\RelationServices\InsertColoursJewelleriesRelationsService;
 use Illuminate\Http\JsonResponse;
 
 final class InsertColoursJewelleriesRelatedController
 {
+    public function __construct(public InsertColoursJewelleriesRelationsService $service)
+    {
+    }
+
     public function index(int $id): JsonResponse
     {
-        $model = InsertColour::findOrFail($id)->jewelleries;
-        return (new JewelleryCollection($model))->response();
+        $collection = $this->service->index($id);
+        return (new JewelleryCollection($collection))->response();
     }
 }
