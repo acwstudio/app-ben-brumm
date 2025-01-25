@@ -11,8 +11,10 @@
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.9",
         "league/commonmark": "^2.6",
+        "php-amqplib/php-amqplib": "^3.7",
         "php-open-source-saver/jwt-auth": "^2.7",
-        "spatie/laravel-query-builder": "*"
+        "spatie/laravel-query-builder": "*",
+        "ext-amqp": "*"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
