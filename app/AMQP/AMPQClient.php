@@ -20,13 +20,13 @@ final class AMPQClient
     public function consume(string $queue, \Closure $callback): void
     {
         $this->connection = App::make(AbstractConnection::class);
-
+//        dd($callback);
         $channel = $this->prepareConsume($queue, function (AMQPMessage $message) use ($queue, $callback) {
             Log::info("[{$queue}] Received message", [
                 'body' => $message->getBody()
             ]);
             $message->ack();
-            return $callback(json_decode($message->body, true));
+            return $callback(json_decode($message->getBody(), true));
         });
 
         while ($channel->is_open()) {
@@ -49,7 +49,6 @@ final class AMPQClient
 
         $channel = $this->send($queue, $message);
         $this->close($channel);
-        dd($message->getBody());
         Log::info("[{$queue}] Published message", [
             'body' => $message->getBody()
         ]);

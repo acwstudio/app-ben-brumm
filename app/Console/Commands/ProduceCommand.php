@@ -8,14 +8,14 @@ use App\Http\Admin\Jewelleries\Jewellery\Resources\JewelleryResource;
 use Domain\Jewelleries\Jewellery\Models\Jewellery;
 use Illuminate\Console\Command;
 
-class ProducerCommand extends Command
+class ProduceCommand extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'rabbitmq:producer';
+    protected $signature = 'rabbitmq:produce';
 
     /**
      * The console command description.
@@ -33,10 +33,12 @@ class ProducerCommand extends Command
 //            'message' => 'Hello World from artisan command',
 //            'from' => 'artisan'
 //        ];
-        $data = (new JewelleryResource(Jewellery::find(1)))
+        $item = Jewellery::query()->where('id', 1)->with('inserts','braceletPropView','stones')->first();
+//        dd($item);
+        $data = (new JewelleryResource($item))
             ->response();
 
-        $client->publish('my_queue', $data);
+        $client->publish('my_queue_1', $data->content());
 
         return Command::SUCCESS;
     }
