@@ -23,7 +23,8 @@ final class AMPQClient
 //        dd($callback);
         $channel = $this->prepareConsume($queue, function (AMQPMessage $message) use ($queue, $callback) {
             Log::info("[{$queue}] Received message", [
-                'body' => $message->getBody()
+                'message_id' => $message->get_properties()['message_id'] ?? null,
+                'body' => $message->getBody(),
             ]);
             $message->ack();
             return $callback(json_decode($message->getBody(), true));
@@ -67,6 +68,7 @@ final class AMPQClient
         $channel = $this->connection->channel();
         $channel->queue_declare($queue, durable: true, auto_delete: false);
         $channel->basic_publish($message, '', $queue);
+
         return $channel;
     }
 

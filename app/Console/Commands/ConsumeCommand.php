@@ -3,8 +3,9 @@
 namespace App\Console\Commands;
 
 use App\AMQP\AMPQClient;
+use App\AMQP\Validators\JewelleryMessageStoreValidator;
 use Illuminate\Console\Command;
-use PhpAmqpLib\Message\AMQPMessage;
+use function Laravel\Prompts\select;
 
 class ConsumeCommand extends Command
 {
@@ -22,14 +23,31 @@ class ConsumeCommand extends Command
      */
     protected $description = 'RabbitMQ Consumer';
 
+    public function __construct(public JewelleryMessageStoreValidator $validator)
+    {
+        parent::__construct();
+    }
+
     /**
      * Execute the console command.
      */
-    public function handle(AMPQClient $client)
+    public function handle(AMPQClient $client): int
     {
-        $data = $client->consume('my_queue', function (iterable $message) {
-            return $message->getBody();
-        });
-//        dd($data);
+        $queue = select(
+            label: 'What a queue do you want to use?',
+            options: [
+                'jewellery.store' => 'Jewellery store',
+                'jewellery.update' => 'Jewellery update',
+                'jewellery.*' => 'Jewellery update or store',
+            ],
+        );
+        $callback = function ($message) {
+            $this->validator->validate($message);
+//            dump($message);
+        };
+
+        $client->consume($queue, $callback);
+
+        return Command::SUCCESS;
     }
 }

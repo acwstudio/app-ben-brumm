@@ -34,7 +34,7 @@ final class InsertPipeline extends AbstractPipeline
             DB::commit();
 
             return data_get($data, 'model');
-        } catch (Exception | Throwable $e) {
+        } catch (Exception|Throwable $e) {
             DB::rollBack();
             Log::error($e);
 
@@ -51,14 +51,14 @@ final class InsertPipeline extends AbstractPipeline
             DB::beginTransaction();
 
             $this->pipeline
-                ->send(data_set($data,'id',$id))
+                ->send(data_set($data, 'id', $id))
                 ->through([
                     InsertUpdatePipe::class
                 ])
                 ->thenReturn();
 
             DB::commit();
-        } catch (Exception | \Throwable $e) {
+        } catch (Exception|\Throwable $e) {
             DB::rollBack();
             Log::error($e);
 
@@ -72,21 +72,21 @@ final class InsertPipeline extends AbstractPipeline
     public function destroy(int $id): void
     {
         try {
-        DB::beginTransaction();
+            DB::beginTransaction();
 
-        $this->pipeline
-            ->send($id)
-            ->through([
-                InsertDestroyPipe::class
-            ])
-            ->thenReturn();
+            $this->pipeline
+                ->send($id)
+                ->through([
+                    InsertDestroyPipe::class
+                ])
+                ->thenReturn();
 
-        DB::commit();
-    } catch (Exception | Throwable $e) {
-        DB::rollBack();
-        Log::error($e);
+            DB::commit();
+        } catch (Exception|Throwable $e) {
+            DB::rollBack();
+            Log::error($e);
 
-        throw ($e);
-    }
+            throw ($e);
+        }
     }
 }
