@@ -3,7 +3,7 @@
 namespace App\Console\Commands;
 
 use App\AMQP\AMPQClient;
-use App\AMQP\Validators\JewelleryMessageStoreValidator;
+use App\AMQP\Jewelleries\Jewellery\Validators\Jewellery\JewelleryMessageStoreValidator;
 use Illuminate\Console\Command;
 use function Laravel\Prompts\select;
 
@@ -30,6 +30,7 @@ class ConsumeCommand extends Command
 
     /**
      * Execute the console command.
+     * @throws \Exception
      */
     public function handle(AMPQClient $client): int
     {
