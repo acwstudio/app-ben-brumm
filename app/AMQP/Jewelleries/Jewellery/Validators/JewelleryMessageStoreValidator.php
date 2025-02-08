@@ -2,11 +2,13 @@
 
 declare(strict_types=1);
 
-namespace App\AMQP\Jewelleries\Jewellery\Validators\Jewellery;
+namespace App\AMQP\Jewelleries\Jewellery\Validators;
 
+use App\Share\Rules\NestedArrayItemsIntegerRule;
 use Domain\Jewelleries\Jewellery\Models\Jewellery;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 
 final class JewelleryMessageStoreValidator
 {
@@ -46,7 +48,11 @@ final class JewelleryMessageStoreValidator
                 /*****  RELATIONSHIPS  *****/
 
                 'data.relationships'                                   => ['required','array:' . implode(',', $relationships)],
-                'data.relationships.coverages'                         => ['nullable','required', 'array','min:1'],
+
+                /*** coverages ***/
+                'data.relationships.coverages'                         => ['present','array'],
+                'data.relationships.coverages.0'                       => ['required','string',new NestedArrayItemsIntegerRule()],
+//                'data.relationships.coverages.*.name'                  => ['required','string',new NestedArrayItemsIntegerRule()],
 
                 /*** inserts ***/
                 'data.relationships.inserts'                           => ['present','required', 'array'],
@@ -56,7 +62,8 @@ final class JewelleryMessageStoreValidator
                 'data.relationships.inserts.properties'                => ['sometimes','required', 'array'],
 
                 /*** rings ***/
-                'data.relationships.ring_props'                        => ['sometimes','required', 'array'],
+                'data.relationships.ring_props'                        => ['present','required_unless:data.relationships.ring_props.sizes,array','array:sizes'],
+                'data.relationships.ring_props.sizes'                  => ['required_unless:data.relationships.ring_props.*.quantity,null','array'],
 
                 /*** bracelets ***/
                 'data.relationships.bracelet_props'                    => ['required', 'array:sizes,body_part,weavings'],

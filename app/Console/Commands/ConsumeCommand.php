@@ -3,7 +3,7 @@
 namespace App\Console\Commands;
 
 use App\AMQP\AMPQClient;
-use App\AMQP\Jewelleries\Jewellery\Validators\Jewellery\JewelleryMessageStoreValidator;
+use App\AMQP\Jewelleries\Jewellery\Validators\JewelleryMessageStoreValidator;
 use Illuminate\Console\Command;
 use function Laravel\Prompts\select;
 
@@ -44,7 +44,7 @@ class ConsumeCommand extends Command
         );
         $callback = function ($message) {
             $this->validator->validate($message);
-//            dump($message);
+            dump($message);
         };
 
         $client->consume($queue, $callback);

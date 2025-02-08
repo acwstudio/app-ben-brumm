@@ -1,5 +1,5 @@
 <?php
-
+use \Domain\Jewelleries\JewelleryCategory\Enums\JewelleryCategoryEnum;
 return [
     'jewellery-categories' => [
         ['name' => 'браслеты', 'category-code' => 'bracelet'],
@@ -10,7 +10,7 @@ return [
         ['name' => 'кольца', 'category-code' => 'ring'],
         ['name' => 'пирсинг', 'category-code' => 'piercing'],
         ['name' => 'подвески', 'category-code' => 'pendant'],
-        ['name' => 'подвеска-шарм', 'category-code' => 'charm pendant'],
+        ['name' => 'подвески-шарм', 'category-code' => 'charm pendant'],
         ['name' => 'серьги', 'category-code' => 'earring'],
         ['name' => 'цепи', 'category-code' => 'chain'],
     ],
@@ -677,7 +677,7 @@ return [
             'prcs_metal' => 'золото',
             'prcs_metal_sample' => 585,
             'prcs_metal_colour' => 'красный',
-            'jewellery_category' => 'подвески',
+            'jewellery_category' => JewelleryCategoryEnum::PENDANTS->value,
             'coverage-jewellery' => ['без покрытия'],
             'name' => 'Подвеска из золота с бриллиантами и аметистом',
             'description' => '',
@@ -717,7 +717,7 @@ return [
             'prcs_metal' => 'золото',
             'prcs_metal_sample' => 585,
             'prcs_metal_colour' => 'красный',
-            'jewellery_category' => 'подвески',
+            'jewellery_category' => JewelleryCategoryEnum::PENDANTS->value,
             'coverage-jewellery' => ['без покрытия'],
             'name' => 'Подвеска из золота',
             'description' => '',
@@ -741,9 +741,9 @@ return [
             'prcs_metal' => 'серебро',
             'prcs_metal_sample' => 925,
             'prcs_metal_colour' => 'желтый',
-            'jewellery_category' => 'подвеска-шарм',
+            'jewellery_category' => JewelleryCategoryEnum::CHARM_PENDANTS->value,
             'coverage-jewellery' => ['золочение', 'родирование'],
-            'name' => 'Подвеска-шарм из золочёного серебра с эмалью',
+            'name' => 'подвески-шарм из золочёного серебра с эмалью',
             'description' => '',
             'part_number' => '93030569',
             'approx_weight' => '3.17 грамма',
@@ -764,7 +764,7 @@ return [
             'prcs_metal' => 'серебро',
             'prcs_metal_sample' => 925,
             'prcs_metal_colour' => 'платиновый оттенок',
-            'jewellery_category' => 'подвеска-шарм',
+            'jewellery_category' => 'подвески-шарм',
             'coverage-jewellery' => ['родирование'],
             'name' => 'Подвеска - шарм из серебра с фианитами',
             'description' => '',
