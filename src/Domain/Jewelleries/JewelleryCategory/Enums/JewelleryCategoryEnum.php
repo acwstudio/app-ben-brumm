@@ -17,7 +17,7 @@ enum JewelleryCategoryEnum: string
     case PIERCING       = 'пирсинг';
     case RINGS          = 'кольца';
     case TIE_CLIPS      = 'зажимы для галстука';
-    
+
     public function categoryID(): int{
 
         return match($this)
@@ -38,6 +38,7 @@ enum JewelleryCategoryEnum: string
 
     private function getID(string $name): int
     {
+        dump(DB::table('jewellery_categories')->where(['name' => $name])->value('id'));
         return DB::table('jewellery_categories')->where(['name' => $name])->value('id');
     }
 }
