@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Site\Jewelleries\BraceletPropView;
+namespace App\Http\Site\Jewelleries\BraceletPropView\Controllers;
 
 use App\Http\Shared\Controller;
 

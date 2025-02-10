@@ -38,7 +38,7 @@ enum JewelleryCategoryEnum: string
 
     private function getID(string $name): int
     {
-        dump(DB::table('jewellery_categories')->where(['name' => $name])->value('id'));
+//        dump(DB::table('jewellery_categories')->where(['name' => $name])->value('id'));
         return DB::table('jewellery_categories')->where(['name' => $name])->value('id');
     }
 }

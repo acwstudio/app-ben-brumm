@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Domain\Jewelleries\JewelleryCategory\Enums\JewelleryCategoryEnum;
+use Domain\Site\JewelleryPropView;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -14,6 +15,6 @@ class TestSeeder extends Seeder
     public function run(): void
     {
         $test = JewelleryCategoryEnum::from('серьги')->categoryID();
-        dd($test);
+        dd(JewelleryPropView::find(14)->shockPrice->price);
     }
 }

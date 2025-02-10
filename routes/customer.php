@@ -1,18 +1,11 @@
 <?php
 
-use App\Http\Admin\Jewelleries\Jewellery\Controllers\JewelleriesJewelleryCategoryRelatedController;
-use App\Http\Admin\Jewelleries\Jewellery\Controllers\JewelleriesJewelleryCategoryRelationshipsController;
-use App\Http\Admin\Jewelleries\Jewellery\Controllers\JewelleryBraceletPropViewRelatedController;
-use App\Http\Admin\Jewelleries\Jewellery\Controllers\JewelleryBraceletPropViewRelationshipsController;
-use App\Http\Admin\Jewelleries\Jewellery\Controllers\JewelleryController;
-use App\Http\Admin\Jewelleries\JewelleryCategory\Controllers\JewelleryCategoryController;
-use App\Http\Admin\PreciousMetals\PrcsMetal\Controllers\PrcsMetalController;
 use App\Http\Admin\Users\User\Controllers\UserController;
 use App\Http\Auth\Controllers\Customers\CustomerAuthController;
 use App\Http\Auth\Controllers\Customers\CustomerForgotPasswordController;
-use App\Http\Controllers\Site\Jewelleries\BraceletPropView\BraceletPropViewController;
-use App\Http\Controllers\Site\Jewelleries\BraceletPropView\BraceletPropViewJewelleryRelatedController;
-use App\Http\Controllers\Site\Jewelleries\BraceletPropView\BraceletPropViewJewelleryRelationshipsController;
+use App\Http\Site\Jewelleries\BraceletPropView\Controllers\BraceletPropViewController;
+use App\Http\Site\Jewelleries\BraceletPropView\Controllers\BraceletPropViewJewelleryRelatedController;
+use App\Http\Site\Jewelleries\BraceletPropView\Controllers\BraceletPropViewJewelleryRelationshipsController;
 
 Route::group([
     'prefix' => 'auth-customers'

@@ -52,6 +52,7 @@ return new class extends Migration
             <<<'SQL'
             CREATE VIEW jewellery_prop_views AS
             select
+                cast(concat(j.id, bs.id) as unsigned) as id,
                 j.name as jewellery,
                 bp.jewellery_id as jewerelly_id,
                 bps.quantity as quantity,
@@ -63,6 +64,7 @@ return new class extends Migration
                 join bracelet_sizes bs on bps.bracelet_size_id = bs.id
             union
             select
+                cast(concat(j.id, chs.id) as unsigned) as id,
                 j.name as jewellery,
                 chp.jewellery_id as jewerelly_id,
                 chps.quantity as quantity,
@@ -74,6 +76,7 @@ return new class extends Migration
                 join chain_sizes chs on chps.chain_size_id = chs.id
             union
             select
+                cast(concat(j.id, rs.id) as unsigned) as id,
                 j.name as jewellery,
                 rp.jewellery_id as jewerelly_id,
                 rps.quantity as quantity,
@@ -85,6 +88,7 @@ return new class extends Migration
                 join ring_sizes rs on rps.ring_size_id = rs.id
             union
             select
+                cast(concat(j.id, brp.id) as unsigned) as id,
                 j.name as jewellery,
                 brp.jewellery_id as jewerelly_id,
                 brp.quantity as quantity,
@@ -94,6 +98,7 @@ return new class extends Migration
                 join jewelleries j on brp.jewellery_id = j.id
             union
             select
+                cast(concat(j.id, tcp.id) as unsigned) as id,
                 j.name as jewellery,
                 tcp.jewellery_id as jewerelly_id,
                 tcp.quantity as quantity,
@@ -103,6 +108,7 @@ return new class extends Migration
                 join jewelleries j on tcp.jewellery_id = j.id
             union
             select
+                cast(concat(j.id, clp.id) as unsigned) as id,
                 j.name as jewellery,
                 clp.jewellery_id as jewerelly_id,
                 clp.quantity as quantity,
@@ -112,6 +118,7 @@ return new class extends Migration
                 join jewelleries j on clp.jewellery_id = j.id
             union
             select
+                cast(concat(j.id, ns.id) as unsigned) as id,
                 j.name as jewellery,
                 np.jewellery_id as jewerelly_id,
                 nps.quantity as quantity,
@@ -123,6 +130,7 @@ return new class extends Migration
                 join necklace_sizes ns on nps.necklace_size_id = ns.id
             union
             select
+                cast(concat(j.id, pp.id) as unsigned) as id,
                 j.name as jewellery,
                 pp.jewellery_id as jewerelly_id,
                 pp.quantity as quantity,
@@ -132,6 +140,7 @@ return new class extends Migration
                 join jewelleries j on pp.jewellery_id = j.id
             union
             select
+                cast(concat(j.id, chpp.id) as unsigned) as id,
                 j.name as jewellery,
                 chpp.jewellery_id as jewerelly_id,
                 chpp.quantity as quantity,
@@ -141,6 +150,7 @@ return new class extends Migration
                 join jewelleries j on chpp.jewellery_id = j.id
             union
             select
+                cast(concat(j.id, prcp.id) as unsigned) as id,
                 j.name as jewellery,
                 prcp.jewellery_id as jewerelly_id,
                 prcp.quantity as quantity,
@@ -150,6 +160,7 @@ return new class extends Migration
                 join jewelleries j on prcp.jewellery_id = j.id
             union
             select
+                cast(concat(j.id, ep.id) as unsigned) as id,
                 j.name as jewellery,
                 ep.jewellery_id as jewerelly_id,
                 ep.quantity as quantity,
