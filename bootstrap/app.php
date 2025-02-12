@@ -16,6 +16,7 @@ return Application::configure(basePath: dirname(__DIR__))
         then: function () {
             Route::middleware('api')->prefix('api')->group(base_path('routes/api.php'));
             Route::middleware('api')->prefix('api')->group(base_path('routes/customer.php'));
+            /*ADMIN*/
             Route::middleware('api')->prefix('api')->group(base_path('routes/admin/jewellery.php'));
             Route::middleware('api')->prefix('api')->group(base_path('routes/admin/jewellery-props/other-props.php'));
             Route::middleware('api')->prefix('api')->group(base_path('routes/admin/jewellery-props/bracelet-props.php'));
@@ -25,7 +26,7 @@ return Application::configure(basePath: dirname(__DIR__))
             Route::middleware('api')->prefix('api')->group(base_path('routes/admin/employee.php'));
             Route::middleware('api')->prefix('api')->group(base_path('routes/admin/precious-metal.php'));
             Route::middleware('api')->prefix('api')->group(base_path('routes/employee.php'));
-
+            /*SITE*/
             Route::middleware('api')->prefix('api')->group(base_path('routes/site/jewellery.php'));
         }
     )

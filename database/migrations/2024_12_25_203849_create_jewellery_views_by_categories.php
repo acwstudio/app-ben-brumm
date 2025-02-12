@@ -54,7 +54,7 @@ return new class extends Migration
             select
                 cast(concat(j.id, bs.id) as unsigned) as id,
                 j.name as jewellery,
-                bp.jewellery_id as jewerelly_id,
+                bp.jewellery_id as jewellery_id,
                 bps.quantity as quantity,
                 bps.price as price,
                 bs.value as size
@@ -66,7 +66,7 @@ return new class extends Migration
             select
                 cast(concat(j.id, chs.id) as unsigned) as id,
                 j.name as jewellery,
-                chp.jewellery_id as jewerelly_id,
+                chp.jewellery_id as jewellery_id,
                 chps.quantity as quantity,
                 chps.price as price,
                 chs.value as size
@@ -78,7 +78,7 @@ return new class extends Migration
             select
                 cast(concat(j.id, rs.id) as unsigned) as id,
                 j.name as jewellery,
-                rp.jewellery_id as jewerelly_id,
+                rp.jewellery_id as jewellery_id,
                 rps.quantity as quantity,
                 rps.price as price,
                 rs.value as size
@@ -90,7 +90,7 @@ return new class extends Migration
             select
                 cast(concat(j.id, brp.id) as unsigned) as id,
                 j.name as jewellery,
-                brp.jewellery_id as jewerelly_id,
+                brp.jewellery_id as jewellery_id,
                 brp.quantity as quantity,
                 brp.price as price,
                 null AS size
@@ -100,7 +100,7 @@ return new class extends Migration
             select
                 cast(concat(j.id, tcp.id) as unsigned) as id,
                 j.name as jewellery,
-                tcp.jewellery_id as jewerelly_id,
+                tcp.jewellery_id as jewellery_id,
                 tcp.quantity as quantity,
                 tcp.price as price,
                 null AS size
@@ -110,7 +110,7 @@ return new class extends Migration
             select
                 cast(concat(j.id, clp.id) as unsigned) as id,
                 j.name as jewellery,
-                clp.jewellery_id as jewerelly_id,
+                clp.jewellery_id as jewellery_id,
                 clp.quantity as quantity,
                 clp.price as price,
                 null AS size
@@ -120,7 +120,7 @@ return new class extends Migration
             select
                 cast(concat(j.id, ns.id) as unsigned) as id,
                 j.name as jewellery,
-                np.jewellery_id as jewerelly_id,
+                np.jewellery_id as jewellery_id,
                 nps.quantity as quantity,
                 nps.price as price,
                 ns.value as size
@@ -132,7 +132,7 @@ return new class extends Migration
             select
                 cast(concat(j.id, pp.id) as unsigned) as id,
                 j.name as jewellery,
-                pp.jewellery_id as jewerelly_id,
+                pp.jewellery_id as jewellery_id,
                 pp.quantity as quantity,
                 pp.price as price,
                 null AS size
@@ -142,7 +142,7 @@ return new class extends Migration
             select
                 cast(concat(j.id, chpp.id) as unsigned) as id,
                 j.name as jewellery,
-                chpp.jewellery_id as jewerelly_id,
+                chpp.jewellery_id as jewellery_id,
                 chpp.quantity as quantity,
                 chpp.price as price,
                 null AS size
@@ -152,7 +152,7 @@ return new class extends Migration
             select
                 cast(concat(j.id, prcp.id) as unsigned) as id,
                 j.name as jewellery,
-                prcp.jewellery_id as jewerelly_id,
+                prcp.jewellery_id as jewellery_id,
                 prcp.quantity as quantity,
                 prcp.price as price,
                 null AS size
@@ -162,7 +162,7 @@ return new class extends Migration
             select
                 cast(concat(j.id, ep.id) as unsigned) as id,
                 j.name as jewellery,
-                ep.jewellery_id as jewerelly_id,
+                ep.jewellery_id as jewellery_id,
                 ep.quantity as quantity,
                 ep.price as price,
                 null AS size

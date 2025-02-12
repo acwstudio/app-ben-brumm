@@ -18,9 +18,4 @@ final class JewelleryPropView extends BaseModel
     {
         return $this->belongsToMany(Discount::class);
     }
-
-    public function shockPrice(): HasOne
-    {
-        return $this->hasOne(ShockPrice::class);
-    }
 }

@@ -1,5 +1,7 @@
 <?php
+
 use \Domain\Jewelleries\JewelleryCategory\Enums\JewelleryCategoryEnum;
+
 return [
     'jewellery-categories' => [
         ['name' => 'браслеты', 'category-code' => 'bracelet'],
@@ -81,6 +83,10 @@ return [
             'part_number' => '1050166-3',
             'approx_weight' => '5.4 грамма',
             'is_active' => true,
+            'discounts' => [
+                'name-function' => 'getDiscounts',
+                'parameters' => ['аутлет 70%'],
+            ],
             'props' => [
                 'name-function' => 'getBraceletProps',
                 'parameters' =>
@@ -228,10 +234,10 @@ return [
             'props' => [
                 'name-function' => 'getBroochProps',
                 'parameters' =>
-                [
-                    'quantity' => 5,
-                    'price' => 42990
-                ]
+                    [
+                        'quantity' => 5,
+                        'price' => 42990
+                    ]
             ],
             'insert-jewellery' => [
                 [

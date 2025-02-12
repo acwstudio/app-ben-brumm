@@ -280,6 +280,30 @@ return new class extends Migration
             $table->unique(['coverage_id', 'jewellery_id'], 'unique_coverage_jewellery');
         });
 
+        //************ DISCOUNTS JEWELLERY **************
+        Schema::create('discounts', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->float('rate', 2);
+            $table->string('slug');
+            $table->boolean('is_active');
+            $table->dateTime('start');
+            $table->dateTime('end');
+            $table->timestamps();
+        });
+
+        Schema::create('discount_jewellery', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('jewellery_id');
+            $table->unsignedBigInteger('discount_id');
+            $table->timestamps();
+
+            $table->foreign('discount_id')->references('id')->on('discounts');
+            $table->foreign('jewellery_id')->references('id')->on('jewelleries');
+
+            $table->unique(['discount_id', 'jewellery_id'], 'unique_discount_jewellery');
+        });
+
 //        Now, when jewelleries table is ready, we can have foreign jewellery_id key for inserts table
         Schema::table('inserts', function (Blueprint $table) {
             $table->foreign('jewellery_id')->references('id')->on('jewelleries');
@@ -320,6 +344,8 @@ return new class extends Migration
         Schema::dropIfExists('necklace_sizes');
         Schema::dropIfExists('necklace_props');
         Schema::dropIfExists('coverage_jewellery');
+        Schema::dropIfExists('discount_jewellery');
+        Schema::dropIfExists('discounts');
         Schema::dropIfExists('jewelleries');
         Schema::dropIfExists('jewellery_categories');
     }

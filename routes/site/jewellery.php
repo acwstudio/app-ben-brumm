@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Site\Jewelleries\BraceletPropView\Controllers\BraceletPropViewController;
 use App\Http\Site\Jewelleries\JewelleryView\Controllers\JewelleryViewController;
 
 Route::group([
@@ -7,7 +8,9 @@ Route::group([
     'prefix' => 'site'
 ], function () {
     /*****************  JEWELLERIES ROUTES **************/
-    Route::get('/jewelleries', [JewelleryViewController::class, 'index'])->name('site.jewelleries.index');
+    Route::get('/jewellery-views', [JewelleryViewController::class, 'index'])->name('site.jewellery-views.index');
+    Route::get('/jewellery-views/{id}', [JewelleryViewController::class, 'show'])->name('site.jewellery-views.show');
     /*****************  BRACELET PROPS ROUTES **************/
-//    Route::get('/catalogs', [CatalogController::class, 'index'])->name('site.catalogs.index');
+    Route::get('/bracelet-prop-views', [BraceletPropViewController::class, 'index'])->name('site.bracelet-prop-views.index');
+    Route::get('/bracelet-prop-views/{id}', [BraceletPropViewController::class, 'show'])->name('site.bracelet-prop-views.show');
 });

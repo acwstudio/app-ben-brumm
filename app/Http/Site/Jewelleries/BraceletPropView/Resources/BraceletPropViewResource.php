@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Resources\BraceletPropViews;
+namespace App\Http\Site\Jewelleries\BraceletPropView\Resources;
 
 use App\Http\Admin\Jewelleries\Jewellery\Resources\JewelleryResource;
 use App\Http\Admin\Shared\Resources\Traits\IncludeRelatedEntitiesResourceTrait;

@@ -5,11 +5,10 @@ declare(strict_types=1);
 namespace App\Http\Admin\Jewelleries\Jewellery\Resources;
 
 use App\Http\Admin\Inserts\Insert\Resources\InsertCollection;
-use App\Http\Admin\Inserts\Insert\Resources\InsertResource;
 use App\Http\Admin\Inserts\Stone\Resources\StoneCollection;
 use App\Http\Admin\Jewelleries\JewelleryCategory\Resources\JewelleryCategoryResource;
 use App\Http\Admin\Shared\Resources\Traits\IncludeRelatedEntitiesResourceTrait;
-use App\Http\Resources\BraceletPropViews\BraceletPropViewResource;
+use App\Http\Site\Jewelleries\BraceletPropView\Resources\BraceletPropViewResource;
 use Domain\Jewelleries\Jewellery\Models\Jewellery;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Http\Request;
