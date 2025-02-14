@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Domain\Site;
+namespace Domain\Views\ChainPropViews\Models;
 
 use Domain\JewelleryProperties\ChainPropSize\Models\ChainPropSize;
 use Domain\JewelleryProperties\ChainSize\Models\ChainSize;

@@ -1,12 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Site\Jewelleries\BraceletPropView\Controllers;
 
 use App\Http\Shared\Controller;
-use Domain\Site\BraceletPropView;
+use Domain\Views\BraceletPropViews\Models\BraceletPropView;
 use Illuminate\Http\JsonResponse;
 
-class BraceletPropViewController extends Controller
+final class BraceletPropViewController extends Controller
 {
     public function index(): JsonResponse
     {

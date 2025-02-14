@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Domain\PreciousMetals\PrcsMetal\Models;
 
 use Domain\Shared\Models\BaseModel;
-use Domain\Site\BraceletPropView;
+use Domain\Views\BraceletPropViews\Models\BraceletPropView;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 final class PrcsMetal extends BaseModel

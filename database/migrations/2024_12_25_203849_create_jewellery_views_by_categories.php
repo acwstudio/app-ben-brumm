@@ -50,124 +50,289 @@ return new class extends Migration
 
         DB::statement(
             <<<'SQL'
-            CREATE VIEW jewellery_prop_views AS
+            CREATE VIEW jewellery_views AS
             select
-                cast(concat(j.id, bs.id) as unsigned) as id,
+                j.id as id,
                 j.name as jewellery,
-                bp.jewellery_id as jewellery_id,
-                bps.quantity as quantity,
-                bps.price as price,
-                bs.value as size
+                j.prcs_metal_sample_id,
+                j.prcs_metal_id,
+                j.jewellery_category_id,
+                j.description,
+                j.part_number,
+                j.approx_weight,
+                j.is_active,
+                d.name as promotion,
+                bp.jewellery_id as jewerelly_id,
+                json_arrayagg(json_object(
+                        'quantity',bps.quantity,
+                        'price', bps.price,
+                        'promote name', d.name,
+                        'discount', round(((1 - d.rate) * bps.price), -1),
+                        'size', bs.value)
+                ) as props
             from bracelet_props bp
                 join jewelleries j on bp.jewellery_id = j.id
+                left join discount_jewellery d_jw on j.id = d_jw.jewellery_id
+                left join discounts d on d_jw.discount_id = d.id
                 join bracelet_prop_sizes bps on bp.id = bps.bracelet_prop_id
                 join bracelet_sizes bs on bps.bracelet_size_id = bs.id
+            group by j.id, d.name, rate
             union
             select
-                cast(concat(j.id, chs.id) as unsigned) as id,
+                j.id as id,
                 j.name as jewellery,
-                chp.jewellery_id as jewellery_id,
-                chps.quantity as quantity,
-                chps.price as price,
-                chs.value as size
+                j.prcs_metal_sample_id,
+                j.prcs_metal_id,
+                j.jewellery_category_id,
+                j.description,
+                j.part_number,
+                j.approx_weight,
+                j.is_active,
+                d.name as promotion,
+                chp.jewellery_id as jewerelly_id,
+                json_arrayagg(json_object(
+                        'quantity',chps.quantity,
+                        'price', chps.price,
+                        'promote name', d.name,
+                        'discount', round(((1 - d.rate) * chps.price), -1),
+                        'size', chs.value)
+                ) as props
             from chain_props chp
                 join jewelleries j on chp.jewellery_id = j.id
+                left join discount_jewellery d_jw on j.id = d_jw.jewellery_id
+                left join discounts d on d_jw.discount_id = d.id
                 join chain_prop_sizes chps on chps.chain_prop_id = chp.id
                 join chain_sizes chs on chps.chain_size_id = chs.id
+            group by j.id, d.name, rate
             union
             select
-                cast(concat(j.id, rs.id) as unsigned) as id,
+                j.id as id,
                 j.name as jewellery,
-                rp.jewellery_id as jewellery_id,
-                rps.quantity as quantity,
-                rps.price as price,
-                rs.value as size
+                j.prcs_metal_sample_id,
+                j.prcs_metal_id,
+                j.jewellery_category_id,
+                j.description,
+                j.part_number,
+                j.approx_weight,
+                j.is_active,
+                d.name as promotion,
+                rp.jewellery_id as jewerelly_id,
+                json_arrayagg(json_object(
+                        'quantity',rps.quantity,
+                        'price', rps.price,
+                        'promote name', d.name,
+                        'discount', round(((1 - d.rate) * rps.price), -1),
+                        'size', rs.value)
+                ) as props
             from ring_props rp
                 join jewelleries j on rp.jewellery_id = j.id
+                left join discount_jewellery d_jw on j.id = d_jw.jewellery_id
+                left join discounts d on d_jw.discount_id = d.id
                 join ring_prop_sizes rps on rps.ring_prop_id = rp.id
                 join ring_sizes rs on rps.ring_size_id = rs.id
+            group by j.id, d.name, rate
             union
             select
-                cast(concat(j.id, brp.id) as unsigned) as id,
+                j.id as id,
                 j.name as jewellery,
-                brp.jewellery_id as jewellery_id,
-                brp.quantity as quantity,
-                brp.price as price,
-                null AS size
+                j.prcs_metal_sample_id,
+                j.prcs_metal_id,
+                j.jewellery_category_id,
+                j.description,
+                j.part_number,
+                j.approx_weight,
+                j.is_active,
+                d.name as promotion,
+                brp.jewellery_id as jewerelly_id,
+                json_arrayagg(json_object(
+                        'quantity',brp.quantity,
+                        'price', brp.price,
+                        'promote name', d.name,
+                        'discount', round(((1 - d.rate) * brp.price), -1),
+                        'size', null)
+                ) as props
             from brooch_props brp
                 join jewelleries j on brp.jewellery_id = j.id
+                left join discount_jewellery d_jw on j.id = d_jw.jewellery_id
+                left join discounts d on d_jw.discount_id = d.id
+            group by j.id, d.name, rate
             union
             select
-                cast(concat(j.id, tcp.id) as unsigned) as id,
+                j.id as id,
                 j.name as jewellery,
-                tcp.jewellery_id as jewellery_id,
-                tcp.quantity as quantity,
-                tcp.price as price,
-                null AS size
+                j.prcs_metal_sample_id,
+                j.prcs_metal_id,
+                j.jewellery_category_id,
+                j.description,
+                j.part_number,
+                j.approx_weight,
+                j.is_active,
+                d.name as promotion,
+                tcp.jewellery_id as jewerelly_id,
+                json_arrayagg(json_object(
+                        'quantity',tcp.quantity,
+                        'price', tcp.price,
+                        'promote name', d.name,
+                        'discount', round(((1 - d.rate) * tcp.price), -1),
+                        'size', null)
+                ) as props
             from tie_clip_props tcp
                 join jewelleries j on tcp.jewellery_id = j.id
+                left join discount_jewellery d_jw on j.id = d_jw.jewellery_id
+                left join discounts d on d_jw.discount_id = d.id
+            group by j.id, d.name, rate
             union
             select
-                cast(concat(j.id, clp.id) as unsigned) as id,
+                j.id as id,
                 j.name as jewellery,
-                clp.jewellery_id as jewellery_id,
-                clp.quantity as quantity,
-                clp.price as price,
-                null AS size
+                j.prcs_metal_sample_id,
+                j.prcs_metal_id,
+                j.jewellery_category_id,
+                j.description,
+                j.part_number,
+                j.approx_weight,
+                j.is_active,
+                d.name as promotion,
+                clp.jewellery_id as jewerelly_id,
+                json_arrayagg(json_object(
+                        'quantity',clp.quantity,
+                        'price', clp.price,
+                        'promote name', d.name,
+                        'discount', round(((1 - d.rate) * clp.price), -1),
+                        'size', null)
+                ) as props
             from cuff_link_props clp
                 join jewelleries j on clp.jewellery_id = j.id
+                left join discount_jewellery d_jw on j.id = d_jw.jewellery_id
+                left join discounts d on d_jw.discount_id = d.id
+            group by j.id, d.name, rate
             union
             select
-                cast(concat(j.id, ns.id) as unsigned) as id,
+                j.id as id,
                 j.name as jewellery,
-                np.jewellery_id as jewellery_id,
-                nps.quantity as quantity,
-                nps.price as price,
-                ns.value as size
+                j.prcs_metal_sample_id,
+                j.prcs_metal_id,
+                j.jewellery_category_id,
+                j.description,
+                j.part_number,
+                j.approx_weight,
+                j.is_active,
+                d.name as promotion,
+                np.jewellery_id as jewerelly_id,
+                json_arrayagg(json_object(
+                        'quantity',nps.quantity,
+                        'price', nps.price,
+                        'promote name', d.name,
+                        'discount', round(((1 - d.rate) * nps.price), -1),
+                        'size', ns.value)
+                ) as props
             from necklace_props np
                 join jewelleries j on np.jewellery_id = j.id
+                left join discount_jewellery d_jw on j.id = d_jw.jewellery_id
+                left join discounts d on d_jw.discount_id = d.id
                 join necklace_prop_sizes nps on nps.necklace_prop_id = np.id
                 join necklace_sizes ns on nps.necklace_size_id = ns.id
+            group by j.id, d.name, rate
             union
             select
-                cast(concat(j.id, pp.id) as unsigned) as id,
+                j.id as id,
                 j.name as jewellery,
-                pp.jewellery_id as jewellery_id,
-                pp.quantity as quantity,
-                pp.price as price,
-                null AS size
+                j.prcs_metal_sample_id,
+                j.prcs_metal_id,
+                j.jewellery_category_id,
+                j.description,
+                j.part_number,
+                j.approx_weight,
+                j.is_active,
+                d.name as promotion,
+                pp.jewellery_id as jewerelly_id,
+                json_arrayagg(json_object(
+                        'quantity',pp.quantity,
+                        'price', pp.price,
+                        'promote name', d.name,
+                        'discount', round(((1 - d.rate) * pp.price), -1),
+                        'size', null)
+                ) as props
             from pendant_props pp
                 join jewelleries j on pp.jewellery_id = j.id
+                left join discount_jewellery d_jw on j.id = d_jw.jewellery_id
+                left join discounts d on d_jw.discount_id = d.id
+            group by j.id, d.name, rate
             union
             select
-                cast(concat(j.id, chpp.id) as unsigned) as id,
+                j.id as id,
                 j.name as jewellery,
-                chpp.jewellery_id as jewellery_id,
-                chpp.quantity as quantity,
-                chpp.price as price,
-                null AS size
+                j.prcs_metal_sample_id,
+                j.prcs_metal_id,
+                j.jewellery_category_id,
+                j.description,
+                j.part_number,
+                j.approx_weight,
+                j.is_active,
+                d.name as promotion,
+                chpp.jewellery_id as jewerelly_id,
+                json_arrayagg(json_object(
+                        'quantity',chpp.quantity,
+                        'price', chpp.price,
+                        'promote name', d.name,
+                        'discount', round(((1 - d.rate) * chpp.price), -1),
+                        'size', null)
+                ) as props
             from charm_pendant_props chpp
                 join jewelleries j on chpp.jewellery_id = j.id
+                left join discount_jewellery d_jw on j.id = d_jw.jewellery_id
+                left join discounts d on d_jw.discount_id = d.id
+            group by j.id, d.name, rate
             union
             select
-                cast(concat(j.id, prcp.id) as unsigned) as id,
+                j.id as id,
                 j.name as jewellery,
-                prcp.jewellery_id as jewellery_id,
-                prcp.quantity as quantity,
-                prcp.price as price,
-                null AS size
+                j.prcs_metal_sample_id,
+                j.prcs_metal_id,
+                j.jewellery_category_id,
+                j.description,
+                j.part_number,
+                j.approx_weight,
+                j.is_active,
+                d.name as promotion,
+                prcp.jewellery_id as jewerelly_id,
+                json_arrayagg(json_object(
+                        'quantity',prcp.quantity,
+                        'price', prcp.price,
+                        'promote name', d.name,
+                        'discount', round(((1 - d.rate) * prcp.price), -1),
+                        'size', null)
+                ) as props
             from piercing_props prcp
                 join jewelleries j on prcp.jewellery_id = j.id
+                left join discount_jewellery d_jw on j.id = d_jw.jewellery_id
+                left join discounts d on d_jw.discount_id = d.id
+            group by j.id, d.name, rate
             union
             select
-                cast(concat(j.id, ep.id) as unsigned) as id,
+                j.id as id,
                 j.name as jewellery,
-                ep.jewellery_id as jewellery_id,
-                ep.quantity as quantity,
-                ep.price as price,
-                null AS size
+                j.prcs_metal_sample_id,
+                j.prcs_metal_id,
+                j.jewellery_category_id,
+                j.description,
+                j.part_number,
+                j.approx_weight,
+                j.is_active,
+                d.name as promotion,
+                ep.jewellery_id as jewerelly_id,
+                json_arrayagg(json_object(
+                        'quantity',ep.quantity,
+                        'price', ep.price,
+                        'promote name', d.name,
+                        'discount', round(((1 - d.rate) * ep.price), -1),
+                        'size', null)
+                ) as props
             from earring_props ep
                 join jewelleries j on ep.jewellery_id = j.id
+                left join discount_jewellery d_jw on j.id = d_jw.jewellery_id
+                left join discounts d on d_jw.discount_id = d.id
+            group by j.id, d.name, rate
             SQL
         );
     }
@@ -179,6 +344,6 @@ return new class extends Migration
     {
         DB::statement('DROP VIEW bracelet_prop_views;');
         DB::statement('DROP VIEW chain_prop_views;');
-        DB::statement('DROP VIEW jewellery_prop_views;');
+        DB::statement('DROP VIEW jewellery_views;');
     }
 };

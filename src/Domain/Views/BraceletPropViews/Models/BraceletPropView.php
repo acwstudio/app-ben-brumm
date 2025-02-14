@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Domain\Site;
+namespace Domain\Views\BraceletPropViews\Models;
 
 use Domain\Jewelleries\Jewellery\Models\Jewellery;
 use Domain\JewelleryProperties\BraceletPropSize\Models\BraceletPropSize;

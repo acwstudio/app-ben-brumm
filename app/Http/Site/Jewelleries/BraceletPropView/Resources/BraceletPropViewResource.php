@@ -6,7 +6,7 @@ namespace App\Http\Site\Jewelleries\BraceletPropView\Resources;
 
 use App\Http\Admin\Jewelleries\Jewellery\Resources\JewelleryResource;
 use App\Http\Admin\Shared\Resources\Traits\IncludeRelatedEntitiesResourceTrait;
-use Domain\Site\BraceletPropView;
+use Domain\Views\BraceletPropViews\Models\BraceletPropView;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 

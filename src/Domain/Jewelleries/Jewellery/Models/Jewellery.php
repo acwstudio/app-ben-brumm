@@ -19,7 +19,7 @@ use Domain\JewelleryProperties\PiercingProp\Models\PiercingProp;
 use Domain\JewelleryProperties\RingProp\Models\RingProp;
 use Domain\JewelleryProperties\TieClipProp\Models\TieClipProp;
 use Domain\Shared\Models\BaseModel;
-use Domain\Site\BraceletPropView;
+use Domain\Views\BraceletPropViews\Models\BraceletPropView;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;

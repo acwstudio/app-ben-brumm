@@ -16,6 +16,9 @@ use Domain\Jewelleries\Jewellery\Repositories\JewelleryRepository;
 use Domain\Jewelleries\Jewellery\Repositories\JewelleryRepositoryInterface;
 use Domain\Jewelleries\JewelleryCategory\Repositories\JewelleryCategoryRepository;
 use Domain\Jewelleries\JewelleryCategory\Repositories\JewelleryCategoryRepositoryInterface;
+use Domain\Views\JewelleryViews\Repositories\JewelleryViewCachedRepository;
+use Domain\Views\JewelleryViews\Repositories\JewelleryViewRepository;
+use Domain\Views\JewelleryViews\Repositories\JewelleryViewRepositoryInterface;
 
 return [
     [
@@ -52,5 +55,10 @@ return [
         'interface'      => InsertRepositoryInterface::class,
         'implementation' => InsertRepository::class,
 //        'cache'          => InsertCachedRepository::class
+    ],
+    [
+        'interface'      => JewelleryViewRepositoryInterface::class,
+        'implementation' => JewelleryViewRepository::class,
+        'cache'          => JewelleryViewCachedRepository::class
     ],
 ];
