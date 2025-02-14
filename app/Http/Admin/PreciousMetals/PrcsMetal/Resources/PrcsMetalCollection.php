@@ -4,18 +4,10 @@ declare(strict_types=1);
 
 namespace App\Http\Admin\PreciousMetals\PrcsMetal\Resources;
 
-use Illuminate\Http\Request;
+use App\Http\Admin\Shared\Resources\Traits\IncludeRelatedEntitiesCollectionTrait;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
 final class PrcsMetalCollection extends ResourceCollection
 {
-    /**
-     * Transform the resource collection into an array.
-     *
-     * @return array<int|string, mixed>
-     */
-    public function toArray(Request $request): array
-    {
-        return parent::toArray($request);
-    }
+    use IncludeRelatedEntitiesCollectionTrait;
 }

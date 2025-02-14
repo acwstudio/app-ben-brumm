@@ -6,6 +6,7 @@ namespace Domain\PreciousMetals\PrcsMetal\Models;
 
 use Domain\Shared\Models\BaseModel;
 use Domain\Views\BraceletPropViews\Models\BraceletPropView;
+use Domain\Views\JewelleryViews\Models\JewelleryView;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 final class PrcsMetal extends BaseModel
@@ -15,5 +16,10 @@ final class PrcsMetal extends BaseModel
     public function jewelleryBracelets(): HasMany
     {
         return $this->hasMany(BraceletPropView::class);
+    }
+
+    public function jewelleryViews(): HasMany
+    {
+        return $this->hasMany(JewelleryView::class);
     }
 }

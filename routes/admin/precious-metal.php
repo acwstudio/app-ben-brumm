@@ -1,6 +1,11 @@
 <?php
 
 use App\Http\Admin\PreciousMetals\PrcsMetal\Controllers\PrcsMetalController;
+use App\Http\Admin\PreciousMetals\PrcsMetal\Controllers\PrscMetalJewelleryViewsRelatedController;
+use App\Http\Admin\PreciousMetals\PrcsMetal\Controllers\PrscMetalJewelleryViewsRelationshipsController;
+use App\Http\Admin\PreciousMetals\PrcsMetalColour\Controllers\PrcsMetalColourController;
+use App\Http\Admin\PreciousMetals\PrcsMetalColour\Controllers\PrscMetalColourJewelleryViewsRelatedController;
+use App\Http\Admin\PreciousMetals\PrcsMetalColour\Controllers\PrscMetalColourJewelleryViewsRelationshipsController;
 use App\Http\Admin\PreciousMetals\PrcsMetalSample\Controllers\PrcsMetalSampleController;
 use App\Http\Admin\PreciousMetals\PrcsMetalSample\Controllers\PrscMetalSampleJewelleryViewsRelatedController;
 use App\Http\Admin\PreciousMetals\PrcsMetalSample\Controllers\PrscMetalSampleJewelleryViewsRelationshipsController;
@@ -15,6 +20,11 @@ Route::group([
     Route::post('/prcs-metals', [PrcsMetalController::class, 'store']);
     Route::patch('/prcs-metals/{id}', [PrcsMetalController::class, 'update']);
     Route::delete('/prcs-metals/{id}', [PrcsMetalController::class, 'destroy']);
+    //  one-to-many Precious Metal to Jewellery Views
+    Route::get('prcs-metals/{id}/relationships/jewellery-views', [PrscMetalJewelleryViewsRelationshipsController::class, 'index'])
+        ->name('prcs-metal.relationships.jewellery-views');
+    Route::get('prcs-metals/{id}/jewellery-views', [PrscMetalJewelleryViewsRelatedController::class, 'index'])
+        ->name('prcs-metal.jewellery-views');
 
     /*****************  PRECIOUS METAL SAMPLES ROUTES **************/
     // CRUD
@@ -28,4 +38,17 @@ Route::group([
         ->name('prcs-metal-sample.relationships.jewellery-views');
     Route::get('prcs-metal-samples/{id}/jewellery-views', [PrscMetalSampleJewelleryViewsRelatedController::class, 'index'])
         ->name('prcs-metal-sample.jewellery-views');
+
+    /*****************  PRECIOUS METAL COLOURS ROUTES **************/
+    // CRUD
+    Route::get('/prcs-metal-colours', [PrcsMetalColourController::class, 'index']);
+    Route::get('/prcs-metal-colours/{id}', [PrcsMetalColourController::class, 'show']);
+    Route::post('/prcs-metal-colours', [PrcsMetalColourController::class, 'store']);
+    Route::patch('/prcs-metal-colours/{id}', [PrcsMetalColourController::class, 'update']);
+    Route::delete('/prcs-metal-colours/{id}', [PrcsMetalColourController::class, 'destroy']);
+    //  one-to-many Precious Metal Colour to Jewellery Views
+    Route::get('prcs-metal-colours/{id}/relationships/jewellery-views', [PrscMetalColourJewelleryViewsRelationshipsController::class, 'index'])
+        ->name('prcs-metal-colour.relationships.jewellery-views');
+    Route::get('prcs-metal-colours/{id}/jewellery-views', [PrscMetalColourJewelleryViewsRelatedController::class, 'index'])
+        ->name('prcs-metal-colour.jewellery-views');
 });

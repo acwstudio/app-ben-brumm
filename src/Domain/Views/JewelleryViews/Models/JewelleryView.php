@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Domain\Views\JewelleryViews\Models;
 
 use Domain\Discounts\Discount\Models\Discount;
+use Domain\PreciousMetals\PrcsMetal\Models\PrcsMetal;
+use Domain\PreciousMetals\PrcsMetalColour\Models\PrcsMetalColour;
 use Domain\PreciousMetals\PrcsMetalSample\Models\PrcsMetalSample;
 use Domain\Shared\Models\BaseModel;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -22,5 +24,15 @@ final class JewelleryView extends BaseModel
     public function prcsMetalSample(): BelongsTo
     {
         return $this->belongsTo(PrcsMetalSample::class);
+    }
+
+    public function prcsMetalColour(): BelongsTo
+    {
+        return $this->belongsTo(PrcsMetalColour::class);
+    }
+
+    public function prcsMetal(): BelongsTo
+    {
+        return $this->belongsTo(PrcsMetal::class);
     }
 }
