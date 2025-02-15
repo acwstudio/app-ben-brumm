@@ -2,16 +2,15 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Admin\Jewelleries\JewelleryCategory\Resources;
+namespace App\Http\Site\Jewelleries\InsertView\Resources;
 
-use App\Http\Admin\Jewelleries\Jewellery\Resources\JewelleryCollection;
 use App\Http\Admin\Shared\Resources\Traits\IncludeRelatedEntitiesResourceTrait;
-use Domain\Jewelleries\JewelleryCategory\Models\JewelleryCategory;
+use App\Http\Site\Jewelleries\JewelleryView\Resources\JewelleryViewResource;
+use Domain\Views\InsertViews\Models\InsertView;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-/** @mixin JewelleryCategory */
-final class JewelleryCategoryResource extends JsonResource
+final class InsertViewResource extends JsonResource
 {
     use IncludeRelatedEntitiesResourceTrait;
 
@@ -24,12 +23,12 @@ final class JewelleryCategoryResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'type' => JewelleryCategory::TYPE_RESOURCE,
+            'type' => InsertView::TYPE_RESOURCE,
             'attributes' => $this->attributeItems(),
             'relationships' => [
-                'jewelleries' => $this->sectionRelationships(
-                    'jewellery-category.jewelleries',
-                    JewelleryCollection::class
+                'jewelleryView' => $this->sectionRelationships(
+                    'insert-views.jewellery-view',
+                    JewelleryViewResource::class
                 )
             ]
         ];
@@ -38,7 +37,7 @@ final class JewelleryCategoryResource extends JsonResource
     function relations(): array
     {
         return [
-            JewelleryCollection::class => $this->whenLoaded('jewelleries'),
+            JewelleryViewResource::class => $this->whenLoaded('jewelleryView'),
         ];
     }
 }

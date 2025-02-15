@@ -8,6 +8,7 @@ use App\Http\Admin\Jewelleries\JewelleryCategory\Resources\JewelleryCategoryColl
 use App\Http\Shared\Controller;
 use Domain\Jewelleries\JewelleryCategory\Models\JewelleryCategory;
 use Domain\Jewelleries\JewelleryCategory\Services\JewelleryCategoryService;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 final class JewelleryCategoryController extends Controller
@@ -19,7 +20,7 @@ final class JewelleryCategoryController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $request)
+    public function index(Request $request): JsonResponse
     {
         $data = $request->all();
         $items = $this->jewelleryCategoryService->index($data);
@@ -38,7 +39,7 @@ final class JewelleryCategoryController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(JewelleryCategory $jewelletyCategory)
+    public function show(JewelleryCategory $jewelleryCategory)
     {
         //
     }
@@ -46,7 +47,7 @@ final class JewelleryCategoryController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, JewelleryCategory $jewelletyCategory)
+    public function update(Request $request, JewelleryCategory $jewelleryCategory)
     {
         //
     }
@@ -54,7 +55,7 @@ final class JewelleryCategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(JewelleryCategory $jewelletyCategory)
+    public function destroy(JewelleryCategory $jewelleryCategory)
     {
         //
     }

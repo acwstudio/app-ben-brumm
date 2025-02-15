@@ -5,13 +5,16 @@ declare(strict_types=1);
 namespace Domain\Views\JewelleryViews\Models;
 
 use Domain\Discounts\Discount\Models\Discount;
+use Domain\Jewelleries\JewelleryCategory\Models\JewelleryCategory;
 use Domain\PreciousMetals\PrcsMetal\Models\PrcsMetal;
 use Domain\PreciousMetals\PrcsMetalColour\Models\PrcsMetalColour;
 use Domain\PreciousMetals\PrcsMetalCoverage\Models\PrcsMetalCoverage;
 use Domain\PreciousMetals\PrcsMetalSample\Models\PrcsMetalSample;
 use Domain\Shared\Models\BaseModel;
+use Domain\Views\InsertViews\Models\InsertView;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 final class JewelleryView extends BaseModel
 {
@@ -40,5 +43,15 @@ final class JewelleryView extends BaseModel
     public function prcsMetalCoverages(): BelongsToMany
     {
         return $this->belongsToMany(PrcsMetalCoverage::class, 'jewellery_prcs_metal_coverage','jewellery_id','prcs_metal_coverage_id');
+    }
+
+    public function insertViews(): HasMany
+    {
+        return $this->hasMany(InsertView::class,'jewellery_id');
+    }
+
+    public function jewelleryCategory(): BelongsTo
+    {
+        return $this->belongsTo(JewelleryCategory::class);
     }
 }

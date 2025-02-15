@@ -27,12 +27,12 @@ final class JewelleryCategoryService extends AbstractCRUDService
         // TODO: Implement store() method.
     }
 
-    public function show(int $id, array $data): Model
+    public function show(array $data, int $id): Model
     {
         // TODO: Implement show() method.
     }
 
-    public function update(array $data): void
+    public function update(array $data, int $id): void
     {
         // TODO: Implement update() method.
     }

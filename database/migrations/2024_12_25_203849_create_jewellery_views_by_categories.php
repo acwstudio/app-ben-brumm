@@ -50,6 +50,29 @@ return new class extends Migration
 
         DB::statement(
             <<<'SQL'
+            CREATE VIEW insert_views AS
+            select
+                i.id,
+                i.jewellery_id,
+                s.name as gem,
+                st.name as type,
+                s.is_natural,
+                ic.name as colour,
+                ish.name as shape,
+                ip.weight as weight,
+                ip.quantity as quantity,
+                ip.dimensions as dimensions
+            from inserts i
+            join stones s on i.stone_id = s.id
+            join stone_types st on s.stone_type_id = st.id
+            join insert_shapes ish on i.insert_shape_id = ish.id
+            join insert_colours ic on i.insert_colour_id = ic.id
+            join insert_properties ip on i.insert_property_id = ip.id
+            SQL
+        );
+
+        DB::statement(
+            <<<'SQL'
             CREATE VIEW jewellery_views AS
             select
                 j.id as id,
@@ -356,5 +379,6 @@ return new class extends Migration
         DB::statement('DROP VIEW bracelet_prop_views;');
         DB::statement('DROP VIEW chain_prop_views;');
         DB::statement('DROP VIEW jewellery_views;');
+        DB::statement('DROP VIEW insert_views;');
     }
 };

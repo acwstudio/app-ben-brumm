@@ -12,6 +12,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 final class ChainPropView extends Model
 {
+    public const TYPE_RESOURCE = 'chainPropViews';
+
     public function chainSizes(): BelongsToMany
     {
         return $this->belongsToMany(ChainSize::class, 'chain_prop_sizes', 'chain_prop_id');

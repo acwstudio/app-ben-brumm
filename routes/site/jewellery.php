@@ -1,7 +1,12 @@
 <?php
 
 use App\Http\Site\Jewelleries\BraceletPropView\Controllers\BraceletPropViewController;
+use App\Http\Site\Jewelleries\InsertView\Controllers\InsertViewController;
+use App\Http\Site\Jewelleries\InsertView\Controllers\InsertViewsJewelleryViewRelatedController;
+use App\Http\Site\Jewelleries\InsertView\Controllers\InsertViewsJewelleryViewRelationshipsController;
 use App\Http\Site\Jewelleries\JewelleryView\Controllers\JewelleryViewController;
+use App\Http\Site\Jewelleries\JewelleryView\Controllers\JewelleryViewInsertViewsRelatedController;
+use App\Http\Site\Jewelleries\JewelleryView\Controllers\JewelleryViewInsertViewsRelationshipsController;
 use App\Http\Site\Jewelleries\JewelleryView\Controllers\JewelleryViewsPrcsMetalCoveragesRelatedController;
 use App\Http\Site\Jewelleries\JewelleryView\Controllers\JewelleryViewsPrcsMetalCoveragesRelationshipsController;
 use App\Http\Site\Jewelleries\JewelleryView\Controllers\JewelleryViewsJewelleryCategoryRelatedController;
@@ -45,8 +50,23 @@ Route::group([
         ->name('jewellery-views.relationships.prcs-metal-coverages');
     Route::get('jewellery-views/{id}/prcs-metal-coverages', [JewelleryViewsPrcsMetalCoveragesRelatedController::class, 'index'])
         ->name('jewellery-views.prcs-metal-coverages');
+    //  one-to-many Jewellery View to Insert Views
+    Route::get('jewellery-views/{id}/relationships/insert-views', [JewelleryViewInsertViewsRelationshipsController::class, 'index'])
+        ->name('jewellery-view.relationships.insert-views');
+    Route::get('jewellery-views/{id}/insert-views', [JewelleryViewInsertViewsRelatedController::class, 'index'])
+        ->name('jewellery-view.insert-views');
 
     /*****************  BRACELET PROPS ROUTES **************/
     Route::get('/bracelet-prop-views', [BraceletPropViewController::class, 'index'])->name('site.bracelet-prop-views.index');
     Route::get('/bracelet-prop-views/{id}', [BraceletPropViewController::class, 'show'])->name('site.bracelet-prop-views.show');
+
+    /*****************  BRACELET PROPS ROUTES **************/
+    Route::get('/insert-views', [InsertViewController::class, 'index'])->name('site.insert-views.index');
+    Route::get('/insert-views/{id}', [InsertViewController::class, 'show'])->name('site.insert-views.show');
+    //  many-to-one Jewellery Views to Precious Metal Sample
+    Route::get('insert-views/{id}/relationships/jewellery-view', [InsertViewsJewelleryViewRelationshipsController::class, 'index'])
+        ->name('insert-views.relationships.jewellery-view');
+    Route::get('insert-views/{id}/jewellery-view', [InsertViewsJewelleryViewRelatedController::class, 'index'])
+        ->name('insert-views.jewellery-view');
+
 });

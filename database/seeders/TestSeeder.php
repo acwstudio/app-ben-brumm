@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use Domain\Views\InsertViews\Models\InsertView;
 use Domain\Views\JewelleryViews\Models\JewelleryView;
 use Illuminate\Database\Seeder;
 
@@ -16,6 +17,6 @@ class TestSeeder extends Seeder
 //        $jewelleryPropViewIds = Discount::find(4)->jewelleries->first;
 //        $jewellery = JewelleryView::where('jewellery_id', 27)->first()->discounts()->first();
 //        dd($jewellery);
-        dd(JewelleryView::find(14)->prcsMetalSample->value);
+        dd(InsertView::find(14)->jewelleryView);
     }
 }
