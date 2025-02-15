@@ -16,7 +16,7 @@ final class JewelleryViewRepository implements JewelleryViewRepositoryInterface
     public function index(array $data): Paginator
     {
         return QueryBuilder::for(JewelleryView::class)
-            ->allowedIncludes(['prcsMetalSample','prcsMetalColour','prcsMetal'])
+            ->allowedIncludes(['prcsMetalSample','prcsMetalColour','prcsMetal','prcsMetalCoverages'])
             ->allowedFilters([
                 AllowedFilter::exact('id'),
                 AllowedFilter::exact('part_number'),
@@ -34,7 +34,7 @@ final class JewelleryViewRepository implements JewelleryViewRepositoryInterface
     {
         return QueryBuilder::for(JewelleryView::class)
             ->where('id', $id)
-            ->allowedIncludes(['prcsMetalSample','prcsMetalColour','prcsMetal'])
+            ->allowedIncludes(['prcsMetalSample','prcsMetalColour','prcsMetal','prcsMetalCoverages'])
             ->firstOrFail();
     }
 }

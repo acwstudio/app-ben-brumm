@@ -34,7 +34,7 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        Schema::create('coverages', function (Blueprint $table) {
+        Schema::create('prcs_metal_coverages', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('slug');
@@ -49,7 +49,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('prcs_metals');
-        Schema::dropIfExists('coverages');
+        Schema::dropIfExists('prcs_metal_coverages');
         Schema::dropIfExists('prcs_metal_colours');
         Schema::dropIfExists('prcs_metal_samples');
     }

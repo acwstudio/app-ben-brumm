@@ -8,7 +8,7 @@ use App\Http\Shared\Controller;
 use Domain\PreciousMetals\PrcsMetalColour\Models\PrcsMetalColour;
 use Illuminate\Http\Request;
 
-class PrcsMetalColourController extends Controller
+final class PrcsMetalColourController extends Controller
 {
     /**
      * Display a listing of the resource.

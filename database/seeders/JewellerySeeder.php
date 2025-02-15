@@ -17,7 +17,7 @@ class JewellerySeeder extends Seeder
         DB::statement('SET FOREIGN_KEY_CHECKS=0;');
         DB::table('jewelleries')->truncate();
         DB::table('inserts')->truncate();
-        DB::table('coverage_jewellery')->truncate();
+        DB::table('jewellery_prcs_metal_coverage')->truncate();
         DB::table('insert_properties')->truncate();
         DB::table('bracelet_props')->truncate();
         DB::table('bracelet_prop_sizes')->truncate();
@@ -80,8 +80,8 @@ class JewellerySeeder extends Seeder
             }
             if ($item['coverage-jewellery']) {
                 foreach ($item['coverage-jewellery'] as $coverage) {
-                    DB::table('coverage_jewellery')->insert([
-                        'coverage_id' => DB::table('coverages')->where('name', $coverage)->first()->id,
+                    DB::table('jewellery_prcs_metal_coverage')->insert([
+                        'prcs_metal_coverage_id' => DB::table('prcs_metal_coverages')->where('name', $coverage)->first()->id,
                         'jewellery_id' => $jewellery_id,
                         'created_at' => now(),
                     ]);

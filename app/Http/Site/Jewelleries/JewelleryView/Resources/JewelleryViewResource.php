@@ -6,6 +6,8 @@ namespace App\Http\Site\Jewelleries\JewelleryView\Resources;
 
 use App\Http\Admin\PreciousMetals\PrcsMetal\Resources\PrcsMetalResource;
 use App\Http\Admin\PreciousMetals\PrcsMetalColour\Resources\PrcsMetalColourResource;
+use App\Http\Admin\PreciousMetals\PrcsMetalCoverage\Resources\PrcsMetalCoverageCollection;
+use App\Http\Admin\PreciousMetals\PrcsMetalCoverage\Resources\PrcsMetalCoverageResource;
 use App\Http\Admin\PreciousMetals\PrcsMetalSample\Resources\PrcsMetalSampleResource;
 use App\Http\Admin\Shared\Resources\Traits\IncludeRelatedEntitiesResourceTrait;
 use Domain\Views\JewelleryViews\Models\JewelleryView;
@@ -40,6 +42,10 @@ final class JewelleryViewResource extends JsonResource
                     'jewellery-views.prcs-metal-colour',
                     PrcsMetalColourResource::class
                 ),
+                'prcsMetalCoverages' => $this->sectionRelationships(
+                    'jewellery-views.prcs-metal-coverages',
+                    PrcsMetalCoverageCollection::class
+                ),
             ]
         ];
     }
@@ -50,6 +56,7 @@ final class JewelleryViewResource extends JsonResource
             PrcsMetalSampleResource::class => $this->whenLoaded('prcsMetalSample'),
             PrcsMetalResource::class => $this->whenLoaded('prcsMetal'),
             PrcsMetalColourResource::class => $this->whenLoaded('prcsMetalColour'),
+            PrcsMetalCoverageCollection::class => $this->whenLoaded('prcsMetalCoverages'),
         ];
     }
 }

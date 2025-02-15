@@ -268,16 +268,16 @@ return new class extends Migration
         });
 
         //************ COVERAGE JEWELLERY **************
-        Schema::create('coverage_jewellery', function (Blueprint $table) {
+        Schema::create('jewellery_prcs_metal_coverage', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('coverage_id');
+            $table->unsignedBigInteger('prcs_metal_coverage_id');
             $table->unsignedBigInteger('jewellery_id');
             $table->timestamps();
 
-            $table->foreign('coverage_id')->references('id')->on('coverages');
+            $table->foreign('prcs_metal_coverage_id')->references('id')->on('prcs_metal_coverages');
             $table->foreign('jewellery_id')->references('id')->on('jewelleries');
 
-            $table->unique(['coverage_id', 'jewellery_id'], 'unique_coverage_jewellery');
+            $table->unique(['prcs_metal_coverage_id', 'jewellery_id'], 'unique_coverage_jewellery');
         });
 
         //************ DISCOUNTS JEWELLERY **************
@@ -343,7 +343,7 @@ return new class extends Migration
         Schema::dropIfExists('necklace_prop_sizes');
         Schema::dropIfExists('necklace_sizes');
         Schema::dropIfExists('necklace_props');
-        Schema::dropIfExists('coverage_jewellery');
+        Schema::dropIfExists('jewellery_prcs_metal_coverage');
         Schema::dropIfExists('discount_jewellery');
         Schema::dropIfExists('discounts');
         Schema::dropIfExists('jewelleries');

@@ -6,6 +6,9 @@ use App\Http\Admin\PreciousMetals\PrcsMetal\Controllers\PrscMetalJewelleryViewsR
 use App\Http\Admin\PreciousMetals\PrcsMetalColour\Controllers\PrcsMetalColourController;
 use App\Http\Admin\PreciousMetals\PrcsMetalColour\Controllers\PrscMetalColourJewelleryViewsRelatedController;
 use App\Http\Admin\PreciousMetals\PrcsMetalColour\Controllers\PrscMetalColourJewelleryViewsRelationshipsController;
+use App\Http\Admin\PreciousMetals\PrcsMetalCoverage\Controllers\PrcsMetalCoverageController;
+use App\Http\Admin\PreciousMetals\PrcsMetalCoverage\Controllers\PrscMetalCoveragesJewelleryViewsRelatedController;
+use App\Http\Admin\PreciousMetals\PrcsMetalCoverage\Controllers\PrscMetalCoveragesJewelleryViewsRelationshipsController;
 use App\Http\Admin\PreciousMetals\PrcsMetalSample\Controllers\PrcsMetalSampleController;
 use App\Http\Admin\PreciousMetals\PrcsMetalSample\Controllers\PrscMetalSampleJewelleryViewsRelatedController;
 use App\Http\Admin\PreciousMetals\PrcsMetalSample\Controllers\PrscMetalSampleJewelleryViewsRelationshipsController;
@@ -51,4 +54,17 @@ Route::group([
         ->name('prcs-metal-colour.relationships.jewellery-views');
     Route::get('prcs-metal-colours/{id}/jewellery-views', [PrscMetalColourJewelleryViewsRelatedController::class, 'index'])
         ->name('prcs-metal-colour.jewellery-views');
+
+    /*****************  PRECIOUS METAL COVERAGES ROUTES **************/
+    // CRUD
+    Route::get('/prcs-metal-coverages', [PrcsMetalCoverageController::class, 'index']);
+    Route::get('/prcs-metal-coverages/{id}', [PrcsMetalCoverageController::class, 'show']);
+    Route::post('/prcs-metal-coverages', [PrcsMetalCoverageController::class, 'store']);
+    Route::patch('/prcs-metal-coverages/{id}', [PrcsMetalCoverageController::class, 'update']);
+    Route::delete('/prcs-metal-coverages/{id}', [PrcsMetalCoverageController::class, 'destroy']);
+    //  many-to-many Precious Metal Coverages to Jewellery Views
+    Route::get('prcs-metal-coverages/{id}/relationships/jewellery-views', [PrscMetalCoveragesJewelleryViewsRelationshipsController::class, 'index'])
+        ->name('prcs-metal-coverages.relationships.jewellery-views');
+    Route::get('prcs-metal-coverages/{id}/jewellery-views', [PrscMetalCoveragesJewelleryViewsRelatedController::class, 'index'])
+        ->name('prcs-metal-coverages.jewellery-views');
 });
